@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdDiagnoseStudentExampaperMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdDiagnoseStudentExampaper" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="error_num_min" property="errorNumMin" jdbcType="DECIMAL" />
+    <result column="error_num_max" property="errorNumMax" jdbcType="DECIMAL" />
+    <result column="difficulty_pro_min" property="difficultyProMin" jdbcType="DECIMAL" />
+    <result column="difficulty_pro_max" property="difficultyProMax" jdbcType="DECIMAL" />
+    <result column="correct_pro_min" property="correctProMin" jdbcType="DECIMAL" />
+    <result column="correct_pro_max" property="correctProMax" jdbcType="DECIMAL" />
+    <result column="student_level_min" property="studentLevelMin" jdbcType="DECIMAL" />
+    <result column="student_level_max" property="studentLevelMax" jdbcType="DECIMAL" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, error_num_min, error_num_max, difficulty_pro_min, difficulty_pro_max, correct_pro_min, 
+      correct_pro_max, student_level_min, student_level_max, content
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdDiagnoseStudentExampaperQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_diagnose_student_exampaper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,error_num_min,error_num_max,difficulty_pro_min,difficulty_pro_max,correct_pro_min,correct_pro_max,student_level_min,student_level_max,content
+    from fd_diagnose_student_exampaper
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_diagnose_student_exampaper
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdDiagnoseStudentExampaperQuery" >
+    delete from fd_diagnose_student_exampaper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdDiagnoseStudentExampaper" >
+    insert into fd_diagnose_student_exampaper (id, error_num_min, error_num_max, 
+      difficulty_pro_min, difficulty_pro_max, correct_pro_min, 
+      correct_pro_max, student_level_min, student_level_max, 
+      content)
+    values (#{id,jdbcType=INTEGER}, #{errorNumMin,jdbcType=DECIMAL}, #{errorNumMax,jdbcType=DECIMAL}, 
+      #{difficultyProMin,jdbcType=DECIMAL}, #{difficultyProMax,jdbcType=DECIMAL}, #{correctProMin,jdbcType=DECIMAL}, 
+      #{correctProMax,jdbcType=DECIMAL}, #{studentLevelMin,jdbcType=DECIMAL}, #{studentLevelMax,jdbcType=DECIMAL}, 
+      #{content,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdDiagnoseStudentExampaper" >
+    insert into fd_diagnose_student_exampaper
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="errorNumMin != null" >
+        error_num_min,
+      </if>
+      <if test="errorNumMax != null" >
+        error_num_max,
+      </if>
+      <if test="difficultyProMin != null" >
+        difficulty_pro_min,
+      </if>
+      <if test="difficultyProMax != null" >
+        difficulty_pro_max,
+      </if>
+      <if test="correctProMin != null" >
+        correct_pro_min,
+      </if>
+      <if test="correctProMax != null" >
+        correct_pro_max,
+      </if>
+      <if test="studentLevelMin != null" >
+        student_level_min,
+      </if>
+      <if test="studentLevelMax != null" >
+        student_level_max,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="errorNumMin != null" >
+        #{errorNumMin,jdbcType=DECIMAL},
+      </if>
+      <if test="errorNumMax != null" >
+        #{errorNumMax,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProMin != null" >
+        #{difficultyProMin,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProMax != null" >
+        #{difficultyProMax,jdbcType=DECIMAL},
+      </if>
+      <if test="correctProMin != null" >
+        #{correctProMin,jdbcType=DECIMAL},
+      </if>
+      <if test="correctProMax != null" >
+        #{correctProMax,jdbcType=DECIMAL},
+      </if>
+      <if test="studentLevelMin != null" >
+        #{studentLevelMin,jdbcType=DECIMAL},
+      </if>
+      <if test="studentLevelMax != null" >
+        #{studentLevelMax,jdbcType=DECIMAL},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdDiagnoseStudentExampaperQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_diagnose_student_exampaper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_diagnose_student_exampaper
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.errorNumMin != null" >
+        error_num_min = #{record.errorNumMin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.errorNumMax != null" >
+        error_num_max = #{record.errorNumMax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.difficultyProMin != null" >
+        difficulty_pro_min = #{record.difficultyProMin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.difficultyProMax != null" >
+        difficulty_pro_max = #{record.difficultyProMax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.correctProMin != null" >
+        correct_pro_min = #{record.correctProMin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.correctProMax != null" >
+        correct_pro_max = #{record.correctProMax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.studentLevelMin != null" >
+        student_level_min = #{record.studentLevelMin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.studentLevelMax != null" >
+        student_level_max = #{record.studentLevelMax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_diagnose_student_exampaper
+    set id = #{record.id,jdbcType=INTEGER},
+      error_num_min = #{record.errorNumMin,jdbcType=DECIMAL},
+      error_num_max = #{record.errorNumMax,jdbcType=DECIMAL},
+      difficulty_pro_min = #{record.difficultyProMin,jdbcType=DECIMAL},
+      difficulty_pro_max = #{record.difficultyProMax,jdbcType=DECIMAL},
+      correct_pro_min = #{record.correctProMin,jdbcType=DECIMAL},
+      correct_pro_max = #{record.correctProMax,jdbcType=DECIMAL},
+      student_level_min = #{record.studentLevelMin,jdbcType=DECIMAL},
+      student_level_max = #{record.studentLevelMax,jdbcType=DECIMAL},
+      content = #{record.content,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdDiagnoseStudentExampaper" >
+    update fd_diagnose_student_exampaper
+    <set >
+      <if test="errorNumMin != null" >
+        error_num_min = #{errorNumMin,jdbcType=DECIMAL},
+      </if>
+      <if test="errorNumMax != null" >
+        error_num_max = #{errorNumMax,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProMin != null" >
+        difficulty_pro_min = #{difficultyProMin,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProMax != null" >
+        difficulty_pro_max = #{difficultyProMax,jdbcType=DECIMAL},
+      </if>
+      <if test="correctProMin != null" >
+        correct_pro_min = #{correctProMin,jdbcType=DECIMAL},
+      </if>
+      <if test="correctProMax != null" >
+        correct_pro_max = #{correctProMax,jdbcType=DECIMAL},
+      </if>
+      <if test="studentLevelMin != null" >
+        student_level_min = #{studentLevelMin,jdbcType=DECIMAL},
+      </if>
+      <if test="studentLevelMax != null" >
+        student_level_max = #{studentLevelMax,jdbcType=DECIMAL},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdDiagnoseStudentExampaper" >
+    update fd_diagnose_student_exampaper
+    set error_num_min = #{errorNumMin,jdbcType=DECIMAL},
+      error_num_max = #{errorNumMax,jdbcType=DECIMAL},
+      difficulty_pro_min = #{difficultyProMin,jdbcType=DECIMAL},
+      difficulty_pro_max = #{difficultyProMax,jdbcType=DECIMAL},
+      correct_pro_min = #{correctProMin,jdbcType=DECIMAL},
+      correct_pro_max = #{correctProMax,jdbcType=DECIMAL},
+      student_level_min = #{studentLevelMin,jdbcType=DECIMAL},
+      student_level_max = #{studentLevelMax,jdbcType=DECIMAL},
+      content = #{content,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

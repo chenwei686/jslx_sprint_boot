@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdStudentPracticeAnswerMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdStudentPracticeAnswer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="student_practice_id" property="studentPracticeId" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="timu_id" property="timuId" jdbcType="CHAR" />
+    <result column="percent" property="percent" jdbcType="DECIMAL" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+    <result column="is_right" property="isRight" jdbcType="BIT" />
+    <result column="main_knowledge_id" property="mainKnowledgeId" jdbcType="INTEGER" />
+    <result column="difficult_level" property="difficultLevel" jdbcType="TINYINT" />
+    <result column="source" property="source" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, student_id, student_practice_id, score, answer, timu_id, percent, start_time, 
+      end_time, time, is_right, main_knowledge_id, difficult_level, source, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdStudentPracticeAnswerQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_student_practice_answer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,student_id,student_practice_id,score,answer,timu_id,percent,start_time,end_time,time,is_right,main_knowledge_id,difficult_level,source,create_time
+    from fd_student_practice_answer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_student_practice_answer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentPracticeAnswerQuery" >
+    delete from fd_student_practice_answer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentPracticeAnswer" >
+    insert into fd_student_practice_answer (id, student_id, student_practice_id, 
+      score, answer, timu_id, 
+      percent, start_time, end_time, 
+      time, is_right, main_knowledge_id, 
+      difficult_level, source, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{studentPracticeId,jdbcType=INTEGER}, 
+      #{score,jdbcType=DECIMAL}, #{answer,jdbcType=VARCHAR}, #{timuId,jdbcType=CHAR}, 
+      #{percent,jdbcType=DECIMAL}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{time,jdbcType=INTEGER}, #{isRight,jdbcType=BIT}, #{mainKnowledgeId,jdbcType=INTEGER}, 
+      #{difficultLevel,jdbcType=TINYINT}, #{source,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentPracticeAnswer" >
+    insert into fd_student_practice_answer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="studentPracticeId != null" >
+        student_practice_id,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+      <if test="timuId != null" >
+        timu_id,
+      </if>
+      <if test="percent != null" >
+        percent,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="isRight != null" >
+        is_right,
+      </if>
+      <if test="mainKnowledgeId != null" >
+        main_knowledge_id,
+      </if>
+      <if test="difficultLevel != null" >
+        difficult_level,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="studentPracticeId != null" >
+        #{studentPracticeId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="timuId != null" >
+        #{timuId,jdbcType=CHAR},
+      </if>
+      <if test="percent != null" >
+        #{percent,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=INTEGER},
+      </if>
+      <if test="isRight != null" >
+        #{isRight,jdbcType=BIT},
+      </if>
+      <if test="mainKnowledgeId != null" >
+        #{mainKnowledgeId,jdbcType=INTEGER},
+      </if>
+      <if test="difficultLevel != null" >
+        #{difficultLevel,jdbcType=TINYINT},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentPracticeAnswerQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_student_practice_answer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_student_practice_answer
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentId != null" >
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentPracticeId != null" >
+        student_practice_id = #{record.studentPracticeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.score != null" >
+        score = #{record.score,jdbcType=DECIMAL},
+      </if>
+      <if test="record.answer != null" >
+        answer = #{record.answer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timuId != null" >
+        timu_id = #{record.timuId,jdbcType=CHAR},
+      </if>
+      <if test="record.percent != null" >
+        percent = #{record.percent,jdbcType=DECIMAL},
+      </if>
+      <if test="record.startTime != null" >
+        start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endTime != null" >
+        end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=INTEGER},
+      </if>
+      <if test="record.isRight != null" >
+        is_right = #{record.isRight,jdbcType=BIT},
+      </if>
+      <if test="record.mainKnowledgeId != null" >
+        main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.difficultLevel != null" >
+        difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_student_practice_answer
+    set id = #{record.id,jdbcType=INTEGER},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      student_practice_id = #{record.studentPracticeId,jdbcType=INTEGER},
+      score = #{record.score,jdbcType=DECIMAL},
+      answer = #{record.answer,jdbcType=VARCHAR},
+      timu_id = #{record.timuId,jdbcType=CHAR},
+      percent = #{record.percent,jdbcType=DECIMAL},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      time = #{record.time,jdbcType=INTEGER},
+      is_right = #{record.isRight,jdbcType=BIT},
+      main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
+      difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
+      source = #{record.source,jdbcType=TINYINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentPracticeAnswer" >
+    update fd_student_practice_answer
+    <set >
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="studentPracticeId != null" >
+        student_practice_id = #{studentPracticeId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="timuId != null" >
+        timu_id = #{timuId,jdbcType=CHAR},
+      </if>
+      <if test="percent != null" >
+        percent = #{percent,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=INTEGER},
+      </if>
+      <if test="isRight != null" >
+        is_right = #{isRight,jdbcType=BIT},
+      </if>
+      <if test="mainKnowledgeId != null" >
+        main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
+      </if>
+      <if test="difficultLevel != null" >
+        difficult_level = #{difficultLevel,jdbcType=TINYINT},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdStudentPracticeAnswer" >
+    update fd_student_practice_answer
+    set student_id = #{studentId,jdbcType=INTEGER},
+      student_practice_id = #{studentPracticeId,jdbcType=INTEGER},
+      score = #{score,jdbcType=DECIMAL},
+      answer = #{answer,jdbcType=VARCHAR},
+      timu_id = #{timuId,jdbcType=CHAR},
+      percent = #{percent,jdbcType=DECIMAL},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      time = #{time,jdbcType=INTEGER},
+      is_right = #{isRight,jdbcType=BIT},
+      main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
+      difficult_level = #{difficultLevel,jdbcType=TINYINT},
+      source = #{source,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

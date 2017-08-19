@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdExampaperMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdExampaper" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="difficult_level" property="difficultLevel" jdbcType="TINYINT" />
+    <result column="total_score" property="totalScore" jdbcType="DECIMAL" />
+    <result column="total_time" property="totalTime" jdbcType="INTEGER" />
+    <result column="down_num" property="downNum" jdbcType="INTEGER" />
+    <result column="school_degree_id" property="schoolDegreeId" jdbcType="INTEGER" />
+    <result column="source" property="source" jdbcType="CHAR" />
+    <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
+    <result column="qr_code" property="qrCode" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="notes" property="notes" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, name, subject_id, year, type, start_time, end_time, difficult_level, total_score, 
+      total_time, down_num, school_degree_id, source, teacher_id, qr_code, is_del, notes, 
+      parent_id, update_time, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdExampaperQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_exampaper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,name,subject_id,year,type,start_time,end_time,difficult_level,total_score,total_time,down_num,school_degree_id,source,teacher_id,qr_code,is_del,notes,parent_id,update_time,create_time
+    from fd_exampaper
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_exampaper
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdExampaperQuery" >
+    delete from fd_exampaper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdExampaper" >
+    insert into fd_exampaper (id, name, subject_id, 
+      year, type, start_time, 
+      end_time, difficult_level, total_score, 
+      total_time, down_num, school_degree_id, 
+      source, teacher_id, qr_code, 
+      is_del, notes, parent_id, 
+      update_time, create_time)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{subjectId,jdbcType=INTEGER}, 
+      #{year,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{difficultLevel,jdbcType=TINYINT}, #{totalScore,jdbcType=DECIMAL}, 
+      #{totalTime,jdbcType=INTEGER}, #{downNum,jdbcType=INTEGER}, #{schoolDegreeId,jdbcType=INTEGER}, 
+      #{source,jdbcType=CHAR}, #{teacherId,jdbcType=INTEGER}, #{qrCode,jdbcType=VARCHAR}, 
+      #{isDel,jdbcType=BIT}, #{notes,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdExampaper" >
+    insert into fd_exampaper
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="difficultLevel != null" >
+        difficult_level,
+      </if>
+      <if test="totalScore != null" >
+        total_score,
+      </if>
+      <if test="totalTime != null" >
+        total_time,
+      </if>
+      <if test="downNum != null" >
+        down_num,
+      </if>
+      <if test="schoolDegreeId != null" >
+        school_degree_id,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="teacherId != null" >
+        teacher_id,
+      </if>
+      <if test="qrCode != null" >
+        qr_code,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="notes != null" >
+        notes,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="difficultLevel != null" >
+        #{difficultLevel,jdbcType=TINYINT},
+      </if>
+      <if test="totalScore != null" >
+        #{totalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTime != null" >
+        #{totalTime,jdbcType=INTEGER},
+      </if>
+      <if test="downNum != null" >
+        #{downNum,jdbcType=INTEGER},
+      </if>
+      <if test="schoolDegreeId != null" >
+        #{schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=CHAR},
+      </if>
+      <if test="teacherId != null" >
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="qrCode != null" >
+        #{qrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdExampaperQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_exampaper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_exampaper
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.startTime != null" >
+        start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endTime != null" >
+        end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.difficultLevel != null" >
+        difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
+      </if>
+      <if test="record.totalScore != null" >
+        total_score = #{record.totalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalTime != null" >
+        total_time = #{record.totalTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.downNum != null" >
+        down_num = #{record.downNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.schoolDegreeId != null" >
+        school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=CHAR},
+      </if>
+      <if test="record.teacherId != null" >
+        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.qrCode != null" >
+        qr_code = #{record.qrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null" >
+        is_del = #{record.isDel,jdbcType=BIT},
+      </if>
+      <if test="record.notes != null" >
+        notes = #{record.notes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_exampaper
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      year = #{record.year,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=TINYINT},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
+      total_score = #{record.totalScore,jdbcType=DECIMAL},
+      total_time = #{record.totalTime,jdbcType=INTEGER},
+      down_num = #{record.downNum,jdbcType=INTEGER},
+      school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
+      source = #{record.source,jdbcType=CHAR},
+      teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      qr_code = #{record.qrCode,jdbcType=VARCHAR},
+      is_del = #{record.isDel,jdbcType=BIT},
+      notes = #{record.notes,jdbcType=VARCHAR},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdExampaper" >
+    update fd_exampaper
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="difficultLevel != null" >
+        difficult_level = #{difficultLevel,jdbcType=TINYINT},
+      </if>
+      <if test="totalScore != null" >
+        total_score = #{totalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTime != null" >
+        total_time = #{totalTime,jdbcType=INTEGER},
+      </if>
+      <if test="downNum != null" >
+        down_num = #{downNum,jdbcType=INTEGER},
+      </if>
+      <if test="schoolDegreeId != null" >
+        school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=CHAR},
+      </if>
+      <if test="teacherId != null" >
+        teacher_id = #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="qrCode != null" >
+        qr_code = #{qrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="notes != null" >
+        notes = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdExampaper" >
+    update fd_exampaper
+    set name = #{name,jdbcType=VARCHAR},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      year = #{year,jdbcType=INTEGER},
+      type = #{type,jdbcType=TINYINT},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      difficult_level = #{difficultLevel,jdbcType=TINYINT},
+      total_score = #{totalScore,jdbcType=DECIMAL},
+      total_time = #{totalTime,jdbcType=INTEGER},
+      down_num = #{downNum,jdbcType=INTEGER},
+      school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
+      source = #{source,jdbcType=CHAR},
+      teacher_id = #{teacherId,jdbcType=INTEGER},
+      qr_code = #{qrCode,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=BIT},
+      notes = #{notes,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

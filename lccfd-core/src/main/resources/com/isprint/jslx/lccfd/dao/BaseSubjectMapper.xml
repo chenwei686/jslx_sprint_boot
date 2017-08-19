@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.BaseSubjectMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.BaseSubject" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sys_code" property="sysCode" jdbcType="INTEGER" />
+    <result column="school_degree_id" property="schoolDegreeId" jdbcType="INTEGER" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, name, sys_code, school_degree_id, is_del, parent_id, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.BaseSubjectQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from base_subject
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,name,sys_code,school_degree_id,is_del,parent_id,create_time
+    from base_subject
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from base_subject
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.BaseSubjectQuery" >
+    delete from base_subject
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseSubject" >
+    insert into base_subject (id, name, sys_code, 
+      school_degree_id, is_del, parent_id, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sysCode,jdbcType=INTEGER}, 
+      #{schoolDegreeId,jdbcType=INTEGER}, #{isDel,jdbcType=BIT}, #{parentId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseSubject" >
+    insert into base_subject
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="sysCode != null" >
+        sys_code,
+      </if>
+      <if test="schoolDegreeId != null" >
+        school_degree_id,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null" >
+        #{sysCode,jdbcType=INTEGER},
+      </if>
+      <if test="schoolDegreeId != null" >
+        #{schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.BaseSubjectQuery" resultType="java.lang.Integer" >
+    select count(*) from base_subject
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update base_subject
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCode != null" >
+        sys_code = #{record.sysCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.schoolDegreeId != null" >
+        school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isDel != null" >
+        is_del = #{record.isDel,jdbcType=BIT},
+      </if>
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update base_subject
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      sys_code = #{record.sysCode,jdbcType=INTEGER},
+      school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
+      is_del = #{record.isDel,jdbcType=BIT},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.BaseSubject" >
+    update base_subject
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null" >
+        sys_code = #{sysCode,jdbcType=INTEGER},
+      </if>
+      <if test="schoolDegreeId != null" >
+        school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.BaseSubject" >
+    update base_subject
+    set name = #{name,jdbcType=VARCHAR},
+      sys_code = #{sysCode,jdbcType=INTEGER},
+      school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
+      is_del = #{isDel,jdbcType=BIT},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

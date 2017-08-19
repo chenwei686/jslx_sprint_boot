@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.SysVersionControlMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.SysVersionControl" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="project" property="project" jdbcType="CHAR" />
+    <result column="code" property="code" jdbcType="CHAR" />
+    <result column="is_current" property="isCurrent" jdbcType="BIT" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="down_url" property="downUrl" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="is_force_update" property="isForceUpdate" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, project, code, is_current, version, down_url, content, is_force_update, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.SysVersionControlQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_version_control
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,project,code,is_current,version,down_url,content,is_force_update,create_time
+    from sys_version_control
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sys_version_control
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.SysVersionControlQuery" >
+    delete from sys_version_control
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.SysVersionControl" >
+    insert into sys_version_control (id, project, code, 
+      is_current, version, down_url, 
+      content, is_force_update, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{project,jdbcType=CHAR}, #{code,jdbcType=CHAR}, 
+      #{isCurrent,jdbcType=BIT}, #{version,jdbcType=VARCHAR}, #{downUrl,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{isForceUpdate,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.SysVersionControl" >
+    insert into sys_version_control
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="project != null" >
+        project,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="isCurrent != null" >
+        is_current,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="downUrl != null" >
+        down_url,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="isForceUpdate != null" >
+        is_force_update,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="project != null" >
+        #{project,jdbcType=CHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=CHAR},
+      </if>
+      <if test="isCurrent != null" >
+        #{isCurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="downUrl != null" >
+        #{downUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="isForceUpdate != null" >
+        #{isForceUpdate,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.SysVersionControlQuery" resultType="java.lang.Integer" >
+    select count(*) from sys_version_control
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_version_control
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.project != null" >
+        project = #{record.project,jdbcType=CHAR},
+      </if>
+      <if test="record.code != null" >
+        code = #{record.code,jdbcType=CHAR},
+      </if>
+      <if test="record.isCurrent != null" >
+        is_current = #{record.isCurrent,jdbcType=BIT},
+      </if>
+      <if test="record.version != null" >
+        version = #{record.version,jdbcType=VARCHAR},
+      </if>
+      <if test="record.downUrl != null" >
+        down_url = #{record.downUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isForceUpdate != null" >
+        is_force_update = #{record.isForceUpdate,jdbcType=BIT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_version_control
+    set id = #{record.id,jdbcType=INTEGER},
+      project = #{record.project,jdbcType=CHAR},
+      code = #{record.code,jdbcType=CHAR},
+      is_current = #{record.isCurrent,jdbcType=BIT},
+      version = #{record.version,jdbcType=VARCHAR},
+      down_url = #{record.downUrl,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      is_force_update = #{record.isForceUpdate,jdbcType=BIT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.SysVersionControl" >
+    update sys_version_control
+    <set >
+      <if test="project != null" >
+        project = #{project,jdbcType=CHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=CHAR},
+      </if>
+      <if test="isCurrent != null" >
+        is_current = #{isCurrent,jdbcType=BIT},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="downUrl != null" >
+        down_url = #{downUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="isForceUpdate != null" >
+        is_force_update = #{isForceUpdate,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.SysVersionControl" >
+    update sys_version_control
+    set project = #{project,jdbcType=CHAR},
+      code = #{code,jdbcType=CHAR},
+      is_current = #{isCurrent,jdbcType=BIT},
+      version = #{version,jdbcType=VARCHAR},
+      down_url = #{downUrl,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      is_force_update = #{isForceUpdate,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

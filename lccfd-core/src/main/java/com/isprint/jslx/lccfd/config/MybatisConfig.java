@@ -1,6 +1,7 @@
 package com.isprint.jslx.lccfd.config;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import java.beans.PropertyVetoException;
  * @create 2017-08-19 下午5:58
  **/
 @Configuration
+@MapperScan("com.isprint.jslx.lccfd.dao")
 public class MybatisConfig {
     @Autowired
     DataSource dataSource;
@@ -28,7 +30,7 @@ public class MybatisConfig {
     public SqlSessionFactoryBean sqlSessionFactoryBean() throws PropertyVetoException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setTypeAliasesPackage("com.jslx.pojo");
+        sqlSessionFactoryBean.setTypeAliasesPackage("com.isprint.jslx.lccfd.model");
         sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("/config/mybatis-config.xml"));
         return sqlSessionFactoryBean;
     }

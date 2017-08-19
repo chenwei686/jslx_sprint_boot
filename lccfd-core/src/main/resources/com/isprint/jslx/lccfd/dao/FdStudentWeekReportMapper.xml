@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdStudentWeekReportMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdStudentWeekReport" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="classes_id" property="classesId" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="start_date" property="startDate" jdbcType="DATE" />
+    <result column="end_date" property="endDate" jdbcType="DATE" />
+    <result column="month" property="month" jdbcType="CHAR" />
+    <result column="video_time" property="videoTime" jdbcType="INTEGER" />
+    <result column="video_time_last" property="videoTimeLast" jdbcType="INTEGER" />
+    <result column="video_time_treed" property="videoTimeTreed" jdbcType="TINYINT" />
+    <result column="video_time_ranking" property="videoTimeRanking" jdbcType="INTEGER" />
+    <result column="video_time_ranking_last" property="videoTimeRankingLast" jdbcType="INTEGER" />
+    <result column="video_time_ranking_treed" property="videoTimeRankingTreed" jdbcType="TINYINT" />
+    <result column="search_num" property="searchNum" jdbcType="INTEGER" />
+    <result column="correct_num" property="correctNum" jdbcType="INTEGER" />
+    <result column="correct_num_last" property="correctNumLast" jdbcType="INTEGER" />
+    <result column="correct_num_treed" property="correctNumTreed" jdbcType="TINYINT" />
+    <result column="correct_pro" property="correctPro" jdbcType="DECIMAL" />
+    <result column="correct_pro_last" property="correctProLast" jdbcType="DECIMAL" />
+    <result column="correct_pro_treed" property="correctProTreed" jdbcType="TINYINT" />
+    <result column="exceed_num" property="exceedNum" jdbcType="INTEGER" />
+    <result column="total_num" property="totalNum" jdbcType="INTEGER" />
+    <result column="beat_pro" property="beatPro" jdbcType="DECIMAL" />
+    <result column="beat_pro_last" property="beatProLast" jdbcType="DECIMAL" />
+    <result column="beat_pro_treed" property="beatProTreed" jdbcType="TINYINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, student_id, school_id, grade_id, classes_id, year, start_date, end_date, month, 
+      video_time, video_time_last, video_time_treed, video_time_ranking, video_time_ranking_last, 
+      video_time_ranking_treed, search_num, correct_num, correct_num_last, correct_num_treed, 
+      correct_pro, correct_pro_last, correct_pro_treed, exceed_num, total_num, beat_pro, 
+      beat_pro_last, beat_pro_treed, update_time, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdStudentWeekReportQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_student_week_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,student_id,school_id,grade_id,classes_id,year,start_date,end_date,month,video_time,video_time_last,video_time_treed,video_time_ranking,video_time_ranking_last,video_time_ranking_treed,search_num,correct_num,correct_num_last,correct_num_treed,correct_pro,correct_pro_last,correct_pro_treed,exceed_num,total_num,beat_pro,beat_pro_last,beat_pro_treed,update_time,create_time
+    from fd_student_week_report
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_student_week_report
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentWeekReportQuery" >
+    delete from fd_student_week_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentWeekReport" >
+    insert into fd_student_week_report (id, student_id, school_id, 
+      grade_id, classes_id, year, 
+      start_date, end_date, month, video_time, 
+      video_time_last, video_time_treed, video_time_ranking, 
+      video_time_ranking_last, video_time_ranking_treed, 
+      search_num, correct_num, correct_num_last, 
+      correct_num_treed, correct_pro, correct_pro_last, 
+      correct_pro_treed, exceed_num, total_num, 
+      beat_pro, beat_pro_last, beat_pro_treed, 
+      update_time, create_time)
+    values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, 
+      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, 
+      #{startDate,jdbcType=DATE}, #{endDate,jdbcType=DATE}, #{month,jdbcType=CHAR}, #{videoTime,jdbcType=INTEGER}, 
+      #{videoTimeLast,jdbcType=INTEGER}, #{videoTimeTreed,jdbcType=TINYINT}, #{videoTimeRanking,jdbcType=INTEGER}, 
+      #{videoTimeRankingLast,jdbcType=INTEGER}, #{videoTimeRankingTreed,jdbcType=TINYINT}, 
+      #{searchNum,jdbcType=INTEGER}, #{correctNum,jdbcType=INTEGER}, #{correctNumLast,jdbcType=INTEGER}, 
+      #{correctNumTreed,jdbcType=TINYINT}, #{correctPro,jdbcType=DECIMAL}, #{correctProLast,jdbcType=DECIMAL}, 
+      #{correctProTreed,jdbcType=TINYINT}, #{exceedNum,jdbcType=INTEGER}, #{totalNum,jdbcType=INTEGER}, 
+      #{beatPro,jdbcType=DECIMAL}, #{beatProLast,jdbcType=DECIMAL}, #{beatProTreed,jdbcType=TINYINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentWeekReport" >
+    insert into fd_student_week_report
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="classesId != null" >
+        classes_id,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="videoTime != null" >
+        video_time,
+      </if>
+      <if test="videoTimeLast != null" >
+        video_time_last,
+      </if>
+      <if test="videoTimeTreed != null" >
+        video_time_treed,
+      </if>
+      <if test="videoTimeRanking != null" >
+        video_time_ranking,
+      </if>
+      <if test="videoTimeRankingLast != null" >
+        video_time_ranking_last,
+      </if>
+      <if test="videoTimeRankingTreed != null" >
+        video_time_ranking_treed,
+      </if>
+      <if test="searchNum != null" >
+        search_num,
+      </if>
+      <if test="correctNum != null" >
+        correct_num,
+      </if>
+      <if test="correctNumLast != null" >
+        correct_num_last,
+      </if>
+      <if test="correctNumTreed != null" >
+        correct_num_treed,
+      </if>
+      <if test="correctPro != null" >
+        correct_pro,
+      </if>
+      <if test="correctProLast != null" >
+        correct_pro_last,
+      </if>
+      <if test="correctProTreed != null" >
+        correct_pro_treed,
+      </if>
+      <if test="exceedNum != null" >
+        exceed_num,
+      </if>
+      <if test="totalNum != null" >
+        total_num,
+      </if>
+      <if test="beatPro != null" >
+        beat_pro,
+      </if>
+      <if test="beatProLast != null" >
+        beat_pro_last,
+      </if>
+      <if test="beatProTreed != null" >
+        beat_pro_treed,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=DATE},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=CHAR},
+      </if>
+      <if test="videoTime != null" >
+        #{videoTime,jdbcType=INTEGER},
+      </if>
+      <if test="videoTimeLast != null" >
+        #{videoTimeLast,jdbcType=INTEGER},
+      </if>
+      <if test="videoTimeTreed != null" >
+        #{videoTimeTreed,jdbcType=TINYINT},
+      </if>
+      <if test="videoTimeRanking != null" >
+        #{videoTimeRanking,jdbcType=INTEGER},
+      </if>
+      <if test="videoTimeRankingLast != null" >
+        #{videoTimeRankingLast,jdbcType=INTEGER},
+      </if>
+      <if test="videoTimeRankingTreed != null" >
+        #{videoTimeRankingTreed,jdbcType=TINYINT},
+      </if>
+      <if test="searchNum != null" >
+        #{searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctNum != null" >
+        #{correctNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctNumLast != null" >
+        #{correctNumLast,jdbcType=INTEGER},
+      </if>
+      <if test="correctNumTreed != null" >
+        #{correctNumTreed,jdbcType=TINYINT},
+      </if>
+      <if test="correctPro != null" >
+        #{correctPro,jdbcType=DECIMAL},
+      </if>
+      <if test="correctProLast != null" >
+        #{correctProLast,jdbcType=DECIMAL},
+      </if>
+      <if test="correctProTreed != null" >
+        #{correctProTreed,jdbcType=TINYINT},
+      </if>
+      <if test="exceedNum != null" >
+        #{exceedNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalNum != null" >
+        #{totalNum,jdbcType=INTEGER},
+      </if>
+      <if test="beatPro != null" >
+        #{beatPro,jdbcType=DECIMAL},
+      </if>
+      <if test="beatProLast != null" >
+        #{beatProLast,jdbcType=DECIMAL},
+      </if>
+      <if test="beatProTreed != null" >
+        #{beatProTreed,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentWeekReportQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_student_week_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_student_week_report
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentId != null" >
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.schoolId != null" >
+        school_id = #{record.schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classesId != null" >
+        classes_id = #{record.classesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=CHAR},
+      </if>
+      <if test="record.startDate != null" >
+        start_date = #{record.startDate,jdbcType=DATE},
+      </if>
+      <if test="record.endDate != null" >
+        end_date = #{record.endDate,jdbcType=DATE},
+      </if>
+      <if test="record.month != null" >
+        month = #{record.month,jdbcType=CHAR},
+      </if>
+      <if test="record.videoTime != null" >
+        video_time = #{record.videoTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.videoTimeLast != null" >
+        video_time_last = #{record.videoTimeLast,jdbcType=INTEGER},
+      </if>
+      <if test="record.videoTimeTreed != null" >
+        video_time_treed = #{record.videoTimeTreed,jdbcType=TINYINT},
+      </if>
+      <if test="record.videoTimeRanking != null" >
+        video_time_ranking = #{record.videoTimeRanking,jdbcType=INTEGER},
+      </if>
+      <if test="record.videoTimeRankingLast != null" >
+        video_time_ranking_last = #{record.videoTimeRankingLast,jdbcType=INTEGER},
+      </if>
+      <if test="record.videoTimeRankingTreed != null" >
+        video_time_ranking_treed = #{record.videoTimeRankingTreed,jdbcType=TINYINT},
+      </if>
+      <if test="record.searchNum != null" >
+        search_num = #{record.searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.correctNum != null" >
+        correct_num = #{record.correctNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.correctNumLast != null" >
+        correct_num_last = #{record.correctNumLast,jdbcType=INTEGER},
+      </if>
+      <if test="record.correctNumTreed != null" >
+        correct_num_treed = #{record.correctNumTreed,jdbcType=TINYINT},
+      </if>
+      <if test="record.correctPro != null" >
+        correct_pro = #{record.correctPro,jdbcType=DECIMAL},
+      </if>
+      <if test="record.correctProLast != null" >
+        correct_pro_last = #{record.correctProLast,jdbcType=DECIMAL},
+      </if>
+      <if test="record.correctProTreed != null" >
+        correct_pro_treed = #{record.correctProTreed,jdbcType=TINYINT},
+      </if>
+      <if test="record.exceedNum != null" >
+        exceed_num = #{record.exceedNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalNum != null" >
+        total_num = #{record.totalNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.beatPro != null" >
+        beat_pro = #{record.beatPro,jdbcType=DECIMAL},
+      </if>
+      <if test="record.beatProLast != null" >
+        beat_pro_last = #{record.beatProLast,jdbcType=DECIMAL},
+      </if>
+      <if test="record.beatProTreed != null" >
+        beat_pro_treed = #{record.beatProTreed,jdbcType=TINYINT},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_student_week_report
+    set id = #{record.id,jdbcType=INTEGER},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      school_id = #{record.schoolId,jdbcType=INTEGER},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      classes_id = #{record.classesId,jdbcType=INTEGER},
+      year = #{record.year,jdbcType=CHAR},
+      start_date = #{record.startDate,jdbcType=DATE},
+      end_date = #{record.endDate,jdbcType=DATE},
+      month = #{record.month,jdbcType=CHAR},
+      video_time = #{record.videoTime,jdbcType=INTEGER},
+      video_time_last = #{record.videoTimeLast,jdbcType=INTEGER},
+      video_time_treed = #{record.videoTimeTreed,jdbcType=TINYINT},
+      video_time_ranking = #{record.videoTimeRanking,jdbcType=INTEGER},
+      video_time_ranking_last = #{record.videoTimeRankingLast,jdbcType=INTEGER},
+      video_time_ranking_treed = #{record.videoTimeRankingTreed,jdbcType=TINYINT},
+      search_num = #{record.searchNum,jdbcType=INTEGER},
+      correct_num = #{record.correctNum,jdbcType=INTEGER},
+      correct_num_last = #{record.correctNumLast,jdbcType=INTEGER},
+      correct_num_treed = #{record.correctNumTreed,jdbcType=TINYINT},
+      correct_pro = #{record.correctPro,jdbcType=DECIMAL},
+      correct_pro_last = #{record.correctProLast,jdbcType=DECIMAL},
+      correct_pro_treed = #{record.correctProTreed,jdbcType=TINYINT},
+      exceed_num = #{record.exceedNum,jdbcType=INTEGER},
+      total_num = #{record.totalNum,jdbcType=INTEGER},
+      beat_pro = #{record.beatPro,jdbcType=DECIMAL},
+      beat_pro_last = #{record.beatProLast,jdbcType=DECIMAL},
+      beat_pro_treed = #{record.beatProTreed,jdbcType=TINYINT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentWeekReport" >
+    update fd_student_week_report
+    <set >
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=CHAR},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=DATE},
+      </if>
+      <if test="month != null" >
+        month = #{month,jdbcType=CHAR},
+      </if>
+      <if test="videoTime != null" >
+        video_time = #{videoTime,jdbcType=INTEGER},
+      </if>
+      <if test="videoTimeLast != null" >
+        video_time_last = #{videoTimeLast,jdbcType=INTEGER},
+      </if>
+      <if test="videoTimeTreed != null" >
+        video_time_treed = #{videoTimeTreed,jdbcType=TINYINT},
+      </if>
+      <if test="videoTimeRanking != null" >
+        video_time_ranking = #{videoTimeRanking,jdbcType=INTEGER},
+      </if>
+      <if test="videoTimeRankingLast != null" >
+        video_time_ranking_last = #{videoTimeRankingLast,jdbcType=INTEGER},
+      </if>
+      <if test="videoTimeRankingTreed != null" >
+        video_time_ranking_treed = #{videoTimeRankingTreed,jdbcType=TINYINT},
+      </if>
+      <if test="searchNum != null" >
+        search_num = #{searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctNum != null" >
+        correct_num = #{correctNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctNumLast != null" >
+        correct_num_last = #{correctNumLast,jdbcType=INTEGER},
+      </if>
+      <if test="correctNumTreed != null" >
+        correct_num_treed = #{correctNumTreed,jdbcType=TINYINT},
+      </if>
+      <if test="correctPro != null" >
+        correct_pro = #{correctPro,jdbcType=DECIMAL},
+      </if>
+      <if test="correctProLast != null" >
+        correct_pro_last = #{correctProLast,jdbcType=DECIMAL},
+      </if>
+      <if test="correctProTreed != null" >
+        correct_pro_treed = #{correctProTreed,jdbcType=TINYINT},
+      </if>
+      <if test="exceedNum != null" >
+        exceed_num = #{exceedNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalNum != null" >
+        total_num = #{totalNum,jdbcType=INTEGER},
+      </if>
+      <if test="beatPro != null" >
+        beat_pro = #{beatPro,jdbcType=DECIMAL},
+      </if>
+      <if test="beatProLast != null" >
+        beat_pro_last = #{beatProLast,jdbcType=DECIMAL},
+      </if>
+      <if test="beatProTreed != null" >
+        beat_pro_treed = #{beatProTreed,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdStudentWeekReport" >
+    update fd_student_week_report
+    set student_id = #{studentId,jdbcType=INTEGER},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      year = #{year,jdbcType=CHAR},
+      start_date = #{startDate,jdbcType=DATE},
+      end_date = #{endDate,jdbcType=DATE},
+      month = #{month,jdbcType=CHAR},
+      video_time = #{videoTime,jdbcType=INTEGER},
+      video_time_last = #{videoTimeLast,jdbcType=INTEGER},
+      video_time_treed = #{videoTimeTreed,jdbcType=TINYINT},
+      video_time_ranking = #{videoTimeRanking,jdbcType=INTEGER},
+      video_time_ranking_last = #{videoTimeRankingLast,jdbcType=INTEGER},
+      video_time_ranking_treed = #{videoTimeRankingTreed,jdbcType=TINYINT},
+      search_num = #{searchNum,jdbcType=INTEGER},
+      correct_num = #{correctNum,jdbcType=INTEGER},
+      correct_num_last = #{correctNumLast,jdbcType=INTEGER},
+      correct_num_treed = #{correctNumTreed,jdbcType=TINYINT},
+      correct_pro = #{correctPro,jdbcType=DECIMAL},
+      correct_pro_last = #{correctProLast,jdbcType=DECIMAL},
+      correct_pro_treed = #{correctProTreed,jdbcType=TINYINT},
+      exceed_num = #{exceedNum,jdbcType=INTEGER},
+      total_num = #{totalNum,jdbcType=INTEGER},
+      beat_pro = #{beatPro,jdbcType=DECIMAL},
+      beat_pro_last = #{beatProLast,jdbcType=DECIMAL},
+      beat_pro_treed = #{beatProTreed,jdbcType=TINYINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

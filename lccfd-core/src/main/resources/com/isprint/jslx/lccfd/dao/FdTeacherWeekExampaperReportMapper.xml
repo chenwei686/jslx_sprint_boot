@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdTeacherWeekExampaperReportMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="exampaper_id" property="exampaperId" jdbcType="INTEGER" />
+    <result column="teacher_week_report_id" property="teacherWeekReportId" jdbcType="INTEGER" />
+    <result column="exampaper_score" property="exampaperScore" jdbcType="DECIMAL" />
+    <result column="exampaper_average_score" property="exampaperAverageScore" jdbcType="DECIMAL" />
+    <result column="exampaper_max_student" property="exampaperMaxStudent" jdbcType="VARCHAR" />
+    <result column="exampaper_min_student" property="exampaperMinStudent" jdbcType="VARCHAR" />
+    <result column="exampaper_uncommit_student" property="exampaperUncommitStudent" jdbcType="VARCHAR" />
+    <result column="exampaper_comment" property="exampaperComment" jdbcType="VARCHAR" />
+    <result column="exampaper_comment_id" property="exampaperCommentId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, exampaper_id, teacher_week_report_id, exampaper_score, exampaper_average_score, 
+      exampaper_max_student, exampaper_min_student, exampaper_uncommit_student, exampaper_comment, 
+      exampaper_comment_id, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReportQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_teacher_week_exampaper_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,exampaper_id,teacher_week_report_id,exampaper_score,exampaper_average_score,exampaper_max_student,exampaper_min_student,exampaper_uncommit_student,exampaper_comment,exampaper_comment_id,create_time
+    from fd_teacher_week_exampaper_report
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_teacher_week_exampaper_report
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReportQuery" >
+    delete from fd_teacher_week_exampaper_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
+    insert into fd_teacher_week_exampaper_report (id, exampaper_id, teacher_week_report_id, 
+      exampaper_score, exampaper_average_score, 
+      exampaper_max_student, exampaper_min_student, 
+      exampaper_uncommit_student, exampaper_comment, 
+      exampaper_comment_id, create_time)
+    values (#{id,jdbcType=INTEGER}, #{exampaperId,jdbcType=INTEGER}, #{teacherWeekReportId,jdbcType=INTEGER}, 
+      #{exampaperScore,jdbcType=DECIMAL}, #{exampaperAverageScore,jdbcType=DECIMAL}, 
+      #{exampaperMaxStudent,jdbcType=VARCHAR}, #{exampaperMinStudent,jdbcType=VARCHAR}, 
+      #{exampaperUncommitStudent,jdbcType=VARCHAR}, #{exampaperComment,jdbcType=VARCHAR}, 
+      #{exampaperCommentId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
+    insert into fd_teacher_week_exampaper_report
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="exampaperId != null" >
+        exampaper_id,
+      </if>
+      <if test="teacherWeekReportId != null" >
+        teacher_week_report_id,
+      </if>
+      <if test="exampaperScore != null" >
+        exampaper_score,
+      </if>
+      <if test="exampaperAverageScore != null" >
+        exampaper_average_score,
+      </if>
+      <if test="exampaperMaxStudent != null" >
+        exampaper_max_student,
+      </if>
+      <if test="exampaperMinStudent != null" >
+        exampaper_min_student,
+      </if>
+      <if test="exampaperUncommitStudent != null" >
+        exampaper_uncommit_student,
+      </if>
+      <if test="exampaperComment != null" >
+        exampaper_comment,
+      </if>
+      <if test="exampaperCommentId != null" >
+        exampaper_comment_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="exampaperId != null" >
+        #{exampaperId,jdbcType=INTEGER},
+      </if>
+      <if test="teacherWeekReportId != null" >
+        #{teacherWeekReportId,jdbcType=INTEGER},
+      </if>
+      <if test="exampaperScore != null" >
+        #{exampaperScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperAverageScore != null" >
+        #{exampaperAverageScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperMaxStudent != null" >
+        #{exampaperMaxStudent,jdbcType=VARCHAR},
+      </if>
+      <if test="exampaperMinStudent != null" >
+        #{exampaperMinStudent,jdbcType=VARCHAR},
+      </if>
+      <if test="exampaperUncommitStudent != null" >
+        #{exampaperUncommitStudent,jdbcType=VARCHAR},
+      </if>
+      <if test="exampaperComment != null" >
+        #{exampaperComment,jdbcType=VARCHAR},
+      </if>
+      <if test="exampaperCommentId != null" >
+        #{exampaperCommentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReportQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_teacher_week_exampaper_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_teacher_week_exampaper_report
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.exampaperId != null" >
+        exampaper_id = #{record.exampaperId,jdbcType=INTEGER},
+      </if>
+      <if test="record.teacherWeekReportId != null" >
+        teacher_week_report_id = #{record.teacherWeekReportId,jdbcType=INTEGER},
+      </if>
+      <if test="record.exampaperScore != null" >
+        exampaper_score = #{record.exampaperScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.exampaperAverageScore != null" >
+        exampaper_average_score = #{record.exampaperAverageScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.exampaperMaxStudent != null" >
+        exampaper_max_student = #{record.exampaperMaxStudent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exampaperMinStudent != null" >
+        exampaper_min_student = #{record.exampaperMinStudent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exampaperUncommitStudent != null" >
+        exampaper_uncommit_student = #{record.exampaperUncommitStudent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exampaperComment != null" >
+        exampaper_comment = #{record.exampaperComment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exampaperCommentId != null" >
+        exampaper_comment_id = #{record.exampaperCommentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_teacher_week_exampaper_report
+    set id = #{record.id,jdbcType=INTEGER},
+      exampaper_id = #{record.exampaperId,jdbcType=INTEGER},
+      teacher_week_report_id = #{record.teacherWeekReportId,jdbcType=INTEGER},
+      exampaper_score = #{record.exampaperScore,jdbcType=DECIMAL},
+      exampaper_average_score = #{record.exampaperAverageScore,jdbcType=DECIMAL},
+      exampaper_max_student = #{record.exampaperMaxStudent,jdbcType=VARCHAR},
+      exampaper_min_student = #{record.exampaperMinStudent,jdbcType=VARCHAR},
+      exampaper_uncommit_student = #{record.exampaperUncommitStudent,jdbcType=VARCHAR},
+      exampaper_comment = #{record.exampaperComment,jdbcType=VARCHAR},
+      exampaper_comment_id = #{record.exampaperCommentId,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
+    update fd_teacher_week_exampaper_report
+    <set >
+      <if test="exampaperId != null" >
+        exampaper_id = #{exampaperId,jdbcType=INTEGER},
+      </if>
+      <if test="teacherWeekReportId != null" >
+        teacher_week_report_id = #{teacherWeekReportId,jdbcType=INTEGER},
+      </if>
+      <if test="exampaperScore != null" >
+        exampaper_score = #{exampaperScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperAverageScore != null" >
+        exampaper_average_score = #{exampaperAverageScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperMaxStudent != null" >
+        exampaper_max_student = #{exampaperMaxStudent,jdbcType=VARCHAR},
+      </if>
+      <if test="exampaperMinStudent != null" >
+        exampaper_min_student = #{exampaperMinStudent,jdbcType=VARCHAR},
+      </if>
+      <if test="exampaperUncommitStudent != null" >
+        exampaper_uncommit_student = #{exampaperUncommitStudent,jdbcType=VARCHAR},
+      </if>
+      <if test="exampaperComment != null" >
+        exampaper_comment = #{exampaperComment,jdbcType=VARCHAR},
+      </if>
+      <if test="exampaperCommentId != null" >
+        exampaper_comment_id = #{exampaperCommentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
+    update fd_teacher_week_exampaper_report
+    set exampaper_id = #{exampaperId,jdbcType=INTEGER},
+      teacher_week_report_id = #{teacherWeekReportId,jdbcType=INTEGER},
+      exampaper_score = #{exampaperScore,jdbcType=DECIMAL},
+      exampaper_average_score = #{exampaperAverageScore,jdbcType=DECIMAL},
+      exampaper_max_student = #{exampaperMaxStudent,jdbcType=VARCHAR},
+      exampaper_min_student = #{exampaperMinStudent,jdbcType=VARCHAR},
+      exampaper_uncommit_student = #{exampaperUncommitStudent,jdbcType=VARCHAR},
+      exampaper_comment = #{exampaperComment,jdbcType=VARCHAR},
+      exampaper_comment_id = #{exampaperCommentId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdStudentCorrectMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdStudentCorrect" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="timu_id" property="timuId" jdbcType="CHAR" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="student_search_id" property="studentSearchId" jdbcType="INTEGER" />
+    <result column="student_search_timu_id" property="studentSearchTimuId" jdbcType="CHAR" />
+    <result column="is_right" property="isRight" jdbcType="BIT" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="classes_id" property="classesId" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="is_collect" property="isCollect" jdbcType="BIT" />
+    <result column="collect_id" property="collectId" jdbcType="INTEGER" />
+    <result column="main_knowledge_id" property="mainKnowledgeId" jdbcType="INTEGER" />
+    <result column="difficult_level" property="difficultLevel" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="source" property="source" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, student_id, timu_id, subject_id, student_search_id, student_search_timu_id, is_right, 
+      answer, school_id, grade_id, classes_id, year, is_collect, collect_id, main_knowledge_id, 
+      difficult_level, create_time, source
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdStudentCorrectQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_student_correct
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,student_id,timu_id,subject_id,student_search_id,student_search_timu_id,is_right,answer,school_id,grade_id,classes_id,year,is_collect,collect_id,main_knowledge_id,difficult_level,create_time,source
+    from fd_student_correct
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_student_correct
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentCorrectQuery" >
+    delete from fd_student_correct
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentCorrect" >
+    insert into fd_student_correct (id, student_id, timu_id, 
+      subject_id, student_search_id, student_search_timu_id, 
+      is_right, answer, school_id, 
+      grade_id, classes_id, year, 
+      is_collect, collect_id, main_knowledge_id, 
+      difficult_level, create_time, source
+      )
+    values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{timuId,jdbcType=CHAR}, 
+      #{subjectId,jdbcType=INTEGER}, #{studentSearchId,jdbcType=INTEGER}, #{studentSearchTimuId,jdbcType=CHAR}, 
+      #{isRight,jdbcType=BIT}, #{answer,jdbcType=VARCHAR}, #{schoolId,jdbcType=INTEGER}, 
+      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, 
+      #{isCollect,jdbcType=BIT}, #{collectId,jdbcType=INTEGER}, #{mainKnowledgeId,jdbcType=INTEGER}, 
+      #{difficultLevel,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{source,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentCorrect" >
+    insert into fd_student_correct
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="timuId != null" >
+        timu_id,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="studentSearchId != null" >
+        student_search_id,
+      </if>
+      <if test="studentSearchTimuId != null" >
+        student_search_timu_id,
+      </if>
+      <if test="isRight != null" >
+        is_right,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="classesId != null" >
+        classes_id,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="isCollect != null" >
+        is_collect,
+      </if>
+      <if test="collectId != null" >
+        collect_id,
+      </if>
+      <if test="mainKnowledgeId != null" >
+        main_knowledge_id,
+      </if>
+      <if test="difficultLevel != null" >
+        difficult_level,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="timuId != null" >
+        #{timuId,jdbcType=CHAR},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="studentSearchId != null" >
+        #{studentSearchId,jdbcType=INTEGER},
+      </if>
+      <if test="studentSearchTimuId != null" >
+        #{studentSearchTimuId,jdbcType=CHAR},
+      </if>
+      <if test="isRight != null" >
+        #{isRight,jdbcType=BIT},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=CHAR},
+      </if>
+      <if test="isCollect != null" >
+        #{isCollect,jdbcType=BIT},
+      </if>
+      <if test="collectId != null" >
+        #{collectId,jdbcType=INTEGER},
+      </if>
+      <if test="mainKnowledgeId != null" >
+        #{mainKnowledgeId,jdbcType=INTEGER},
+      </if>
+      <if test="difficultLevel != null" >
+        #{difficultLevel,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentCorrectQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_student_correct
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_student_correct
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentId != null" >
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.timuId != null" >
+        timu_id = #{record.timuId,jdbcType=CHAR},
+      </if>
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentSearchId != null" >
+        student_search_id = #{record.studentSearchId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentSearchTimuId != null" >
+        student_search_timu_id = #{record.studentSearchTimuId,jdbcType=CHAR},
+      </if>
+      <if test="record.isRight != null" >
+        is_right = #{record.isRight,jdbcType=BIT},
+      </if>
+      <if test="record.answer != null" >
+        answer = #{record.answer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.schoolId != null" >
+        school_id = #{record.schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classesId != null" >
+        classes_id = #{record.classesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=CHAR},
+      </if>
+      <if test="record.isCollect != null" >
+        is_collect = #{record.isCollect,jdbcType=BIT},
+      </if>
+      <if test="record.collectId != null" >
+        collect_id = #{record.collectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.mainKnowledgeId != null" >
+        main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.difficultLevel != null" >
+        difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_student_correct
+    set id = #{record.id,jdbcType=INTEGER},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      timu_id = #{record.timuId,jdbcType=CHAR},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      student_search_id = #{record.studentSearchId,jdbcType=INTEGER},
+      student_search_timu_id = #{record.studentSearchTimuId,jdbcType=CHAR},
+      is_right = #{record.isRight,jdbcType=BIT},
+      answer = #{record.answer,jdbcType=VARCHAR},
+      school_id = #{record.schoolId,jdbcType=INTEGER},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      classes_id = #{record.classesId,jdbcType=INTEGER},
+      year = #{record.year,jdbcType=CHAR},
+      is_collect = #{record.isCollect,jdbcType=BIT},
+      collect_id = #{record.collectId,jdbcType=INTEGER},
+      main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
+      difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      source = #{record.source,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentCorrect" >
+    update fd_student_correct
+    <set >
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="timuId != null" >
+        timu_id = #{timuId,jdbcType=CHAR},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="studentSearchId != null" >
+        student_search_id = #{studentSearchId,jdbcType=INTEGER},
+      </if>
+      <if test="studentSearchTimuId != null" >
+        student_search_timu_id = #{studentSearchTimuId,jdbcType=CHAR},
+      </if>
+      <if test="isRight != null" >
+        is_right = #{isRight,jdbcType=BIT},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=CHAR},
+      </if>
+      <if test="isCollect != null" >
+        is_collect = #{isCollect,jdbcType=BIT},
+      </if>
+      <if test="collectId != null" >
+        collect_id = #{collectId,jdbcType=INTEGER},
+      </if>
+      <if test="mainKnowledgeId != null" >
+        main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
+      </if>
+      <if test="difficultLevel != null" >
+        difficult_level = #{difficultLevel,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdStudentCorrect" >
+    update fd_student_correct
+    set student_id = #{studentId,jdbcType=INTEGER},
+      timu_id = #{timuId,jdbcType=CHAR},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      student_search_id = #{studentSearchId,jdbcType=INTEGER},
+      student_search_timu_id = #{studentSearchTimuId,jdbcType=CHAR},
+      is_right = #{isRight,jdbcType=BIT},
+      answer = #{answer,jdbcType=VARCHAR},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      year = #{year,jdbcType=CHAR},
+      is_collect = #{isCollect,jdbcType=BIT},
+      collect_id = #{collectId,jdbcType=INTEGER},
+      main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
+      difficult_level = #{difficultLevel,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      source = #{source,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

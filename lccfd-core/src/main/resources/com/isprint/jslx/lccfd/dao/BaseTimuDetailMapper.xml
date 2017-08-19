@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.BaseTimuDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.BaseTimuDetail" >
+    <id column="timu_id" property="timuId" jdbcType="CHAR" />
+    <result column="trunk" property="trunk" jdbcType="VARCHAR" />
+    <result column="analysis" property="analysis" jdbcType="VARCHAR" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      timu_id, trunk, analysis, answer, comment, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.BaseTimuDetailQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from base_timu_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    timu_id,trunk,analysis,answer,comment,create_time
+    from base_timu_detail
+    where timu_id = #{timuId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_timu_detail
+    where timu_id = #{timuId,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.BaseTimuDetailQuery" >
+    delete from base_timu_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseTimuDetail" >
+    insert into base_timu_detail (timu_id, trunk, analysis, 
+      answer, comment, create_time
+      )
+    values (#{timuId,jdbcType=CHAR}, #{trunk,jdbcType=VARCHAR}, #{analysis,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseTimuDetail" >
+    insert into base_timu_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="timuId != null" >
+        timu_id,
+      </if>
+      <if test="trunk != null" >
+        trunk,
+      </if>
+      <if test="analysis != null" >
+        analysis,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="timuId != null" >
+        #{timuId,jdbcType=CHAR},
+      </if>
+      <if test="trunk != null" >
+        #{trunk,jdbcType=VARCHAR},
+      </if>
+      <if test="analysis != null" >
+        #{analysis,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.BaseTimuDetailQuery" resultType="java.lang.Integer" >
+    select count(*) from base_timu_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update base_timu_detail
+    <set >
+      <if test="record.timuId != null" >
+        timu_id = #{record.timuId,jdbcType=CHAR},
+      </if>
+      <if test="record.trunk != null" >
+        trunk = #{record.trunk,jdbcType=VARCHAR},
+      </if>
+      <if test="record.analysis != null" >
+        analysis = #{record.analysis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answer != null" >
+        answer = #{record.answer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comment != null" >
+        comment = #{record.comment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update base_timu_detail
+    set timu_id = #{record.timuId,jdbcType=CHAR},
+      trunk = #{record.trunk,jdbcType=VARCHAR},
+      analysis = #{record.analysis,jdbcType=VARCHAR},
+      answer = #{record.answer,jdbcType=VARCHAR},
+      comment = #{record.comment,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.BaseTimuDetail" >
+    update base_timu_detail
+    <set >
+      <if test="trunk != null" >
+        trunk = #{trunk,jdbcType=VARCHAR},
+      </if>
+      <if test="analysis != null" >
+        analysis = #{analysis,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where timu_id = #{timuId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.BaseTimuDetail" >
+    update base_timu_detail
+    set trunk = #{trunk,jdbcType=VARCHAR},
+      analysis = #{analysis,jdbcType=VARCHAR},
+      answer = #{answer,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where timu_id = #{timuId,jdbcType=CHAR}
+  </update>
+</mapper>

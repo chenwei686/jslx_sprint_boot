@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdStudentVipMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdStudentVip" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="search_num" property="searchNum" jdbcType="INTEGER" />
+    <result column="math_start_time" property="mathStartTime" jdbcType="TIMESTAMP" />
+    <result column="math_end_time" property="mathEndTime" jdbcType="TIMESTAMP" />
+    <result column="physics_start_time" property="physicsStartTime" jdbcType="TIMESTAMP" />
+    <result column="physics_end_time" property="physicsEndTime" jdbcType="TIMESTAMP" />
+    <result column="chemie_start_time" property="chemieStartTime" jdbcType="TIMESTAMP" />
+    <result column="chemie_end_time" property="chemieEndTime" jdbcType="TIMESTAMP" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="classes_id" property="classesId" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, student_id, search_num, math_start_time, math_end_time, physics_start_time, physics_end_time, 
+      chemie_start_time, chemie_end_time, school_id, grade_id, classes_id, year, update_time, 
+      create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdStudentVipQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_student_vip
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,student_id,search_num,math_start_time,math_end_time,physics_start_time,physics_end_time,chemie_start_time,chemie_end_time,school_id,grade_id,classes_id,year,update_time,create_time
+    from fd_student_vip
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_student_vip
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentVipQuery" >
+    delete from fd_student_vip
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentVip" >
+    insert into fd_student_vip (id, student_id, search_num, 
+      math_start_time, math_end_time, physics_start_time, 
+      physics_end_time, chemie_start_time, chemie_end_time, 
+      school_id, grade_id, classes_id, 
+      year, update_time, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{searchNum,jdbcType=INTEGER}, 
+      #{mathStartTime,jdbcType=TIMESTAMP}, #{mathEndTime,jdbcType=TIMESTAMP}, #{physicsStartTime,jdbcType=TIMESTAMP}, 
+      #{physicsEndTime,jdbcType=TIMESTAMP}, #{chemieStartTime,jdbcType=TIMESTAMP}, #{chemieEndTime,jdbcType=TIMESTAMP}, 
+      #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, 
+      #{year,jdbcType=CHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentVip" >
+    insert into fd_student_vip
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="searchNum != null" >
+        search_num,
+      </if>
+      <if test="mathStartTime != null" >
+        math_start_time,
+      </if>
+      <if test="mathEndTime != null" >
+        math_end_time,
+      </if>
+      <if test="physicsStartTime != null" >
+        physics_start_time,
+      </if>
+      <if test="physicsEndTime != null" >
+        physics_end_time,
+      </if>
+      <if test="chemieStartTime != null" >
+        chemie_start_time,
+      </if>
+      <if test="chemieEndTime != null" >
+        chemie_end_time,
+      </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="classesId != null" >
+        classes_id,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="searchNum != null" >
+        #{searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="mathStartTime != null" >
+        #{mathStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mathEndTime != null" >
+        #{mathEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="physicsStartTime != null" >
+        #{physicsStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="physicsEndTime != null" >
+        #{physicsEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chemieStartTime != null" >
+        #{chemieStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chemieEndTime != null" >
+        #{chemieEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentVipQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_student_vip
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_student_vip
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentId != null" >
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.searchNum != null" >
+        search_num = #{record.searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.mathStartTime != null" >
+        math_start_time = #{record.mathStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mathEndTime != null" >
+        math_end_time = #{record.mathEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.physicsStartTime != null" >
+        physics_start_time = #{record.physicsStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.physicsEndTime != null" >
+        physics_end_time = #{record.physicsEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.chemieStartTime != null" >
+        chemie_start_time = #{record.chemieStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.chemieEndTime != null" >
+        chemie_end_time = #{record.chemieEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.schoolId != null" >
+        school_id = #{record.schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classesId != null" >
+        classes_id = #{record.classesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=CHAR},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_student_vip
+    set id = #{record.id,jdbcType=INTEGER},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      search_num = #{record.searchNum,jdbcType=INTEGER},
+      math_start_time = #{record.mathStartTime,jdbcType=TIMESTAMP},
+      math_end_time = #{record.mathEndTime,jdbcType=TIMESTAMP},
+      physics_start_time = #{record.physicsStartTime,jdbcType=TIMESTAMP},
+      physics_end_time = #{record.physicsEndTime,jdbcType=TIMESTAMP},
+      chemie_start_time = #{record.chemieStartTime,jdbcType=TIMESTAMP},
+      chemie_end_time = #{record.chemieEndTime,jdbcType=TIMESTAMP},
+      school_id = #{record.schoolId,jdbcType=INTEGER},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      classes_id = #{record.classesId,jdbcType=INTEGER},
+      year = #{record.year,jdbcType=CHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentVip" >
+    update fd_student_vip
+    <set >
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="searchNum != null" >
+        search_num = #{searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="mathStartTime != null" >
+        math_start_time = #{mathStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mathEndTime != null" >
+        math_end_time = #{mathEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="physicsStartTime != null" >
+        physics_start_time = #{physicsStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="physicsEndTime != null" >
+        physics_end_time = #{physicsEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chemieStartTime != null" >
+        chemie_start_time = #{chemieStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chemieEndTime != null" >
+        chemie_end_time = #{chemieEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdStudentVip" >
+    update fd_student_vip
+    set student_id = #{studentId,jdbcType=INTEGER},
+      search_num = #{searchNum,jdbcType=INTEGER},
+      math_start_time = #{mathStartTime,jdbcType=TIMESTAMP},
+      math_end_time = #{mathEndTime,jdbcType=TIMESTAMP},
+      physics_start_time = #{physicsStartTime,jdbcType=TIMESTAMP},
+      physics_end_time = #{physicsEndTime,jdbcType=TIMESTAMP},
+      chemie_start_time = #{chemieStartTime,jdbcType=TIMESTAMP},
+      chemie_end_time = #{chemieEndTime,jdbcType=TIMESTAMP},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      year = #{year,jdbcType=CHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

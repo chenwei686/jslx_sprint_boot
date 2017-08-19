@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.DrSyllabusMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.DrSyllabus" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="SubjectId" property="subjectid" jdbcType="INTEGER" />
+    <result column="DegreeId" property="degreeid" jdbcType="INTEGER" />
+    <result column="SyllabusGradeId" property="syllabusgradeid" jdbcType="INTEGER" />
+    <result column="PublisherId" property="publisherid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      Id, SubjectId, DegreeId, SyllabusGradeId, PublisherId
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.DrSyllabusQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from dr_syllabus
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    Id,SubjectId,DegreeId,SyllabusGradeId,PublisherId
+    from dr_syllabus
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from dr_syllabus
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.DrSyllabusQuery" >
+    delete from dr_syllabus
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.DrSyllabus" >
+    insert into dr_syllabus (Id, SubjectId, DegreeId, 
+      SyllabusGradeId, PublisherId)
+    values (#{id,jdbcType=INTEGER}, #{subjectid,jdbcType=INTEGER}, #{degreeid,jdbcType=INTEGER}, 
+      #{syllabusgradeid,jdbcType=INTEGER}, #{publisherid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.DrSyllabus" >
+    insert into dr_syllabus
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="subjectid != null" >
+        SubjectId,
+      </if>
+      <if test="degreeid != null" >
+        DegreeId,
+      </if>
+      <if test="syllabusgradeid != null" >
+        SyllabusGradeId,
+      </if>
+      <if test="publisherid != null" >
+        PublisherId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="subjectid != null" >
+        #{subjectid,jdbcType=INTEGER},
+      </if>
+      <if test="degreeid != null" >
+        #{degreeid,jdbcType=INTEGER},
+      </if>
+      <if test="syllabusgradeid != null" >
+        #{syllabusgradeid,jdbcType=INTEGER},
+      </if>
+      <if test="publisherid != null" >
+        #{publisherid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.DrSyllabusQuery" resultType="java.lang.Integer" >
+    select count(*) from dr_syllabus
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update dr_syllabus
+    <set >
+      <if test="record.id != null" >
+        Id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectid != null" >
+        SubjectId = #{record.subjectid,jdbcType=INTEGER},
+      </if>
+      <if test="record.degreeid != null" >
+        DegreeId = #{record.degreeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.syllabusgradeid != null" >
+        SyllabusGradeId = #{record.syllabusgradeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.publisherid != null" >
+        PublisherId = #{record.publisherid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update dr_syllabus
+    set Id = #{record.id,jdbcType=INTEGER},
+      SubjectId = #{record.subjectid,jdbcType=INTEGER},
+      DegreeId = #{record.degreeid,jdbcType=INTEGER},
+      SyllabusGradeId = #{record.syllabusgradeid,jdbcType=INTEGER},
+      PublisherId = #{record.publisherid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.DrSyllabus" >
+    update dr_syllabus
+    <set >
+      <if test="subjectid != null" >
+        SubjectId = #{subjectid,jdbcType=INTEGER},
+      </if>
+      <if test="degreeid != null" >
+        DegreeId = #{degreeid,jdbcType=INTEGER},
+      </if>
+      <if test="syllabusgradeid != null" >
+        SyllabusGradeId = #{syllabusgradeid,jdbcType=INTEGER},
+      </if>
+      <if test="publisherid != null" >
+        PublisherId = #{publisherid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.DrSyllabus" >
+    update dr_syllabus
+    set SubjectId = #{subjectid,jdbcType=INTEGER},
+      DegreeId = #{degreeid,jdbcType=INTEGER},
+      SyllabusGradeId = #{syllabusgradeid,jdbcType=INTEGER},
+      PublisherId = #{publisherid,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -14,6 +14,7 @@
         <module>common</module>
         <module>lccfd-redis</module>
         <module>lccfd-service</module>
+        <module>lccfd-wechat</module>
     </modules>
     <packaging>pom</packaging>
     <parent>

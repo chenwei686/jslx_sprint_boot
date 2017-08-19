@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.BaseKnowledgeMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.BaseKnowledge" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="subject_name" property="subjectName" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="school_degree_id" property="schoolDegreeId" jdbcType="INTEGER" />
+    <result column="province_ids" property="provinceIds" jdbcType="VARCHAR" />
+    <result column="city_ids" property="cityIds" jdbcType="VARCHAR" />
+    <result column="area_ids" property="areaIds" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, name, subject_id, subject_name, parent_id, school_degree_id, province_ids, city_ids, 
+      area_ids, is_del, createtime
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.BaseKnowledgeQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from base_knowledge
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,name,subject_id,subject_name,parent_id,school_degree_id,province_ids,city_ids,area_ids,is_del,createtime
+    from base_knowledge
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from base_knowledge
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.BaseKnowledgeQuery" >
+    delete from base_knowledge
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseKnowledge" >
+    insert into base_knowledge (id, name, subject_id, 
+      subject_name, parent_id, school_degree_id, 
+      province_ids, city_ids, area_ids, 
+      is_del, createtime)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{subjectId,jdbcType=INTEGER}, 
+      #{subjectName,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, #{schoolDegreeId,jdbcType=INTEGER}, 
+      #{provinceIds,jdbcType=VARCHAR}, #{cityIds,jdbcType=VARCHAR}, #{areaIds,jdbcType=VARCHAR}, 
+      #{isDel,jdbcType=BIT}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseKnowledge" >
+    insert into base_knowledge
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="subjectName != null" >
+        subject_name,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="schoolDegreeId != null" >
+        school_degree_id,
+      </if>
+      <if test="provinceIds != null" >
+        province_ids,
+      </if>
+      <if test="cityIds != null" >
+        city_ids,
+      </if>
+      <if test="areaIds != null" >
+        area_ids,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectName != null" >
+        #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolDegreeId != null" >
+        #{schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceIds != null" >
+        #{provinceIds,jdbcType=VARCHAR},
+      </if>
+      <if test="cityIds != null" >
+        #{cityIds,jdbcType=VARCHAR},
+      </if>
+      <if test="areaIds != null" >
+        #{areaIds,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.BaseKnowledgeQuery" resultType="java.lang.Integer" >
+    select count(*) from base_knowledge
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update base_knowledge
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectName != null" >
+        subject_name = #{record.subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.schoolDegreeId != null" >
+        school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.provinceIds != null" >
+        province_ids = #{record.provinceIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityIds != null" >
+        city_ids = #{record.cityIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaIds != null" >
+        area_ids = #{record.areaIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null" >
+        is_del = #{record.isDel,jdbcType=BIT},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update base_knowledge
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      subject_name = #{record.subjectName,jdbcType=VARCHAR},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
+      province_ids = #{record.provinceIds,jdbcType=VARCHAR},
+      city_ids = #{record.cityIds,jdbcType=VARCHAR},
+      area_ids = #{record.areaIds,jdbcType=VARCHAR},
+      is_del = #{record.isDel,jdbcType=BIT},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.BaseKnowledge" >
+    update base_knowledge
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectName != null" >
+        subject_name = #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolDegreeId != null" >
+        school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceIds != null" >
+        province_ids = #{provinceIds,jdbcType=VARCHAR},
+      </if>
+      <if test="cityIds != null" >
+        city_ids = #{cityIds,jdbcType=VARCHAR},
+      </if>
+      <if test="areaIds != null" >
+        area_ids = #{areaIds,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.BaseKnowledge" >
+    update base_knowledge
+    set name = #{name,jdbcType=VARCHAR},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      subject_name = #{subjectName,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
+      province_ids = #{provinceIds,jdbcType=VARCHAR},
+      city_ids = #{cityIds,jdbcType=VARCHAR},
+      area_ids = #{areaIds,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=BIT},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdPackageMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdPackage" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="package_type_id" property="packageTypeId" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="time_type" property="timeType" jdbcType="CHAR" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+    <result column="system" property="system" jdbcType="CHAR" />
+    <result column="ios_code" property="iosCode" jdbcType="VARCHAR" />
+    <result column="is_activate" property="isActivate" jdbcType="BIT" />
+    <result column="subject_ids" property="subjectIds" jdbcType="VARCHAR" />
+    <result column="subject_names" property="subjectNames" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, name, package_type_id, money, time_type, time, system, ios_code, is_activate, 
+      subject_ids, subject_names, is_del, update_time, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdPackageQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_package
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,name,package_type_id,money,time_type,time,system,ios_code,is_activate,subject_ids,subject_names,is_del,update_time,create_time
+    from fd_package
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_package
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdPackageQuery" >
+    delete from fd_package
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdPackage" >
+    insert into fd_package (id, name, package_type_id, 
+      money, time_type, time, 
+      system, ios_code, is_activate, 
+      subject_ids, subject_names, is_del, 
+      update_time, create_time)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{packageTypeId,jdbcType=INTEGER}, 
+      #{money,jdbcType=DECIMAL}, #{timeType,jdbcType=CHAR}, #{time,jdbcType=INTEGER}, 
+      #{system,jdbcType=CHAR}, #{iosCode,jdbcType=VARCHAR}, #{isActivate,jdbcType=BIT}, 
+      #{subjectIds,jdbcType=VARCHAR}, #{subjectNames,jdbcType=VARCHAR}, #{isDel,jdbcType=BIT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdPackage" >
+    insert into fd_package
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="packageTypeId != null" >
+        package_type_id,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="timeType != null" >
+        time_type,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="system != null" >
+        system,
+      </if>
+      <if test="iosCode != null" >
+        ios_code,
+      </if>
+      <if test="isActivate != null" >
+        is_activate,
+      </if>
+      <if test="subjectIds != null" >
+        subject_ids,
+      </if>
+      <if test="subjectNames != null" >
+        subject_names,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="packageTypeId != null" >
+        #{packageTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="timeType != null" >
+        #{timeType,jdbcType=CHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=INTEGER},
+      </if>
+      <if test="system != null" >
+        #{system,jdbcType=CHAR},
+      </if>
+      <if test="iosCode != null" >
+        #{iosCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isActivate != null" >
+        #{isActivate,jdbcType=BIT},
+      </if>
+      <if test="subjectIds != null" >
+        #{subjectIds,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectNames != null" >
+        #{subjectNames,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdPackageQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_package
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_package
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageTypeId != null" >
+        package_type_id = #{record.packageTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.money != null" >
+        money = #{record.money,jdbcType=DECIMAL},
+      </if>
+      <if test="record.timeType != null" >
+        time_type = #{record.timeType,jdbcType=CHAR},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=INTEGER},
+      </if>
+      <if test="record.system != null" >
+        system = #{record.system,jdbcType=CHAR},
+      </if>
+      <if test="record.iosCode != null" >
+        ios_code = #{record.iosCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isActivate != null" >
+        is_activate = #{record.isActivate,jdbcType=BIT},
+      </if>
+      <if test="record.subjectIds != null" >
+        subject_ids = #{record.subjectIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subjectNames != null" >
+        subject_names = #{record.subjectNames,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null" >
+        is_del = #{record.isDel,jdbcType=BIT},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_package
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      package_type_id = #{record.packageTypeId,jdbcType=INTEGER},
+      money = #{record.money,jdbcType=DECIMAL},
+      time_type = #{record.timeType,jdbcType=CHAR},
+      time = #{record.time,jdbcType=INTEGER},
+      system = #{record.system,jdbcType=CHAR},
+      ios_code = #{record.iosCode,jdbcType=VARCHAR},
+      is_activate = #{record.isActivate,jdbcType=BIT},
+      subject_ids = #{record.subjectIds,jdbcType=VARCHAR},
+      subject_names = #{record.subjectNames,jdbcType=VARCHAR},
+      is_del = #{record.isDel,jdbcType=BIT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdPackage" >
+    update fd_package
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="packageTypeId != null" >
+        package_type_id = #{packageTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="timeType != null" >
+        time_type = #{timeType,jdbcType=CHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=INTEGER},
+      </if>
+      <if test="system != null" >
+        system = #{system,jdbcType=CHAR},
+      </if>
+      <if test="iosCode != null" >
+        ios_code = #{iosCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isActivate != null" >
+        is_activate = #{isActivate,jdbcType=BIT},
+      </if>
+      <if test="subjectIds != null" >
+        subject_ids = #{subjectIds,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectNames != null" >
+        subject_names = #{subjectNames,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdPackage" >
+    update fd_package
+    set name = #{name,jdbcType=VARCHAR},
+      package_type_id = #{packageTypeId,jdbcType=INTEGER},
+      money = #{money,jdbcType=DECIMAL},
+      time_type = #{timeType,jdbcType=CHAR},
+      time = #{time,jdbcType=INTEGER},
+      system = #{system,jdbcType=CHAR},
+      ios_code = #{iosCode,jdbcType=VARCHAR},
+      is_activate = #{isActivate,jdbcType=BIT},
+      subject_ids = #{subjectIds,jdbcType=VARCHAR},
+      subject_names = #{subjectNames,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=BIT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

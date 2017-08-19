@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdStudentDaySearchMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdStudentDaySearch" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="classes_id" property="classesId" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="date" property="date" jdbcType="DATE" />
+    <result column="timu_id" property="timuId" jdbcType="INTEGER" />
+    <result column="search_num" property="searchNum" jdbcType="INTEGER" />
+    <result column="student_video_num" property="studentVideoNum" jdbcType="INTEGER" />
+    <result column="play_video_num" property="playVideoNum" jdbcType="INTEGER" />
+    <result column="student_ids" property="studentIds" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, subject_id, school_id, grade_id, classes_id, year, date, timu_id, search_num, 
+      student_video_num, play_video_num, student_ids, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdStudentDaySearchQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_student_day_search
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,subject_id,school_id,grade_id,classes_id,year,date,timu_id,search_num,student_video_num,play_video_num,student_ids,create_time
+    from fd_student_day_search
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_student_day_search
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentDaySearchQuery" >
+    delete from fd_student_day_search
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentDaySearch" >
+    insert into fd_student_day_search (id, subject_id, school_id, 
+      grade_id, classes_id, year, 
+      date, timu_id, search_num, 
+      student_video_num, play_video_num, student_ids, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{subjectId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, 
+      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, 
+      #{date,jdbcType=DATE}, #{timuId,jdbcType=INTEGER}, #{searchNum,jdbcType=INTEGER}, 
+      #{studentVideoNum,jdbcType=INTEGER}, #{playVideoNum,jdbcType=INTEGER}, #{studentIds,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentDaySearch" >
+    insert into fd_student_day_search
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="classesId != null" >
+        classes_id,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="timuId != null" >
+        timu_id,
+      </if>
+      <if test="searchNum != null" >
+        search_num,
+      </if>
+      <if test="studentVideoNum != null" >
+        student_video_num,
+      </if>
+      <if test="playVideoNum != null" >
+        play_video_num,
+      </if>
+      <if test="studentIds != null" >
+        student_ids,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=CHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="timuId != null" >
+        #{timuId,jdbcType=INTEGER},
+      </if>
+      <if test="searchNum != null" >
+        #{searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="studentVideoNum != null" >
+        #{studentVideoNum,jdbcType=INTEGER},
+      </if>
+      <if test="playVideoNum != null" >
+        #{playVideoNum,jdbcType=INTEGER},
+      </if>
+      <if test="studentIds != null" >
+        #{studentIds,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentDaySearchQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_student_day_search
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_student_day_search
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.schoolId != null" >
+        school_id = #{record.schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classesId != null" >
+        classes_id = #{record.classesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=CHAR},
+      </if>
+      <if test="record.date != null" >
+        date = #{record.date,jdbcType=DATE},
+      </if>
+      <if test="record.timuId != null" >
+        timu_id = #{record.timuId,jdbcType=INTEGER},
+      </if>
+      <if test="record.searchNum != null" >
+        search_num = #{record.searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentVideoNum != null" >
+        student_video_num = #{record.studentVideoNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.playVideoNum != null" >
+        play_video_num = #{record.playVideoNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentIds != null" >
+        student_ids = #{record.studentIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_student_day_search
+    set id = #{record.id,jdbcType=INTEGER},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      school_id = #{record.schoolId,jdbcType=INTEGER},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      classes_id = #{record.classesId,jdbcType=INTEGER},
+      year = #{record.year,jdbcType=CHAR},
+      date = #{record.date,jdbcType=DATE},
+      timu_id = #{record.timuId,jdbcType=INTEGER},
+      search_num = #{record.searchNum,jdbcType=INTEGER},
+      student_video_num = #{record.studentVideoNum,jdbcType=INTEGER},
+      play_video_num = #{record.playVideoNum,jdbcType=INTEGER},
+      student_ids = #{record.studentIds,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentDaySearch" >
+    update fd_student_day_search
+    <set >
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=CHAR},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="timuId != null" >
+        timu_id = #{timuId,jdbcType=INTEGER},
+      </if>
+      <if test="searchNum != null" >
+        search_num = #{searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="studentVideoNum != null" >
+        student_video_num = #{studentVideoNum,jdbcType=INTEGER},
+      </if>
+      <if test="playVideoNum != null" >
+        play_video_num = #{playVideoNum,jdbcType=INTEGER},
+      </if>
+      <if test="studentIds != null" >
+        student_ids = #{studentIds,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdStudentDaySearch" >
+    update fd_student_day_search
+    set subject_id = #{subjectId,jdbcType=INTEGER},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      year = #{year,jdbcType=CHAR},
+      date = #{date,jdbcType=DATE},
+      timu_id = #{timuId,jdbcType=INTEGER},
+      search_num = #{searchNum,jdbcType=INTEGER},
+      student_video_num = #{studentVideoNum,jdbcType=INTEGER},
+      play_video_num = #{playVideoNum,jdbcType=INTEGER},
+      student_ids = #{studentIds,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

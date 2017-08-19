@@ -17,7 +17,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 @EnableScheduling
 @ComponentScan("com.isprint.jslx")
-@MapperScan("com.jslx.mapper")
 public class Application {
     public static void main(String[] args){
         SpringApplication.run(Application.class, args);

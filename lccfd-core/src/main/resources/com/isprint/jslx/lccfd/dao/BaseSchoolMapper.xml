@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.BaseSchoolMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.BaseSchool" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="school_degree_ids" property="schoolDegreeIds" jdbcType="VARCHAR" />
+    <result column="province_id" property="provinceId" jdbcType="INTEGER" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="area_id" property="areaId" jdbcType="INTEGER" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="pattern" property="pattern" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="DECIMAL" />
+    <result column="latitude" property="latitude" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, name, school_degree_ids, province_id, city_id, area_id, province, city, area, 
+      pattern, address, longitude, latitude, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.BaseSchoolQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from base_school
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,name,school_degree_ids,province_id,city_id,area_id,province,city,area,pattern,address,longitude,latitude,create_time
+    from base_school
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from base_school
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.BaseSchoolQuery" >
+    delete from base_school
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseSchool" >
+    insert into base_school (id, name, school_degree_ids, 
+      province_id, city_id, area_id, 
+      province, city, area, 
+      pattern, address, longitude, 
+      latitude, create_time)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{schoolDegreeIds,jdbcType=VARCHAR}, 
+      #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{pattern,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{longitude,jdbcType=DECIMAL}, 
+      #{latitude,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseSchool" >
+    insert into base_school
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="schoolDegreeIds != null" >
+        school_degree_ids,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="pattern != null" >
+        pattern,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolDegreeIds != null" >
+        #{schoolDegreeIds,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="pattern != null" >
+        #{pattern,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.BaseSchoolQuery" resultType="java.lang.Integer" >
+    select count(*) from base_school
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update base_school
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.schoolDegreeIds != null" >
+        school_degree_ids = #{record.schoolDegreeIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provinceId != null" >
+        province_id = #{record.provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null" >
+        city_id = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaId != null" >
+        area_id = #{record.areaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.area != null" >
+        area = #{record.area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pattern != null" >
+        pattern = #{record.pattern,jdbcType=INTEGER},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.longitude != null" >
+        longitude = #{record.longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="record.latitude != null" >
+        latitude = #{record.latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update base_school
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      school_degree_ids = #{record.schoolDegreeIds,jdbcType=VARCHAR},
+      province_id = #{record.provinceId,jdbcType=INTEGER},
+      city_id = #{record.cityId,jdbcType=INTEGER},
+      area_id = #{record.areaId,jdbcType=INTEGER},
+      province = #{record.province,jdbcType=VARCHAR},
+      city = #{record.city,jdbcType=VARCHAR},
+      area = #{record.area,jdbcType=VARCHAR},
+      pattern = #{record.pattern,jdbcType=INTEGER},
+      address = #{record.address,jdbcType=VARCHAR},
+      longitude = #{record.longitude,jdbcType=DECIMAL},
+      latitude = #{record.latitude,jdbcType=DECIMAL},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.BaseSchool" >
+    update base_school
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolDegreeIds != null" >
+        school_degree_ids = #{schoolDegreeIds,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        area_id = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="pattern != null" >
+        pattern = #{pattern,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.BaseSchool" >
+    update base_school
+    set name = #{name,jdbcType=VARCHAR},
+      school_degree_ids = #{schoolDegreeIds,jdbcType=VARCHAR},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      city_id = #{cityId,jdbcType=INTEGER},
+      area_id = #{areaId,jdbcType=INTEGER},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      pattern = #{pattern,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=DECIMAL},
+      latitude = #{latitude,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

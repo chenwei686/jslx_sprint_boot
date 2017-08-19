@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.TimuMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.Timu" >
+    <id column="Id" property="id" jdbcType="VARCHAR" />
+    <result column="SubjectId" property="subjectid" jdbcType="INTEGER" />
+    <result column="TiMuTypeId" property="timutypeid" jdbcType="INTEGER" />
+    <result column="Difficult" property="difficult" jdbcType="INTEGER" />
+    <result column="Discriminate" property="discriminate" jdbcType="INTEGER" />
+    <result column="StandardTime" property="standardtime" jdbcType="INTEGER" />
+    <result column="StanderdScroe" property="standerdscroe" jdbcType="DECIMAL" />
+    <result column="CognizeId" property="cognizeid" jdbcType="INTEGER" />
+    <result column="AbilityId" property="abilityid" jdbcType="INTEGER" />
+    <result column="GradeId" property="gradeid" jdbcType="INTEGER" />
+    <result column="AreaId" property="areaid" jdbcType="INTEGER" />
+    <result column="Year" property="year" jdbcType="INTEGER" />
+    <result column="Soure" property="soure" jdbcType="VARCHAR" />
+    <result column="QualityId" property="qualityid" jdbcType="INTEGER" />
+    <result column="Price" property="price" jdbcType="DECIMAL" />
+    <result column="InputId" property="inputid" jdbcType="VARCHAR" />
+    <result column="ParentId" property="parentid" jdbcType="VARCHAR" />
+    <result column="VideoCode" property="videocode" jdbcType="VARCHAR" />
+    <result column="SourceType" property="sourcetype" jdbcType="INTEGER" />
+    <result column="IsExpandPractice" property="isexpandpractice" jdbcType="BIT" />
+    <result column="HaveChildTimu" property="havechildtimu" jdbcType="BIT" />
+    <result column="UpdateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="Number" property="number" jdbcType="VARCHAR" />
+    <result column="Order" property="order" jdbcType="INTEGER" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.isprint.jslx.lccfd.model.TimuWithBLOBs" extends="BaseResultMap" >
+    <result column="Trunk" property="trunk" jdbcType="LONGVARCHAR" />
+    <result column="Analysis" property="analysis" jdbcType="LONGVARCHAR" />
+    <result column="Answer" property="answer" jdbcType="LONGVARCHAR" />
+    <result column="Comment" property="comment" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      Id, SubjectId, TiMuTypeId, Difficult, Discriminate, StandardTime, StanderdScroe, 
+      CognizeId, AbilityId, GradeId, AreaId, Year, Soure, QualityId, Price, InputId, ParentId, 
+      VideoCode, SourceType, IsExpandPractice, HaveChildTimu, UpdateTime, Number, Order, 
+      CreateTime
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <sql id="Blob_Column_List" >
+    Trunk, Analysis, Answer, Comment
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.TimuQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from timu
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.TimuQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from timu
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    Id,SubjectId,TiMuTypeId,Difficult,Discriminate,StandardTime,StanderdScroe,CognizeId,AbilityId,GradeId,AreaId,Year,Soure,QualityId,Price,InputId,ParentId,VideoCode,SourceType,IsExpandPractice,HaveChildTimu,UpdateTime,Number,Order,CreateTime,Trunk,Analysis,Answer,Comment
+    ,
+    <include refid="Blob_Column_List" />
+    from timu
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from timu
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.TimuQuery" >
+    delete from timu
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.TimuWithBLOBs" >
+    insert into timu (Id, SubjectId, TiMuTypeId, 
+      Difficult, Discriminate, StandardTime, 
+      StanderdScroe, CognizeId, AbilityId, 
+      GradeId, AreaId, Year, 
+      Soure, QualityId, Price, 
+      InputId, ParentId, VideoCode, 
+      SourceType, IsExpandPractice, HaveChildTimu, 
+      UpdateTime, Number, Order, 
+      CreateTime, Trunk, Analysis, 
+      Answer, Comment)
+    values (#{id,jdbcType=VARCHAR}, #{subjectid,jdbcType=INTEGER}, #{timutypeid,jdbcType=INTEGER}, 
+      #{difficult,jdbcType=INTEGER}, #{discriminate,jdbcType=INTEGER}, #{standardtime,jdbcType=INTEGER}, 
+      #{standerdscroe,jdbcType=DECIMAL}, #{cognizeid,jdbcType=INTEGER}, #{abilityid,jdbcType=INTEGER}, 
+      #{gradeid,jdbcType=INTEGER}, #{areaid,jdbcType=INTEGER}, #{year,jdbcType=INTEGER}, 
+      #{soure,jdbcType=VARCHAR}, #{qualityid,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, 
+      #{inputid,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, #{videocode,jdbcType=VARCHAR}, 
+      #{sourcetype,jdbcType=INTEGER}, #{isexpandpractice,jdbcType=BIT}, #{havechildtimu,jdbcType=BIT}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{number,jdbcType=VARCHAR}, #{order,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{trunk,jdbcType=LONGVARCHAR}, #{analysis,jdbcType=LONGVARCHAR}, 
+      #{answer,jdbcType=LONGVARCHAR}, #{comment,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.TimuWithBLOBs" >
+    insert into timu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="subjectid != null" >
+        SubjectId,
+      </if>
+      <if test="timutypeid != null" >
+        TiMuTypeId,
+      </if>
+      <if test="difficult != null" >
+        Difficult,
+      </if>
+      <if test="discriminate != null" >
+        Discriminate,
+      </if>
+      <if test="standardtime != null" >
+        StandardTime,
+      </if>
+      <if test="standerdscroe != null" >
+        StanderdScroe,
+      </if>
+      <if test="cognizeid != null" >
+        CognizeId,
+      </if>
+      <if test="abilityid != null" >
+        AbilityId,
+      </if>
+      <if test="gradeid != null" >
+        GradeId,
+      </if>
+      <if test="areaid != null" >
+        AreaId,
+      </if>
+      <if test="year != null" >
+        Year,
+      </if>
+      <if test="soure != null" >
+        Soure,
+      </if>
+      <if test="qualityid != null" >
+        QualityId,
+      </if>
+      <if test="price != null" >
+        Price,
+      </if>
+      <if test="inputid != null" >
+        InputId,
+      </if>
+      <if test="parentid != null" >
+        ParentId,
+      </if>
+      <if test="videocode != null" >
+        VideoCode,
+      </if>
+      <if test="sourcetype != null" >
+        SourceType,
+      </if>
+      <if test="isexpandpractice != null" >
+        IsExpandPractice,
+      </if>
+      <if test="havechildtimu != null" >
+        HaveChildTimu,
+      </if>
+      <if test="updatetime != null" >
+        UpdateTime,
+      </if>
+      <if test="number != null" >
+        Number,
+      </if>
+      <if test="order != null" >
+        Order,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+      <if test="trunk != null" >
+        Trunk,
+      </if>
+      <if test="analysis != null" >
+        Analysis,
+      </if>
+      <if test="answer != null" >
+        Answer,
+      </if>
+      <if test="comment != null" >
+        Comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectid != null" >
+        #{subjectid,jdbcType=INTEGER},
+      </if>
+      <if test="timutypeid != null" >
+        #{timutypeid,jdbcType=INTEGER},
+      </if>
+      <if test="difficult != null" >
+        #{difficult,jdbcType=INTEGER},
+      </if>
+      <if test="discriminate != null" >
+        #{discriminate,jdbcType=INTEGER},
+      </if>
+      <if test="standardtime != null" >
+        #{standardtime,jdbcType=INTEGER},
+      </if>
+      <if test="standerdscroe != null" >
+        #{standerdscroe,jdbcType=DECIMAL},
+      </if>
+      <if test="cognizeid != null" >
+        #{cognizeid,jdbcType=INTEGER},
+      </if>
+      <if test="abilityid != null" >
+        #{abilityid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="soure != null" >
+        #{soure,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityid != null" >
+        #{qualityid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="inputid != null" >
+        #{inputid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="videocode != null" >
+        #{videocode,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcetype != null" >
+        #{sourcetype,jdbcType=INTEGER},
+      </if>
+      <if test="isexpandpractice != null" >
+        #{isexpandpractice,jdbcType=BIT},
+      </if>
+      <if test="havechildtimu != null" >
+        #{havechildtimu,jdbcType=BIT},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null" >
+        #{order,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trunk != null" >
+        #{trunk,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="analysis != null" >
+        #{analysis,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.TimuQuery" resultType="java.lang.Integer" >
+    select count(*) from timu
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update timu
+    <set >
+      <if test="record.id != null" >
+        Id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subjectid != null" >
+        SubjectId = #{record.subjectid,jdbcType=INTEGER},
+      </if>
+      <if test="record.timutypeid != null" >
+        TiMuTypeId = #{record.timutypeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.difficult != null" >
+        Difficult = #{record.difficult,jdbcType=INTEGER},
+      </if>
+      <if test="record.discriminate != null" >
+        Discriminate = #{record.discriminate,jdbcType=INTEGER},
+      </if>
+      <if test="record.standardtime != null" >
+        StandardTime = #{record.standardtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.standerdscroe != null" >
+        StanderdScroe = #{record.standerdscroe,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cognizeid != null" >
+        CognizeId = #{record.cognizeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.abilityid != null" >
+        AbilityId = #{record.abilityid,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeid != null" >
+        GradeId = #{record.gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaid != null" >
+        AreaId = #{record.areaid,jdbcType=INTEGER},
+      </if>
+      <if test="record.year != null" >
+        Year = #{record.year,jdbcType=INTEGER},
+      </if>
+      <if test="record.soure != null" >
+        Soure = #{record.soure,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qualityid != null" >
+        QualityId = #{record.qualityid,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null" >
+        Price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.inputid != null" >
+        InputId = #{record.inputid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentid != null" >
+        ParentId = #{record.parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videocode != null" >
+        VideoCode = #{record.videocode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourcetype != null" >
+        SourceType = #{record.sourcetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.isexpandpractice != null" >
+        IsExpandPractice = #{record.isexpandpractice,jdbcType=BIT},
+      </if>
+      <if test="record.havechildtimu != null" >
+        HaveChildTimu = #{record.havechildtimu,jdbcType=BIT},
+      </if>
+      <if test="record.updatetime != null" >
+        UpdateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.number != null" >
+        Number = #{record.number,jdbcType=VARCHAR},
+      </if>
+      <if test="record.order != null" >
+        Order = #{record.order,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null" >
+        CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.trunk != null" >
+        Trunk = #{record.trunk,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.analysis != null" >
+        Analysis = #{record.analysis,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.answer != null" >
+        Answer = #{record.answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.comment != null" >
+        Comment = #{record.comment,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update timu
+    set Id = #{record.id,jdbcType=VARCHAR},
+      SubjectId = #{record.subjectid,jdbcType=INTEGER},
+      TiMuTypeId = #{record.timutypeid,jdbcType=INTEGER},
+      Difficult = #{record.difficult,jdbcType=INTEGER},
+      Discriminate = #{record.discriminate,jdbcType=INTEGER},
+      StandardTime = #{record.standardtime,jdbcType=INTEGER},
+      StanderdScroe = #{record.standerdscroe,jdbcType=DECIMAL},
+      CognizeId = #{record.cognizeid,jdbcType=INTEGER},
+      AbilityId = #{record.abilityid,jdbcType=INTEGER},
+      GradeId = #{record.gradeid,jdbcType=INTEGER},
+      AreaId = #{record.areaid,jdbcType=INTEGER},
+      Year = #{record.year,jdbcType=INTEGER},
+      Soure = #{record.soure,jdbcType=VARCHAR},
+      QualityId = #{record.qualityid,jdbcType=INTEGER},
+      Price = #{record.price,jdbcType=DECIMAL},
+      InputId = #{record.inputid,jdbcType=VARCHAR},
+      ParentId = #{record.parentid,jdbcType=VARCHAR},
+      VideoCode = #{record.videocode,jdbcType=VARCHAR},
+      SourceType = #{record.sourcetype,jdbcType=INTEGER},
+      IsExpandPractice = #{record.isexpandpractice,jdbcType=BIT},
+      HaveChildTimu = #{record.havechildtimu,jdbcType=BIT},
+      UpdateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      Number = #{record.number,jdbcType=VARCHAR},
+      Order = #{record.order,jdbcType=INTEGER},
+      CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+      Trunk = #{record.trunk,jdbcType=LONGVARCHAR},
+      Analysis = #{record.analysis,jdbcType=LONGVARCHAR},
+      Answer = #{record.answer,jdbcType=LONGVARCHAR},
+      Comment = #{record.comment,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update timu
+    set Id = #{record.id,jdbcType=VARCHAR},
+      SubjectId = #{record.subjectid,jdbcType=INTEGER},
+      TiMuTypeId = #{record.timutypeid,jdbcType=INTEGER},
+      Difficult = #{record.difficult,jdbcType=INTEGER},
+      Discriminate = #{record.discriminate,jdbcType=INTEGER},
+      StandardTime = #{record.standardtime,jdbcType=INTEGER},
+      StanderdScroe = #{record.standerdscroe,jdbcType=DECIMAL},
+      CognizeId = #{record.cognizeid,jdbcType=INTEGER},
+      AbilityId = #{record.abilityid,jdbcType=INTEGER},
+      GradeId = #{record.gradeid,jdbcType=INTEGER},
+      AreaId = #{record.areaid,jdbcType=INTEGER},
+      Year = #{record.year,jdbcType=INTEGER},
+      Soure = #{record.soure,jdbcType=VARCHAR},
+      QualityId = #{record.qualityid,jdbcType=INTEGER},
+      Price = #{record.price,jdbcType=DECIMAL},
+      InputId = #{record.inputid,jdbcType=VARCHAR},
+      ParentId = #{record.parentid,jdbcType=VARCHAR},
+      VideoCode = #{record.videocode,jdbcType=VARCHAR},
+      SourceType = #{record.sourcetype,jdbcType=INTEGER},
+      IsExpandPractice = #{record.isexpandpractice,jdbcType=BIT},
+      HaveChildTimu = #{record.havechildtimu,jdbcType=BIT},
+      UpdateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      Number = #{record.number,jdbcType=VARCHAR},
+      Order = #{record.order,jdbcType=INTEGER},
+      CreateTime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.TimuWithBLOBs" >
+    update timu
+    <set >
+      <if test="subjectid != null" >
+        SubjectId = #{subjectid,jdbcType=INTEGER},
+      </if>
+      <if test="timutypeid != null" >
+        TiMuTypeId = #{timutypeid,jdbcType=INTEGER},
+      </if>
+      <if test="difficult != null" >
+        Difficult = #{difficult,jdbcType=INTEGER},
+      </if>
+      <if test="discriminate != null" >
+        Discriminate = #{discriminate,jdbcType=INTEGER},
+      </if>
+      <if test="standardtime != null" >
+        StandardTime = #{standardtime,jdbcType=INTEGER},
+      </if>
+      <if test="standerdscroe != null" >
+        StanderdScroe = #{standerdscroe,jdbcType=DECIMAL},
+      </if>
+      <if test="cognizeid != null" >
+        CognizeId = #{cognizeid,jdbcType=INTEGER},
+      </if>
+      <if test="abilityid != null" >
+        AbilityId = #{abilityid,jdbcType=INTEGER},
+      </if>
+      <if test="gradeid != null" >
+        GradeId = #{gradeid,jdbcType=INTEGER},
+      </if>
+      <if test="areaid != null" >
+        AreaId = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        Year = #{year,jdbcType=INTEGER},
+      </if>
+      <if test="soure != null" >
+        Soure = #{soure,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityid != null" >
+        QualityId = #{qualityid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        Price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="inputid != null" >
+        InputId = #{inputid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        ParentId = #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="videocode != null" >
+        VideoCode = #{videocode,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcetype != null" >
+        SourceType = #{sourcetype,jdbcType=INTEGER},
+      </if>
+      <if test="isexpandpractice != null" >
+        IsExpandPractice = #{isexpandpractice,jdbcType=BIT},
+      </if>
+      <if test="havechildtimu != null" >
+        HaveChildTimu = #{havechildtimu,jdbcType=BIT},
+      </if>
+      <if test="updatetime != null" >
+        UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="number != null" >
+        Number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null" >
+        Order = #{order,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="trunk != null" >
+        Trunk = #{trunk,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="analysis != null" >
+        Analysis = #{analysis,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="answer != null" >
+        Answer = #{answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="comment != null" >
+        Comment = #{comment,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.TimuWithBLOBs" >
+    update timu
+    set SubjectId = #{subjectid,jdbcType=INTEGER},
+      TiMuTypeId = #{timutypeid,jdbcType=INTEGER},
+      Difficult = #{difficult,jdbcType=INTEGER},
+      Discriminate = #{discriminate,jdbcType=INTEGER},
+      StandardTime = #{standardtime,jdbcType=INTEGER},
+      StanderdScroe = #{standerdscroe,jdbcType=DECIMAL},
+      CognizeId = #{cognizeid,jdbcType=INTEGER},
+      AbilityId = #{abilityid,jdbcType=INTEGER},
+      GradeId = #{gradeid,jdbcType=INTEGER},
+      AreaId = #{areaid,jdbcType=INTEGER},
+      Year = #{year,jdbcType=INTEGER},
+      Soure = #{soure,jdbcType=VARCHAR},
+      QualityId = #{qualityid,jdbcType=INTEGER},
+      Price = #{price,jdbcType=DECIMAL},
+      InputId = #{inputid,jdbcType=VARCHAR},
+      ParentId = #{parentid,jdbcType=VARCHAR},
+      VideoCode = #{videocode,jdbcType=VARCHAR},
+      SourceType = #{sourcetype,jdbcType=INTEGER},
+      IsExpandPractice = #{isexpandpractice,jdbcType=BIT},
+      HaveChildTimu = #{havechildtimu,jdbcType=BIT},
+      UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+      Number = #{number,jdbcType=VARCHAR},
+      Order = #{order,jdbcType=INTEGER},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      Trunk = #{trunk,jdbcType=LONGVARCHAR},
+      Analysis = #{analysis,jdbcType=LONGVARCHAR},
+      Answer = #{answer,jdbcType=LONGVARCHAR},
+      Comment = #{comment,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.Timu" >
+    update timu
+    set SubjectId = #{subjectid,jdbcType=INTEGER},
+      TiMuTypeId = #{timutypeid,jdbcType=INTEGER},
+      Difficult = #{difficult,jdbcType=INTEGER},
+      Discriminate = #{discriminate,jdbcType=INTEGER},
+      StandardTime = #{standardtime,jdbcType=INTEGER},
+      StanderdScroe = #{standerdscroe,jdbcType=DECIMAL},
+      CognizeId = #{cognizeid,jdbcType=INTEGER},
+      AbilityId = #{abilityid,jdbcType=INTEGER},
+      GradeId = #{gradeid,jdbcType=INTEGER},
+      AreaId = #{areaid,jdbcType=INTEGER},
+      Year = #{year,jdbcType=INTEGER},
+      Soure = #{soure,jdbcType=VARCHAR},
+      QualityId = #{qualityid,jdbcType=INTEGER},
+      Price = #{price,jdbcType=DECIMAL},
+      InputId = #{inputid,jdbcType=VARCHAR},
+      ParentId = #{parentid,jdbcType=VARCHAR},
+      VideoCode = #{videocode,jdbcType=VARCHAR},
+      SourceType = #{sourcetype,jdbcType=INTEGER},
+      IsExpandPractice = #{isexpandpractice,jdbcType=BIT},
+      HaveChildTimu = #{havechildtimu,jdbcType=BIT},
+      UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+      Number = #{number,jdbcType=VARCHAR},
+      Order = #{order,jdbcType=INTEGER},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

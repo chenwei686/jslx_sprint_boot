@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.TimuattributeextendMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.Timuattributeextend" >
+    <id column="Id" property="id" jdbcType="VARCHAR" />
+    <result column="LanguageId" property="languageid" jdbcType="INTEGER" />
+    <result column="LimitTime" property="limittime" jdbcType="VARCHAR" />
+    <result column="PublishId" property="publishid" jdbcType="INTEGER" />
+    <result column="MidTestMark" property="midtestmark" jdbcType="VARCHAR" />
+    <result column="CombineCount" property="combinecount" jdbcType="INTEGER" />
+    <result column="DoCount" property="docount" jdbcType="INTEGER" />
+    <result column="RealDiff" property="realdiff" jdbcType="INTEGER" />
+    <result column="RealDiscriminate" property="realdiscriminate" jdbcType="INTEGER" />
+    <result column="ExaminatorId" property="examinatorid" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.isprint.jslx.lccfd.model.Timuattributeextend" extends="BaseResultMap" >
+    <result column="SearKeyWord" property="searkeyword" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      Id, LanguageId, LimitTime, PublishId, MidTestMark, CombineCount, DoCount, RealDiff, 
+      RealDiscriminate, ExaminatorId
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <sql id="Blob_Column_List" >
+    SearKeyWord
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.TimuattributeextendQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from timuattributeextend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.TimuattributeextendQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from timuattributeextend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    Id,LanguageId,LimitTime,PublishId,MidTestMark,CombineCount,DoCount,RealDiff,RealDiscriminate,ExaminatorId,SearKeyWord
+    ,
+    <include refid="Blob_Column_List" />
+    from timuattributeextend
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from timuattributeextend
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.TimuattributeextendQuery" >
+    delete from timuattributeextend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.Timuattributeextend" >
+    insert into timuattributeextend (Id, LanguageId, LimitTime, 
+      PublishId, MidTestMark, CombineCount, 
+      DoCount, RealDiff, RealDiscriminate, 
+      ExaminatorId, SearKeyWord)
+    values (#{id,jdbcType=VARCHAR}, #{languageid,jdbcType=INTEGER}, #{limittime,jdbcType=VARCHAR}, 
+      #{publishid,jdbcType=INTEGER}, #{midtestmark,jdbcType=VARCHAR}, #{combinecount,jdbcType=INTEGER}, 
+      #{docount,jdbcType=INTEGER}, #{realdiff,jdbcType=INTEGER}, #{realdiscriminate,jdbcType=INTEGER}, 
+      #{examinatorid,jdbcType=INTEGER}, #{searkeyword,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.Timuattributeextend" >
+    insert into timuattributeextend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="languageid != null" >
+        LanguageId,
+      </if>
+      <if test="limittime != null" >
+        LimitTime,
+      </if>
+      <if test="publishid != null" >
+        PublishId,
+      </if>
+      <if test="midtestmark != null" >
+        MidTestMark,
+      </if>
+      <if test="combinecount != null" >
+        CombineCount,
+      </if>
+      <if test="docount != null" >
+        DoCount,
+      </if>
+      <if test="realdiff != null" >
+        RealDiff,
+      </if>
+      <if test="realdiscriminate != null" >
+        RealDiscriminate,
+      </if>
+      <if test="examinatorid != null" >
+        ExaminatorId,
+      </if>
+      <if test="searkeyword != null" >
+        SearKeyWord,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="languageid != null" >
+        #{languageid,jdbcType=INTEGER},
+      </if>
+      <if test="limittime != null" >
+        #{limittime,jdbcType=VARCHAR},
+      </if>
+      <if test="publishid != null" >
+        #{publishid,jdbcType=INTEGER},
+      </if>
+      <if test="midtestmark != null" >
+        #{midtestmark,jdbcType=VARCHAR},
+      </if>
+      <if test="combinecount != null" >
+        #{combinecount,jdbcType=INTEGER},
+      </if>
+      <if test="docount != null" >
+        #{docount,jdbcType=INTEGER},
+      </if>
+      <if test="realdiff != null" >
+        #{realdiff,jdbcType=INTEGER},
+      </if>
+      <if test="realdiscriminate != null" >
+        #{realdiscriminate,jdbcType=INTEGER},
+      </if>
+      <if test="examinatorid != null" >
+        #{examinatorid,jdbcType=INTEGER},
+      </if>
+      <if test="searkeyword != null" >
+        #{searkeyword,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.TimuattributeextendQuery" resultType="java.lang.Integer" >
+    select count(*) from timuattributeextend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update timuattributeextend
+    <set >
+      <if test="record.id != null" >
+        Id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.languageid != null" >
+        LanguageId = #{record.languageid,jdbcType=INTEGER},
+      </if>
+      <if test="record.limittime != null" >
+        LimitTime = #{record.limittime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishid != null" >
+        PublishId = #{record.publishid,jdbcType=INTEGER},
+      </if>
+      <if test="record.midtestmark != null" >
+        MidTestMark = #{record.midtestmark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.combinecount != null" >
+        CombineCount = #{record.combinecount,jdbcType=INTEGER},
+      </if>
+      <if test="record.docount != null" >
+        DoCount = #{record.docount,jdbcType=INTEGER},
+      </if>
+      <if test="record.realdiff != null" >
+        RealDiff = #{record.realdiff,jdbcType=INTEGER},
+      </if>
+      <if test="record.realdiscriminate != null" >
+        RealDiscriminate = #{record.realdiscriminate,jdbcType=INTEGER},
+      </if>
+      <if test="record.examinatorid != null" >
+        ExaminatorId = #{record.examinatorid,jdbcType=INTEGER},
+      </if>
+      <if test="record.searkeyword != null" >
+        SearKeyWord = #{record.searkeyword,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update timuattributeextend
+    set Id = #{record.id,jdbcType=VARCHAR},
+      LanguageId = #{record.languageid,jdbcType=INTEGER},
+      LimitTime = #{record.limittime,jdbcType=VARCHAR},
+      PublishId = #{record.publishid,jdbcType=INTEGER},
+      MidTestMark = #{record.midtestmark,jdbcType=VARCHAR},
+      CombineCount = #{record.combinecount,jdbcType=INTEGER},
+      DoCount = #{record.docount,jdbcType=INTEGER},
+      RealDiff = #{record.realdiff,jdbcType=INTEGER},
+      RealDiscriminate = #{record.realdiscriminate,jdbcType=INTEGER},
+      ExaminatorId = #{record.examinatorid,jdbcType=INTEGER},
+      SearKeyWord = #{record.searkeyword,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update timuattributeextend
+    set Id = #{record.id,jdbcType=VARCHAR},
+      LanguageId = #{record.languageid,jdbcType=INTEGER},
+      LimitTime = #{record.limittime,jdbcType=VARCHAR},
+      PublishId = #{record.publishid,jdbcType=INTEGER},
+      MidTestMark = #{record.midtestmark,jdbcType=VARCHAR},
+      CombineCount = #{record.combinecount,jdbcType=INTEGER},
+      DoCount = #{record.docount,jdbcType=INTEGER},
+      RealDiff = #{record.realdiff,jdbcType=INTEGER},
+      RealDiscriminate = #{record.realdiscriminate,jdbcType=INTEGER},
+      ExaminatorId = #{record.examinatorid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.Timuattributeextend" >
+    update timuattributeextend
+    <set >
+      <if test="languageid != null" >
+        LanguageId = #{languageid,jdbcType=INTEGER},
+      </if>
+      <if test="limittime != null" >
+        LimitTime = #{limittime,jdbcType=VARCHAR},
+      </if>
+      <if test="publishid != null" >
+        PublishId = #{publishid,jdbcType=INTEGER},
+      </if>
+      <if test="midtestmark != null" >
+        MidTestMark = #{midtestmark,jdbcType=VARCHAR},
+      </if>
+      <if test="combinecount != null" >
+        CombineCount = #{combinecount,jdbcType=INTEGER},
+      </if>
+      <if test="docount != null" >
+        DoCount = #{docount,jdbcType=INTEGER},
+      </if>
+      <if test="realdiff != null" >
+        RealDiff = #{realdiff,jdbcType=INTEGER},
+      </if>
+      <if test="realdiscriminate != null" >
+        RealDiscriminate = #{realdiscriminate,jdbcType=INTEGER},
+      </if>
+      <if test="examinatorid != null" >
+        ExaminatorId = #{examinatorid,jdbcType=INTEGER},
+      </if>
+      <if test="searkeyword != null" >
+        SearKeyWord = #{searkeyword,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.Timuattributeextend" >
+    update timuattributeextend
+    set LanguageId = #{languageid,jdbcType=INTEGER},
+      LimitTime = #{limittime,jdbcType=VARCHAR},
+      PublishId = #{publishid,jdbcType=INTEGER},
+      MidTestMark = #{midtestmark,jdbcType=VARCHAR},
+      CombineCount = #{combinecount,jdbcType=INTEGER},
+      DoCount = #{docount,jdbcType=INTEGER},
+      RealDiff = #{realdiff,jdbcType=INTEGER},
+      RealDiscriminate = #{realdiscriminate,jdbcType=INTEGER},
+      ExaminatorId = #{examinatorid,jdbcType=INTEGER},
+      SearKeyWord = #{searkeyword,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.Timuattributeextend" >
+    update timuattributeextend
+    set LanguageId = #{languageid,jdbcType=INTEGER},
+      LimitTime = #{limittime,jdbcType=VARCHAR},
+      PublishId = #{publishid,jdbcType=INTEGER},
+      MidTestMark = #{midtestmark,jdbcType=VARCHAR},
+      CombineCount = #{combinecount,jdbcType=INTEGER},
+      DoCount = #{docount,jdbcType=INTEGER},
+      RealDiff = #{realdiff,jdbcType=INTEGER},
+      RealDiscriminate = #{realdiscriminate,jdbcType=INTEGER},
+      ExaminatorId = #{examinatorid,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
