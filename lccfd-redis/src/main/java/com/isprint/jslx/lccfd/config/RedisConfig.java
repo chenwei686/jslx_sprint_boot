@@ -1,40 +1,77 @@
 package com.isprint.jslx.lccfd.config;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.log4j.Logger;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
-
-import java.net.UnknownHostException;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 /**
  * @author HYL
  * @create 2017-08-19 下午5:57
  **/
 @Configuration
+@EnableAutoConfiguration
+@ConfigurationProperties(prefix = "redis" )
+//@PropertySource(value = "classpath:config/redis.properties",encoding = "UTF-8")
 public class RedisConfig {
+    private static Logger logger = Logger.getLogger(RedisConfig.class);
+
+    private String hostName;
+
+    private int port;
+
+    private String password;
+
+    private int timeout;
+
     @Bean
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory)
-            throws UnknownHostException {
-        RedisTemplate<Object, Object> template = new RedisTemplate<Object, Object>();
-        template.setConnectionFactory(redisConnectionFactory);
-
-        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
-        ObjectMapper om = new ObjectMapper();
-        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-        jackson2JsonRedisSerializer.setObjectMapper(om);
-
-        template.setValueSerializer(jackson2JsonRedisSerializer); //1
-        template.setKeySerializer(new StringRedisSerializer()); //2
-
-        template.afterPropertiesSet();
-        return template;
+    public JedisPoolConfig getRedisConfig(){
+        JedisPoolConfig config = new JedisPoolConfig();
+        return config;
     }
+
+    @Bean
+    public JedisPool getJedisPool(){
+        JedisPoolConfig config = getRedisConfig();
+        JedisPool pool = new JedisPool(config,hostName,port,timeout,password);
+        logger.info("init JredisPool ...");
+        return pool;
+    }
+
+    public String getHostName() {
+        return hostName;
+    }
+
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
+
 
 }
