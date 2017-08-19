@@ -10,14 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.isprint</groupId>
-    <artifactId>lccfd-web</artifactId>
-    <dependencies>
+    <artifactId>lccfd-model</artifactId>
 
-        <dependency>
-            <groupId>com.isprint</groupId>
-            <artifactId>lccfd-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 </project>
