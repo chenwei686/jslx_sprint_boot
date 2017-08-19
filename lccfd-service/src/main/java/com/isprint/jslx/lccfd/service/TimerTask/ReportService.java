@@ -2,13 +2,12 @@ package com.isprint.jslx.lccfd.service.TimerTask;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
 
 /**
  * @author HYL
  * @create 2017-08-19 下午10:14
  **/
-@Service
+//@Service
 public class ReportService {
     @Scheduled(fixedDelay = 1000)
     @Async
