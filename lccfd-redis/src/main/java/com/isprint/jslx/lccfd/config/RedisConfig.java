@@ -14,7 +14,7 @@ import redis.clients.jedis.JedisPoolConfig;
  **/
 @Configuration
 @EnableAutoConfiguration
-@ConfigurationProperties(prefix = "redis" )
+@ConfigurationProperties(prefix = "redis")
 //@PropertySource(value = "classpath:config/redis.properties",encoding = "UTF-8")
 public class RedisConfig {
     private static Logger logger = Logger.getLogger(RedisConfig.class);
@@ -27,16 +27,28 @@ public class RedisConfig {
 
     private int timeout;
 
+    // 连接池最大连接数
+    private int maxActive;
+
+    //最大空闲连接
+    private int maxIdle;
+
+    //最小空闲连接
+    private int minIdle;
+
     @Bean
-    public JedisPoolConfig getRedisConfig(){
+    public JedisPoolConfig getRedisConfig() {
         JedisPoolConfig config = new JedisPoolConfig();
         return config;
     }
 
     @Bean
-    public JedisPool getJedisPool(){
+    public JedisPool getJedisPool() {
         JedisPoolConfig config = getRedisConfig();
-        JedisPool pool = new JedisPool(config,hostName,port,timeout,password);
+        config.setMaxTotal(maxActive);
+        config.setMaxIdle(maxIdle);
+        config.setMinIdle(minIdle);
+        JedisPool pool = new JedisPool(config, hostName, port, timeout, password);
         logger.info("init JredisPool ...");
         return pool;
     }
@@ -73,5 +85,27 @@ public class RedisConfig {
         this.timeout = timeout;
     }
 
+    public int getMaxActive() {
+        return maxActive;
+    }
 
+    public void setMaxActive(int maxActive) {
+        this.maxActive = maxActive;
+    }
+
+    public int getMaxIdle() {
+        return maxIdle;
+    }
+
+    public void setMaxIdle(int maxIdle) {
+        this.maxIdle = maxIdle;
+    }
+
+    public int getMinIdle() {
+        return minIdle;
+    }
+
+    public void setMinIdle(int minIdle) {
+        this.minIdle = minIdle;
+    }
 }
