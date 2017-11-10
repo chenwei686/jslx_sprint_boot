@@ -53,7 +53,7 @@ public class BaseTimuSearch implements Serializable {
     /**
      * 题目年份
      */
-    private String year;
+    private Integer yearId;
 
     /**
      * 父题id
@@ -90,14 +90,6 @@ public class BaseTimuSearch implements Serializable {
      */
     private Byte difficultLevel;
 
-    private String trunk;
-
-    private String analysis;
-
-    private String answer;
-
-    private String comment;
-
     private String inputJson;
 
     private String inputChoiceJson;
@@ -112,6 +104,13 @@ public class BaseTimuSearch implements Serializable {
      * 学校级别id
      */
     private Integer schoolDegreeId;
+
+    private Date updateTime;
+
+    /**
+     * 题目是否已插入缓存
+     */
+    private Boolean isExecute;
 
     private static final long serialVersionUID = 1L;
 
@@ -187,12 +186,12 @@ public class BaseTimuSearch implements Serializable {
         this.gradeId = gradeId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public String getParentId() {
@@ -251,38 +250,6 @@ public class BaseTimuSearch implements Serializable {
         this.difficultLevel = difficultLevel;
     }
 
-    public String getTrunk() {
-        return trunk;
-    }
-
-    public void setTrunk(String trunk) {
-        this.trunk = trunk == null ? null : trunk.trim();
-    }
-
-    public String getAnalysis() {
-        return analysis;
-    }
-
-    public void setAnalysis(String analysis) {
-        this.analysis = analysis == null ? null : analysis.trim();
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment == null ? null : comment.trim();
-    }
-
     public String getInputJson() {
         return inputJson;
     }
@@ -331,6 +298,22 @@ public class BaseTimuSearch implements Serializable {
         this.schoolDegreeId = schoolDegreeId;
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Boolean getIsExecute() {
+        return isExecute;
+    }
+
+    public void setIsExecute(Boolean isExecute) {
+        this.isExecute = isExecute;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -346,7 +329,7 @@ public class BaseTimuSearch implements Serializable {
         sb.append(", time=").append(time);
         sb.append(", scroe=").append(scroe);
         sb.append(", gradeId=").append(gradeId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", parentId=").append(parentId);
         sb.append(", videoCode=").append(videoCode);
         sb.append(", source=").append(source);
@@ -354,16 +337,14 @@ public class BaseTimuSearch implements Serializable {
         sb.append(", isHaveChild=").append(isHaveChild);
         sb.append(", pictureJson=").append(pictureJson);
         sb.append(", difficultLevel=").append(difficultLevel);
-        sb.append(", trunk=").append(trunk);
-        sb.append(", analysis=").append(analysis);
-        sb.append(", answer=").append(answer);
-        sb.append(", comment=").append(comment);
         sb.append(", inputJson=").append(inputJson);
         sb.append(", inputChoiceJson=").append(inputChoiceJson);
         sb.append(", mainKnowledgeId=").append(mainKnowledgeId);
         sb.append(", sort=").append(sort);
         sb.append(", createTime=").append(createTime);
         sb.append(", schoolDegreeId=").append(schoolDegreeId);
+        sb.append(", updateTime=").append(updateTime);
+        sb.append(", isExecute=").append(isExecute);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

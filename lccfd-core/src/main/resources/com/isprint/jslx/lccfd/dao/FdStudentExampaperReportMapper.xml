@@ -11,7 +11,7 @@
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="average_score" property="averageScore" jdbcType="DECIMAL" />
     <result column="exceed_num" property="exceedNum" jdbcType="INTEGER" />
     <result column="total_num" property="totalNum" jdbcType="INTEGER" />
@@ -79,7 +79,7 @@
   <sql id="Base_Column_List" >
     <if test="fields == null" >
       id, student_id, exampaper_id, exampaper_name, score, report, school_id, grade_id, 
-      classes_id, year, average_score, exceed_num, total_num, beat_pro, create_time
+      classes_id, year_id, average_score, exceed_num, total_num, beat_pro, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -104,7 +104,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,student_id,exampaper_id,exampaper_name,score,report,school_id,grade_id,classes_id,year,average_score,exceed_num,total_num,beat_pro,create_time
+    id,student_id,exampaper_id,exampaper_name,score,report,school_id,grade_id,classes_id,year_id,average_score,exceed_num,total_num,beat_pro,create_time
     from fd_student_exampaper_report
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -122,13 +122,13 @@
     insert into fd_student_exampaper_report (id, student_id, exampaper_id, 
       exampaper_name, score, report, 
       school_id, grade_id, classes_id, 
-      year, average_score, exceed_num, 
+      year_id, average_score, exceed_num, 
       total_num, beat_pro, create_time
       )
     values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{exampaperId,jdbcType=INTEGER}, 
       #{exampaperName,jdbcType=VARCHAR}, #{score,jdbcType=DECIMAL}, #{report,jdbcType=VARCHAR}, 
       #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, 
-      #{year,jdbcType=CHAR}, #{averageScore,jdbcType=DECIMAL}, #{exceedNum,jdbcType=INTEGER}, 
+      #{yearId,jdbcType=INTEGER}, #{averageScore,jdbcType=DECIMAL}, #{exceedNum,jdbcType=INTEGER}, 
       #{totalNum,jdbcType=INTEGER}, #{beatPro,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -162,8 +162,8 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="averageScore != null" >
         average_score,
@@ -209,8 +209,8 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="averageScore != null" >
         #{averageScore,jdbcType=DECIMAL},
@@ -265,8 +265,8 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.averageScore != null" >
         average_score = #{record.averageScore,jdbcType=DECIMAL},
@@ -299,7 +299,7 @@
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       average_score = #{record.averageScore,jdbcType=DECIMAL},
       exceed_num = #{record.exceedNum,jdbcType=INTEGER},
       total_num = #{record.totalNum,jdbcType=INTEGER},
@@ -336,8 +336,8 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="averageScore != null" >
         average_score = #{averageScore,jdbcType=DECIMAL},
@@ -367,7 +367,7 @@
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       average_score = #{averageScore,jdbcType=DECIMAL},
       exceed_num = #{exceedNum,jdbcType=INTEGER},
       total_num = #{totalNum,jdbcType=INTEGER},

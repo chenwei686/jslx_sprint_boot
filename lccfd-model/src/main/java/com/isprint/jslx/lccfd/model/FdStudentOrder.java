@@ -11,6 +11,11 @@ public class FdStudentOrder implements Serializable {
     private Long id;
 
     /**
+     * 套餐名称
+     */
+    private String name;
+
+    /**
      * 套餐id
      */
     private Integer packageId;
@@ -20,20 +25,27 @@ public class FdStudentOrder implements Serializable {
      */
     private Integer packageActivityId;
 
+    private String packageActivityType;
+
     /**
      * 套餐价格
      */
-    private BigDecimal packageMoney;
+    private BigDecimal money;
 
     /**
-     * 套餐活动优惠价格
+     * 折扣
      */
-    private BigDecimal packageActivityMoney;
+    private BigDecimal discount;
 
     /**
-     * 套餐活动折扣
+     * 优惠价格
      */
-    private BigDecimal packageActivityDiscount;
+    private BigDecimal dealsMoney;
+
+    /**
+     * 实际支付金额
+     */
+    private BigDecimal payMoney;
 
     /**
      * 优惠券id
@@ -46,11 +58,6 @@ public class FdStudentOrder implements Serializable {
      * 优惠码折扣
      */
     private BigDecimal packageCouponDiscount;
-
-    /**
-     * 实际支付金额
-     */
-    private BigDecimal payMoney;
 
     /**
      * 学生id
@@ -75,10 +82,10 @@ public class FdStudentOrder implements Serializable {
     /**
      * 入学年份
      */
-    private String year;
+    private Integer yearId;
 
     /**
-     * 支付方式
+     * 支付方式 （alipay：支付宝 APP 支付  wx：微信 APP 支付）
      */
     private String payType;
 
@@ -107,7 +114,19 @@ public class FdStudentOrder implements Serializable {
      */
     private Date paySuccessTime;
 
+    private Date updateTime;
+
     private Date createTime;
+
+    /**
+     * system：系统套餐不在客户端显示  online：在客户端显示
+     */
+    private String packageType;
+
+    /**
+     * 支付环境
+     */
+    private String payEnvironment;
 
     private static final long serialVersionUID = 1L;
 
@@ -117,6 +136,14 @@ public class FdStudentOrder implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public Integer getPackageId() {
@@ -135,28 +162,44 @@ public class FdStudentOrder implements Serializable {
         this.packageActivityId = packageActivityId;
     }
 
-    public BigDecimal getPackageMoney() {
-        return packageMoney;
+    public String getPackageActivityType() {
+        return packageActivityType;
     }
 
-    public void setPackageMoney(BigDecimal packageMoney) {
-        this.packageMoney = packageMoney;
+    public void setPackageActivityType(String packageActivityType) {
+        this.packageActivityType = packageActivityType == null ? null : packageActivityType.trim();
     }
 
-    public BigDecimal getPackageActivityMoney() {
-        return packageActivityMoney;
+    public BigDecimal getMoney() {
+        return money;
     }
 
-    public void setPackageActivityMoney(BigDecimal packageActivityMoney) {
-        this.packageActivityMoney = packageActivityMoney;
+    public void setMoney(BigDecimal money) {
+        this.money = money;
     }
 
-    public BigDecimal getPackageActivityDiscount() {
-        return packageActivityDiscount;
+    public BigDecimal getDiscount() {
+        return discount;
     }
 
-    public void setPackageActivityDiscount(BigDecimal packageActivityDiscount) {
-        this.packageActivityDiscount = packageActivityDiscount;
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
+
+    public BigDecimal getDealsMoney() {
+        return dealsMoney;
+    }
+
+    public void setDealsMoney(BigDecimal dealsMoney) {
+        this.dealsMoney = dealsMoney;
+    }
+
+    public BigDecimal getPayMoney() {
+        return payMoney;
+    }
+
+    public void setPayMoney(BigDecimal payMoney) {
+        this.payMoney = payMoney;
     }
 
     public Integer getPackageCouponId() {
@@ -181,14 +224,6 @@ public class FdStudentOrder implements Serializable {
 
     public void setPackageCouponDiscount(BigDecimal packageCouponDiscount) {
         this.packageCouponDiscount = packageCouponDiscount;
-    }
-
-    public BigDecimal getPayMoney() {
-        return payMoney;
-    }
-
-    public void setPayMoney(BigDecimal payMoney) {
-        this.payMoney = payMoney;
     }
 
     public Integer getStudentId() {
@@ -223,12 +258,12 @@ public class FdStudentOrder implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public String getPayType() {
@@ -279,12 +314,36 @@ public class FdStudentOrder implements Serializable {
         this.paySuccessTime = paySuccessTime;
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getPackageType() {
+        return packageType;
+    }
+
+    public void setPackageType(String packageType) {
+        this.packageType = packageType == null ? null : packageType.trim();
+    }
+
+    public String getPayEnvironment() {
+        return payEnvironment;
+    }
+
+    public void setPayEnvironment(String payEnvironment) {
+        this.payEnvironment = payEnvironment == null ? null : payEnvironment.trim();
     }
 
     @Override
@@ -294,27 +353,32 @@ public class FdStudentOrder implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
+        sb.append(", name=").append(name);
         sb.append(", packageId=").append(packageId);
         sb.append(", packageActivityId=").append(packageActivityId);
-        sb.append(", packageMoney=").append(packageMoney);
-        sb.append(", packageActivityMoney=").append(packageActivityMoney);
-        sb.append(", packageActivityDiscount=").append(packageActivityDiscount);
+        sb.append(", packageActivityType=").append(packageActivityType);
+        sb.append(", money=").append(money);
+        sb.append(", discount=").append(discount);
+        sb.append(", dealsMoney=").append(dealsMoney);
+        sb.append(", payMoney=").append(payMoney);
         sb.append(", packageCouponId=").append(packageCouponId);
         sb.append(", packageCouponCodeId=").append(packageCouponCodeId);
         sb.append(", packageCouponDiscount=").append(packageCouponDiscount);
-        sb.append(", payMoney=").append(payMoney);
         sb.append(", studentId=").append(studentId);
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", payType=").append(payType);
         sb.append(", status=").append(status);
         sb.append(", isDel=").append(isDel);
         sb.append(", orderNum=").append(orderNum);
         sb.append(", chargeId=").append(chargeId);
         sb.append(", paySuccessTime=").append(paySuccessTime);
+        sb.append(", updateTime=").append(updateTime);
         sb.append(", createTime=").append(createTime);
+        sb.append(", packageType=").append(packageType);
+        sb.append(", payEnvironment=").append(payEnvironment);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

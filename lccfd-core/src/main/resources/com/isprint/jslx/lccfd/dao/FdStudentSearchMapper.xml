@@ -9,8 +9,10 @@
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="parent_subject_id" property="parentSubjectId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -72,7 +74,8 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, picture, timu_ids, student_id, school_id, grade_id, classes_id, year, create_time
+      id, picture, timu_ids, student_id, school_id, grade_id, classes_id, year_id, create_time, 
+      subject_id, parent_subject_id
     </if>
     <if test="fields != null" >
       ${fields}
@@ -97,7 +100,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,picture,timu_ids,student_id,school_id,grade_id,classes_id,year,create_time
+    id,picture,timu_ids,student_id,school_id,grade_id,classes_id,year_id,create_time,subject_id,parent_subject_id
     from fd_student_search
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -114,12 +117,12 @@
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentSearch" >
     insert into fd_student_search (id, picture, timu_ids, 
       student_id, school_id, grade_id, 
-      classes_id, year, create_time
-      )
+      classes_id, year_id, create_time, 
+      subject_id, parent_subject_id)
     values (#{id,jdbcType=INTEGER}, #{picture,jdbcType=VARCHAR}, #{timuIds,jdbcType=VARCHAR}, 
       #{studentId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, 
-      #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}
-      )
+      #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{subjectId,jdbcType=INTEGER}, #{parentSubjectId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentSearch" >
     insert into fd_student_search
@@ -145,11 +148,17 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="createTime != null" >
         create_time,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="parentSubjectId != null" >
+        parent_subject_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -174,11 +183,17 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="parentSubjectId != null" >
+        #{parentSubjectId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -212,11 +227,17 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentSubjectId != null" >
+        parent_subject_id = #{record.parentSubjectId,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -232,8 +253,10 @@
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+      year_id = #{record.yearId,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      parent_subject_id = #{record.parentSubjectId,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -259,11 +282,17 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="parentSubjectId != null" >
+        parent_subject_id = #{parentSubjectId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -276,8 +305,10 @@
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      year_id = #{yearId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      parent_subject_id = #{parentSubjectId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

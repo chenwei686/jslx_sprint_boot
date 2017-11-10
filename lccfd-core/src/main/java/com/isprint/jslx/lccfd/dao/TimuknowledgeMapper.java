@@ -10,21 +10,17 @@ public interface TimuknowledgeMapper {
 
     int deleteByExample(TimuknowledgeQuery example);
 
-    int deleteByPrimaryKey(Integer id);
-
     int insert(Timuknowledge record);
 
     int insertSelective(Timuknowledge record);
 
-    List<Timuknowledge> selectByExample(TimuknowledgeQuery example);
+    List<Timuknowledge> selectByExampleWithBLOBs(TimuknowledgeQuery example);
 
-    Timuknowledge selectByPrimaryKey(Integer id);
+    List<Timuknowledge> selectByExample(TimuknowledgeQuery example);
 
     int updateByExampleSelective(@Param("record") Timuknowledge record, @Param("example") TimuknowledgeQuery example);
 
+    int updateByExampleWithBLOBs(@Param("record") Timuknowledge record, @Param("example") TimuknowledgeQuery example);
+
     int updateByExample(@Param("record") Timuknowledge record, @Param("example") TimuknowledgeQuery example);
-
-    int updateByPrimaryKeySelective(Timuknowledge record);
-
-    int updateByPrimaryKey(Timuknowledge record);
 }

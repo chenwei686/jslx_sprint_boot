@@ -17,6 +17,11 @@ public class FdStudentPracticeItem implements Serializable {
     private Integer studentPracticeId;
 
     /**
+     * 题目类型id
+     */
+    private Integer timuTypeId;
+
+    /**
      * 排序
      */
     private Integer sort;
@@ -54,6 +59,14 @@ public class FdStudentPracticeItem implements Serializable {
         this.studentPracticeId = studentPracticeId;
     }
 
+    public Integer getTimuTypeId() {
+        return timuTypeId;
+    }
+
+    public void setTimuTypeId(Integer timuTypeId) {
+        this.timuTypeId = timuTypeId;
+    }
+
     public Integer getSort() {
         return sort;
     }
@@ -87,6 +100,7 @@ public class FdStudentPracticeItem implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", studentPracticeId=").append(studentPracticeId);
+        sb.append(", timuTypeId=").append(timuTypeId);
         sb.append(", sort=").append(sort);
         sb.append(", description=").append(description);
         sb.append(", createTime=").append(createTime);

@@ -27,7 +27,7 @@ public class FdStudentDayReport implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     /**
      * 搜题数
@@ -145,12 +145,12 @@ public class FdStudentDayReport implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Integer getSearchNum() {
@@ -292,7 +292,7 @@ public class FdStudentDayReport implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", searchNum=").append(searchNum);
         sb.append(", correctNum=").append(correctNum);
         sb.append(", correctNumLast=").append(correctNumLast);

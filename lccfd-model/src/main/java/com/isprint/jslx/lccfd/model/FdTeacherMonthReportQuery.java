@@ -235,66 +235,6 @@ public class FdTeacherMonthReportQuery {
             return (Criteria) this;
         }
 
-        public Criteria andStudentIdIsNull() {
-            addCriterion("student_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdIsNotNull() {
-            addCriterion("student_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdEqualTo(Integer value) {
-            addCriterion("student_id =", value, "studentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdNotEqualTo(Integer value) {
-            addCriterion("student_id <>", value, "studentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdGreaterThan(Integer value) {
-            addCriterion("student_id >", value, "studentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("student_id >=", value, "studentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdLessThan(Integer value) {
-            addCriterion("student_id <", value, "studentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdLessThanOrEqualTo(Integer value) {
-            addCriterion("student_id <=", value, "studentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdIn(List<Integer> values) {
-            addCriterion("student_id in", values, "studentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdNotIn(List<Integer> values) {
-            addCriterion("student_id not in", values, "studentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdBetween(Integer value1, Integer value2) {
-            addCriterion("student_id between", value1, value2, "studentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("student_id not between", value1, value2, "studentId");
-            return (Criteria) this;
-        }
-
         public Criteria andSchoolIdIsNull() {
             addCriterion("school_id is null");
             return (Criteria) this;
@@ -475,73 +415,183 @@ public class FdTeacherMonthReportQuery {
             return (Criteria) this;
         }
 
-        public Criteria andYearIsNull() {
-            addCriterion("year is null");
+        public Criteria andYearIdIsNull() {
+            addCriterion("year_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andYearIsNotNull() {
-            addCriterion("year is not null");
+        public Criteria andYearIdIsNotNull() {
+            addCriterion("year_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andYearEqualTo(String value) {
-            addCriterion("year =", value, "year");
+        public Criteria andYearIdEqualTo(Integer value) {
+            addCriterion("year_id =", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotEqualTo(String value) {
-            addCriterion("year <>", value, "year");
+        public Criteria andYearIdNotEqualTo(Integer value) {
+            addCriterion("year_id <>", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThan(String value) {
-            addCriterion("year >", value, "year");
+        public Criteria andYearIdGreaterThan(Integer value) {
+            addCriterion("year_id >", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThanOrEqualTo(String value) {
-            addCriterion("year >=", value, "year");
+        public Criteria andYearIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("year_id >=", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThan(String value) {
-            addCriterion("year <", value, "year");
+        public Criteria andYearIdLessThan(Integer value) {
+            addCriterion("year_id <", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThanOrEqualTo(String value) {
-            addCriterion("year <=", value, "year");
+        public Criteria andYearIdLessThanOrEqualTo(Integer value) {
+            addCriterion("year_id <=", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLike(String value) {
-            addCriterion("year like", value, "year");
+        public Criteria andYearIdIn(List<Integer> values) {
+            addCriterion("year_id in", values, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotLike(String value) {
-            addCriterion("year not like", value, "year");
+        public Criteria andYearIdNotIn(List<Integer> values) {
+            addCriterion("year_id not in", values, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearIn(List<String> values) {
-            addCriterion("year in", values, "year");
+        public Criteria andYearIdBetween(Integer value1, Integer value2) {
+            addCriterion("year_id between", value1, value2, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotIn(List<String> values) {
-            addCriterion("year not in", values, "year");
+        public Criteria andYearIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("year_id not between", value1, value2, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearBetween(String value1, String value2) {
-            addCriterion("year between", value1, value2, "year");
+        public Criteria andSubjectIdIsNull() {
+            addCriterion("subject_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotBetween(String value1, String value2) {
-            addCriterion("year not between", value1, value2, "year");
+        public Criteria andSubjectIdIsNotNull() {
+            addCriterion("subject_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdEqualTo(Integer value) {
+            addCriterion("subject_id =", value, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdNotEqualTo(Integer value) {
+            addCriterion("subject_id <>", value, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdGreaterThan(Integer value) {
+            addCriterion("subject_id >", value, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("subject_id >=", value, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdLessThan(Integer value) {
+            addCriterion("subject_id <", value, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdLessThanOrEqualTo(Integer value) {
+            addCriterion("subject_id <=", value, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdIn(List<Integer> values) {
+            addCriterion("subject_id in", values, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdNotIn(List<Integer> values) {
+            addCriterion("subject_id not in", values, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdBetween(Integer value1, Integer value2) {
+            addCriterion("subject_id between", value1, value2, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("subject_id not between", value1, value2, "subjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdIsNull() {
+            addCriterion("parent_subject_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdIsNotNull() {
+            addCriterion("parent_subject_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdEqualTo(Integer value) {
+            addCriterion("parent_subject_id =", value, "parentSubjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdNotEqualTo(Integer value) {
+            addCriterion("parent_subject_id <>", value, "parentSubjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdGreaterThan(Integer value) {
+            addCriterion("parent_subject_id >", value, "parentSubjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("parent_subject_id >=", value, "parentSubjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdLessThan(Integer value) {
+            addCriterion("parent_subject_id <", value, "parentSubjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdLessThanOrEqualTo(Integer value) {
+            addCriterion("parent_subject_id <=", value, "parentSubjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdIn(List<Integer> values) {
+            addCriterion("parent_subject_id in", values, "parentSubjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdNotIn(List<Integer> values) {
+            addCriterion("parent_subject_id not in", values, "parentSubjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdBetween(Integer value1, Integer value2) {
+            addCriterion("parent_subject_id between", value1, value2, "parentSubjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentSubjectIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("parent_subject_id not between", value1, value2, "parentSubjectId");
             return (Criteria) this;
         }
 
@@ -735,366 +785,6 @@ public class FdTeacherMonthReportQuery {
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeIsNull() {
-            addCriterion("video_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeIsNotNull() {
-            addCriterion("video_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeEqualTo(Integer value) {
-            addCriterion("video_time =", value, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeNotEqualTo(Integer value) {
-            addCriterion("video_time <>", value, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeGreaterThan(Integer value) {
-            addCriterion("video_time >", value, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("video_time >=", value, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLessThan(Integer value) {
-            addCriterion("video_time <", value, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLessThanOrEqualTo(Integer value) {
-            addCriterion("video_time <=", value, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeIn(List<Integer> values) {
-            addCriterion("video_time in", values, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeNotIn(List<Integer> values) {
-            addCriterion("video_time not in", values, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeBetween(Integer value1, Integer value2) {
-            addCriterion("video_time between", value1, value2, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeNotBetween(Integer value1, Integer value2) {
-            addCriterion("video_time not between", value1, value2, "videoTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastIsNull() {
-            addCriterion("video_time_last is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastIsNotNull() {
-            addCriterion("video_time_last is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastEqualTo(Integer value) {
-            addCriterion("video_time_last =", value, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastNotEqualTo(Integer value) {
-            addCriterion("video_time_last <>", value, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastGreaterThan(Integer value) {
-            addCriterion("video_time_last >", value, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastGreaterThanOrEqualTo(Integer value) {
-            addCriterion("video_time_last >=", value, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastLessThan(Integer value) {
-            addCriterion("video_time_last <", value, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastLessThanOrEqualTo(Integer value) {
-            addCriterion("video_time_last <=", value, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastIn(List<Integer> values) {
-            addCriterion("video_time_last in", values, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastNotIn(List<Integer> values) {
-            addCriterion("video_time_last not in", values, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastBetween(Integer value1, Integer value2) {
-            addCriterion("video_time_last between", value1, value2, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeLastNotBetween(Integer value1, Integer value2) {
-            addCriterion("video_time_last not between", value1, value2, "videoTimeLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedIsNull() {
-            addCriterion("video_time_treed is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedIsNotNull() {
-            addCriterion("video_time_treed is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedEqualTo(Byte value) {
-            addCriterion("video_time_treed =", value, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedNotEqualTo(Byte value) {
-            addCriterion("video_time_treed <>", value, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedGreaterThan(Byte value) {
-            addCriterion("video_time_treed >", value, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedGreaterThanOrEqualTo(Byte value) {
-            addCriterion("video_time_treed >=", value, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedLessThan(Byte value) {
-            addCriterion("video_time_treed <", value, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedLessThanOrEqualTo(Byte value) {
-            addCriterion("video_time_treed <=", value, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedIn(List<Byte> values) {
-            addCriterion("video_time_treed in", values, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedNotIn(List<Byte> values) {
-            addCriterion("video_time_treed not in", values, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedBetween(Byte value1, Byte value2) {
-            addCriterion("video_time_treed between", value1, value2, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeTreedNotBetween(Byte value1, Byte value2) {
-            addCriterion("video_time_treed not between", value1, value2, "videoTimeTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingIsNull() {
-            addCriterion("video_time_ranking is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingIsNotNull() {
-            addCriterion("video_time_ranking is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingEqualTo(Integer value) {
-            addCriterion("video_time_ranking =", value, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingNotEqualTo(Integer value) {
-            addCriterion("video_time_ranking <>", value, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingGreaterThan(Integer value) {
-            addCriterion("video_time_ranking >", value, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingGreaterThanOrEqualTo(Integer value) {
-            addCriterion("video_time_ranking >=", value, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLessThan(Integer value) {
-            addCriterion("video_time_ranking <", value, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLessThanOrEqualTo(Integer value) {
-            addCriterion("video_time_ranking <=", value, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingIn(List<Integer> values) {
-            addCriterion("video_time_ranking in", values, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingNotIn(List<Integer> values) {
-            addCriterion("video_time_ranking not in", values, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingBetween(Integer value1, Integer value2) {
-            addCriterion("video_time_ranking between", value1, value2, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingNotBetween(Integer value1, Integer value2) {
-            addCriterion("video_time_ranking not between", value1, value2, "videoTimeRanking");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastIsNull() {
-            addCriterion("video_time_ranking_last is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastIsNotNull() {
-            addCriterion("video_time_ranking_last is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastEqualTo(Integer value) {
-            addCriterion("video_time_ranking_last =", value, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastNotEqualTo(Integer value) {
-            addCriterion("video_time_ranking_last <>", value, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastGreaterThan(Integer value) {
-            addCriterion("video_time_ranking_last >", value, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastGreaterThanOrEqualTo(Integer value) {
-            addCriterion("video_time_ranking_last >=", value, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastLessThan(Integer value) {
-            addCriterion("video_time_ranking_last <", value, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastLessThanOrEqualTo(Integer value) {
-            addCriterion("video_time_ranking_last <=", value, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastIn(List<Integer> values) {
-            addCriterion("video_time_ranking_last in", values, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastNotIn(List<Integer> values) {
-            addCriterion("video_time_ranking_last not in", values, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastBetween(Integer value1, Integer value2) {
-            addCriterion("video_time_ranking_last between", value1, value2, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingLastNotBetween(Integer value1, Integer value2) {
-            addCriterion("video_time_ranking_last not between", value1, value2, "videoTimeRankingLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedIsNull() {
-            addCriterion("video_time_ranking_treed is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedIsNotNull() {
-            addCriterion("video_time_ranking_treed is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedEqualTo(Byte value) {
-            addCriterion("video_time_ranking_treed =", value, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedNotEqualTo(Byte value) {
-            addCriterion("video_time_ranking_treed <>", value, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedGreaterThan(Byte value) {
-            addCriterion("video_time_ranking_treed >", value, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedGreaterThanOrEqualTo(Byte value) {
-            addCriterion("video_time_ranking_treed >=", value, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedLessThan(Byte value) {
-            addCriterion("video_time_ranking_treed <", value, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedLessThanOrEqualTo(Byte value) {
-            addCriterion("video_time_ranking_treed <=", value, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedIn(List<Byte> values) {
-            addCriterion("video_time_ranking_treed in", values, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedNotIn(List<Byte> values) {
-            addCriterion("video_time_ranking_treed not in", values, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedBetween(Byte value1, Byte value2) {
-            addCriterion("video_time_ranking_treed between", value1, value2, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoTimeRankingTreedNotBetween(Byte value1, Byte value2) {
-            addCriterion("video_time_ranking_treed not between", value1, value2, "videoTimeRankingTreed");
-            return (Criteria) this;
-        }
-
         public Criteria andSearchNumIsNull() {
             addCriterion("search_num is null");
             return (Criteria) this;
@@ -1155,6 +845,306 @@ public class FdTeacherMonthReportQuery {
             return (Criteria) this;
         }
 
+        public Criteria andStudentNumIsNull() {
+            addCriterion("student_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumIsNotNull() {
+            addCriterion("student_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumEqualTo(Integer value) {
+            addCriterion("student_num =", value, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumNotEqualTo(Integer value) {
+            addCriterion("student_num <>", value, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumGreaterThan(Integer value) {
+            addCriterion("student_num >", value, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("student_num >=", value, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumLessThan(Integer value) {
+            addCriterion("student_num <", value, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumLessThanOrEqualTo(Integer value) {
+            addCriterion("student_num <=", value, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumIn(List<Integer> values) {
+            addCriterion("student_num in", values, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumNotIn(List<Integer> values) {
+            addCriterion("student_num not in", values, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumBetween(Integer value1, Integer value2) {
+            addCriterion("student_num between", value1, value2, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("student_num not between", value1, value2, "studentNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgIsNull() {
+            addCriterion("search_avg is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgIsNotNull() {
+            addCriterion("search_avg is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgEqualTo(Integer value) {
+            addCriterion("search_avg =", value, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgNotEqualTo(Integer value) {
+            addCriterion("search_avg <>", value, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgGreaterThan(Integer value) {
+            addCriterion("search_avg >", value, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgGreaterThanOrEqualTo(Integer value) {
+            addCriterion("search_avg >=", value, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLessThan(Integer value) {
+            addCriterion("search_avg <", value, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLessThanOrEqualTo(Integer value) {
+            addCriterion("search_avg <=", value, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgIn(List<Integer> values) {
+            addCriterion("search_avg in", values, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgNotIn(List<Integer> values) {
+            addCriterion("search_avg not in", values, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgBetween(Integer value1, Integer value2) {
+            addCriterion("search_avg between", value1, value2, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgNotBetween(Integer value1, Integer value2) {
+            addCriterion("search_avg not between", value1, value2, "searchAvg");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingIsNull() {
+            addCriterion("search_avg_ranking is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingIsNotNull() {
+            addCriterion("search_avg_ranking is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingEqualTo(Integer value) {
+            addCriterion("search_avg_ranking =", value, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingNotEqualTo(Integer value) {
+            addCriterion("search_avg_ranking <>", value, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingGreaterThan(Integer value) {
+            addCriterion("search_avg_ranking >", value, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingGreaterThanOrEqualTo(Integer value) {
+            addCriterion("search_avg_ranking >=", value, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingLessThan(Integer value) {
+            addCriterion("search_avg_ranking <", value, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingLessThanOrEqualTo(Integer value) {
+            addCriterion("search_avg_ranking <=", value, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingIn(List<Integer> values) {
+            addCriterion("search_avg_ranking in", values, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingNotIn(List<Integer> values) {
+            addCriterion("search_avg_ranking not in", values, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingBetween(Integer value1, Integer value2) {
+            addCriterion("search_avg_ranking between", value1, value2, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgRankingNotBetween(Integer value1, Integer value2) {
+            addCriterion("search_avg_ranking not between", value1, value2, "searchAvgRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastIsNull() {
+            addCriterion("search_avg_last is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastIsNotNull() {
+            addCriterion("search_avg_last is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastEqualTo(Integer value) {
+            addCriterion("search_avg_last =", value, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastNotEqualTo(Integer value) {
+            addCriterion("search_avg_last <>", value, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastGreaterThan(Integer value) {
+            addCriterion("search_avg_last >", value, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastGreaterThanOrEqualTo(Integer value) {
+            addCriterion("search_avg_last >=", value, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastLessThan(Integer value) {
+            addCriterion("search_avg_last <", value, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastLessThanOrEqualTo(Integer value) {
+            addCriterion("search_avg_last <=", value, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastIn(List<Integer> values) {
+            addCriterion("search_avg_last in", values, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastNotIn(List<Integer> values) {
+            addCriterion("search_avg_last not in", values, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastBetween(Integer value1, Integer value2) {
+            addCriterion("search_avg_last between", value1, value2, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgLastNotBetween(Integer value1, Integer value2) {
+            addCriterion("search_avg_last not between", value1, value2, "searchAvgLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedIsNull() {
+            addCriterion("search_avg_treed is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedIsNotNull() {
+            addCriterion("search_avg_treed is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedEqualTo(Byte value) {
+            addCriterion("search_avg_treed =", value, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedNotEqualTo(Byte value) {
+            addCriterion("search_avg_treed <>", value, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedGreaterThan(Byte value) {
+            addCriterion("search_avg_treed >", value, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedGreaterThanOrEqualTo(Byte value) {
+            addCriterion("search_avg_treed >=", value, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedLessThan(Byte value) {
+            addCriterion("search_avg_treed <", value, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedLessThanOrEqualTo(Byte value) {
+            addCriterion("search_avg_treed <=", value, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedIn(List<Byte> values) {
+            addCriterion("search_avg_treed in", values, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedNotIn(List<Byte> values) {
+            addCriterion("search_avg_treed not in", values, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedBetween(Byte value1, Byte value2) {
+            addCriterion("search_avg_treed between", value1, value2, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSearchAvgTreedNotBetween(Byte value1, Byte value2) {
+            addCriterion("search_avg_treed not between", value1, value2, "searchAvgTreed");
+            return (Criteria) this;
+        }
+
         public Criteria andCorrectNumIsNull() {
             addCriterion("correct_num is null");
             return (Criteria) this;
@@ -1212,126 +1202,6 @@ public class FdTeacherMonthReportQuery {
 
         public Criteria andCorrectNumNotBetween(Integer value1, Integer value2) {
             addCriterion("correct_num not between", value1, value2, "correctNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastIsNull() {
-            addCriterion("correct_num_last is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastIsNotNull() {
-            addCriterion("correct_num_last is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastEqualTo(Integer value) {
-            addCriterion("correct_num_last =", value, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastNotEqualTo(Integer value) {
-            addCriterion("correct_num_last <>", value, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastGreaterThan(Integer value) {
-            addCriterion("correct_num_last >", value, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastGreaterThanOrEqualTo(Integer value) {
-            addCriterion("correct_num_last >=", value, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastLessThan(Integer value) {
-            addCriterion("correct_num_last <", value, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastLessThanOrEqualTo(Integer value) {
-            addCriterion("correct_num_last <=", value, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastIn(List<Integer> values) {
-            addCriterion("correct_num_last in", values, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastNotIn(List<Integer> values) {
-            addCriterion("correct_num_last not in", values, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastBetween(Integer value1, Integer value2) {
-            addCriterion("correct_num_last between", value1, value2, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumLastNotBetween(Integer value1, Integer value2) {
-            addCriterion("correct_num_last not between", value1, value2, "correctNumLast");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedIsNull() {
-            addCriterion("correct_num_treed is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedIsNotNull() {
-            addCriterion("correct_num_treed is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedEqualTo(Byte value) {
-            addCriterion("correct_num_treed =", value, "correctNumTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedNotEqualTo(Byte value) {
-            addCriterion("correct_num_treed <>", value, "correctNumTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedGreaterThan(Byte value) {
-            addCriterion("correct_num_treed >", value, "correctNumTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedGreaterThanOrEqualTo(Byte value) {
-            addCriterion("correct_num_treed >=", value, "correctNumTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedLessThan(Byte value) {
-            addCriterion("correct_num_treed <", value, "correctNumTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedLessThanOrEqualTo(Byte value) {
-            addCriterion("correct_num_treed <=", value, "correctNumTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedIn(List<Byte> values) {
-            addCriterion("correct_num_treed in", values, "correctNumTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedNotIn(List<Byte> values) {
-            addCriterion("correct_num_treed not in", values, "correctNumTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedBetween(Byte value1, Byte value2) {
-            addCriterion("correct_num_treed between", value1, value2, "correctNumTreed");
-            return (Criteria) this;
-        }
-
-        public Criteria andCorrectNumTreedNotBetween(Byte value1, Byte value2) {
-            addCriterion("correct_num_treed not between", value1, value2, "correctNumTreed");
             return (Criteria) this;
         }
 
@@ -1515,303 +1385,903 @@ public class FdTeacherMonthReportQuery {
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumIsNull() {
-            addCriterion("exceed_num is null");
+        public Criteria andCorrectProRankingIsNull() {
+            addCriterion("correct_pro_ranking is null");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumIsNotNull() {
-            addCriterion("exceed_num is not null");
+        public Criteria andCorrectProRankingIsNotNull() {
+            addCriterion("correct_pro_ranking is not null");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumEqualTo(Integer value) {
-            addCriterion("exceed_num =", value, "exceedNum");
+        public Criteria andCorrectProRankingEqualTo(Integer value) {
+            addCriterion("correct_pro_ranking =", value, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumNotEqualTo(Integer value) {
-            addCriterion("exceed_num <>", value, "exceedNum");
+        public Criteria andCorrectProRankingNotEqualTo(Integer value) {
+            addCriterion("correct_pro_ranking <>", value, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumGreaterThan(Integer value) {
-            addCriterion("exceed_num >", value, "exceedNum");
+        public Criteria andCorrectProRankingGreaterThan(Integer value) {
+            addCriterion("correct_pro_ranking >", value, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumGreaterThanOrEqualTo(Integer value) {
-            addCriterion("exceed_num >=", value, "exceedNum");
+        public Criteria andCorrectProRankingGreaterThanOrEqualTo(Integer value) {
+            addCriterion("correct_pro_ranking >=", value, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumLessThan(Integer value) {
-            addCriterion("exceed_num <", value, "exceedNum");
+        public Criteria andCorrectProRankingLessThan(Integer value) {
+            addCriterion("correct_pro_ranking <", value, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumLessThanOrEqualTo(Integer value) {
-            addCriterion("exceed_num <=", value, "exceedNum");
+        public Criteria andCorrectProRankingLessThanOrEqualTo(Integer value) {
+            addCriterion("correct_pro_ranking <=", value, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumIn(List<Integer> values) {
-            addCriterion("exceed_num in", values, "exceedNum");
+        public Criteria andCorrectProRankingIn(List<Integer> values) {
+            addCriterion("correct_pro_ranking in", values, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumNotIn(List<Integer> values) {
-            addCriterion("exceed_num not in", values, "exceedNum");
+        public Criteria andCorrectProRankingNotIn(List<Integer> values) {
+            addCriterion("correct_pro_ranking not in", values, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumBetween(Integer value1, Integer value2) {
-            addCriterion("exceed_num between", value1, value2, "exceedNum");
+        public Criteria andCorrectProRankingBetween(Integer value1, Integer value2) {
+            addCriterion("correct_pro_ranking between", value1, value2, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andExceedNumNotBetween(Integer value1, Integer value2) {
-            addCriterion("exceed_num not between", value1, value2, "exceedNum");
+        public Criteria andCorrectProRankingNotBetween(Integer value1, Integer value2) {
+            addCriterion("correct_pro_ranking not between", value1, value2, "correctProRanking");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumIsNull() {
-            addCriterion("total_num is null");
+        public Criteria andExampaperAvgProIsNull() {
+            addCriterion("exampaper_avg_pro is null");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumIsNotNull() {
-            addCriterion("total_num is not null");
+        public Criteria andExampaperAvgProIsNotNull() {
+            addCriterion("exampaper_avg_pro is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumEqualTo(Integer value) {
-            addCriterion("total_num =", value, "totalNum");
+        public Criteria andExampaperAvgProEqualTo(BigDecimal value) {
+            addCriterion("exampaper_avg_pro =", value, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumNotEqualTo(Integer value) {
-            addCriterion("total_num <>", value, "totalNum");
+        public Criteria andExampaperAvgProNotEqualTo(BigDecimal value) {
+            addCriterion("exampaper_avg_pro <>", value, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumGreaterThan(Integer value) {
-            addCriterion("total_num >", value, "totalNum");
+        public Criteria andExampaperAvgProGreaterThan(BigDecimal value) {
+            addCriterion("exampaper_avg_pro >", value, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumGreaterThanOrEqualTo(Integer value) {
-            addCriterion("total_num >=", value, "totalNum");
+        public Criteria andExampaperAvgProGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("exampaper_avg_pro >=", value, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumLessThan(Integer value) {
-            addCriterion("total_num <", value, "totalNum");
+        public Criteria andExampaperAvgProLessThan(BigDecimal value) {
+            addCriterion("exampaper_avg_pro <", value, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumLessThanOrEqualTo(Integer value) {
-            addCriterion("total_num <=", value, "totalNum");
+        public Criteria andExampaperAvgProLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("exampaper_avg_pro <=", value, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumIn(List<Integer> values) {
-            addCriterion("total_num in", values, "totalNum");
+        public Criteria andExampaperAvgProIn(List<BigDecimal> values) {
+            addCriterion("exampaper_avg_pro in", values, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumNotIn(List<Integer> values) {
-            addCriterion("total_num not in", values, "totalNum");
+        public Criteria andExampaperAvgProNotIn(List<BigDecimal> values) {
+            addCriterion("exampaper_avg_pro not in", values, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumBetween(Integer value1, Integer value2) {
-            addCriterion("total_num between", value1, value2, "totalNum");
+        public Criteria andExampaperAvgProBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("exampaper_avg_pro between", value1, value2, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andTotalNumNotBetween(Integer value1, Integer value2) {
-            addCriterion("total_num not between", value1, value2, "totalNum");
+        public Criteria andExampaperAvgProNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("exampaper_avg_pro not between", value1, value2, "exampaperAvgPro");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProIsNull() {
-            addCriterion("beat_pro is null");
+        public Criteria andExampaperScoreIsNull() {
+            addCriterion("exampaper_score is null");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProIsNotNull() {
-            addCriterion("beat_pro is not null");
+        public Criteria andExampaperScoreIsNotNull() {
+            addCriterion("exampaper_score is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProEqualTo(BigDecimal value) {
-            addCriterion("beat_pro =", value, "beatPro");
+        public Criteria andExampaperScoreEqualTo(BigDecimal value) {
+            addCriterion("exampaper_score =", value, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProNotEqualTo(BigDecimal value) {
-            addCriterion("beat_pro <>", value, "beatPro");
+        public Criteria andExampaperScoreNotEqualTo(BigDecimal value) {
+            addCriterion("exampaper_score <>", value, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProGreaterThan(BigDecimal value) {
-            addCriterion("beat_pro >", value, "beatPro");
+        public Criteria andExampaperScoreGreaterThan(BigDecimal value) {
+            addCriterion("exampaper_score >", value, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("beat_pro >=", value, "beatPro");
+        public Criteria andExampaperScoreGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("exampaper_score >=", value, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLessThan(BigDecimal value) {
-            addCriterion("beat_pro <", value, "beatPro");
+        public Criteria andExampaperScoreLessThan(BigDecimal value) {
+            addCriterion("exampaper_score <", value, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("beat_pro <=", value, "beatPro");
+        public Criteria andExampaperScoreLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("exampaper_score <=", value, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProIn(List<BigDecimal> values) {
-            addCriterion("beat_pro in", values, "beatPro");
+        public Criteria andExampaperScoreIn(List<BigDecimal> values) {
+            addCriterion("exampaper_score in", values, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProNotIn(List<BigDecimal> values) {
-            addCriterion("beat_pro not in", values, "beatPro");
+        public Criteria andExampaperScoreNotIn(List<BigDecimal> values) {
+            addCriterion("exampaper_score not in", values, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("beat_pro between", value1, value2, "beatPro");
+        public Criteria andExampaperScoreBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("exampaper_score between", value1, value2, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("beat_pro not between", value1, value2, "beatPro");
+        public Criteria andExampaperScoreNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("exampaper_score not between", value1, value2, "exampaperScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastIsNull() {
-            addCriterion("beat_pro_last is null");
+        public Criteria andExampaperTotalScoreIsNull() {
+            addCriterion("exampaper_total_score is null");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastIsNotNull() {
-            addCriterion("beat_pro_last is not null");
+        public Criteria andExampaperTotalScoreIsNotNull() {
+            addCriterion("exampaper_total_score is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastEqualTo(BigDecimal value) {
-            addCriterion("beat_pro_last =", value, "beatProLast");
+        public Criteria andExampaperTotalScoreEqualTo(BigDecimal value) {
+            addCriterion("exampaper_total_score =", value, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastNotEqualTo(BigDecimal value) {
-            addCriterion("beat_pro_last <>", value, "beatProLast");
+        public Criteria andExampaperTotalScoreNotEqualTo(BigDecimal value) {
+            addCriterion("exampaper_total_score <>", value, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastGreaterThan(BigDecimal value) {
-            addCriterion("beat_pro_last >", value, "beatProLast");
+        public Criteria andExampaperTotalScoreGreaterThan(BigDecimal value) {
+            addCriterion("exampaper_total_score >", value, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("beat_pro_last >=", value, "beatProLast");
+        public Criteria andExampaperTotalScoreGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("exampaper_total_score >=", value, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastLessThan(BigDecimal value) {
-            addCriterion("beat_pro_last <", value, "beatProLast");
+        public Criteria andExampaperTotalScoreLessThan(BigDecimal value) {
+            addCriterion("exampaper_total_score <", value, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("beat_pro_last <=", value, "beatProLast");
+        public Criteria andExampaperTotalScoreLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("exampaper_total_score <=", value, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastIn(List<BigDecimal> values) {
-            addCriterion("beat_pro_last in", values, "beatProLast");
+        public Criteria andExampaperTotalScoreIn(List<BigDecimal> values) {
+            addCriterion("exampaper_total_score in", values, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastNotIn(List<BigDecimal> values) {
-            addCriterion("beat_pro_last not in", values, "beatProLast");
+        public Criteria andExampaperTotalScoreNotIn(List<BigDecimal> values) {
+            addCriterion("exampaper_total_score not in", values, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("beat_pro_last between", value1, value2, "beatProLast");
+        public Criteria andExampaperTotalScoreBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("exampaper_total_score between", value1, value2, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProLastNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("beat_pro_last not between", value1, value2, "beatProLast");
+        public Criteria andExampaperTotalScoreNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("exampaper_total_score not between", value1, value2, "exampaperTotalScore");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedIsNull() {
-            addCriterion("beat_pro_treed is null");
+        public Criteria andExampaperNumIsNull() {
+            addCriterion("exampaper_num is null");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedIsNotNull() {
-            addCriterion("beat_pro_treed is not null");
+        public Criteria andExampaperNumIsNotNull() {
+            addCriterion("exampaper_num is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedEqualTo(Byte value) {
-            addCriterion("beat_pro_treed =", value, "beatProTreed");
+        public Criteria andExampaperNumEqualTo(Integer value) {
+            addCriterion("exampaper_num =", value, "exampaperNum");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedNotEqualTo(Byte value) {
-            addCriterion("beat_pro_treed <>", value, "beatProTreed");
+        public Criteria andExampaperNumNotEqualTo(Integer value) {
+            addCriterion("exampaper_num <>", value, "exampaperNum");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedGreaterThan(Byte value) {
-            addCriterion("beat_pro_treed >", value, "beatProTreed");
+        public Criteria andExampaperNumGreaterThan(Integer value) {
+            addCriterion("exampaper_num >", value, "exampaperNum");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedGreaterThanOrEqualTo(Byte value) {
-            addCriterion("beat_pro_treed >=", value, "beatProTreed");
+        public Criteria andExampaperNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("exampaper_num >=", value, "exampaperNum");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedLessThan(Byte value) {
-            addCriterion("beat_pro_treed <", value, "beatProTreed");
+        public Criteria andExampaperNumLessThan(Integer value) {
+            addCriterion("exampaper_num <", value, "exampaperNum");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedLessThanOrEqualTo(Byte value) {
-            addCriterion("beat_pro_treed <=", value, "beatProTreed");
+        public Criteria andExampaperNumLessThanOrEqualTo(Integer value) {
+            addCriterion("exampaper_num <=", value, "exampaperNum");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedIn(List<Byte> values) {
-            addCriterion("beat_pro_treed in", values, "beatProTreed");
+        public Criteria andExampaperNumIn(List<Integer> values) {
+            addCriterion("exampaper_num in", values, "exampaperNum");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedNotIn(List<Byte> values) {
-            addCriterion("beat_pro_treed not in", values, "beatProTreed");
+        public Criteria andExampaperNumNotIn(List<Integer> values) {
+            addCriterion("exampaper_num not in", values, "exampaperNum");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedBetween(Byte value1, Byte value2) {
-            addCriterion("beat_pro_treed between", value1, value2, "beatProTreed");
+        public Criteria andExampaperNumBetween(Integer value1, Integer value2) {
+            addCriterion("exampaper_num between", value1, value2, "exampaperNum");
             return (Criteria) this;
         }
 
-        public Criteria andBeatProTreedNotBetween(Byte value1, Byte value2) {
-            addCriterion("beat_pro_treed not between", value1, value2, "beatProTreed");
+        public Criteria andExampaperNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("exampaper_num not between", value1, value2, "exampaperNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastIsNull() {
+            addCriterion("exampaper_avg_pro_last is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastIsNotNull() {
+            addCriterion("exampaper_avg_pro_last is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastEqualTo(BigDecimal value) {
+            addCriterion("exampaper_avg_pro_last =", value, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastNotEqualTo(BigDecimal value) {
+            addCriterion("exampaper_avg_pro_last <>", value, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastGreaterThan(BigDecimal value) {
+            addCriterion("exampaper_avg_pro_last >", value, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("exampaper_avg_pro_last >=", value, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastLessThan(BigDecimal value) {
+            addCriterion("exampaper_avg_pro_last <", value, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("exampaper_avg_pro_last <=", value, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastIn(List<BigDecimal> values) {
+            addCriterion("exampaper_avg_pro_last in", values, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastNotIn(List<BigDecimal> values) {
+            addCriterion("exampaper_avg_pro_last not in", values, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("exampaper_avg_pro_last between", value1, value2, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProLastNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("exampaper_avg_pro_last not between", value1, value2, "exampaperAvgProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingIsNull() {
+            addCriterion("exampaper_avg_pro_ranking is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingIsNotNull() {
+            addCriterion("exampaper_avg_pro_ranking is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingEqualTo(Integer value) {
+            addCriterion("exampaper_avg_pro_ranking =", value, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingNotEqualTo(Integer value) {
+            addCriterion("exampaper_avg_pro_ranking <>", value, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingGreaterThan(Integer value) {
+            addCriterion("exampaper_avg_pro_ranking >", value, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingGreaterThanOrEqualTo(Integer value) {
+            addCriterion("exampaper_avg_pro_ranking >=", value, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingLessThan(Integer value) {
+            addCriterion("exampaper_avg_pro_ranking <", value, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingLessThanOrEqualTo(Integer value) {
+            addCriterion("exampaper_avg_pro_ranking <=", value, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingIn(List<Integer> values) {
+            addCriterion("exampaper_avg_pro_ranking in", values, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingNotIn(List<Integer> values) {
+            addCriterion("exampaper_avg_pro_ranking not in", values, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingBetween(Integer value1, Integer value2) {
+            addCriterion("exampaper_avg_pro_ranking between", value1, value2, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProRankingNotBetween(Integer value1, Integer value2) {
+            addCriterion("exampaper_avg_pro_ranking not between", value1, value2, "exampaperAvgProRanking");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedIsNull() {
+            addCriterion("exampaper_avg_pro_treed is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedIsNotNull() {
+            addCriterion("exampaper_avg_pro_treed is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedEqualTo(Byte value) {
+            addCriterion("exampaper_avg_pro_treed =", value, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedNotEqualTo(Byte value) {
+            addCriterion("exampaper_avg_pro_treed <>", value, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedGreaterThan(Byte value) {
+            addCriterion("exampaper_avg_pro_treed >", value, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedGreaterThanOrEqualTo(Byte value) {
+            addCriterion("exampaper_avg_pro_treed >=", value, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedLessThan(Byte value) {
+            addCriterion("exampaper_avg_pro_treed <", value, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedLessThanOrEqualTo(Byte value) {
+            addCriterion("exampaper_avg_pro_treed <=", value, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedIn(List<Byte> values) {
+            addCriterion("exampaper_avg_pro_treed in", values, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedNotIn(List<Byte> values) {
+            addCriterion("exampaper_avg_pro_treed not in", values, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedBetween(Byte value1, Byte value2) {
+            addCriterion("exampaper_avg_pro_treed between", value1, value2, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperAvgProTreedNotBetween(Byte value1, Byte value2) {
+            addCriterion("exampaper_avg_pro_treed not between", value1, value2, "exampaperAvgProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumIsNull() {
+            addCriterion("practice_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumIsNotNull() {
+            addCriterion("practice_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumEqualTo(Integer value) {
+            addCriterion("practice_num =", value, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumNotEqualTo(Integer value) {
+            addCriterion("practice_num <>", value, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumGreaterThan(Integer value) {
+            addCriterion("practice_num >", value, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("practice_num >=", value, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumLessThan(Integer value) {
+            addCriterion("practice_num <", value, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumLessThanOrEqualTo(Integer value) {
+            addCriterion("practice_num <=", value, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumIn(List<Integer> values) {
+            addCriterion("practice_num in", values, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumNotIn(List<Integer> values) {
+            addCriterion("practice_num not in", values, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumBetween(Integer value1, Integer value2) {
+            addCriterion("practice_num between", value1, value2, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("practice_num not between", value1, value2, "practiceNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumIsNull() {
+            addCriterion("practice_finish_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumIsNotNull() {
+            addCriterion("practice_finish_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumEqualTo(Integer value) {
+            addCriterion("practice_finish_num =", value, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumNotEqualTo(Integer value) {
+            addCriterion("practice_finish_num <>", value, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumGreaterThan(Integer value) {
+            addCriterion("practice_finish_num >", value, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("practice_finish_num >=", value, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumLessThan(Integer value) {
+            addCriterion("practice_finish_num <", value, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumLessThanOrEqualTo(Integer value) {
+            addCriterion("practice_finish_num <=", value, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumIn(List<Integer> values) {
+            addCriterion("practice_finish_num in", values, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumNotIn(List<Integer> values) {
+            addCriterion("practice_finish_num not in", values, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumBetween(Integer value1, Integer value2) {
+            addCriterion("practice_finish_num between", value1, value2, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeFinishNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("practice_finish_num not between", value1, value2, "practiceFinishNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumIsNull() {
+            addCriterion("practice_unfinished_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumIsNotNull() {
+            addCriterion("practice_unfinished_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumEqualTo(Integer value) {
+            addCriterion("practice_unfinished_num =", value, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumNotEqualTo(Integer value) {
+            addCriterion("practice_unfinished_num <>", value, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumGreaterThan(Integer value) {
+            addCriterion("practice_unfinished_num >", value, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("practice_unfinished_num >=", value, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumLessThan(Integer value) {
+            addCriterion("practice_unfinished_num <", value, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumLessThanOrEqualTo(Integer value) {
+            addCriterion("practice_unfinished_num <=", value, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumIn(List<Integer> values) {
+            addCriterion("practice_unfinished_num in", values, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumNotIn(List<Integer> values) {
+            addCriterion("practice_unfinished_num not in", values, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumBetween(Integer value1, Integer value2) {
+            addCriterion("practice_unfinished_num between", value1, value2, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeUnfinishedNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("practice_unfinished_num not between", value1, value2, "practiceUnfinishedNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProIsNull() {
+            addCriterion("practice_pro is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProIsNotNull() {
+            addCriterion("practice_pro is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProEqualTo(BigDecimal value) {
+            addCriterion("practice_pro =", value, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProNotEqualTo(BigDecimal value) {
+            addCriterion("practice_pro <>", value, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProGreaterThan(BigDecimal value) {
+            addCriterion("practice_pro >", value, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("practice_pro >=", value, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLessThan(BigDecimal value) {
+            addCriterion("practice_pro <", value, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("practice_pro <=", value, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProIn(List<BigDecimal> values) {
+            addCriterion("practice_pro in", values, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProNotIn(List<BigDecimal> values) {
+            addCriterion("practice_pro not in", values, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("practice_pro between", value1, value2, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("practice_pro not between", value1, value2, "practicePro");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastIsNull() {
+            addCriterion("practice_pro_last is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastIsNotNull() {
+            addCriterion("practice_pro_last is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastEqualTo(BigDecimal value) {
+            addCriterion("practice_pro_last =", value, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastNotEqualTo(BigDecimal value) {
+            addCriterion("practice_pro_last <>", value, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastGreaterThan(BigDecimal value) {
+            addCriterion("practice_pro_last >", value, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("practice_pro_last >=", value, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastLessThan(BigDecimal value) {
+            addCriterion("practice_pro_last <", value, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("practice_pro_last <=", value, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastIn(List<BigDecimal> values) {
+            addCriterion("practice_pro_last in", values, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastNotIn(List<BigDecimal> values) {
+            addCriterion("practice_pro_last not in", values, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("practice_pro_last between", value1, value2, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProLastNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("practice_pro_last not between", value1, value2, "practiceProLast");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedIsNull() {
+            addCriterion("practice_pro_treed is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedIsNotNull() {
+            addCriterion("practice_pro_treed is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedEqualTo(Byte value) {
+            addCriterion("practice_pro_treed =", value, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedNotEqualTo(Byte value) {
+            addCriterion("practice_pro_treed <>", value, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedGreaterThan(Byte value) {
+            addCriterion("practice_pro_treed >", value, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedGreaterThanOrEqualTo(Byte value) {
+            addCriterion("practice_pro_treed >=", value, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedLessThan(Byte value) {
+            addCriterion("practice_pro_treed <", value, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedLessThanOrEqualTo(Byte value) {
+            addCriterion("practice_pro_treed <=", value, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedIn(List<Byte> values) {
+            addCriterion("practice_pro_treed in", values, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedNotIn(List<Byte> values) {
+            addCriterion("practice_pro_treed not in", values, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedBetween(Byte value1, Byte value2) {
+            addCriterion("practice_pro_treed between", value1, value2, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProTreedNotBetween(Byte value1, Byte value2) {
+            addCriterion("practice_pro_treed not between", value1, value2, "practiceProTreed");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingIsNull() {
+            addCriterion("practice_pro_renking is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingIsNotNull() {
+            addCriterion("practice_pro_renking is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingEqualTo(Integer value) {
+            addCriterion("practice_pro_renking =", value, "practiceProRenking");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingNotEqualTo(Integer value) {
+            addCriterion("practice_pro_renking <>", value, "practiceProRenking");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingGreaterThan(Integer value) {
+            addCriterion("practice_pro_renking >", value, "practiceProRenking");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingGreaterThanOrEqualTo(Integer value) {
+            addCriterion("practice_pro_renking >=", value, "practiceProRenking");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingLessThan(Integer value) {
+            addCriterion("practice_pro_renking <", value, "practiceProRenking");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingLessThanOrEqualTo(Integer value) {
+            addCriterion("practice_pro_renking <=", value, "practiceProRenking");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingIn(List<Integer> values) {
+            addCriterion("practice_pro_renking in", values, "practiceProRenking");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingNotIn(List<Integer> values) {
+            addCriterion("practice_pro_renking not in", values, "practiceProRenking");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingBetween(Integer value1, Integer value2) {
+            addCriterion("practice_pro_renking between", value1, value2, "practiceProRenking");
+            return (Criteria) this;
+        }
+
+        public Criteria andPracticeProRenkingNotBetween(Integer value1, Integer value2) {
+            addCriterion("practice_pro_renking not between", value1, value2, "practiceProRenking");
             return (Criteria) this;
         }
 
@@ -1932,366 +2402,6 @@ public class FdTeacherMonthReportQuery {
 
         public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
             addCriterion("create_time not between", value1, value2, "createTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeIsNull() {
-            addCriterion("blind_knowledge is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeIsNotNull() {
-            addCriterion("blind_knowledge is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeEqualTo(Integer value) {
-            addCriterion("blind_knowledge =", value, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeNotEqualTo(Integer value) {
-            addCriterion("blind_knowledge <>", value, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeGreaterThan(Integer value) {
-            addCriterion("blind_knowledge >", value, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("blind_knowledge >=", value, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeLessThan(Integer value) {
-            addCriterion("blind_knowledge <", value, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeLessThanOrEqualTo(Integer value) {
-            addCriterion("blind_knowledge <=", value, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeIn(List<Integer> values) {
-            addCriterion("blind_knowledge in", values, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeNotIn(List<Integer> values) {
-            addCriterion("blind_knowledge not in", values, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeBetween(Integer value1, Integer value2) {
-            addCriterion("blind_knowledge between", value1, value2, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlindKnowledgeNotBetween(Integer value1, Integer value2) {
-            addCriterion("blind_knowledge not between", value1, value2, "blindKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeIsNull() {
-            addCriterion("weak_knowledge is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeIsNotNull() {
-            addCriterion("weak_knowledge is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeEqualTo(Integer value) {
-            addCriterion("weak_knowledge =", value, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeNotEqualTo(Integer value) {
-            addCriterion("weak_knowledge <>", value, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeGreaterThan(Integer value) {
-            addCriterion("weak_knowledge >", value, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("weak_knowledge >=", value, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeLessThan(Integer value) {
-            addCriterion("weak_knowledge <", value, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeLessThanOrEqualTo(Integer value) {
-            addCriterion("weak_knowledge <=", value, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeIn(List<Integer> values) {
-            addCriterion("weak_knowledge in", values, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeNotIn(List<Integer> values) {
-            addCriterion("weak_knowledge not in", values, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeBetween(Integer value1, Integer value2) {
-            addCriterion("weak_knowledge between", value1, value2, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andWeakKnowledgeNotBetween(Integer value1, Integer value2) {
-            addCriterion("weak_knowledge not between", value1, value2, "weakKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeIsNull() {
-            addCriterion("difficulty_knowledge is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeIsNotNull() {
-            addCriterion("difficulty_knowledge is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeEqualTo(Integer value) {
-            addCriterion("difficulty_knowledge =", value, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeNotEqualTo(Integer value) {
-            addCriterion("difficulty_knowledge <>", value, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeGreaterThan(Integer value) {
-            addCriterion("difficulty_knowledge >", value, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("difficulty_knowledge >=", value, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeLessThan(Integer value) {
-            addCriterion("difficulty_knowledge <", value, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeLessThanOrEqualTo(Integer value) {
-            addCriterion("difficulty_knowledge <=", value, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeIn(List<Integer> values) {
-            addCriterion("difficulty_knowledge in", values, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeNotIn(List<Integer> values) {
-            addCriterion("difficulty_knowledge not in", values, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeBetween(Integer value1, Integer value2) {
-            addCriterion("difficulty_knowledge between", value1, value2, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andDifficultyKnowledgeNotBetween(Integer value1, Integer value2) {
-            addCriterion("difficulty_knowledge not between", value1, value2, "difficultyKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeIsNull() {
-            addCriterion("base_knowledge is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeIsNotNull() {
-            addCriterion("base_knowledge is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeEqualTo(Integer value) {
-            addCriterion("base_knowledge =", value, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeNotEqualTo(Integer value) {
-            addCriterion("base_knowledge <>", value, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeGreaterThan(Integer value) {
-            addCriterion("base_knowledge >", value, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("base_knowledge >=", value, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeLessThan(Integer value) {
-            addCriterion("base_knowledge <", value, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeLessThanOrEqualTo(Integer value) {
-            addCriterion("base_knowledge <=", value, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeIn(List<Integer> values) {
-            addCriterion("base_knowledge in", values, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeNotIn(List<Integer> values) {
-            addCriterion("base_knowledge not in", values, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeBetween(Integer value1, Integer value2) {
-            addCriterion("base_knowledge between", value1, value2, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andBaseKnowledgeNotBetween(Integer value1, Integer value2) {
-            addCriterion("base_knowledge not between", value1, value2, "baseKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeIsNull() {
-            addCriterion("merit_knowledge is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeIsNotNull() {
-            addCriterion("merit_knowledge is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeEqualTo(Integer value) {
-            addCriterion("merit_knowledge =", value, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeNotEqualTo(Integer value) {
-            addCriterion("merit_knowledge <>", value, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeGreaterThan(Integer value) {
-            addCriterion("merit_knowledge >", value, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("merit_knowledge >=", value, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeLessThan(Integer value) {
-            addCriterion("merit_knowledge <", value, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeLessThanOrEqualTo(Integer value) {
-            addCriterion("merit_knowledge <=", value, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeIn(List<Integer> values) {
-            addCriterion("merit_knowledge in", values, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeNotIn(List<Integer> values) {
-            addCriterion("merit_knowledge not in", values, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeBetween(Integer value1, Integer value2) {
-            addCriterion("merit_knowledge between", value1, value2, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andMeritKnowledgeNotBetween(Integer value1, Integer value2) {
-            addCriterion("merit_knowledge not between", value1, value2, "meritKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeIsNull() {
-            addCriterion("strong_knowledge is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeIsNotNull() {
-            addCriterion("strong_knowledge is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeEqualTo(Integer value) {
-            addCriterion("strong_knowledge =", value, "strongKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeNotEqualTo(Integer value) {
-            addCriterion("strong_knowledge <>", value, "strongKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeGreaterThan(Integer value) {
-            addCriterion("strong_knowledge >", value, "strongKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("strong_knowledge >=", value, "strongKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeLessThan(Integer value) {
-            addCriterion("strong_knowledge <", value, "strongKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeLessThanOrEqualTo(Integer value) {
-            addCriterion("strong_knowledge <=", value, "strongKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeIn(List<Integer> values) {
-            addCriterion("strong_knowledge in", values, "strongKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeNotIn(List<Integer> values) {
-            addCriterion("strong_knowledge not in", values, "strongKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeBetween(Integer value1, Integer value2) {
-            addCriterion("strong_knowledge between", value1, value2, "strongKnowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andStrongKnowledgeNotBetween(Integer value1, Integer value2) {
-            addCriterion("strong_knowledge not between", value1, value2, "strongKnowledge");
             return (Criteria) this;
         }
     }

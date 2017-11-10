@@ -398,6 +398,66 @@ public class FdExampaperItemQuery {
             return (Criteria) this;
         }
 
+        public Criteria andTimuTypeIdIsNull() {
+            addCriterion("timu_type_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdIsNotNull() {
+            addCriterion("timu_type_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdEqualTo(Integer value) {
+            addCriterion("timu_type_id =", value, "timuTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdNotEqualTo(Integer value) {
+            addCriterion("timu_type_id <>", value, "timuTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdGreaterThan(Integer value) {
+            addCriterion("timu_type_id >", value, "timuTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("timu_type_id >=", value, "timuTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdLessThan(Integer value) {
+            addCriterion("timu_type_id <", value, "timuTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("timu_type_id <=", value, "timuTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdIn(List<Integer> values) {
+            addCriterion("timu_type_id in", values, "timuTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdNotIn(List<Integer> values) {
+            addCriterion("timu_type_id not in", values, "timuTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdBetween(Integer value1, Integer value2) {
+            addCriterion("timu_type_id between", value1, value2, "timuTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuTypeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("timu_type_id not between", value1, value2, "timuTypeId");
+            return (Criteria) this;
+        }
+
         public Criteria andDescriptionIsNull() {
             addCriterion("description is null");
             return (Criteria) this;
@@ -588,63 +648,63 @@ public class FdExampaperItemQuery {
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdIsNull() {
-            addCriterion("timu_type_id is null");
+        public Criteria andIsDelIsNull() {
+            addCriterion("is_del is null");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdIsNotNull() {
-            addCriterion("timu_type_id is not null");
+        public Criteria andIsDelIsNotNull() {
+            addCriterion("is_del is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdEqualTo(Integer value) {
-            addCriterion("timu_type_id =", value, "timuTypeId");
+        public Criteria andIsDelEqualTo(Boolean value) {
+            addCriterion("is_del =", value, "isDel");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdNotEqualTo(Integer value) {
-            addCriterion("timu_type_id <>", value, "timuTypeId");
+        public Criteria andIsDelNotEqualTo(Boolean value) {
+            addCriterion("is_del <>", value, "isDel");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdGreaterThan(Integer value) {
-            addCriterion("timu_type_id >", value, "timuTypeId");
+        public Criteria andIsDelGreaterThan(Boolean value) {
+            addCriterion("is_del >", value, "isDel");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("timu_type_id >=", value, "timuTypeId");
+        public Criteria andIsDelGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("is_del >=", value, "isDel");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdLessThan(Integer value) {
-            addCriterion("timu_type_id <", value, "timuTypeId");
+        public Criteria andIsDelLessThan(Boolean value) {
+            addCriterion("is_del <", value, "isDel");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdLessThanOrEqualTo(Integer value) {
-            addCriterion("timu_type_id <=", value, "timuTypeId");
+        public Criteria andIsDelLessThanOrEqualTo(Boolean value) {
+            addCriterion("is_del <=", value, "isDel");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdIn(List<Integer> values) {
-            addCriterion("timu_type_id in", values, "timuTypeId");
+        public Criteria andIsDelIn(List<Boolean> values) {
+            addCriterion("is_del in", values, "isDel");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdNotIn(List<Integer> values) {
-            addCriterion("timu_type_id not in", values, "timuTypeId");
+        public Criteria andIsDelNotIn(List<Boolean> values) {
+            addCriterion("is_del not in", values, "isDel");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdBetween(Integer value1, Integer value2) {
-            addCriterion("timu_type_id between", value1, value2, "timuTypeId");
+        public Criteria andIsDelBetween(Boolean value1, Boolean value2) {
+            addCriterion("is_del between", value1, value2, "isDel");
             return (Criteria) this;
         }
 
-        public Criteria andTimuTypeIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("timu_type_id not between", value1, value2, "timuTypeId");
+        public Criteria andIsDelNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("is_del not between", value1, value2, "isDel");
             return (Criteria) this;
         }
 
@@ -705,66 +765,6 @@ public class FdExampaperItemQuery {
 
         public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
             addCriterion("create_time not between", value1, value2, "createTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelIsNull() {
-            addCriterion("is_del is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelIsNotNull() {
-            addCriterion("is_del is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelEqualTo(Boolean value) {
-            addCriterion("is_del =", value, "isDel");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelNotEqualTo(Boolean value) {
-            addCriterion("is_del <>", value, "isDel");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelGreaterThan(Boolean value) {
-            addCriterion("is_del >", value, "isDel");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("is_del >=", value, "isDel");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelLessThan(Boolean value) {
-            addCriterion("is_del <", value, "isDel");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelLessThanOrEqualTo(Boolean value) {
-            addCriterion("is_del <=", value, "isDel");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelIn(List<Boolean> values) {
-            addCriterion("is_del in", values, "isDel");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelNotIn(List<Boolean> values) {
-            addCriterion("is_del not in", values, "isDel");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelBetween(Boolean value1, Boolean value2) {
-            addCriterion("is_del between", value1, value2, "isDel");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsDelNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("is_del not between", value1, value2, "isDel");
             return (Criteria) this;
         }
     }

@@ -207,76 +207,6 @@ public class SysExceptionLogQuery {
             return (Criteria) this;
         }
 
-        public Criteria andExceptionIsNull() {
-            addCriterion("exception is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionIsNotNull() {
-            addCriterion("exception is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionEqualTo(String value) {
-            addCriterion("exception =", value, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionNotEqualTo(String value) {
-            addCriterion("exception <>", value, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionGreaterThan(String value) {
-            addCriterion("exception >", value, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionGreaterThanOrEqualTo(String value) {
-            addCriterion("exception >=", value, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionLessThan(String value) {
-            addCriterion("exception <", value, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionLessThanOrEqualTo(String value) {
-            addCriterion("exception <=", value, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionLike(String value) {
-            addCriterion("exception like", value, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionNotLike(String value) {
-            addCriterion("exception not like", value, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionIn(List<String> values) {
-            addCriterion("exception in", values, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionNotIn(List<String> values) {
-            addCriterion("exception not in", values, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionBetween(String value1, String value2) {
-            addCriterion("exception between", value1, value2, "exception");
-            return (Criteria) this;
-        }
-
-        public Criteria andExceptionNotBetween(String value1, String value2) {
-            addCriterion("exception not between", value1, value2, "exception");
-            return (Criteria) this;
-        }
-
         public Criteria andRequestUriIsNull() {
             addCriterion("request_uri is null");
             return (Criteria) this;
@@ -614,6 +544,76 @@ public class SysExceptionLogQuery {
 
         public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
             addCriterion("create_time not between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceIsNull() {
+            addCriterion("resource is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceIsNotNull() {
+            addCriterion("resource is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceEqualTo(String value) {
+            addCriterion("resource =", value, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceNotEqualTo(String value) {
+            addCriterion("resource <>", value, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceGreaterThan(String value) {
+            addCriterion("resource >", value, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceGreaterThanOrEqualTo(String value) {
+            addCriterion("resource >=", value, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceLessThan(String value) {
+            addCriterion("resource <", value, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceLessThanOrEqualTo(String value) {
+            addCriterion("resource <=", value, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceLike(String value) {
+            addCriterion("resource like", value, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceNotLike(String value) {
+            addCriterion("resource not like", value, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceIn(List<String> values) {
+            addCriterion("resource in", values, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceNotIn(List<String> values) {
+            addCriterion("resource not in", values, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceBetween(String value1, String value2) {
+            addCriterion("resource between", value1, value2, "resource");
+            return (Criteria) this;
+        }
+
+        public Criteria andResourceNotBetween(String value1, String value2) {
+            addCriterion("resource not between", value1, value2, "resource");
             return (Criteria) this;
         }
     }

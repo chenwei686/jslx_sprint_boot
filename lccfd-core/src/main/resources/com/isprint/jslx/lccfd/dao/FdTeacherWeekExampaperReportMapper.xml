@@ -3,15 +3,30 @@
 <mapper namespace="com.isprint.jslx.lccfd.dao.FdTeacherWeekExampaperReportMapper" >
   <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="classes_id" property="classesId" jdbcType="INTEGER" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="parent_subject_id" property="parentSubjectId" jdbcType="INTEGER" />
+    <result column="start_date" property="startDate" jdbcType="DATE" />
+    <result column="end_date" property="endDate" jdbcType="DATE" />
     <result column="exampaper_id" property="exampaperId" jdbcType="INTEGER" />
-    <result column="teacher_week_report_id" property="teacherWeekReportId" jdbcType="INTEGER" />
-    <result column="exampaper_score" property="exampaperScore" jdbcType="DECIMAL" />
-    <result column="exampaper_average_score" property="exampaperAverageScore" jdbcType="DECIMAL" />
+    <result column="exampaper_name" property="exampaperName" jdbcType="VARCHAR" />
+    <result column="exampaper_total_score" property="exampaperTotalScore" jdbcType="DECIMAL" />
+    <result column="student_exampaper_num" property="studentExampaperNum" jdbcType="INTEGER" />
+    <result column="student_exampaper_total_score" property="studentExampaperTotalScore" jdbcType="DECIMAL" />
+    <result column="student_exampaper_score_avg" property="studentExampaperScoreAvg" jdbcType="INTEGER" />
     <result column="exampaper_max_student" property="exampaperMaxStudent" jdbcType="VARCHAR" />
     <result column="exampaper_min_student" property="exampaperMinStudent" jdbcType="VARCHAR" />
     <result column="exampaper_uncommit_student" property="exampaperUncommitStudent" jdbcType="VARCHAR" />
     <result column="exampaper_comment" property="exampaperComment" jdbcType="VARCHAR" />
     <result column="exampaper_comment_id" property="exampaperCommentId" jdbcType="INTEGER" />
+    <result column="error_num" property="errorNum" jdbcType="DECIMAL" />
+    <result column="error_num_r" property="errorNumR" jdbcType="DECIMAL" />
+    <result column="difficulty_pro_h" property="difficultyProH" jdbcType="DECIMAL" />
+    <result column="difficulty_pro_a" property="difficultyProA" jdbcType="DECIMAL" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -74,9 +89,11 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, exampaper_id, teacher_week_report_id, exampaper_score, exampaper_average_score, 
-      exampaper_max_student, exampaper_min_student, exampaper_uncommit_student, exampaper_comment, 
-      exampaper_comment_id, create_time
+      id, school_id, grade_id, classes_id, year_id, subject_id, parent_subject_id, start_date, 
+      end_date, exampaper_id, exampaper_name, exampaper_total_score, student_exampaper_num, 
+      student_exampaper_total_score, student_exampaper_score_avg, exampaper_max_student, 
+      exampaper_min_student, exampaper_uncommit_student, exampaper_comment, exampaper_comment_id, 
+      error_num, error_num_r, difficulty_pro_h, difficulty_pro_a, update_time, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -101,7 +118,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,exampaper_id,teacher_week_report_id,exampaper_score,exampaper_average_score,exampaper_max_student,exampaper_min_student,exampaper_uncommit_student,exampaper_comment,exampaper_comment_id,create_time
+    id,school_id,grade_id,classes_id,year_id,subject_id,parent_subject_id,start_date,end_date,exampaper_id,exampaper_name,exampaper_total_score,student_exampaper_num,student_exampaper_total_score,student_exampaper_score_avg,exampaper_max_student,exampaper_min_student,exampaper_uncommit_student,exampaper_comment,exampaper_comment_id,error_num,error_num_r,difficulty_pro_h,difficulty_pro_a,update_time,create_time
     from fd_teacher_week_exampaper_report
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -116,16 +133,26 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
-    insert into fd_teacher_week_exampaper_report (id, exampaper_id, teacher_week_report_id, 
-      exampaper_score, exampaper_average_score, 
-      exampaper_max_student, exampaper_min_student, 
-      exampaper_uncommit_student, exampaper_comment, 
-      exampaper_comment_id, create_time)
-    values (#{id,jdbcType=INTEGER}, #{exampaperId,jdbcType=INTEGER}, #{teacherWeekReportId,jdbcType=INTEGER}, 
-      #{exampaperScore,jdbcType=DECIMAL}, #{exampaperAverageScore,jdbcType=DECIMAL}, 
-      #{exampaperMaxStudent,jdbcType=VARCHAR}, #{exampaperMinStudent,jdbcType=VARCHAR}, 
-      #{exampaperUncommitStudent,jdbcType=VARCHAR}, #{exampaperComment,jdbcType=VARCHAR}, 
-      #{exampaperCommentId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+    insert into fd_teacher_week_exampaper_report (id, school_id, grade_id, 
+      classes_id, year_id, subject_id, 
+      parent_subject_id, start_date, end_date, 
+      exampaper_id, exampaper_name, exampaper_total_score, 
+      student_exampaper_num, student_exampaper_total_score, 
+      student_exampaper_score_avg, exampaper_max_student, 
+      exampaper_min_student, exampaper_uncommit_student, 
+      exampaper_comment, exampaper_comment_id, error_num, 
+      error_num_r, difficulty_pro_h, difficulty_pro_a, 
+      update_time, create_time)
+    values (#{id,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, 
+      #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, #{subjectId,jdbcType=INTEGER}, 
+      #{parentSubjectId,jdbcType=INTEGER}, #{startDate,jdbcType=DATE}, #{endDate,jdbcType=DATE}, 
+      #{exampaperId,jdbcType=INTEGER}, #{exampaperName,jdbcType=VARCHAR}, #{exampaperTotalScore,jdbcType=DECIMAL}, 
+      #{studentExampaperNum,jdbcType=INTEGER}, #{studentExampaperTotalScore,jdbcType=DECIMAL}, 
+      #{studentExampaperScoreAvg,jdbcType=INTEGER}, #{exampaperMaxStudent,jdbcType=VARCHAR}, 
+      #{exampaperMinStudent,jdbcType=VARCHAR}, #{exampaperUncommitStudent,jdbcType=VARCHAR}, 
+      #{exampaperComment,jdbcType=VARCHAR}, #{exampaperCommentId,jdbcType=INTEGER}, #{errorNum,jdbcType=DECIMAL}, 
+      #{errorNumR,jdbcType=DECIMAL}, #{difficultyProH,jdbcType=DECIMAL}, #{difficultyProA,jdbcType=DECIMAL}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
     insert into fd_teacher_week_exampaper_report
@@ -133,17 +160,47 @@
       <if test="id != null" >
         id,
       </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="classesId != null" >
+        classes_id,
+      </if>
+      <if test="yearId != null" >
+        year_id,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="parentSubjectId != null" >
+        parent_subject_id,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
       <if test="exampaperId != null" >
         exampaper_id,
       </if>
-      <if test="teacherWeekReportId != null" >
-        teacher_week_report_id,
+      <if test="exampaperName != null" >
+        exampaper_name,
       </if>
-      <if test="exampaperScore != null" >
-        exampaper_score,
+      <if test="exampaperTotalScore != null" >
+        exampaper_total_score,
       </if>
-      <if test="exampaperAverageScore != null" >
-        exampaper_average_score,
+      <if test="studentExampaperNum != null" >
+        student_exampaper_num,
+      </if>
+      <if test="studentExampaperTotalScore != null" >
+        student_exampaper_total_score,
+      </if>
+      <if test="studentExampaperScoreAvg != null" >
+        student_exampaper_score_avg,
       </if>
       <if test="exampaperMaxStudent != null" >
         exampaper_max_student,
@@ -160,6 +217,21 @@
       <if test="exampaperCommentId != null" >
         exampaper_comment_id,
       </if>
+      <if test="errorNum != null" >
+        error_num,
+      </if>
+      <if test="errorNumR != null" >
+        error_num_r,
+      </if>
+      <if test="difficultyProH != null" >
+        difficulty_pro_h,
+      </if>
+      <if test="difficultyProA != null" >
+        difficulty_pro_a,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
       <if test="createTime != null" >
         create_time,
       </if>
@@ -168,17 +240,47 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="parentSubjectId != null" >
+        #{parentSubjectId,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=DATE},
+      </if>
       <if test="exampaperId != null" >
         #{exampaperId,jdbcType=INTEGER},
       </if>
-      <if test="teacherWeekReportId != null" >
-        #{teacherWeekReportId,jdbcType=INTEGER},
+      <if test="exampaperName != null" >
+        #{exampaperName,jdbcType=VARCHAR},
       </if>
-      <if test="exampaperScore != null" >
-        #{exampaperScore,jdbcType=DECIMAL},
+      <if test="exampaperTotalScore != null" >
+        #{exampaperTotalScore,jdbcType=DECIMAL},
       </if>
-      <if test="exampaperAverageScore != null" >
-        #{exampaperAverageScore,jdbcType=DECIMAL},
+      <if test="studentExampaperNum != null" >
+        #{studentExampaperNum,jdbcType=INTEGER},
+      </if>
+      <if test="studentExampaperTotalScore != null" >
+        #{studentExampaperTotalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="studentExampaperScoreAvg != null" >
+        #{studentExampaperScoreAvg,jdbcType=INTEGER},
       </if>
       <if test="exampaperMaxStudent != null" >
         #{exampaperMaxStudent,jdbcType=VARCHAR},
@@ -194,6 +296,21 @@
       </if>
       <if test="exampaperCommentId != null" >
         #{exampaperCommentId,jdbcType=INTEGER},
+      </if>
+      <if test="errorNum != null" >
+        #{errorNum,jdbcType=DECIMAL},
+      </if>
+      <if test="errorNumR != null" >
+        #{errorNumR,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProH != null" >
+        #{difficultyProH,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProA != null" >
+        #{difficultyProA,jdbcType=DECIMAL},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -212,17 +329,47 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.schoolId != null" >
+        school_id = #{record.schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classesId != null" >
+        classes_id = #{record.classesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentSubjectId != null" >
+        parent_subject_id = #{record.parentSubjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.startDate != null" >
+        start_date = #{record.startDate,jdbcType=DATE},
+      </if>
+      <if test="record.endDate != null" >
+        end_date = #{record.endDate,jdbcType=DATE},
+      </if>
       <if test="record.exampaperId != null" >
         exampaper_id = #{record.exampaperId,jdbcType=INTEGER},
       </if>
-      <if test="record.teacherWeekReportId != null" >
-        teacher_week_report_id = #{record.teacherWeekReportId,jdbcType=INTEGER},
+      <if test="record.exampaperName != null" >
+        exampaper_name = #{record.exampaperName,jdbcType=VARCHAR},
       </if>
-      <if test="record.exampaperScore != null" >
-        exampaper_score = #{record.exampaperScore,jdbcType=DECIMAL},
+      <if test="record.exampaperTotalScore != null" >
+        exampaper_total_score = #{record.exampaperTotalScore,jdbcType=DECIMAL},
       </if>
-      <if test="record.exampaperAverageScore != null" >
-        exampaper_average_score = #{record.exampaperAverageScore,jdbcType=DECIMAL},
+      <if test="record.studentExampaperNum != null" >
+        student_exampaper_num = #{record.studentExampaperNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentExampaperTotalScore != null" >
+        student_exampaper_total_score = #{record.studentExampaperTotalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.studentExampaperScoreAvg != null" >
+        student_exampaper_score_avg = #{record.studentExampaperScoreAvg,jdbcType=INTEGER},
       </if>
       <if test="record.exampaperMaxStudent != null" >
         exampaper_max_student = #{record.exampaperMaxStudent,jdbcType=VARCHAR},
@@ -239,6 +386,21 @@
       <if test="record.exampaperCommentId != null" >
         exampaper_comment_id = #{record.exampaperCommentId,jdbcType=INTEGER},
       </if>
+      <if test="record.errorNum != null" >
+        error_num = #{record.errorNum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.errorNumR != null" >
+        error_num_r = #{record.errorNumR,jdbcType=DECIMAL},
+      </if>
+      <if test="record.difficultyProH != null" >
+        difficulty_pro_h = #{record.difficultyProH,jdbcType=DECIMAL},
+      </if>
+      <if test="record.difficultyProA != null" >
+        difficulty_pro_a = #{record.difficultyProA,jdbcType=DECIMAL},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -250,15 +412,30 @@
   <update id="updateByExample" parameterType="map" >
     update fd_teacher_week_exampaper_report
     set id = #{record.id,jdbcType=INTEGER},
+      school_id = #{record.schoolId,jdbcType=INTEGER},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      classes_id = #{record.classesId,jdbcType=INTEGER},
+      year_id = #{record.yearId,jdbcType=INTEGER},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      parent_subject_id = #{record.parentSubjectId,jdbcType=INTEGER},
+      start_date = #{record.startDate,jdbcType=DATE},
+      end_date = #{record.endDate,jdbcType=DATE},
       exampaper_id = #{record.exampaperId,jdbcType=INTEGER},
-      teacher_week_report_id = #{record.teacherWeekReportId,jdbcType=INTEGER},
-      exampaper_score = #{record.exampaperScore,jdbcType=DECIMAL},
-      exampaper_average_score = #{record.exampaperAverageScore,jdbcType=DECIMAL},
+      exampaper_name = #{record.exampaperName,jdbcType=VARCHAR},
+      exampaper_total_score = #{record.exampaperTotalScore,jdbcType=DECIMAL},
+      student_exampaper_num = #{record.studentExampaperNum,jdbcType=INTEGER},
+      student_exampaper_total_score = #{record.studentExampaperTotalScore,jdbcType=DECIMAL},
+      student_exampaper_score_avg = #{record.studentExampaperScoreAvg,jdbcType=INTEGER},
       exampaper_max_student = #{record.exampaperMaxStudent,jdbcType=VARCHAR},
       exampaper_min_student = #{record.exampaperMinStudent,jdbcType=VARCHAR},
       exampaper_uncommit_student = #{record.exampaperUncommitStudent,jdbcType=VARCHAR},
       exampaper_comment = #{record.exampaperComment,jdbcType=VARCHAR},
       exampaper_comment_id = #{record.exampaperCommentId,jdbcType=INTEGER},
+      error_num = #{record.errorNum,jdbcType=DECIMAL},
+      error_num_r = #{record.errorNumR,jdbcType=DECIMAL},
+      difficulty_pro_h = #{record.difficultyProH,jdbcType=DECIMAL},
+      difficulty_pro_a = #{record.difficultyProA,jdbcType=DECIMAL},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -267,17 +444,47 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
     update fd_teacher_week_exampaper_report
     <set >
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="parentSubjectId != null" >
+        parent_subject_id = #{parentSubjectId,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=DATE},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=DATE},
+      </if>
       <if test="exampaperId != null" >
         exampaper_id = #{exampaperId,jdbcType=INTEGER},
       </if>
-      <if test="teacherWeekReportId != null" >
-        teacher_week_report_id = #{teacherWeekReportId,jdbcType=INTEGER},
+      <if test="exampaperName != null" >
+        exampaper_name = #{exampaperName,jdbcType=VARCHAR},
       </if>
-      <if test="exampaperScore != null" >
-        exampaper_score = #{exampaperScore,jdbcType=DECIMAL},
+      <if test="exampaperTotalScore != null" >
+        exampaper_total_score = #{exampaperTotalScore,jdbcType=DECIMAL},
       </if>
-      <if test="exampaperAverageScore != null" >
-        exampaper_average_score = #{exampaperAverageScore,jdbcType=DECIMAL},
+      <if test="studentExampaperNum != null" >
+        student_exampaper_num = #{studentExampaperNum,jdbcType=INTEGER},
+      </if>
+      <if test="studentExampaperTotalScore != null" >
+        student_exampaper_total_score = #{studentExampaperTotalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="studentExampaperScoreAvg != null" >
+        student_exampaper_score_avg = #{studentExampaperScoreAvg,jdbcType=INTEGER},
       </if>
       <if test="exampaperMaxStudent != null" >
         exampaper_max_student = #{exampaperMaxStudent,jdbcType=VARCHAR},
@@ -294,6 +501,21 @@
       <if test="exampaperCommentId != null" >
         exampaper_comment_id = #{exampaperCommentId,jdbcType=INTEGER},
       </if>
+      <if test="errorNum != null" >
+        error_num = #{errorNum,jdbcType=DECIMAL},
+      </if>
+      <if test="errorNumR != null" >
+        error_num_r = #{errorNumR,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProH != null" >
+        difficulty_pro_h = #{difficultyProH,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProA != null" >
+        difficulty_pro_a = #{difficultyProA,jdbcType=DECIMAL},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -302,15 +524,30 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekExampaperReport" >
     update fd_teacher_week_exampaper_report
-    set exampaper_id = #{exampaperId,jdbcType=INTEGER},
-      teacher_week_report_id = #{teacherWeekReportId,jdbcType=INTEGER},
-      exampaper_score = #{exampaperScore,jdbcType=DECIMAL},
-      exampaper_average_score = #{exampaperAverageScore,jdbcType=DECIMAL},
+    set school_id = #{schoolId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      year_id = #{yearId,jdbcType=INTEGER},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      parent_subject_id = #{parentSubjectId,jdbcType=INTEGER},
+      start_date = #{startDate,jdbcType=DATE},
+      end_date = #{endDate,jdbcType=DATE},
+      exampaper_id = #{exampaperId,jdbcType=INTEGER},
+      exampaper_name = #{exampaperName,jdbcType=VARCHAR},
+      exampaper_total_score = #{exampaperTotalScore,jdbcType=DECIMAL},
+      student_exampaper_num = #{studentExampaperNum,jdbcType=INTEGER},
+      student_exampaper_total_score = #{studentExampaperTotalScore,jdbcType=DECIMAL},
+      student_exampaper_score_avg = #{studentExampaperScoreAvg,jdbcType=INTEGER},
       exampaper_max_student = #{exampaperMaxStudent,jdbcType=VARCHAR},
       exampaper_min_student = #{exampaperMinStudent,jdbcType=VARCHAR},
       exampaper_uncommit_student = #{exampaperUncommitStudent,jdbcType=VARCHAR},
       exampaper_comment = #{exampaperComment,jdbcType=VARCHAR},
       exampaper_comment_id = #{exampaperCommentId,jdbcType=INTEGER},
+      error_num = #{errorNum,jdbcType=DECIMAL},
+      error_num_r = #{errorNumR,jdbcType=DECIMAL},
+      difficulty_pro_h = #{difficultyProH,jdbcType=DECIMAL},
+      difficulty_pro_a = #{difficultyProA,jdbcType=DECIMAL},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>

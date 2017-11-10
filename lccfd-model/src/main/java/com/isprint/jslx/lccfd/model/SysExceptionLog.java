@@ -7,11 +7,6 @@ public class SysExceptionLog implements Serializable {
     private Integer id;
 
     /**
-     * 异常信息
-     */
-    private String exception;
-
-    /**
      * 请求uri
      */
     private String requestUri;
@@ -33,6 +28,13 @@ public class SysExceptionLog implements Serializable {
 
     private Date createTime;
 
+    private String resource;
+
+    /**
+     * 异常信息
+     */
+    private String exception;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -41,14 +43,6 @@ public class SysExceptionLog implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getException() {
-        return exception;
-    }
-
-    public void setException(String exception) {
-        this.exception = exception == null ? null : exception.trim();
     }
 
     public String getRequestUri() {
@@ -91,6 +85,22 @@ public class SysExceptionLog implements Serializable {
         this.createTime = createTime;
     }
 
+    public String getResource() {
+        return resource;
+    }
+
+    public void setResource(String resource) {
+        this.resource = resource == null ? null : resource.trim();
+    }
+
+    public String getException() {
+        return exception;
+    }
+
+    public void setException(String exception) {
+        this.exception = exception == null ? null : exception.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -98,12 +108,13 @@ public class SysExceptionLog implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", exception=").append(exception);
         sb.append(", requestUri=").append(requestUri);
         sb.append(", source=").append(source);
         sb.append(", packageName=").append(packageName);
         sb.append(", requestPara=").append(requestPara);
         sb.append(", createTime=").append(createTime);
+        sb.append(", resource=").append(resource);
+        sb.append(", exception=").append(exception);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

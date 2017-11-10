@@ -62,6 +62,23 @@ public class FdStudentExampaperAnswer implements Serializable {
      */
     private Byte difficultLevel;
 
+    /**
+     * 学校id
+     */
+    private Integer schoolId;
+
+    /**
+     * 年级id
+     */
+    private Integer gradeId;
+
+    /**
+     * 班级id
+     */
+    private Integer classesId;
+
+    private Integer yearId;
+
     private Date createTime;
 
     private static final long serialVersionUID = 1L;
@@ -162,6 +179,38 @@ public class FdStudentExampaperAnswer implements Serializable {
         this.difficultLevel = difficultLevel;
     }
 
+    public Integer getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public Integer getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public Integer getClassesId() {
+        return classesId;
+    }
+
+    public void setClassesId(Integer classesId) {
+        this.classesId = classesId;
+    }
+
+    public Integer getYearId() {
+        return yearId;
+    }
+
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -188,6 +237,10 @@ public class FdStudentExampaperAnswer implements Serializable {
         sb.append(", isRight=").append(isRight);
         sb.append(", mainKnowledgeId=").append(mainKnowledgeId);
         sb.append(", difficultLevel=").append(difficultLevel);
+        sb.append(", schoolId=").append(schoolId);
+        sb.append(", gradeId=").append(gradeId);
+        sb.append(", classesId=").append(classesId);
+        sb.append(", yearId=").append(yearId);
         sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

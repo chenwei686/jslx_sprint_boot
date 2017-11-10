@@ -6,6 +6,10 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="type_ids" property="typeIds" jdbcType="VARCHAR" />
     <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="classes_id" property="classesId" jdbcType="INTEGER" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -68,7 +72,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, name, type_ids, student_id, create_time
+      id, name, type_ids, student_id, school_id, grade_id, classes_id, year_id, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -93,7 +97,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,name,type_ids,student_id,create_time
+    id,name,type_ids,student_id,school_id,grade_id,classes_id,year_id,create_time
     from fd_student_add_school
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -109,9 +113,13 @@
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentAddSchool" >
     insert into fd_student_add_school (id, name, type_ids, 
-      student_id, create_time)
+      student_id, school_id, grade_id, 
+      classes_id, year_id, create_time
+      )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{typeIds,jdbcType=VARCHAR}, 
-      #{studentId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+      #{studentId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, 
+      #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentAddSchool" >
     insert into fd_student_add_school
@@ -127,6 +135,18 @@
       </if>
       <if test="studentId != null" >
         student_id,
+      </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="classesId != null" >
+        classes_id,
+      </if>
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -144,6 +164,18 @@
       </if>
       <if test="studentId != null" >
         #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -171,6 +203,18 @@
       <if test="record.studentId != null" >
         student_id = #{record.studentId,jdbcType=INTEGER},
       </if>
+      <if test="record.schoolId != null" >
+        school_id = #{record.schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classesId != null" >
+        classes_id = #{record.classesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
+      </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -185,6 +229,10 @@
       name = #{record.name,jdbcType=VARCHAR},
       type_ids = #{record.typeIds,jdbcType=VARCHAR},
       student_id = #{record.studentId,jdbcType=INTEGER},
+      school_id = #{record.schoolId,jdbcType=INTEGER},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      classes_id = #{record.classesId,jdbcType=INTEGER},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -202,6 +250,18 @@
       <if test="studentId != null" >
         student_id = #{studentId,jdbcType=INTEGER},
       </if>
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -213,6 +273,10 @@
     set name = #{name,jdbcType=VARCHAR},
       type_ids = #{typeIds,jdbcType=VARCHAR},
       student_id = #{studentId,jdbcType=INTEGER},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      year_id = #{yearId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>

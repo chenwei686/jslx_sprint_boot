@@ -3,12 +3,15 @@
 <mapper namespace="com.isprint.jslx.lccfd.dao.SysExceptionLogMapper" >
   <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.SysExceptionLog" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="exception" property="exception" jdbcType="VARCHAR" />
     <result column="request_uri" property="requestUri" jdbcType="VARCHAR" />
     <result column="source" property="source" jdbcType="CHAR" />
     <result column="package_name" property="packageName" jdbcType="VARCHAR" />
     <result column="request_para" property="requestPara" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="resource" property="resource" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.isprint.jslx.lccfd.model.SysExceptionLog" extends="BaseResultMap" >
+    <result column="exception" property="exception" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,12 +73,31 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, exception, request_uri, source, package_name, request_para, create_time
+      id, request_uri, source, package_name, request_para, create_time, resource
     </if>
     <if test="fields != null" >
       ${fields}
     </if>
   </sql>
+  <sql id="Blob_Column_List" >
+    exception
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.SysExceptionLogQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_exception_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.SysExceptionLogQuery" >
     select
     <if test="distinct" >
@@ -93,9 +115,11 @@
       limit #{startRow} , #{pageSize}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
-    id,exception,request_uri,source,package_name,request_para,create_time
+    id,request_uri,source,package_name,request_para,create_time,resource,exception
+    ,
+    <include refid="Blob_Column_List" />
     from sys_exception_log
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -110,21 +134,18 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.SysExceptionLog" >
-    insert into sys_exception_log (id, exception, request_uri, 
-      source, package_name, request_para, 
-      create_time)
-    values (#{id,jdbcType=INTEGER}, #{exception,jdbcType=VARCHAR}, #{requestUri,jdbcType=VARCHAR}, 
-      #{source,jdbcType=CHAR}, #{packageName,jdbcType=VARCHAR}, #{requestPara,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP})
+    insert into sys_exception_log (id, request_uri, source, 
+      package_name, request_para, create_time, 
+      resource, exception)
+    values (#{id,jdbcType=INTEGER}, #{requestUri,jdbcType=VARCHAR}, #{source,jdbcType=CHAR}, 
+      #{packageName,jdbcType=VARCHAR}, #{requestPara,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{resource,jdbcType=VARCHAR}, #{exception,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.SysExceptionLog" >
     insert into sys_exception_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
-      </if>
-      <if test="exception != null" >
-        exception,
       </if>
       <if test="requestUri != null" >
         request_uri,
@@ -141,13 +162,16 @@
       <if test="createTime != null" >
         create_time,
       </if>
+      <if test="resource != null" >
+        resource,
+      </if>
+      <if test="exception != null" >
+        exception,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
-      </if>
-      <if test="exception != null" >
-        #{exception,jdbcType=VARCHAR},
       </if>
       <if test="requestUri != null" >
         #{requestUri,jdbcType=VARCHAR},
@@ -164,6 +188,12 @@
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="resource != null" >
+        #{resource,jdbcType=VARCHAR},
+      </if>
+      <if test="exception != null" >
+        #{exception,jdbcType=LONGVARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.SysExceptionLogQuery" resultType="java.lang.Integer" >
@@ -177,9 +207,6 @@
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
-      </if>
-      <if test="record.exception != null" >
-        exception = #{record.exception,jdbcType=VARCHAR},
       </if>
       <if test="record.requestUri != null" >
         request_uri = #{record.requestUri,jdbcType=VARCHAR},
@@ -196,7 +223,27 @@
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.resource != null" >
+        resource = #{record.resource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exception != null" >
+        exception = #{record.exception,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update sys_exception_log
+    set id = #{record.id,jdbcType=INTEGER},
+      request_uri = #{record.requestUri,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=CHAR},
+      package_name = #{record.packageName,jdbcType=VARCHAR},
+      request_para = #{record.requestPara,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      resource = #{record.resource,jdbcType=VARCHAR},
+      exception = #{record.exception,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -204,12 +251,12 @@
   <update id="updateByExample" parameterType="map" >
     update sys_exception_log
     set id = #{record.id,jdbcType=INTEGER},
-      exception = #{record.exception,jdbcType=VARCHAR},
       request_uri = #{record.requestUri,jdbcType=VARCHAR},
       source = #{record.source,jdbcType=CHAR},
       package_name = #{record.packageName,jdbcType=VARCHAR},
       request_para = #{record.requestPara,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      resource = #{record.resource,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -217,9 +264,6 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.SysExceptionLog" >
     update sys_exception_log
     <set >
-      <if test="exception != null" >
-        exception = #{exception,jdbcType=VARCHAR},
-      </if>
       <if test="requestUri != null" >
         request_uri = #{requestUri,jdbcType=VARCHAR},
       </if>
@@ -235,17 +279,34 @@
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="resource != null" >
+        resource = #{resource,jdbcType=VARCHAR},
+      </if>
+      <if test="exception != null" >
+        exception = #{exception,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.SysExceptionLog" >
+    update sys_exception_log
+    set request_uri = #{requestUri,jdbcType=VARCHAR},
+      source = #{source,jdbcType=CHAR},
+      package_name = #{packageName,jdbcType=VARCHAR},
+      request_para = #{requestPara,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      resource = #{resource,jdbcType=VARCHAR},
+      exception = #{exception,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.SysExceptionLog" >
     update sys_exception_log
-    set exception = #{exception,jdbcType=VARCHAR},
-      request_uri = #{requestUri,jdbcType=VARCHAR},
+    set request_uri = #{requestUri,jdbcType=VARCHAR},
       source = #{source,jdbcType=CHAR},
       package_name = #{packageName,jdbcType=VARCHAR},
       request_para = #{requestPara,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      resource = #{resource,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

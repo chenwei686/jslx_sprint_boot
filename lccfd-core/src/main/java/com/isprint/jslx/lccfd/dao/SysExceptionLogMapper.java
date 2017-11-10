@@ -16,15 +16,21 @@ public interface SysExceptionLogMapper {
 
     int insertSelective(SysExceptionLog record);
 
+    List<SysExceptionLog> selectByExampleWithBLOBs(SysExceptionLogQuery example);
+
     List<SysExceptionLog> selectByExample(SysExceptionLogQuery example);
 
     SysExceptionLog selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") SysExceptionLog record, @Param("example") SysExceptionLogQuery example);
 
+    int updateByExampleWithBLOBs(@Param("record") SysExceptionLog record, @Param("example") SysExceptionLogQuery example);
+
     int updateByExample(@Param("record") SysExceptionLog record, @Param("example") SysExceptionLogQuery example);
 
     int updateByPrimaryKeySelective(SysExceptionLog record);
+
+    int updateByPrimaryKeyWithBLOBs(SysExceptionLog record);
 
     int updateByPrimaryKey(SysExceptionLog record);
 }

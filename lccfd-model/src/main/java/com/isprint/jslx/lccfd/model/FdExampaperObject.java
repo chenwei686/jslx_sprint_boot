@@ -44,9 +44,7 @@ public class FdExampaperObject implements Serializable {
     /**
      * 年份
      */
-    private Integer year;
-
-    private Date createTime;
+    private Integer yearId;
 
     /**
      * 组卷：'build'    扫码：'qrcode'
@@ -62,6 +60,8 @@ public class FdExampaperObject implements Serializable {
      * 年级名称
      */
     private String gradeName;
+
+    private Date createTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -129,20 +129,12 @@ public class FdExampaperObject implements Serializable {
         this.classesId = classesId;
     }
 
-    public Integer getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public String getSource() {
@@ -169,6 +161,14 @@ public class FdExampaperObject implements Serializable {
         this.gradeName = gradeName == null ? null : gradeName.trim();
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -183,11 +183,11 @@ public class FdExampaperObject implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
-        sb.append(", createTime=").append(createTime);
+        sb.append(", yearId=").append(yearId);
         sb.append(", source=").append(source);
         sb.append(", classesName=").append(classesName);
         sb.append(", gradeName=").append(gradeName);
+        sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

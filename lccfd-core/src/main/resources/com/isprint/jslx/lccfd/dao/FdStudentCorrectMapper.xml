@@ -7,19 +7,22 @@
     <result column="timu_id" property="timuId" jdbcType="CHAR" />
     <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
     <result column="student_search_id" property="studentSearchId" jdbcType="INTEGER" />
-    <result column="student_search_timu_id" property="studentSearchTimuId" jdbcType="CHAR" />
     <result column="is_right" property="isRight" jdbcType="BIT" />
     <result column="answer" property="answer" jdbcType="VARCHAR" />
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="is_collect" property="isCollect" jdbcType="BIT" />
     <result column="collect_id" property="collectId" jdbcType="INTEGER" />
     <result column="main_knowledge_id" property="mainKnowledgeId" jdbcType="INTEGER" />
     <result column="difficult_level" property="difficultLevel" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="source" property="source" jdbcType="TINYINT" />
+    <result column="source_id" property="sourceId" jdbcType="INTEGER" />
+    <result column="correct_timu_id" property="correctTimuId" jdbcType="CHAR" />
+    <result column="student_search_timu_id" property="studentSearchTimuId" jdbcType="CHAR" />
+    <result column="school_degree_id" property="schoolDegreeId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -81,9 +84,9 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, student_id, timu_id, subject_id, student_search_id, student_search_timu_id, is_right, 
-      answer, school_id, grade_id, classes_id, year, is_collect, collect_id, main_knowledge_id, 
-      difficult_level, create_time, source
+      id, student_id, timu_id, subject_id, student_search_id, is_right, answer, school_id, 
+      grade_id, classes_id, year_id, is_collect, collect_id, main_knowledge_id, difficult_level, 
+      create_time, source, source_id, correct_timu_id, student_search_timu_id, school_degree_id
     </if>
     <if test="fields != null" >
       ${fields}
@@ -108,7 +111,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,student_id,timu_id,subject_id,student_search_id,student_search_timu_id,is_right,answer,school_id,grade_id,classes_id,year,is_collect,collect_id,main_knowledge_id,difficult_level,create_time,source
+    id,student_id,timu_id,subject_id,student_search_id,is_right,answer,school_id,grade_id,classes_id,year_id,is_collect,collect_id,main_knowledge_id,difficult_level,create_time,source,source_id,correct_timu_id,student_search_timu_id,school_degree_id
     from fd_student_correct
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -124,18 +127,20 @@
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentCorrect" >
     insert into fd_student_correct (id, student_id, timu_id, 
-      subject_id, student_search_id, student_search_timu_id, 
-      is_right, answer, school_id, 
-      grade_id, classes_id, year, 
-      is_collect, collect_id, main_knowledge_id, 
-      difficult_level, create_time, source
+      subject_id, student_search_id, is_right, 
+      answer, school_id, grade_id, 
+      classes_id, year_id, is_collect, 
+      collect_id, main_knowledge_id, difficult_level, 
+      create_time, source, source_id, 
+      correct_timu_id, student_search_timu_id, school_degree_id
       )
     values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{timuId,jdbcType=CHAR}, 
-      #{subjectId,jdbcType=INTEGER}, #{studentSearchId,jdbcType=INTEGER}, #{studentSearchTimuId,jdbcType=CHAR}, 
-      #{isRight,jdbcType=BIT}, #{answer,jdbcType=VARCHAR}, #{schoolId,jdbcType=INTEGER}, 
-      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, 
-      #{isCollect,jdbcType=BIT}, #{collectId,jdbcType=INTEGER}, #{mainKnowledgeId,jdbcType=INTEGER}, 
-      #{difficultLevel,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{source,jdbcType=TINYINT}
+      #{subjectId,jdbcType=INTEGER}, #{studentSearchId,jdbcType=INTEGER}, #{isRight,jdbcType=BIT}, 
+      #{answer,jdbcType=VARCHAR}, #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, 
+      #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, #{isCollect,jdbcType=BIT}, 
+      #{collectId,jdbcType=INTEGER}, #{mainKnowledgeId,jdbcType=INTEGER}, #{difficultLevel,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{source,jdbcType=TINYINT}, #{sourceId,jdbcType=INTEGER}, 
+      #{correctTimuId,jdbcType=CHAR}, #{studentSearchTimuId,jdbcType=CHAR}, #{schoolDegreeId,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentCorrect" >
@@ -156,9 +161,6 @@
       <if test="studentSearchId != null" >
         student_search_id,
       </if>
-      <if test="studentSearchTimuId != null" >
-        student_search_timu_id,
-      </if>
       <if test="isRight != null" >
         is_right,
       </if>
@@ -174,8 +176,8 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="isCollect != null" >
         is_collect,
@@ -195,6 +197,18 @@
       <if test="source != null" >
         source,
       </if>
+      <if test="sourceId != null" >
+        source_id,
+      </if>
+      <if test="correctTimuId != null" >
+        correct_timu_id,
+      </if>
+      <if test="studentSearchTimuId != null" >
+        student_search_timu_id,
+      </if>
+      <if test="schoolDegreeId != null" >
+        school_degree_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -212,9 +226,6 @@
       <if test="studentSearchId != null" >
         #{studentSearchId,jdbcType=INTEGER},
       </if>
-      <if test="studentSearchTimuId != null" >
-        #{studentSearchTimuId,jdbcType=CHAR},
-      </if>
       <if test="isRight != null" >
         #{isRight,jdbcType=BIT},
       </if>
@@ -230,8 +241,8 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="isCollect != null" >
         #{isCollect,jdbcType=BIT},
@@ -250,6 +261,18 @@
       </if>
       <if test="source != null" >
         #{source,jdbcType=TINYINT},
+      </if>
+      <if test="sourceId != null" >
+        #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="correctTimuId != null" >
+        #{correctTimuId,jdbcType=CHAR},
+      </if>
+      <if test="studentSearchTimuId != null" >
+        #{studentSearchTimuId,jdbcType=CHAR},
+      </if>
+      <if test="schoolDegreeId != null" >
+        #{schoolDegreeId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -277,9 +300,6 @@
       <if test="record.studentSearchId != null" >
         student_search_id = #{record.studentSearchId,jdbcType=INTEGER},
       </if>
-      <if test="record.studentSearchTimuId != null" >
-        student_search_timu_id = #{record.studentSearchTimuId,jdbcType=CHAR},
-      </if>
       <if test="record.isRight != null" >
         is_right = #{record.isRight,jdbcType=BIT},
       </if>
@@ -295,8 +315,8 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.isCollect != null" >
         is_collect = #{record.isCollect,jdbcType=BIT},
@@ -316,6 +336,18 @@
       <if test="record.source != null" >
         source = #{record.source,jdbcType=TINYINT},
       </if>
+      <if test="record.sourceId != null" >
+        source_id = #{record.sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.correctTimuId != null" >
+        correct_timu_id = #{record.correctTimuId,jdbcType=CHAR},
+      </if>
+      <if test="record.studentSearchTimuId != null" >
+        student_search_timu_id = #{record.studentSearchTimuId,jdbcType=CHAR},
+      </if>
+      <if test="record.schoolDegreeId != null" >
+        school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -328,19 +360,22 @@
       timu_id = #{record.timuId,jdbcType=CHAR},
       subject_id = #{record.subjectId,jdbcType=INTEGER},
       student_search_id = #{record.studentSearchId,jdbcType=INTEGER},
-      student_search_timu_id = #{record.studentSearchTimuId,jdbcType=CHAR},
       is_right = #{record.isRight,jdbcType=BIT},
       answer = #{record.answer,jdbcType=VARCHAR},
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       is_collect = #{record.isCollect,jdbcType=BIT},
       collect_id = #{record.collectId,jdbcType=INTEGER},
       main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
       difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      source = #{record.source,jdbcType=TINYINT}
+      source = #{record.source,jdbcType=TINYINT},
+      source_id = #{record.sourceId,jdbcType=INTEGER},
+      correct_timu_id = #{record.correctTimuId,jdbcType=CHAR},
+      student_search_timu_id = #{record.studentSearchTimuId,jdbcType=CHAR},
+      school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -360,9 +395,6 @@
       <if test="studentSearchId != null" >
         student_search_id = #{studentSearchId,jdbcType=INTEGER},
       </if>
-      <if test="studentSearchTimuId != null" >
-        student_search_timu_id = #{studentSearchTimuId,jdbcType=CHAR},
-      </if>
       <if test="isRight != null" >
         is_right = #{isRight,jdbcType=BIT},
       </if>
@@ -378,8 +410,8 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="isCollect != null" >
         is_collect = #{isCollect,jdbcType=BIT},
@@ -399,6 +431,18 @@
       <if test="source != null" >
         source = #{source,jdbcType=TINYINT},
       </if>
+      <if test="sourceId != null" >
+        source_id = #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="correctTimuId != null" >
+        correct_timu_id = #{correctTimuId,jdbcType=CHAR},
+      </if>
+      <if test="studentSearchTimuId != null" >
+        student_search_timu_id = #{studentSearchTimuId,jdbcType=CHAR},
+      </if>
+      <if test="schoolDegreeId != null" >
+        school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -408,19 +452,22 @@
       timu_id = #{timuId,jdbcType=CHAR},
       subject_id = #{subjectId,jdbcType=INTEGER},
       student_search_id = #{studentSearchId,jdbcType=INTEGER},
-      student_search_timu_id = #{studentSearchTimuId,jdbcType=CHAR},
       is_right = #{isRight,jdbcType=BIT},
       answer = #{answer,jdbcType=VARCHAR},
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       is_collect = #{isCollect,jdbcType=BIT},
       collect_id = #{collectId,jdbcType=INTEGER},
       main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
       difficult_level = #{difficultLevel,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      source = #{source,jdbcType=TINYINT}
+      source = #{source,jdbcType=TINYINT},
+      source_id = #{sourceId,jdbcType=INTEGER},
+      correct_timu_id = #{correctTimuId,jdbcType=CHAR},
+      student_search_timu_id = #{studentSearchTimuId,jdbcType=CHAR},
+      school_degree_id = #{schoolDegreeId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

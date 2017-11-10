@@ -7,7 +7,8 @@ public class FdStudentSysCollect implements Serializable {
     private Integer id;
 
     /**
-     * 收藏来源 （0：点击视频 1：点击订正 2：未操作，默认搜索结果第一题）
+     * 收藏来源 （0：点击视频 1：点击订正 2：未操作，默认搜索结果第一题，3：主动收藏）
+
      */
     private Byte source;
 
@@ -51,7 +52,7 @@ public class FdStudentSysCollect implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     private Integer mainKnowledgeId;
 
@@ -149,12 +150,12 @@ public class FdStudentSysCollect implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Integer getMainKnowledgeId() {
@@ -205,7 +206,7 @@ public class FdStudentSysCollect implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", mainKnowledgeId=").append(mainKnowledgeId);
         sb.append(", difficultLevel=").append(difficultLevel);
         sb.append(", schoolDegreeId=").append(schoolDegreeId);

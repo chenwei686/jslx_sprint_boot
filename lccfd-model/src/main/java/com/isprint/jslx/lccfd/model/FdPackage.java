@@ -16,7 +16,7 @@ public class FdPackage implements Serializable {
     private String name;
 
     /**
-     * 套餐类型id
+     * 套餐类型id 
      */
     private Integer packageTypeId;
 
@@ -46,9 +46,14 @@ public class FdPackage implements Serializable {
     private String iosCode;
 
     /**
-     * 是否激活
+     * 是否激活 0：未激活  1：已激活
      */
     private Boolean isActivate;
+
+    /**
+     * one：单科  more：多科  all：全科
+     */
+    private String subjectType;
 
     private String subjectIds;
 
@@ -58,6 +63,11 @@ public class FdPackage implements Serializable {
      * 是否删除
      */
     private Boolean isDel;
+
+    /**
+     * system：系统套餐不在客户端显示  online：在客户端显示
+     */
+    private String type;
 
     private Date updateTime;
 
@@ -137,6 +147,14 @@ public class FdPackage implements Serializable {
         this.isActivate = isActivate;
     }
 
+    public String getSubjectType() {
+        return subjectType;
+    }
+
+    public void setSubjectType(String subjectType) {
+        this.subjectType = subjectType == null ? null : subjectType.trim();
+    }
+
     public String getSubjectIds() {
         return subjectIds;
     }
@@ -159,6 +177,14 @@ public class FdPackage implements Serializable {
 
     public void setIsDel(Boolean isDel) {
         this.isDel = isDel;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
     }
 
     public Date getUpdateTime() {
@@ -192,9 +218,11 @@ public class FdPackage implements Serializable {
         sb.append(", system=").append(system);
         sb.append(", iosCode=").append(iosCode);
         sb.append(", isActivate=").append(isActivate);
+        sb.append(", subjectType=").append(subjectType);
         sb.append(", subjectIds=").append(subjectIds);
         sb.append(", subjectNames=").append(subjectNames);
         sb.append(", isDel=").append(isDel);
+        sb.append(", type=").append(type);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

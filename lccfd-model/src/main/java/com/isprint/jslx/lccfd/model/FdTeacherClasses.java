@@ -42,12 +42,22 @@ public class FdTeacherClasses implements Serializable {
     /**
      * 入学年份
      */
-    private String year;
+    private Integer yearId;
 
     /**
      * 所教学科
      */
     private Integer subjectId;
+
+    /**
+     * 所教学科
+     */
+    private Integer parentSubjectId;
+
+    /**
+     * 所教学科
+     */
+    private String parentSubjectName;
 
     /**
      * 是否删除
@@ -121,12 +131,12 @@ public class FdTeacherClasses implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Integer getSubjectId() {
@@ -135,6 +145,22 @@ public class FdTeacherClasses implements Serializable {
 
     public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
+    }
+
+    public Integer getParentSubjectId() {
+        return parentSubjectId;
+    }
+
+    public void setParentSubjectId(Integer parentSubjectId) {
+        this.parentSubjectId = parentSubjectId;
+    }
+
+    public String getParentSubjectName() {
+        return parentSubjectName;
+    }
+
+    public void setParentSubjectName(String parentSubjectName) {
+        this.parentSubjectName = parentSubjectName == null ? null : parentSubjectName.trim();
     }
 
     public Boolean getIsDel() {
@@ -182,8 +208,10 @@ public class FdTeacherClasses implements Serializable {
         sb.append(", schoolDegreeIds=").append(schoolDegreeIds);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", subjectId=").append(subjectId);
+        sb.append(", parentSubjectId=").append(parentSubjectId);
+        sb.append(", parentSubjectName=").append(parentSubjectName);
         sb.append(", isDel=").append(isDel);
         sb.append(", code=").append(code);
         sb.append(", updateTime=").append(updateTime);

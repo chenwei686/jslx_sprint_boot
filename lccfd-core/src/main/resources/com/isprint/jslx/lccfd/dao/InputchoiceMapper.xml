@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.isprint.jslx.lccfd.dao.InputchoiceMapper" >
   <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.Inputchoice" >
-    <id column="Id" property="id" jdbcType="VARCHAR" />
     <result column="InputId" property="inputid" jdbcType="VARCHAR" />
-    <result column="Score" property="score" jdbcType="DECIMAL" />
+    <result column="Score" property="score" jdbcType="DOUBLE" />
     <result column="Order" property="order" jdbcType="INTEGER" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.isprint.jslx.lccfd.model.Inputchoice" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.isprint.jslx.lccfd.model.InputchoiceWithBLOBs" extends="BaseResultMap" >
+    <result column="Id" property="id" jdbcType="LONGVARCHAR" />
     <result column="ChoiceContent" property="choicecontent" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -70,14 +70,14 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      Id, InputId, Score, Order
+      InputId, Score, Order
     </if>
     <if test="fields != null" >
       ${fields}
     </if>
   </sql>
   <sql id="Blob_Column_List" >
-    ChoiceContent
+    Id, ChoiceContent
   </sql>
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.InputchoiceQuery" >
     select
@@ -112,36 +112,21 @@
       limit #{startRow} , #{pageSize}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
-    select 
-    Id,InputId,Score,Order,ChoiceContent
-    ,
-    <include refid="Blob_Column_List" />
-    from inputchoice
-    where Id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from inputchoice
-    where Id = #{id,jdbcType=VARCHAR}
-  </delete>
   <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.InputchoiceQuery" >
     delete from inputchoice
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.Inputchoice" >
-    insert into inputchoice (Id, InputId, Score, 
-      Order, ChoiceContent)
-    values (#{id,jdbcType=VARCHAR}, #{inputid,jdbcType=VARCHAR}, #{score,jdbcType=DECIMAL}, 
-      #{order,jdbcType=INTEGER}, #{choicecontent,jdbcType=LONGVARCHAR})
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.InputchoiceWithBLOBs" >
+    insert into inputchoice (InputId, Score, Order, 
+      Id, ChoiceContent)
+    values (#{inputid,jdbcType=VARCHAR}, #{score,jdbcType=DOUBLE}, #{order,jdbcType=INTEGER}, 
+      #{id,jdbcType=LONGVARCHAR}, #{choicecontent,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.Inputchoice" >
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.InputchoiceWithBLOBs" >
     insert into inputchoice
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        Id,
-      </if>
       <if test="inputid != null" >
         InputId,
       </if>
@@ -151,22 +136,25 @@
       <if test="order != null" >
         Order,
       </if>
+      <if test="id != null" >
+        Id,
+      </if>
       <if test="choicecontent != null" >
         ChoiceContent,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
-      </if>
       <if test="inputid != null" >
         #{inputid,jdbcType=VARCHAR},
       </if>
       <if test="score != null" >
-        #{score,jdbcType=DECIMAL},
+        #{score,jdbcType=DOUBLE},
       </if>
       <if test="order != null" >
         #{order,jdbcType=INTEGER},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=LONGVARCHAR},
       </if>
       <if test="choicecontent != null" >
         #{choicecontent,jdbcType=LONGVARCHAR},
@@ -182,17 +170,17 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update inputchoice
     <set >
-      <if test="record.id != null" >
-        Id = #{record.id,jdbcType=VARCHAR},
-      </if>
       <if test="record.inputid != null" >
         InputId = #{record.inputid,jdbcType=VARCHAR},
       </if>
       <if test="record.score != null" >
-        Score = #{record.score,jdbcType=DECIMAL},
+        Score = #{record.score,jdbcType=DOUBLE},
       </if>
       <if test="record.order != null" >
         Order = #{record.order,jdbcType=INTEGER},
+      </if>
+      <if test="record.id != null" >
+        Id = #{record.id,jdbcType=LONGVARCHAR},
       </if>
       <if test="record.choicecontent != null" >
         ChoiceContent = #{record.choicecontent,jdbcType=LONGVARCHAR},
@@ -204,10 +192,10 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update inputchoice
-    set Id = #{record.id,jdbcType=VARCHAR},
-      InputId = #{record.inputid,jdbcType=VARCHAR},
-      Score = #{record.score,jdbcType=DECIMAL},
+    set InputId = #{record.inputid,jdbcType=VARCHAR},
+      Score = #{record.score,jdbcType=DOUBLE},
       Order = #{record.order,jdbcType=INTEGER},
+      Id = #{record.id,jdbcType=LONGVARCHAR},
       ChoiceContent = #{record.choicecontent,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -215,45 +203,11 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update inputchoice
-    set Id = #{record.id,jdbcType=VARCHAR},
-      InputId = #{record.inputid,jdbcType=VARCHAR},
-      Score = #{record.score,jdbcType=DECIMAL},
+    set InputId = #{record.inputid,jdbcType=VARCHAR},
+      Score = #{record.score,jdbcType=DOUBLE},
       Order = #{record.order,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.Inputchoice" >
-    update inputchoice
-    <set >
-      <if test="inputid != null" >
-        InputId = #{inputid,jdbcType=VARCHAR},
-      </if>
-      <if test="score != null" >
-        Score = #{score,jdbcType=DECIMAL},
-      </if>
-      <if test="order != null" >
-        Order = #{order,jdbcType=INTEGER},
-      </if>
-      <if test="choicecontent != null" >
-        ChoiceContent = #{choicecontent,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.Inputchoice" >
-    update inputchoice
-    set InputId = #{inputid,jdbcType=VARCHAR},
-      Score = #{score,jdbcType=DECIMAL},
-      Order = #{order,jdbcType=INTEGER},
-      ChoiceContent = #{choicecontent,jdbcType=LONGVARCHAR}
-    where Id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.Inputchoice" >
-    update inputchoice
-    set InputId = #{inputid,jdbcType=VARCHAR},
-      Score = #{score,jdbcType=DECIMAL},
-      Order = #{order,jdbcType=INTEGER}
-    where Id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -15,13 +15,20 @@
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="mobile" property="mobile" jdbcType="CHAR" />
     <result column="is_lock" property="isLock" jdbcType="BIT" />
     <result column="is_change" property="isChange" jdbcType="BIT" />
     <result column="is_activate" property="isActivate" jdbcType="BIT" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="lock_number" property="lockNumber" jdbcType="INTEGER" />
+    <result column="lock_time" property="lockTime" jdbcType="TIMESTAMP" />
+    <result column="math_number" property="mathNumber" jdbcType="INTEGER" />
+    <result column="physics_number" property="physicsNumber" jdbcType="INTEGER" />
+    <result column="chemistry_number" property="chemistryNumber" jdbcType="INTEGER" />
+    <result column="free_time" property="freeTime" jdbcType="TIMESTAMP" />
+    <result column="student_type" property="studentType" jdbcType="CHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -84,8 +91,9 @@
   <sql id="Base_Column_List" >
     <if test="fields == null" >
       id, name, student_code, password, real_name, head_pic, sex, birthday, source, check_code, 
-      school_id, grade_id, classes_id, year, mobile, is_lock, is_change, is_activate, update_time, 
-      create_time
+      school_id, grade_id, classes_id, year_id, mobile, is_lock, is_change, is_activate, 
+      update_time, create_time, lock_number, lock_time, math_number, physics_number, chemistry_number, 
+      free_time, student_type
     </if>
     <if test="fields != null" >
       ${fields}
@@ -110,7 +118,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,name,student_code,password,real_name,head_pic,sex,birthday,source,check_code,school_id,grade_id,classes_id,year,mobile,is_lock,is_change,is_activate,update_time,create_time
+    id,name,student_code,password,real_name,head_pic,sex,birthday,source,check_code,school_id,grade_id,classes_id,year_id,mobile,is_lock,is_change,is_activate,update_time,create_time,lock_number,lock_time,math_number,physics_number,chemistry_number,free_time,student_type
     from base_student
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -129,16 +137,20 @@
       password, real_name, head_pic, 
       sex, birthday, source, check_code, 
       school_id, grade_id, classes_id, 
-      year, mobile, is_lock, is_change, 
-      is_activate, update_time, create_time
-      )
+      year_id, mobile, is_lock, is_change, 
+      is_activate, update_time, create_time, 
+      lock_number, lock_time, math_number, 
+      physics_number, chemistry_number, free_time, 
+      student_type)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{studentCode,jdbcType=CHAR}, 
       #{password,jdbcType=CHAR}, #{realName,jdbcType=VARCHAR}, #{headPic,jdbcType=VARCHAR}, 
       #{sex,jdbcType=BIT}, #{birthday,jdbcType=DATE}, #{source,jdbcType=CHAR}, #{checkCode,jdbcType=CHAR}, 
       #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, 
-      #{year,jdbcType=CHAR}, #{mobile,jdbcType=CHAR}, #{isLock,jdbcType=BIT}, #{isChange,jdbcType=BIT}, 
-      #{isActivate,jdbcType=BIT}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
-      )
+      #{yearId,jdbcType=INTEGER}, #{mobile,jdbcType=CHAR}, #{isLock,jdbcType=BIT}, #{isChange,jdbcType=BIT}, 
+      #{isActivate,jdbcType=BIT}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lockNumber,jdbcType=INTEGER}, #{lockTime,jdbcType=TIMESTAMP}, #{mathNumber,jdbcType=INTEGER}, 
+      #{physicsNumber,jdbcType=INTEGER}, #{chemistryNumber,jdbcType=INTEGER}, #{freeTime,jdbcType=TIMESTAMP}, 
+      #{studentType,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseStudent" >
     insert into base_student
@@ -182,8 +194,8 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="mobile != null" >
         mobile,
@@ -202,6 +214,27 @@
       </if>
       <if test="createTime != null" >
         create_time,
+      </if>
+      <if test="lockNumber != null" >
+        lock_number,
+      </if>
+      <if test="lockTime != null" >
+        lock_time,
+      </if>
+      <if test="mathNumber != null" >
+        math_number,
+      </if>
+      <if test="physicsNumber != null" >
+        physics_number,
+      </if>
+      <if test="chemistryNumber != null" >
+        chemistry_number,
+      </if>
+      <if test="freeTime != null" >
+        free_time,
+      </if>
+      <if test="studentType != null" >
+        student_type,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -244,8 +277,8 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="mobile != null" >
         #{mobile,jdbcType=CHAR},
@@ -264,6 +297,27 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lockNumber != null" >
+        #{lockNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lockTime != null" >
+        #{lockTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mathNumber != null" >
+        #{mathNumber,jdbcType=INTEGER},
+      </if>
+      <if test="physicsNumber != null" >
+        #{physicsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="chemistryNumber != null" >
+        #{chemistryNumber,jdbcType=INTEGER},
+      </if>
+      <if test="freeTime != null" >
+        #{freeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentType != null" >
+        #{studentType,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
@@ -315,8 +369,8 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.mobile != null" >
         mobile = #{record.mobile,jdbcType=CHAR},
@@ -335,6 +389,27 @@
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lockNumber != null" >
+        lock_number = #{record.lockNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.lockTime != null" >
+        lock_time = #{record.lockTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mathNumber != null" >
+        math_number = #{record.mathNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.physicsNumber != null" >
+        physics_number = #{record.physicsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.chemistryNumber != null" >
+        chemistry_number = #{record.chemistryNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.freeTime != null" >
+        free_time = #{record.freeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.studentType != null" >
+        student_type = #{record.studentType,jdbcType=CHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -356,13 +431,20 @@
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       mobile = #{record.mobile,jdbcType=CHAR},
       is_lock = #{record.isLock,jdbcType=BIT},
       is_change = #{record.isChange,jdbcType=BIT},
       is_activate = #{record.isActivate,jdbcType=BIT},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      lock_number = #{record.lockNumber,jdbcType=INTEGER},
+      lock_time = #{record.lockTime,jdbcType=TIMESTAMP},
+      math_number = #{record.mathNumber,jdbcType=INTEGER},
+      physics_number = #{record.physicsNumber,jdbcType=INTEGER},
+      chemistry_number = #{record.chemistryNumber,jdbcType=INTEGER},
+      free_time = #{record.freeTime,jdbcType=TIMESTAMP},
+      student_type = #{record.studentType,jdbcType=CHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -406,8 +488,8 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="mobile != null" >
         mobile = #{mobile,jdbcType=CHAR},
@@ -427,6 +509,27 @@
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="lockNumber != null" >
+        lock_number = #{lockNumber,jdbcType=INTEGER},
+      </if>
+      <if test="lockTime != null" >
+        lock_time = #{lockTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mathNumber != null" >
+        math_number = #{mathNumber,jdbcType=INTEGER},
+      </if>
+      <if test="physicsNumber != null" >
+        physics_number = #{physicsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="chemistryNumber != null" >
+        chemistry_number = #{chemistryNumber,jdbcType=INTEGER},
+      </if>
+      <if test="freeTime != null" >
+        free_time = #{freeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentType != null" >
+        student_type = #{studentType,jdbcType=CHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -444,13 +547,20 @@
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       mobile = #{mobile,jdbcType=CHAR},
       is_lock = #{isLock,jdbcType=BIT},
       is_change = #{isChange,jdbcType=BIT},
       is_activate = #{isActivate,jdbcType=BIT},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      lock_number = #{lockNumber,jdbcType=INTEGER},
+      lock_time = #{lockTime,jdbcType=TIMESTAMP},
+      math_number = #{mathNumber,jdbcType=INTEGER},
+      physics_number = #{physicsNumber,jdbcType=INTEGER},
+      chemistry_number = #{chemistryNumber,jdbcType=INTEGER},
+      free_time = #{freeTime,jdbcType=TIMESTAMP},
+      student_type = #{studentType,jdbcType=CHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

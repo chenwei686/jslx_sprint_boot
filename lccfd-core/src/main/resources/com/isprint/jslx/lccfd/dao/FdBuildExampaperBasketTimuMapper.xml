@@ -3,12 +3,17 @@
 <mapper namespace="com.isprint.jslx.lccfd.dao.FdBuildExampaperBasketTimuMapper" >
   <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketTimu" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="timu_type_id" property="timuTypeId" jdbcType="INTEGER" />
-    <result column="timu_id" property="timuId" jdbcType="INTEGER" />
-    <result column="difficult_level" property="difficultLevel" jdbcType="TINYINT" />
-    <result column="knowledge_id" property="knowledgeId" jdbcType="INTEGER" />
-    <result column="is_del" property="isDel" jdbcType="BIT" />
     <result column="build_exampaper_basket_id" property="buildExampaperBasketId" jdbcType="INTEGER" />
+    <result column="build_exampaper_basket_item_id" property="buildExampaperBasketItemId" jdbcType="INTEGER" />
+    <result column="timu_type_id" property="timuTypeId" jdbcType="INTEGER" />
+    <result column="timu_id" property="timuId" jdbcType="CHAR" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="main_knowledge_id" property="mainKnowledgeId" jdbcType="INTEGER" />
+    <result column="difficult_level" property="difficultLevel" jdbcType="TINYINT" />
+    <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,7 +76,8 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, timu_type_id, timu_id, difficult_level, knowledge_id, is_del, build_exampaper_basket_id, 
+      id, build_exampaper_basket_id, build_exampaper_basket_item_id, timu_type_id, timu_id, 
+      score, sort, main_knowledge_id, difficult_level, teacher_id, is_del, update_time, 
       create_time
     </if>
     <if test="fields != null" >
@@ -97,7 +103,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,timu_type_id,timu_id,difficult_level,knowledge_id,is_del,build_exampaper_basket_id,create_time
+    id,build_exampaper_basket_id,build_exampaper_basket_item_id,timu_type_id,timu_id,score,sort,main_knowledge_id,difficult_level,teacher_id,is_del,update_time,create_time
     from fd_build_exampaper_basket_timu
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -112,12 +118,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketTimu" >
-    insert into fd_build_exampaper_basket_timu (id, timu_type_id, timu_id, 
-      difficult_level, knowledge_id, is_del, 
-      build_exampaper_basket_id, create_time)
-    values (#{id,jdbcType=INTEGER}, #{timuTypeId,jdbcType=INTEGER}, #{timuId,jdbcType=INTEGER}, 
-      #{difficultLevel,jdbcType=TINYINT}, #{knowledgeId,jdbcType=INTEGER}, #{isDel,jdbcType=BIT}, 
-      #{buildExampaperBasketId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+    insert into fd_build_exampaper_basket_timu (id, build_exampaper_basket_id, build_exampaper_basket_item_id, 
+      timu_type_id, timu_id, score, 
+      sort, main_knowledge_id, difficult_level, 
+      teacher_id, is_del, update_time, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{buildExampaperBasketId,jdbcType=INTEGER}, #{buildExampaperBasketItemId,jdbcType=INTEGER}, 
+      #{timuTypeId,jdbcType=INTEGER}, #{timuId,jdbcType=CHAR}, #{score,jdbcType=DECIMAL}, 
+      #{sort,jdbcType=INTEGER}, #{mainKnowledgeId,jdbcType=INTEGER}, #{difficultLevel,jdbcType=TINYINT}, 
+      #{teacherId,jdbcType=INTEGER}, #{isDel,jdbcType=BIT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketTimu" >
     insert into fd_build_exampaper_basket_timu
@@ -125,23 +135,38 @@
       <if test="id != null" >
         id,
       </if>
+      <if test="buildExampaperBasketId != null" >
+        build_exampaper_basket_id,
+      </if>
+      <if test="buildExampaperBasketItemId != null" >
+        build_exampaper_basket_item_id,
+      </if>
       <if test="timuTypeId != null" >
         timu_type_id,
       </if>
       <if test="timuId != null" >
         timu_id,
       </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="mainKnowledgeId != null" >
+        main_knowledge_id,
+      </if>
       <if test="difficultLevel != null" >
         difficult_level,
       </if>
-      <if test="knowledgeId != null" >
-        knowledge_id,
+      <if test="teacherId != null" >
+        teacher_id,
       </if>
       <if test="isDel != null" >
         is_del,
       </if>
-      <if test="buildExampaperBasketId != null" >
-        build_exampaper_basket_id,
+      <if test="updateTime != null" >
+        update_time,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -151,23 +176,38 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="buildExampaperBasketId != null" >
+        #{buildExampaperBasketId,jdbcType=INTEGER},
+      </if>
+      <if test="buildExampaperBasketItemId != null" >
+        #{buildExampaperBasketItemId,jdbcType=INTEGER},
+      </if>
       <if test="timuTypeId != null" >
         #{timuTypeId,jdbcType=INTEGER},
       </if>
       <if test="timuId != null" >
-        #{timuId,jdbcType=INTEGER},
+        #{timuId,jdbcType=CHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="mainKnowledgeId != null" >
+        #{mainKnowledgeId,jdbcType=INTEGER},
       </if>
       <if test="difficultLevel != null" >
         #{difficultLevel,jdbcType=TINYINT},
       </if>
-      <if test="knowledgeId != null" >
-        #{knowledgeId,jdbcType=INTEGER},
+      <if test="teacherId != null" >
+        #{teacherId,jdbcType=INTEGER},
       </if>
       <if test="isDel != null" >
         #{isDel,jdbcType=BIT},
       </if>
-      <if test="buildExampaperBasketId != null" >
-        #{buildExampaperBasketId,jdbcType=INTEGER},
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -186,23 +226,38 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.buildExampaperBasketId != null" >
+        build_exampaper_basket_id = #{record.buildExampaperBasketId,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildExampaperBasketItemId != null" >
+        build_exampaper_basket_item_id = #{record.buildExampaperBasketItemId,jdbcType=INTEGER},
+      </if>
       <if test="record.timuTypeId != null" >
         timu_type_id = #{record.timuTypeId,jdbcType=INTEGER},
       </if>
       <if test="record.timuId != null" >
-        timu_id = #{record.timuId,jdbcType=INTEGER},
+        timu_id = #{record.timuId,jdbcType=CHAR},
+      </if>
+      <if test="record.score != null" >
+        score = #{record.score,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sort != null" >
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.mainKnowledgeId != null" >
+        main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
       </if>
       <if test="record.difficultLevel != null" >
         difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
       </if>
-      <if test="record.knowledgeId != null" >
-        knowledge_id = #{record.knowledgeId,jdbcType=INTEGER},
+      <if test="record.teacherId != null" >
+        teacher_id = #{record.teacherId,jdbcType=INTEGER},
       </if>
       <if test="record.isDel != null" >
         is_del = #{record.isDel,jdbcType=BIT},
       </if>
-      <if test="record.buildExampaperBasketId != null" >
-        build_exampaper_basket_id = #{record.buildExampaperBasketId,jdbcType=INTEGER},
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -215,12 +270,17 @@
   <update id="updateByExample" parameterType="map" >
     update fd_build_exampaper_basket_timu
     set id = #{record.id,jdbcType=INTEGER},
-      timu_type_id = #{record.timuTypeId,jdbcType=INTEGER},
-      timu_id = #{record.timuId,jdbcType=INTEGER},
-      difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
-      knowledge_id = #{record.knowledgeId,jdbcType=INTEGER},
-      is_del = #{record.isDel,jdbcType=BIT},
       build_exampaper_basket_id = #{record.buildExampaperBasketId,jdbcType=INTEGER},
+      build_exampaper_basket_item_id = #{record.buildExampaperBasketItemId,jdbcType=INTEGER},
+      timu_type_id = #{record.timuTypeId,jdbcType=INTEGER},
+      timu_id = #{record.timuId,jdbcType=CHAR},
+      score = #{record.score,jdbcType=DECIMAL},
+      sort = #{record.sort,jdbcType=INTEGER},
+      main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
+      difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
+      teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      is_del = #{record.isDel,jdbcType=BIT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -229,23 +289,38 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketTimu" >
     update fd_build_exampaper_basket_timu
     <set >
+      <if test="buildExampaperBasketId != null" >
+        build_exampaper_basket_id = #{buildExampaperBasketId,jdbcType=INTEGER},
+      </if>
+      <if test="buildExampaperBasketItemId != null" >
+        build_exampaper_basket_item_id = #{buildExampaperBasketItemId,jdbcType=INTEGER},
+      </if>
       <if test="timuTypeId != null" >
         timu_type_id = #{timuTypeId,jdbcType=INTEGER},
       </if>
       <if test="timuId != null" >
-        timu_id = #{timuId,jdbcType=INTEGER},
+        timu_id = #{timuId,jdbcType=CHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="mainKnowledgeId != null" >
+        main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
       </if>
       <if test="difficultLevel != null" >
         difficult_level = #{difficultLevel,jdbcType=TINYINT},
       </if>
-      <if test="knowledgeId != null" >
-        knowledge_id = #{knowledgeId,jdbcType=INTEGER},
+      <if test="teacherId != null" >
+        teacher_id = #{teacherId,jdbcType=INTEGER},
       </if>
       <if test="isDel != null" >
         is_del = #{isDel,jdbcType=BIT},
       </if>
-      <if test="buildExampaperBasketId != null" >
-        build_exampaper_basket_id = #{buildExampaperBasketId,jdbcType=INTEGER},
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -255,12 +330,17 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketTimu" >
     update fd_build_exampaper_basket_timu
-    set timu_type_id = #{timuTypeId,jdbcType=INTEGER},
-      timu_id = #{timuId,jdbcType=INTEGER},
+    set build_exampaper_basket_id = #{buildExampaperBasketId,jdbcType=INTEGER},
+      build_exampaper_basket_item_id = #{buildExampaperBasketItemId,jdbcType=INTEGER},
+      timu_type_id = #{timuTypeId,jdbcType=INTEGER},
+      timu_id = #{timuId,jdbcType=CHAR},
+      score = #{score,jdbcType=DECIMAL},
+      sort = #{sort,jdbcType=INTEGER},
+      main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
       difficult_level = #{difficultLevel,jdbcType=TINYINT},
-      knowledge_id = #{knowledgeId,jdbcType=INTEGER},
+      teacher_id = #{teacherId,jdbcType=INTEGER},
       is_del = #{isDel,jdbcType=BIT},
-      build_exampaper_basket_id = #{buildExampaperBasketId,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>

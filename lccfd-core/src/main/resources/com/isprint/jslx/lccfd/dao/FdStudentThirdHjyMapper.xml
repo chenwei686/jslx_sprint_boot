@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdStudentThirdHjyMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdStudentThirdHjy" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="student_third_account_id" property="studentThirdAccountId" jdbcType="INTEGER" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="third_school_id" property="thirdSchoolId" jdbcType="VARCHAR" />
+    <result column="third_school_name" property="thirdSchoolName" jdbcType="VARCHAR" />
+    <result column="third_grade_id" property="thirdGradeId" jdbcType="VARCHAR" />
+    <result column="third_grade_name" property="thirdGradeName" jdbcType="VARCHAR" />
+    <result column="third_classes_id" property="thirdClassesId" jdbcType="VARCHAR" />
+    <result column="third_classes_name" property="thirdClassesName" jdbcType="VARCHAR" />
+    <result column="third_role_type" property="thirdRoleType" jdbcType="INTEGER" />
+    <result column="third_province_id" property="thirdProvinceId" jdbcType="INTEGER" />
+    <result column="third_province_name" property="thirdProvinceName" jdbcType="VARCHAR" />
+    <result column="third_user_id" property="thirdUserId" jdbcType="VARCHAR" />
+    <result column="xxt_state" property="xxtState" jdbcType="INTEGER" />
+    <result column="head20" property="head20" jdbcType="VARCHAR" />
+    <result column="head70" property="head70" jdbcType="VARCHAR" />
+    <result column="head100" property="head100" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, student_third_account_id, student_id, third_school_id, third_school_name, third_grade_id, 
+      third_grade_name, third_classes_id, third_classes_name, third_role_type, third_province_id, 
+      third_province_name, third_user_id, xxt_state, head20, head70, head100, update_time, 
+      create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdStudentThirdHjyQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_student_third_hjy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,student_third_account_id,student_id,third_school_id,third_school_name,third_grade_id,third_grade_name,third_classes_id,third_classes_name,third_role_type,third_province_id,third_province_name,third_user_id,xxt_state,head20,head70,head100,update_time,create_time
+    from fd_student_third_hjy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_student_third_hjy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentThirdHjyQuery" >
+    delete from fd_student_third_hjy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentThirdHjy" >
+    insert into fd_student_third_hjy (id, student_third_account_id, student_id, 
+      third_school_id, third_school_name, third_grade_id, 
+      third_grade_name, third_classes_id, third_classes_name, 
+      third_role_type, third_province_id, third_province_name, 
+      third_user_id, xxt_state, head20, 
+      head70, head100, update_time, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{studentThirdAccountId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, 
+      #{thirdSchoolId,jdbcType=VARCHAR}, #{thirdSchoolName,jdbcType=VARCHAR}, #{thirdGradeId,jdbcType=VARCHAR}, 
+      #{thirdGradeName,jdbcType=VARCHAR}, #{thirdClassesId,jdbcType=VARCHAR}, #{thirdClassesName,jdbcType=VARCHAR}, 
+      #{thirdRoleType,jdbcType=INTEGER}, #{thirdProvinceId,jdbcType=INTEGER}, #{thirdProvinceName,jdbcType=VARCHAR}, 
+      #{thirdUserId,jdbcType=VARCHAR}, #{xxtState,jdbcType=INTEGER}, #{head20,jdbcType=VARCHAR}, 
+      #{head70,jdbcType=VARCHAR}, #{head100,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentThirdHjy" >
+    insert into fd_student_third_hjy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="studentThirdAccountId != null" >
+        student_third_account_id,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="thirdSchoolId != null" >
+        third_school_id,
+      </if>
+      <if test="thirdSchoolName != null" >
+        third_school_name,
+      </if>
+      <if test="thirdGradeId != null" >
+        third_grade_id,
+      </if>
+      <if test="thirdGradeName != null" >
+        third_grade_name,
+      </if>
+      <if test="thirdClassesId != null" >
+        third_classes_id,
+      </if>
+      <if test="thirdClassesName != null" >
+        third_classes_name,
+      </if>
+      <if test="thirdRoleType != null" >
+        third_role_type,
+      </if>
+      <if test="thirdProvinceId != null" >
+        third_province_id,
+      </if>
+      <if test="thirdProvinceName != null" >
+        third_province_name,
+      </if>
+      <if test="thirdUserId != null" >
+        third_user_id,
+      </if>
+      <if test="xxtState != null" >
+        xxt_state,
+      </if>
+      <if test="head20 != null" >
+        head20,
+      </if>
+      <if test="head70 != null" >
+        head70,
+      </if>
+      <if test="head100 != null" >
+        head100,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studentThirdAccountId != null" >
+        #{studentThirdAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="thirdSchoolId != null" >
+        #{thirdSchoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdSchoolName != null" >
+        #{thirdSchoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdGradeId != null" >
+        #{thirdGradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdGradeName != null" >
+        #{thirdGradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdClassesId != null" >
+        #{thirdClassesId,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdClassesName != null" >
+        #{thirdClassesName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdRoleType != null" >
+        #{thirdRoleType,jdbcType=INTEGER},
+      </if>
+      <if test="thirdProvinceId != null" >
+        #{thirdProvinceId,jdbcType=INTEGER},
+      </if>
+      <if test="thirdProvinceName != null" >
+        #{thirdProvinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdUserId != null" >
+        #{thirdUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="xxtState != null" >
+        #{xxtState,jdbcType=INTEGER},
+      </if>
+      <if test="head20 != null" >
+        #{head20,jdbcType=VARCHAR},
+      </if>
+      <if test="head70 != null" >
+        #{head70,jdbcType=VARCHAR},
+      </if>
+      <if test="head100 != null" >
+        #{head100,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentThirdHjyQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_student_third_hjy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_student_third_hjy
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentThirdAccountId != null" >
+        student_third_account_id = #{record.studentThirdAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentId != null" >
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.thirdSchoolId != null" >
+        third_school_id = #{record.thirdSchoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirdSchoolName != null" >
+        third_school_name = #{record.thirdSchoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirdGradeId != null" >
+        third_grade_id = #{record.thirdGradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirdGradeName != null" >
+        third_grade_name = #{record.thirdGradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirdClassesId != null" >
+        third_classes_id = #{record.thirdClassesId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirdClassesName != null" >
+        third_classes_name = #{record.thirdClassesName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirdRoleType != null" >
+        third_role_type = #{record.thirdRoleType,jdbcType=INTEGER},
+      </if>
+      <if test="record.thirdProvinceId != null" >
+        third_province_id = #{record.thirdProvinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.thirdProvinceName != null" >
+        third_province_name = #{record.thirdProvinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirdUserId != null" >
+        third_user_id = #{record.thirdUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxtState != null" >
+        xxt_state = #{record.xxtState,jdbcType=INTEGER},
+      </if>
+      <if test="record.head20 != null" >
+        head20 = #{record.head20,jdbcType=VARCHAR},
+      </if>
+      <if test="record.head70 != null" >
+        head70 = #{record.head70,jdbcType=VARCHAR},
+      </if>
+      <if test="record.head100 != null" >
+        head100 = #{record.head100,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_student_third_hjy
+    set id = #{record.id,jdbcType=INTEGER},
+      student_third_account_id = #{record.studentThirdAccountId,jdbcType=INTEGER},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      third_school_id = #{record.thirdSchoolId,jdbcType=VARCHAR},
+      third_school_name = #{record.thirdSchoolName,jdbcType=VARCHAR},
+      third_grade_id = #{record.thirdGradeId,jdbcType=VARCHAR},
+      third_grade_name = #{record.thirdGradeName,jdbcType=VARCHAR},
+      third_classes_id = #{record.thirdClassesId,jdbcType=VARCHAR},
+      third_classes_name = #{record.thirdClassesName,jdbcType=VARCHAR},
+      third_role_type = #{record.thirdRoleType,jdbcType=INTEGER},
+      third_province_id = #{record.thirdProvinceId,jdbcType=INTEGER},
+      third_province_name = #{record.thirdProvinceName,jdbcType=VARCHAR},
+      third_user_id = #{record.thirdUserId,jdbcType=VARCHAR},
+      xxt_state = #{record.xxtState,jdbcType=INTEGER},
+      head20 = #{record.head20,jdbcType=VARCHAR},
+      head70 = #{record.head70,jdbcType=VARCHAR},
+      head100 = #{record.head100,jdbcType=VARCHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentThirdHjy" >
+    update fd_student_third_hjy
+    <set >
+      <if test="studentThirdAccountId != null" >
+        student_third_account_id = #{studentThirdAccountId,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="thirdSchoolId != null" >
+        third_school_id = #{thirdSchoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdSchoolName != null" >
+        third_school_name = #{thirdSchoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdGradeId != null" >
+        third_grade_id = #{thirdGradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdGradeName != null" >
+        third_grade_name = #{thirdGradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdClassesId != null" >
+        third_classes_id = #{thirdClassesId,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdClassesName != null" >
+        third_classes_name = #{thirdClassesName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdRoleType != null" >
+        third_role_type = #{thirdRoleType,jdbcType=INTEGER},
+      </if>
+      <if test="thirdProvinceId != null" >
+        third_province_id = #{thirdProvinceId,jdbcType=INTEGER},
+      </if>
+      <if test="thirdProvinceName != null" >
+        third_province_name = #{thirdProvinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdUserId != null" >
+        third_user_id = #{thirdUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="xxtState != null" >
+        xxt_state = #{xxtState,jdbcType=INTEGER},
+      </if>
+      <if test="head20 != null" >
+        head20 = #{head20,jdbcType=VARCHAR},
+      </if>
+      <if test="head70 != null" >
+        head70 = #{head70,jdbcType=VARCHAR},
+      </if>
+      <if test="head100 != null" >
+        head100 = #{head100,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdStudentThirdHjy" >
+    update fd_student_third_hjy
+    set student_third_account_id = #{studentThirdAccountId,jdbcType=INTEGER},
+      student_id = #{studentId,jdbcType=INTEGER},
+      third_school_id = #{thirdSchoolId,jdbcType=VARCHAR},
+      third_school_name = #{thirdSchoolName,jdbcType=VARCHAR},
+      third_grade_id = #{thirdGradeId,jdbcType=VARCHAR},
+      third_grade_name = #{thirdGradeName,jdbcType=VARCHAR},
+      third_classes_id = #{thirdClassesId,jdbcType=VARCHAR},
+      third_classes_name = #{thirdClassesName,jdbcType=VARCHAR},
+      third_role_type = #{thirdRoleType,jdbcType=INTEGER},
+      third_province_id = #{thirdProvinceId,jdbcType=INTEGER},
+      third_province_name = #{thirdProvinceName,jdbcType=VARCHAR},
+      third_user_id = #{thirdUserId,jdbcType=VARCHAR},
+      xxt_state = #{xxtState,jdbcType=INTEGER},
+      head20 = #{head20,jdbcType=VARCHAR},
+      head70 = #{head70,jdbcType=VARCHAR},
+      head100 = #{head100,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

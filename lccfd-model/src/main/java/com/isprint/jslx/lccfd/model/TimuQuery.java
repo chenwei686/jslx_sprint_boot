@@ -1,6 +1,5 @@
 package com.isprint.jslx.lccfd.model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -528,52 +527,52 @@ public class TimuQuery {
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeEqualTo(BigDecimal value) {
+        public Criteria andStanderdscroeEqualTo(Double value) {
             addCriterion("StanderdScroe =", value, "standerdscroe");
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeNotEqualTo(BigDecimal value) {
+        public Criteria andStanderdscroeNotEqualTo(Double value) {
             addCriterion("StanderdScroe <>", value, "standerdscroe");
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeGreaterThan(BigDecimal value) {
+        public Criteria andStanderdscroeGreaterThan(Double value) {
             addCriterion("StanderdScroe >", value, "standerdscroe");
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andStanderdscroeGreaterThanOrEqualTo(Double value) {
             addCriterion("StanderdScroe >=", value, "standerdscroe");
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeLessThan(BigDecimal value) {
+        public Criteria andStanderdscroeLessThan(Double value) {
             addCriterion("StanderdScroe <", value, "standerdscroe");
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andStanderdscroeLessThanOrEqualTo(Double value) {
             addCriterion("StanderdScroe <=", value, "standerdscroe");
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeIn(List<BigDecimal> values) {
+        public Criteria andStanderdscroeIn(List<Double> values) {
             addCriterion("StanderdScroe in", values, "standerdscroe");
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeNotIn(List<BigDecimal> values) {
+        public Criteria andStanderdscroeNotIn(List<Double> values) {
             addCriterion("StanderdScroe not in", values, "standerdscroe");
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andStanderdscroeBetween(Double value1, Double value2) {
             addCriterion("StanderdScroe between", value1, value2, "standerdscroe");
             return (Criteria) this;
         }
 
-        public Criteria andStanderdscroeNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andStanderdscroeNotBetween(Double value1, Double value2) {
             addCriterion("StanderdScroe not between", value1, value2, "standerdscroe");
             return (Criteria) this;
         }
@@ -1018,193 +1017,53 @@ public class TimuQuery {
             return (Criteria) this;
         }
 
-        public Criteria andPriceEqualTo(BigDecimal value) {
+        public Criteria andPriceEqualTo(Double value) {
             addCriterion("Price =", value, "price");
             return (Criteria) this;
         }
 
-        public Criteria andPriceNotEqualTo(BigDecimal value) {
+        public Criteria andPriceNotEqualTo(Double value) {
             addCriterion("Price <>", value, "price");
             return (Criteria) this;
         }
 
-        public Criteria andPriceGreaterThan(BigDecimal value) {
+        public Criteria andPriceGreaterThan(Double value) {
             addCriterion("Price >", value, "price");
             return (Criteria) this;
         }
 
-        public Criteria andPriceGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andPriceGreaterThanOrEqualTo(Double value) {
             addCriterion("Price >=", value, "price");
             return (Criteria) this;
         }
 
-        public Criteria andPriceLessThan(BigDecimal value) {
+        public Criteria andPriceLessThan(Double value) {
             addCriterion("Price <", value, "price");
             return (Criteria) this;
         }
 
-        public Criteria andPriceLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andPriceLessThanOrEqualTo(Double value) {
             addCriterion("Price <=", value, "price");
             return (Criteria) this;
         }
 
-        public Criteria andPriceIn(List<BigDecimal> values) {
+        public Criteria andPriceIn(List<Double> values) {
             addCriterion("Price in", values, "price");
             return (Criteria) this;
         }
 
-        public Criteria andPriceNotIn(List<BigDecimal> values) {
+        public Criteria andPriceNotIn(List<Double> values) {
             addCriterion("Price not in", values, "price");
             return (Criteria) this;
         }
 
-        public Criteria andPriceBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andPriceBetween(Double value1, Double value2) {
             addCriterion("Price between", value1, value2, "price");
             return (Criteria) this;
         }
 
-        public Criteria andPriceNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andPriceNotBetween(Double value1, Double value2) {
             addCriterion("Price not between", value1, value2, "price");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidIsNull() {
-            addCriterion("InputId is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidIsNotNull() {
-            addCriterion("InputId is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidEqualTo(String value) {
-            addCriterion("InputId =", value, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidNotEqualTo(String value) {
-            addCriterion("InputId <>", value, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidGreaterThan(String value) {
-            addCriterion("InputId >", value, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidGreaterThanOrEqualTo(String value) {
-            addCriterion("InputId >=", value, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidLessThan(String value) {
-            addCriterion("InputId <", value, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidLessThanOrEqualTo(String value) {
-            addCriterion("InputId <=", value, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidLike(String value) {
-            addCriterion("InputId like", value, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidNotLike(String value) {
-            addCriterion("InputId not like", value, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidIn(List<String> values) {
-            addCriterion("InputId in", values, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidNotIn(List<String> values) {
-            addCriterion("InputId not in", values, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidBetween(String value1, String value2) {
-            addCriterion("InputId between", value1, value2, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputidNotBetween(String value1, String value2) {
-            addCriterion("InputId not between", value1, value2, "inputid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidIsNull() {
-            addCriterion("ParentId is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidIsNotNull() {
-            addCriterion("ParentId is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidEqualTo(String value) {
-            addCriterion("ParentId =", value, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidNotEqualTo(String value) {
-            addCriterion("ParentId <>", value, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidGreaterThan(String value) {
-            addCriterion("ParentId >", value, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidGreaterThanOrEqualTo(String value) {
-            addCriterion("ParentId >=", value, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidLessThan(String value) {
-            addCriterion("ParentId <", value, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidLessThanOrEqualTo(String value) {
-            addCriterion("ParentId <=", value, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidLike(String value) {
-            addCriterion("ParentId like", value, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidNotLike(String value) {
-            addCriterion("ParentId not like", value, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidIn(List<String> values) {
-            addCriterion("ParentId in", values, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidNotIn(List<String> values) {
-            addCriterion("ParentId not in", values, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidBetween(String value1, String value2) {
-            addCriterion("ParentId between", value1, value2, "parentid");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentidNotBetween(String value1, String value2) {
-            addCriterion("ParentId not between", value1, value2, "parentid");
             return (Criteria) this;
         }
 
@@ -1348,52 +1207,52 @@ public class TimuQuery {
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeEqualTo(Boolean value) {
+        public Criteria andIsexpandpracticeEqualTo(Byte value) {
             addCriterion("IsExpandPractice =", value, "isexpandpractice");
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeNotEqualTo(Boolean value) {
+        public Criteria andIsexpandpracticeNotEqualTo(Byte value) {
             addCriterion("IsExpandPractice <>", value, "isexpandpractice");
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeGreaterThan(Boolean value) {
+        public Criteria andIsexpandpracticeGreaterThan(Byte value) {
             addCriterion("IsExpandPractice >", value, "isexpandpractice");
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsexpandpracticeGreaterThanOrEqualTo(Byte value) {
             addCriterion("IsExpandPractice >=", value, "isexpandpractice");
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeLessThan(Boolean value) {
+        public Criteria andIsexpandpracticeLessThan(Byte value) {
             addCriterion("IsExpandPractice <", value, "isexpandpractice");
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsexpandpracticeLessThanOrEqualTo(Byte value) {
             addCriterion("IsExpandPractice <=", value, "isexpandpractice");
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeIn(List<Boolean> values) {
+        public Criteria andIsexpandpracticeIn(List<Byte> values) {
             addCriterion("IsExpandPractice in", values, "isexpandpractice");
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeNotIn(List<Boolean> values) {
+        public Criteria andIsexpandpracticeNotIn(List<Byte> values) {
             addCriterion("IsExpandPractice not in", values, "isexpandpractice");
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsexpandpracticeBetween(Byte value1, Byte value2) {
             addCriterion("IsExpandPractice between", value1, value2, "isexpandpractice");
             return (Criteria) this;
         }
 
-        public Criteria andIsexpandpracticeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsexpandpracticeNotBetween(Byte value1, Byte value2) {
             addCriterion("IsExpandPractice not between", value1, value2, "isexpandpractice");
             return (Criteria) this;
         }
@@ -1408,52 +1267,52 @@ public class TimuQuery {
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuEqualTo(Boolean value) {
+        public Criteria andHavechildtimuEqualTo(Byte value) {
             addCriterion("HaveChildTimu =", value, "havechildtimu");
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuNotEqualTo(Boolean value) {
+        public Criteria andHavechildtimuNotEqualTo(Byte value) {
             addCriterion("HaveChildTimu <>", value, "havechildtimu");
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuGreaterThan(Boolean value) {
+        public Criteria andHavechildtimuGreaterThan(Byte value) {
             addCriterion("HaveChildTimu >", value, "havechildtimu");
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andHavechildtimuGreaterThanOrEqualTo(Byte value) {
             addCriterion("HaveChildTimu >=", value, "havechildtimu");
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuLessThan(Boolean value) {
+        public Criteria andHavechildtimuLessThan(Byte value) {
             addCriterion("HaveChildTimu <", value, "havechildtimu");
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuLessThanOrEqualTo(Boolean value) {
+        public Criteria andHavechildtimuLessThanOrEqualTo(Byte value) {
             addCriterion("HaveChildTimu <=", value, "havechildtimu");
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuIn(List<Boolean> values) {
+        public Criteria andHavechildtimuIn(List<Byte> values) {
             addCriterion("HaveChildTimu in", values, "havechildtimu");
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuNotIn(List<Boolean> values) {
+        public Criteria andHavechildtimuNotIn(List<Byte> values) {
             addCriterion("HaveChildTimu not in", values, "havechildtimu");
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuBetween(Boolean value1, Boolean value2) {
+        public Criteria andHavechildtimuBetween(Byte value1, Byte value2) {
             addCriterion("HaveChildTimu between", value1, value2, "havechildtimu");
             return (Criteria) this;
         }
 
-        public Criteria andHavechildtimuNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andHavechildtimuNotBetween(Byte value1, Byte value2) {
             addCriterion("HaveChildTimu not between", value1, value2, "havechildtimu");
             return (Criteria) this;
         }

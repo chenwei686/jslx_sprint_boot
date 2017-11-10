@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>订正练习校验</title>
+	<link rel="stylesheet" type="text/css" href="${resource}static/content/layui/css/layui.css">
+	<script type="text/javascript" src="${resource}static/content/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="${resource}static/content/layui/lay/dest/layui.all.js"></script>
+</head>
+<style type="text/css">
+.c{width: 950px;margin:0 auto;}
+.layui-tab-content{height: 100%;}
+</style>
+<body>
+<div class="c">
+	<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+	  <ul class="layui-tab-title">
+	    <li class="layui-this">数学</li>
+	    <li>物理</li>
+	  </ul>
+	  <div class="layui-tab-content">
+	    <div class="layui-tab-item layui-show">
+	    <iframe id="iframe1" src="${resource}teacher/getCorrect?subjectId=2&index=1" frameborder="0" scrolling="no" width="100%" height="100%"></iframe></div>
+	    <div class="layui-tab-item">
+	    <iframe id="iframe2" src="${resource}teacher/getCorrect?subjectId=4&index=1" frameborder="0" scrolling="no" width="100%" height="100%"></iframe></div>
+	  </div>
+	</div> 
+</div>
+</body>
+</html>
+<script>
+	 startInit('iframe1', 560);
+	 startInit('iframe2', 560);
+    var browserVersion = window.navigator.userAgent.toUpperCase();
+    var isOpera = browserVersion.indexOf("OPERA") > -1 ? true : false;
+    var isFireFox = browserVersion.indexOf("FIREFOX") > -1 ? true : false;
+    var isChrome = browserVersion.indexOf("CHROME") > -1 ? true : false;
+    var isSafari = browserVersion.indexOf("SAFARI") > -1 ? true : false;
+    var isIE = (!!window.ActiveXObject || "ActiveXObject" in window);
+    var isIE9More = (!-[1, ] == false);
+
+
+    function reinitIframe(iframeId, minHeight) {
+        try {
+            var iframe = document.getElementById(iframeId);
+            var bHeight = 0;
+            if (isChrome == false && isSafari == false)
+                bHeight = iframe.contentWindow.document.body.scrollHeight;
+
+            var dHeight = 0;
+            if (isFireFox == true)
+                dHeight = iframe.contentWindow.document.documentElement.offsetHeight + 2;
+            else if (isIE == false && isOpera == false)
+                dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+            else if (isIE == true && isIE9More) { //ie9+
+                var heightDeviation = bHeight - eval("window.IE9MoreRealHeight" + iframeId);
+                if (heightDeviation == 0) {
+                    bHeight += 3;
+                } else if (heightDeviation != 3) {
+                    eval("window.IE9MoreRealHeight" + iframeId + "=" + bHeight);
+                    bHeight += 3;
+                }
+            } else //ie[6-8]、OPERA
+                bHeight += 3;
+
+            var height = Math.max(bHeight, dHeight);
+            if (height < minHeight) height = minHeight;
+            iframe.style.height = height + "px";
+        } catch (ex) {}
+    }
+
+    function startInit(iframeId, minHeight) {
+        eval("window.IE9MoreRealHeight" + iframeId + "=0");
+        window.setInterval("reinitIframe('" + iframeId + "'," + minHeight + ")", 100);
+    }
+    var iframeRb = document.getElementById('iframeRb');
+</script>

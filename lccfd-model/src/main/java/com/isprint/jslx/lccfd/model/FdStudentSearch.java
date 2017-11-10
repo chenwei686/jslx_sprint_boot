@@ -30,9 +30,19 @@ public class FdStudentSearch implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     private Date createTime;
+
+    /**
+     * 所教学科
+     */
+    private Integer subjectId;
+
+    /**
+     * 所教学科
+     */
+    private Integer parentSubjectId;
 
     private static final long serialVersionUID = 1L;
 
@@ -92,12 +102,12 @@ public class FdStudentSearch implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Date getCreateTime() {
@@ -106,6 +116,22 @@ public class FdStudentSearch implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(Integer subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    public Integer getParentSubjectId() {
+        return parentSubjectId;
+    }
+
+    public void setParentSubjectId(Integer parentSubjectId) {
+        this.parentSubjectId = parentSubjectId;
     }
 
     @Override
@@ -121,8 +147,10 @@ public class FdStudentSearch implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", createTime=").append(createTime);
+        sb.append(", subjectId=").append(subjectId);
+        sb.append(", parentSubjectId=").append(parentSubjectId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

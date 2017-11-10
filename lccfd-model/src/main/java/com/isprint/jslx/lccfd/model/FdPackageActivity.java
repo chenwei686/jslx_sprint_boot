@@ -13,13 +13,21 @@ public class FdPackageActivity implements Serializable {
     /**
      * 活动名称
      */
-    private String name;
+    private String content;
 
+    /**
+     * 套餐id
+     */
     private Integer packageId;
 
     private Date startTime;
 
     private Date endTime;
+
+    /**
+     * none：无优惠
+     */
+    private String activityType;
 
     /**
      * 折扣
@@ -29,7 +37,12 @@ public class FdPackageActivity implements Serializable {
     /**
      * 优惠价格
      */
-    private BigDecimal money;
+    private BigDecimal dealsMoney;
+
+    /**
+     * 实际支付金额
+     */
+    private BigDecimal payMoney;
 
     /**
      * 是否激活
@@ -41,9 +54,21 @@ public class FdPackageActivity implements Serializable {
      */
     private Boolean isDel;
 
+    private String thirdPackageActivityId;
+
+    /**
+     * ios标识
+     */
+    private String iosCode;
+
     private Date updateTime;
 
     private Date createTime;
+
+    /**
+     * ios标识
+     */
+    private String iosCodeHjy;
 
     private static final long serialVersionUID = 1L;
 
@@ -55,12 +80,12 @@ public class FdPackageActivity implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getContent() {
+        return content;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 
     public Integer getPackageId() {
@@ -87,6 +112,14 @@ public class FdPackageActivity implements Serializable {
         this.endTime = endTime;
     }
 
+    public String getActivityType() {
+        return activityType;
+    }
+
+    public void setActivityType(String activityType) {
+        this.activityType = activityType == null ? null : activityType.trim();
+    }
+
     public BigDecimal getDiscount() {
         return discount;
     }
@@ -95,12 +128,20 @@ public class FdPackageActivity implements Serializable {
         this.discount = discount;
     }
 
-    public BigDecimal getMoney() {
-        return money;
+    public BigDecimal getDealsMoney() {
+        return dealsMoney;
     }
 
-    public void setMoney(BigDecimal money) {
-        this.money = money;
+    public void setDealsMoney(BigDecimal dealsMoney) {
+        this.dealsMoney = dealsMoney;
+    }
+
+    public BigDecimal getPayMoney() {
+        return payMoney;
+    }
+
+    public void setPayMoney(BigDecimal payMoney) {
+        this.payMoney = payMoney;
     }
 
     public Boolean getIsActivate() {
@@ -119,6 +160,22 @@ public class FdPackageActivity implements Serializable {
         this.isDel = isDel;
     }
 
+    public String getThirdPackageActivityId() {
+        return thirdPackageActivityId;
+    }
+
+    public void setThirdPackageActivityId(String thirdPackageActivityId) {
+        this.thirdPackageActivityId = thirdPackageActivityId == null ? null : thirdPackageActivityId.trim();
+    }
+
+    public String getIosCode() {
+        return iosCode;
+    }
+
+    public void setIosCode(String iosCode) {
+        this.iosCode = iosCode == null ? null : iosCode.trim();
+    }
+
     public Date getUpdateTime() {
         return updateTime;
     }
@@ -135,6 +192,14 @@ public class FdPackageActivity implements Serializable {
         this.createTime = createTime;
     }
 
+    public String getIosCodeHjy() {
+        return iosCodeHjy;
+    }
+
+    public void setIosCodeHjy(String iosCodeHjy) {
+        this.iosCodeHjy = iosCodeHjy == null ? null : iosCodeHjy.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -142,16 +207,21 @@ public class FdPackageActivity implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
+        sb.append(", content=").append(content);
         sb.append(", packageId=").append(packageId);
         sb.append(", startTime=").append(startTime);
         sb.append(", endTime=").append(endTime);
+        sb.append(", activityType=").append(activityType);
         sb.append(", discount=").append(discount);
-        sb.append(", money=").append(money);
+        sb.append(", dealsMoney=").append(dealsMoney);
+        sb.append(", payMoney=").append(payMoney);
         sb.append(", isActivate=").append(isActivate);
         sb.append(", isDel=").append(isDel);
+        sb.append(", thirdPackageActivityId=").append(thirdPackageActivityId);
+        sb.append(", iosCode=").append(iosCode);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", createTime=").append(createTime);
+        sb.append(", iosCodeHjy=").append(iosCodeHjy);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

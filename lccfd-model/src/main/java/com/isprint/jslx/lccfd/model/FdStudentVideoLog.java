@@ -35,7 +35,7 @@ public class FdStudentVideoLog implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     /**
      * 1：拍题  2：试卷  3：每周一练  4：订正练习 5：时间轴  6：知识点列表  7：收藏   
@@ -115,12 +115,12 @@ public class FdStudentVideoLog implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Byte getSource() {
@@ -161,7 +161,7 @@ public class FdStudentVideoLog implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", source=").append(source);
         sb.append(", timuId=").append(timuId);
         sb.append(", createTime=").append(createTime);

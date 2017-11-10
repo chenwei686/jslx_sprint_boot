@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdBuildExampaperBasketItemMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketItem" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="build_exampaper_basket_id" property="buildExampaperBasketId" jdbcType="INTEGER" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="timu_type_id" property="timuTypeId" jdbcType="INTEGER" />
+    <result column="timu_type_name" property="timuTypeName" jdbcType="VARCHAR" />
+    <result column="timu_num" property="timuNum" jdbcType="INTEGER" />
+    <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, name, build_exampaper_basket_id, sort, timu_type_id, timu_type_name, timu_num, 
+      teacher_id, score, is_del, update_time, create_time
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketItemQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_build_exampaper_basket_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,name,build_exampaper_basket_id,sort,timu_type_id,timu_type_name,timu_num,teacher_id,score,is_del,update_time,create_time
+    from fd_build_exampaper_basket_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_build_exampaper_basket_item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketItemQuery" >
+    delete from fd_build_exampaper_basket_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketItem" >
+    insert into fd_build_exampaper_basket_item (id, name, build_exampaper_basket_id, 
+      sort, timu_type_id, timu_type_name, 
+      timu_num, teacher_id, score, 
+      is_del, update_time, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{buildExampaperBasketId,jdbcType=INTEGER}, 
+      #{sort,jdbcType=INTEGER}, #{timuTypeId,jdbcType=INTEGER}, #{timuTypeName,jdbcType=VARCHAR}, 
+      #{timuNum,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}, #{score,jdbcType=DECIMAL}, 
+      #{isDel,jdbcType=BIT}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketItem" >
+    insert into fd_build_exampaper_basket_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="buildExampaperBasketId != null" >
+        build_exampaper_basket_id,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="timuTypeId != null" >
+        timu_type_id,
+      </if>
+      <if test="timuTypeName != null" >
+        timu_type_name,
+      </if>
+      <if test="timuNum != null" >
+        timu_num,
+      </if>
+      <if test="teacherId != null" >
+        teacher_id,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="buildExampaperBasketId != null" >
+        #{buildExampaperBasketId,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="timuTypeId != null" >
+        #{timuTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="timuTypeName != null" >
+        #{timuTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="timuNum != null" >
+        #{timuNum,jdbcType=INTEGER},
+      </if>
+      <if test="teacherId != null" >
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketItemQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_build_exampaper_basket_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_build_exampaper_basket_item
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buildExampaperBasketId != null" >
+        build_exampaper_basket_id = #{record.buildExampaperBasketId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sort != null" >
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.timuTypeId != null" >
+        timu_type_id = #{record.timuTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.timuTypeName != null" >
+        timu_type_name = #{record.timuTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timuNum != null" >
+        timu_num = #{record.timuNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.teacherId != null" >
+        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.score != null" >
+        score = #{record.score,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isDel != null" >
+        is_del = #{record.isDel,jdbcType=BIT},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_build_exampaper_basket_item
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      build_exampaper_basket_id = #{record.buildExampaperBasketId,jdbcType=INTEGER},
+      sort = #{record.sort,jdbcType=INTEGER},
+      timu_type_id = #{record.timuTypeId,jdbcType=INTEGER},
+      timu_type_name = #{record.timuTypeName,jdbcType=VARCHAR},
+      timu_num = #{record.timuNum,jdbcType=INTEGER},
+      teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      score = #{record.score,jdbcType=DECIMAL},
+      is_del = #{record.isDel,jdbcType=BIT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketItem" >
+    update fd_build_exampaper_basket_item
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="buildExampaperBasketId != null" >
+        build_exampaper_basket_id = #{buildExampaperBasketId,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="timuTypeId != null" >
+        timu_type_id = #{timuTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="timuTypeName != null" >
+        timu_type_name = #{timuTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="timuNum != null" >
+        timu_num = #{timuNum,jdbcType=INTEGER},
+      </if>
+      <if test="teacherId != null" >
+        teacher_id = #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdBuildExampaperBasketItem" >
+    update fd_build_exampaper_basket_item
+    set name = #{name,jdbcType=VARCHAR},
+      build_exampaper_basket_id = #{buildExampaperBasketId,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      timu_type_id = #{timuTypeId,jdbcType=INTEGER},
+      timu_type_name = #{timuTypeName,jdbcType=VARCHAR},
+      timu_num = #{timuNum,jdbcType=INTEGER},
+      teacher_id = #{teacherId,jdbcType=INTEGER},
+      score = #{score,jdbcType=DECIMAL},
+      is_del = #{isDel,jdbcType=BIT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

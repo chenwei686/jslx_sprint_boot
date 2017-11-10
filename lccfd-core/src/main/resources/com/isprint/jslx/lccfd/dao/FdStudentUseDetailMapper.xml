@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdStudentUseDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdStudentUseDetail" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="classes_id" property="classesId" jdbcType="INTEGER" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="parent_subject_id" property="parentSubjectId" jdbcType="INTEGER" />
+    <result column="date" property="date" jdbcType="DATE" />
+    <result column="search_num" property="searchNum" jdbcType="INTEGER" />
+    <result column="correct_num" property="correctNum" jdbcType="INTEGER" />
+    <result column="correct_pro" property="correctPro" jdbcType="DECIMAL" />
+    <result column="correct_right_num" property="correctRightNum" jdbcType="INTEGER" />
+    <result column="correct_right_pro" property="correctRightPro" jdbcType="DECIMAL" />
+    <result column="practice_num" property="practiceNum" jdbcType="INTEGER" />
+    <result column="practice_finish_num" property="practiceFinishNum" jdbcType="INTEGER" />
+    <result column="practice_finish_pro" property="practiceFinishPro" jdbcType="DECIMAL" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="search_num_ranking" property="searchNumRanking" jdbcType="INTEGER" />
+    <result column="total_number" property="totalNumber" jdbcType="INTEGER" />
+    <result column="search_num_pro" property="searchNumPro" jdbcType="DECIMAL" />
+    <result column="difficulty" property="difficulty" jdbcType="DECIMAL" />
+    <result column="difficulty_total" property="difficultyTotal" jdbcType="INTEGER" />
+    <result column="difficulty_numerator" property="difficultyNumerator" jdbcType="INTEGER" />
+    <result column="difficulty_json" property="difficultyJson" jdbcType="VARCHAR" />
+    <result column="diagnose_student_id" property="diagnoseStudentId" jdbcType="INTEGER" />
+    <result column="diagnose_student_content" property="diagnoseStudentContent" jdbcType="VARCHAR" />
+    <result column="difficulty_pro_h" property="difficultyProH" jdbcType="DECIMAL" />
+    <result column="correct_right_total_num" property="correctRightTotalNum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, student_id, school_id, grade_id, classes_id, year_id, subject_id, parent_subject_id, 
+      date, search_num, correct_num, correct_pro, correct_right_num, correct_right_pro, 
+      practice_num, practice_finish_num, practice_finish_pro, update_time, create_time, 
+      search_num_ranking, total_number, search_num_pro, difficulty, difficulty_total, difficulty_numerator, 
+      difficulty_json, diagnose_student_id, diagnose_student_content, difficulty_pro_h, 
+      correct_right_total_num
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdStudentUseDetailQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_student_use_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,student_id,school_id,grade_id,classes_id,year_id,subject_id,parent_subject_id,date,search_num,correct_num,correct_pro,correct_right_num,correct_right_pro,practice_num,practice_finish_num,practice_finish_pro,update_time,create_time,search_num_ranking,total_number,search_num_pro,difficulty,difficulty_total,difficulty_numerator,difficulty_json,diagnose_student_id,diagnose_student_content,difficulty_pro_h,correct_right_total_num
+    from fd_student_use_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_student_use_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentUseDetailQuery" >
+    delete from fd_student_use_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentUseDetail" >
+    insert into fd_student_use_detail (id, student_id, school_id, 
+      grade_id, classes_id, year_id, 
+      subject_id, parent_subject_id, date, 
+      search_num, correct_num, correct_pro, 
+      correct_right_num, correct_right_pro, practice_num, 
+      practice_finish_num, practice_finish_pro, update_time, 
+      create_time, search_num_ranking, total_number, 
+      search_num_pro, difficulty, difficulty_total, 
+      difficulty_numerator, difficulty_json, diagnose_student_id, 
+      diagnose_student_content, difficulty_pro_h, 
+      correct_right_total_num)
+    values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, 
+      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, 
+      #{subjectId,jdbcType=INTEGER}, #{parentSubjectId,jdbcType=INTEGER}, #{date,jdbcType=DATE}, 
+      #{searchNum,jdbcType=INTEGER}, #{correctNum,jdbcType=INTEGER}, #{correctPro,jdbcType=DECIMAL}, 
+      #{correctRightNum,jdbcType=INTEGER}, #{correctRightPro,jdbcType=DECIMAL}, #{practiceNum,jdbcType=INTEGER}, 
+      #{practiceFinishNum,jdbcType=INTEGER}, #{practiceFinishPro,jdbcType=DECIMAL}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{searchNumRanking,jdbcType=INTEGER}, #{totalNumber,jdbcType=INTEGER}, 
+      #{searchNumPro,jdbcType=DECIMAL}, #{difficulty,jdbcType=DECIMAL}, #{difficultyTotal,jdbcType=INTEGER}, 
+      #{difficultyNumerator,jdbcType=INTEGER}, #{difficultyJson,jdbcType=VARCHAR}, #{diagnoseStudentId,jdbcType=INTEGER}, 
+      #{diagnoseStudentContent,jdbcType=VARCHAR}, #{difficultyProH,jdbcType=DECIMAL}, 
+      #{correctRightTotalNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentUseDetail" >
+    insert into fd_student_use_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="classesId != null" >
+        classes_id,
+      </if>
+      <if test="yearId != null" >
+        year_id,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="parentSubjectId != null" >
+        parent_subject_id,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="searchNum != null" >
+        search_num,
+      </if>
+      <if test="correctNum != null" >
+        correct_num,
+      </if>
+      <if test="correctPro != null" >
+        correct_pro,
+      </if>
+      <if test="correctRightNum != null" >
+        correct_right_num,
+      </if>
+      <if test="correctRightPro != null" >
+        correct_right_pro,
+      </if>
+      <if test="practiceNum != null" >
+        practice_num,
+      </if>
+      <if test="practiceFinishNum != null" >
+        practice_finish_num,
+      </if>
+      <if test="practiceFinishPro != null" >
+        practice_finish_pro,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="searchNumRanking != null" >
+        search_num_ranking,
+      </if>
+      <if test="totalNumber != null" >
+        total_number,
+      </if>
+      <if test="searchNumPro != null" >
+        search_num_pro,
+      </if>
+      <if test="difficulty != null" >
+        difficulty,
+      </if>
+      <if test="difficultyTotal != null" >
+        difficulty_total,
+      </if>
+      <if test="difficultyNumerator != null" >
+        difficulty_numerator,
+      </if>
+      <if test="difficultyJson != null" >
+        difficulty_json,
+      </if>
+      <if test="diagnoseStudentId != null" >
+        diagnose_student_id,
+      </if>
+      <if test="diagnoseStudentContent != null" >
+        diagnose_student_content,
+      </if>
+      <if test="difficultyProH != null" >
+        difficulty_pro_h,
+      </if>
+      <if test="correctRightTotalNum != null" >
+        correct_right_total_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="parentSubjectId != null" >
+        #{parentSubjectId,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="searchNum != null" >
+        #{searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctNum != null" >
+        #{correctNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctPro != null" >
+        #{correctPro,jdbcType=DECIMAL},
+      </if>
+      <if test="correctRightNum != null" >
+        #{correctRightNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctRightPro != null" >
+        #{correctRightPro,jdbcType=DECIMAL},
+      </if>
+      <if test="practiceNum != null" >
+        #{practiceNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceFinishNum != null" >
+        #{practiceFinishNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceFinishPro != null" >
+        #{practiceFinishPro,jdbcType=DECIMAL},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="searchNumRanking != null" >
+        #{searchNumRanking,jdbcType=INTEGER},
+      </if>
+      <if test="totalNumber != null" >
+        #{totalNumber,jdbcType=INTEGER},
+      </if>
+      <if test="searchNumPro != null" >
+        #{searchNumPro,jdbcType=DECIMAL},
+      </if>
+      <if test="difficulty != null" >
+        #{difficulty,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyTotal != null" >
+        #{difficultyTotal,jdbcType=INTEGER},
+      </if>
+      <if test="difficultyNumerator != null" >
+        #{difficultyNumerator,jdbcType=INTEGER},
+      </if>
+      <if test="difficultyJson != null" >
+        #{difficultyJson,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnoseStudentId != null" >
+        #{diagnoseStudentId,jdbcType=INTEGER},
+      </if>
+      <if test="diagnoseStudentContent != null" >
+        #{diagnoseStudentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="difficultyProH != null" >
+        #{difficultyProH,jdbcType=DECIMAL},
+      </if>
+      <if test="correctRightTotalNum != null" >
+        #{correctRightTotalNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentUseDetailQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_student_use_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_student_use_detail
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentId != null" >
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.schoolId != null" >
+        school_id = #{record.schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classesId != null" >
+        classes_id = #{record.classesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentSubjectId != null" >
+        parent_subject_id = #{record.parentSubjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.date != null" >
+        date = #{record.date,jdbcType=DATE},
+      </if>
+      <if test="record.searchNum != null" >
+        search_num = #{record.searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.correctNum != null" >
+        correct_num = #{record.correctNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.correctPro != null" >
+        correct_pro = #{record.correctPro,jdbcType=DECIMAL},
+      </if>
+      <if test="record.correctRightNum != null" >
+        correct_right_num = #{record.correctRightNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.correctRightPro != null" >
+        correct_right_pro = #{record.correctRightPro,jdbcType=DECIMAL},
+      </if>
+      <if test="record.practiceNum != null" >
+        practice_num = #{record.practiceNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.practiceFinishNum != null" >
+        practice_finish_num = #{record.practiceFinishNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.practiceFinishPro != null" >
+        practice_finish_pro = #{record.practiceFinishPro,jdbcType=DECIMAL},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.searchNumRanking != null" >
+        search_num_ranking = #{record.searchNumRanking,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalNumber != null" >
+        total_number = #{record.totalNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.searchNumPro != null" >
+        search_num_pro = #{record.searchNumPro,jdbcType=DECIMAL},
+      </if>
+      <if test="record.difficulty != null" >
+        difficulty = #{record.difficulty,jdbcType=DECIMAL},
+      </if>
+      <if test="record.difficultyTotal != null" >
+        difficulty_total = #{record.difficultyTotal,jdbcType=INTEGER},
+      </if>
+      <if test="record.difficultyNumerator != null" >
+        difficulty_numerator = #{record.difficultyNumerator,jdbcType=INTEGER},
+      </if>
+      <if test="record.difficultyJson != null" >
+        difficulty_json = #{record.difficultyJson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagnoseStudentId != null" >
+        diagnose_student_id = #{record.diagnoseStudentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.diagnoseStudentContent != null" >
+        diagnose_student_content = #{record.diagnoseStudentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.difficultyProH != null" >
+        difficulty_pro_h = #{record.difficultyProH,jdbcType=DECIMAL},
+      </if>
+      <if test="record.correctRightTotalNum != null" >
+        correct_right_total_num = #{record.correctRightTotalNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_student_use_detail
+    set id = #{record.id,jdbcType=INTEGER},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      school_id = #{record.schoolId,jdbcType=INTEGER},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      classes_id = #{record.classesId,jdbcType=INTEGER},
+      year_id = #{record.yearId,jdbcType=INTEGER},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      parent_subject_id = #{record.parentSubjectId,jdbcType=INTEGER},
+      date = #{record.date,jdbcType=DATE},
+      search_num = #{record.searchNum,jdbcType=INTEGER},
+      correct_num = #{record.correctNum,jdbcType=INTEGER},
+      correct_pro = #{record.correctPro,jdbcType=DECIMAL},
+      correct_right_num = #{record.correctRightNum,jdbcType=INTEGER},
+      correct_right_pro = #{record.correctRightPro,jdbcType=DECIMAL},
+      practice_num = #{record.practiceNum,jdbcType=INTEGER},
+      practice_finish_num = #{record.practiceFinishNum,jdbcType=INTEGER},
+      practice_finish_pro = #{record.practiceFinishPro,jdbcType=DECIMAL},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      search_num_ranking = #{record.searchNumRanking,jdbcType=INTEGER},
+      total_number = #{record.totalNumber,jdbcType=INTEGER},
+      search_num_pro = #{record.searchNumPro,jdbcType=DECIMAL},
+      difficulty = #{record.difficulty,jdbcType=DECIMAL},
+      difficulty_total = #{record.difficultyTotal,jdbcType=INTEGER},
+      difficulty_numerator = #{record.difficultyNumerator,jdbcType=INTEGER},
+      difficulty_json = #{record.difficultyJson,jdbcType=VARCHAR},
+      diagnose_student_id = #{record.diagnoseStudentId,jdbcType=INTEGER},
+      diagnose_student_content = #{record.diagnoseStudentContent,jdbcType=VARCHAR},
+      difficulty_pro_h = #{record.difficultyProH,jdbcType=DECIMAL},
+      correct_right_total_num = #{record.correctRightTotalNum,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentUseDetail" >
+    update fd_student_use_detail
+    <set >
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="parentSubjectId != null" >
+        parent_subject_id = #{parentSubjectId,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="searchNum != null" >
+        search_num = #{searchNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctNum != null" >
+        correct_num = #{correctNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctPro != null" >
+        correct_pro = #{correctPro,jdbcType=DECIMAL},
+      </if>
+      <if test="correctRightNum != null" >
+        correct_right_num = #{correctRightNum,jdbcType=INTEGER},
+      </if>
+      <if test="correctRightPro != null" >
+        correct_right_pro = #{correctRightPro,jdbcType=DECIMAL},
+      </if>
+      <if test="practiceNum != null" >
+        practice_num = #{practiceNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceFinishNum != null" >
+        practice_finish_num = #{practiceFinishNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceFinishPro != null" >
+        practice_finish_pro = #{practiceFinishPro,jdbcType=DECIMAL},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="searchNumRanking != null" >
+        search_num_ranking = #{searchNumRanking,jdbcType=INTEGER},
+      </if>
+      <if test="totalNumber != null" >
+        total_number = #{totalNumber,jdbcType=INTEGER},
+      </if>
+      <if test="searchNumPro != null" >
+        search_num_pro = #{searchNumPro,jdbcType=DECIMAL},
+      </if>
+      <if test="difficulty != null" >
+        difficulty = #{difficulty,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyTotal != null" >
+        difficulty_total = #{difficultyTotal,jdbcType=INTEGER},
+      </if>
+      <if test="difficultyNumerator != null" >
+        difficulty_numerator = #{difficultyNumerator,jdbcType=INTEGER},
+      </if>
+      <if test="difficultyJson != null" >
+        difficulty_json = #{difficultyJson,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnoseStudentId != null" >
+        diagnose_student_id = #{diagnoseStudentId,jdbcType=INTEGER},
+      </if>
+      <if test="diagnoseStudentContent != null" >
+        diagnose_student_content = #{diagnoseStudentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="difficultyProH != null" >
+        difficulty_pro_h = #{difficultyProH,jdbcType=DECIMAL},
+      </if>
+      <if test="correctRightTotalNum != null" >
+        correct_right_total_num = #{correctRightTotalNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdStudentUseDetail" >
+    update fd_student_use_detail
+    set student_id = #{studentId,jdbcType=INTEGER},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      year_id = #{yearId,jdbcType=INTEGER},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      parent_subject_id = #{parentSubjectId,jdbcType=INTEGER},
+      date = #{date,jdbcType=DATE},
+      search_num = #{searchNum,jdbcType=INTEGER},
+      correct_num = #{correctNum,jdbcType=INTEGER},
+      correct_pro = #{correctPro,jdbcType=DECIMAL},
+      correct_right_num = #{correctRightNum,jdbcType=INTEGER},
+      correct_right_pro = #{correctRightPro,jdbcType=DECIMAL},
+      practice_num = #{practiceNum,jdbcType=INTEGER},
+      practice_finish_num = #{practiceFinishNum,jdbcType=INTEGER},
+      practice_finish_pro = #{practiceFinishPro,jdbcType=DECIMAL},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      search_num_ranking = #{searchNumRanking,jdbcType=INTEGER},
+      total_number = #{totalNumber,jdbcType=INTEGER},
+      search_num_pro = #{searchNumPro,jdbcType=DECIMAL},
+      difficulty = #{difficulty,jdbcType=DECIMAL},
+      difficulty_total = #{difficultyTotal,jdbcType=INTEGER},
+      difficulty_numerator = #{difficultyNumerator,jdbcType=INTEGER},
+      difficulty_json = #{difficultyJson,jdbcType=VARCHAR},
+      diagnose_student_id = #{diagnoseStudentId,jdbcType=INTEGER},
+      diagnose_student_content = #{diagnoseStudentContent,jdbcType=VARCHAR},
+      difficulty_pro_h = #{difficultyProH,jdbcType=DECIMAL},
+      correct_right_total_num = #{correctRightTotalNum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

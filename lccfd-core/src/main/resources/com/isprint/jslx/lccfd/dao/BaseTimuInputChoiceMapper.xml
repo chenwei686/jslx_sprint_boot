@@ -4,10 +4,12 @@
   <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.BaseTimuInputChoice" >
     <id column="id" property="id" jdbcType="CHAR" />
     <result column="timu_input_id" property="timuInputId" jdbcType="CHAR" />
-    <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="score" property="score" jdbcType="DECIMAL" />
     <result column="sort" property="sort" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.isprint.jslx.lccfd.model.BaseTimuInputChoice" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,12 +71,31 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, timu_input_id, content, score, sort, create_time
+      id, timu_input_id, score, sort, create_time
     </if>
     <if test="fields != null" >
       ${fields}
     </if>
   </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.BaseTimuInputChoiceQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from base_timu_input_choice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.BaseTimuInputChoiceQuery" >
     select
     <if test="distinct" >
@@ -92,9 +113,11 @@
       limit #{startRow} , #{pageSize}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
     select 
-    id,timu_input_id,content,score,sort,create_time
+    id,timu_input_id,score,sort,create_time,content
+    ,
+    <include refid="Blob_Column_List" />
     from base_timu_input_choice
     where id = #{id,jdbcType=CHAR}
   </select>
@@ -109,11 +132,11 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseTimuInputChoice" >
-    insert into base_timu_input_choice (id, timu_input_id, content, 
-      score, sort, create_time
+    insert into base_timu_input_choice (id, timu_input_id, score, 
+      sort, create_time, content
       )
-    values (#{id,jdbcType=CHAR}, #{timuInputId,jdbcType=CHAR}, #{content,jdbcType=VARCHAR}, 
-      #{score,jdbcType=DECIMAL}, #{sort,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+    values (#{id,jdbcType=CHAR}, #{timuInputId,jdbcType=CHAR}, #{score,jdbcType=DECIMAL}, 
+      #{sort,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseTimuInputChoice" >
@@ -125,9 +148,6 @@
       <if test="timuInputId != null" >
         timu_input_id,
       </if>
-      <if test="content != null" >
-        content,
-      </if>
       <if test="score != null" >
         score,
       </if>
@@ -137,6 +157,9 @@
       <if test="createTime != null" >
         create_time,
       </if>
+      <if test="content != null" >
+        content,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -144,9 +167,6 @@
       </if>
       <if test="timuInputId != null" >
         #{timuInputId,jdbcType=CHAR},
-      </if>
-      <if test="content != null" >
-        #{content,jdbcType=VARCHAR},
       </if>
       <if test="score != null" >
         #{score,jdbcType=DECIMAL},
@@ -156,6 +176,9 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -174,9 +197,6 @@
       <if test="record.timuInputId != null" >
         timu_input_id = #{record.timuInputId,jdbcType=CHAR},
       </if>
-      <if test="record.content != null" >
-        content = #{record.content,jdbcType=VARCHAR},
-      </if>
       <if test="record.score != null" >
         score = #{record.score,jdbcType=DECIMAL},
       </if>
@@ -186,7 +206,22 @@
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update base_timu_input_choice
+    set id = #{record.id,jdbcType=CHAR},
+      timu_input_id = #{record.timuInputId,jdbcType=CHAR},
+      score = #{record.score,jdbcType=DECIMAL},
+      sort = #{record.sort,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -195,7 +230,6 @@
     update base_timu_input_choice
     set id = #{record.id,jdbcType=CHAR},
       timu_input_id = #{record.timuInputId,jdbcType=CHAR},
-      content = #{record.content,jdbcType=VARCHAR},
       score = #{record.score,jdbcType=DECIMAL},
       sort = #{record.sort,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
@@ -209,9 +243,6 @@
       <if test="timuInputId != null" >
         timu_input_id = #{timuInputId,jdbcType=CHAR},
       </if>
-      <if test="content != null" >
-        content = #{content,jdbcType=VARCHAR},
-      </if>
       <if test="score != null" >
         score = #{score,jdbcType=DECIMAL},
       </if>
@@ -221,13 +252,24 @@
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.BaseTimuInputChoice" >
+    update base_timu_input_choice
+    set timu_input_id = #{timuInputId,jdbcType=CHAR},
+      score = #{score,jdbcType=DECIMAL},
+      sort = #{sort,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=CHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.BaseTimuInputChoice" >
     update base_timu_input_choice
     set timu_input_id = #{timuInputId,jdbcType=CHAR},
-      content = #{content,jdbcType=VARCHAR},
       score = #{score,jdbcType=DECIMAL},
       sort = #{sort,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP}

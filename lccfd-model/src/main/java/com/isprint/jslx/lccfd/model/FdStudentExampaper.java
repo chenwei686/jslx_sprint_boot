@@ -62,7 +62,7 @@ public class FdStudentExampaper implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     /**
      * 分层（0：未分层  1：简单层  2：基础层  3：提升层  4：拔高层）
@@ -74,7 +74,17 @@ public class FdStudentExampaper implements Serializable {
      */
     private Integer subjectId;
 
+    /**
+     * 完成时间
+     */
+    private Date finishTime;
+
     private Date createTime;
+
+    /**
+     * 发卷对象id
+     */
+    private Integer exampaperObjectId;
 
     private static final long serialVersionUID = 1L;
 
@@ -174,12 +184,12 @@ public class FdStudentExampaper implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Byte getLevelId() {
@@ -198,12 +208,28 @@ public class FdStudentExampaper implements Serializable {
         this.subjectId = subjectId;
     }
 
+    public Date getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(Date finishTime) {
+        this.finishTime = finishTime;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getExampaperObjectId() {
+        return exampaperObjectId;
+    }
+
+    public void setExampaperObjectId(Integer exampaperObjectId) {
+        this.exampaperObjectId = exampaperObjectId;
     }
 
     @Override
@@ -224,10 +250,12 @@ public class FdStudentExampaper implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", levelId=").append(levelId);
         sb.append(", subjectId=").append(subjectId);
+        sb.append(", finishTime=").append(finishTime);
         sb.append(", createTime=").append(createTime);
+        sb.append(", exampaperObjectId=").append(exampaperObjectId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

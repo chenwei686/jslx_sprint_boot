@@ -11,6 +11,10 @@
     <result column="provide_time" property="provideTime" jdbcType="TIMESTAMP" />
     <result column="rise_time" property="riseTime" jdbcType="TIMESTAMP" />
     <result column="notes" property="notes" jdbcType="VARCHAR" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="classes_id" property="classesId" jdbcType="INTEGER" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -75,7 +79,7 @@
   <sql id="Base_Column_List" >
     <if test="fields == null" >
       id, teacher_id, difficult_level, exampaper_id, exampaper_name, source, provide_time, 
-      rise_time, notes, update_time, create_time
+      rise_time, notes, school_id, grade_id, classes_id, year_id, update_time, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -100,7 +104,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,teacher_id,difficult_level,exampaper_id,exampaper_name,source,provide_time,rise_time,notes,update_time,create_time
+    id,teacher_id,difficult_level,exampaper_id,exampaper_name,source,provide_time,rise_time,notes,school_id,grade_id,classes_id,year_id,update_time,create_time
     from fd_teacher_exampaper
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -118,11 +122,15 @@
     insert into fd_teacher_exampaper (id, teacher_id, difficult_level, 
       exampaper_id, exampaper_name, source, 
       provide_time, rise_time, notes, 
-      update_time, create_time)
+      school_id, grade_id, classes_id, 
+      year_id, update_time, create_time
+      )
     values (#{id,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}, #{difficultLevel,jdbcType=TINYINT}, 
       #{exampaperId,jdbcType=INTEGER}, #{exampaperName,jdbcType=VARCHAR}, #{source,jdbcType=TINYINT}, 
       #{provideTime,jdbcType=TIMESTAMP}, #{riseTime,jdbcType=TIMESTAMP}, #{notes,jdbcType=VARCHAR}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+      #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, 
+      #{yearId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherExampaper" >
     insert into fd_teacher_exampaper
@@ -153,6 +161,18 @@
       </if>
       <if test="notes != null" >
         notes,
+      </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="classesId != null" >
+        classes_id,
+      </if>
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="updateTime != null" >
         update_time,
@@ -188,6 +208,18 @@
       </if>
       <if test="notes != null" >
         #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
@@ -233,6 +265,18 @@
       <if test="record.notes != null" >
         notes = #{record.notes,jdbcType=VARCHAR},
       </if>
+      <if test="record.schoolId != null" >
+        school_id = #{record.schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classesId != null" >
+        classes_id = #{record.classesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
+      </if>
       <if test="record.updateTime != null" >
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
@@ -255,6 +299,10 @@
       provide_time = #{record.provideTime,jdbcType=TIMESTAMP},
       rise_time = #{record.riseTime,jdbcType=TIMESTAMP},
       notes = #{record.notes,jdbcType=VARCHAR},
+      school_id = #{record.schoolId,jdbcType=INTEGER},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      classes_id = #{record.classesId,jdbcType=INTEGER},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -288,6 +336,18 @@
       <if test="notes != null" >
         notes = #{notes,jdbcType=VARCHAR},
       </if>
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
+      </if>
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
@@ -307,6 +367,10 @@
       provide_time = #{provideTime,jdbcType=TIMESTAMP},
       rise_time = #{riseTime,jdbcType=TIMESTAMP},
       notes = #{notes,jdbcType=VARCHAR},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      year_id = #{yearId,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

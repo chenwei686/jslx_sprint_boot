@@ -11,8 +11,6 @@ public interface TimuMapper {
 
     int deleteByExample(TimuQuery example);
 
-    int deleteByPrimaryKey(String id);
-
     int insert(TimuWithBLOBs record);
 
     int insertSelective(TimuWithBLOBs record);
@@ -21,17 +19,9 @@ public interface TimuMapper {
 
     List<Timu> selectByExample(TimuQuery example);
 
-    TimuWithBLOBs selectByPrimaryKey(String id);
-
     int updateByExampleSelective(@Param("record") TimuWithBLOBs record, @Param("example") TimuQuery example);
 
     int updateByExampleWithBLOBs(@Param("record") TimuWithBLOBs record, @Param("example") TimuQuery example);
 
     int updateByExample(@Param("record") Timu record, @Param("example") TimuQuery example);
-
-    int updateByPrimaryKeySelective(TimuWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(TimuWithBLOBs record);
-
-    int updateByPrimaryKey(Timu record);
 }

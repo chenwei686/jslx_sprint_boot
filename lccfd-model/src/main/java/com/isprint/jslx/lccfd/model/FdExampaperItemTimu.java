@@ -54,6 +54,11 @@ public class FdExampaperItemTimu implements Serializable {
 
     private Boolean isDel;
 
+    /**
+     * 修改时间
+     */
+    private Date updateTime;
+
     private Date createTime;
 
     private static final long serialVersionUID = 1L;
@@ -146,6 +151,14 @@ public class FdExampaperItemTimu implements Serializable {
         this.isDel = isDel;
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -171,6 +184,7 @@ public class FdExampaperItemTimu implements Serializable {
         sb.append(", difficultLevel=").append(difficultLevel);
         sb.append(", teacherId=").append(teacherId);
         sb.append(", isDel=").append(isDel);
+        sb.append(", updateTime=").append(updateTime);
         sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

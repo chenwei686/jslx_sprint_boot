@@ -26,6 +26,11 @@ public class FdExampaperItem implements Serializable {
     private Integer sort;
 
     /**
+     * 题目类型id
+     */
+    private Integer timuTypeId;
+
+    /**
      * 详情
      */
     private String description;
@@ -40,14 +45,9 @@ public class FdExampaperItem implements Serializable {
      */
     private BigDecimal score;
 
-    /**
-     * 题目类型id
-     */
-    private Integer timuTypeId;
+    private Boolean isDel;
 
     private Date createTime;
-
-    private Boolean isDel;
 
     private static final long serialVersionUID = 1L;
 
@@ -83,6 +83,14 @@ public class FdExampaperItem implements Serializable {
         this.sort = sort;
     }
 
+    public Integer getTimuTypeId() {
+        return timuTypeId;
+    }
+
+    public void setTimuTypeId(Integer timuTypeId) {
+        this.timuTypeId = timuTypeId;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -107,12 +115,12 @@ public class FdExampaperItem implements Serializable {
         this.score = score;
     }
 
-    public Integer getTimuTypeId() {
-        return timuTypeId;
+    public Boolean getIsDel() {
+        return isDel;
     }
 
-    public void setTimuTypeId(Integer timuTypeId) {
-        this.timuTypeId = timuTypeId;
+    public void setIsDel(Boolean isDel) {
+        this.isDel = isDel;
     }
 
     public Date getCreateTime() {
@@ -121,14 +129,6 @@ public class FdExampaperItem implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    public Boolean getIsDel() {
-        return isDel;
-    }
-
-    public void setIsDel(Boolean isDel) {
-        this.isDel = isDel;
     }
 
     @Override
@@ -141,12 +141,12 @@ public class FdExampaperItem implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", exampaperId=").append(exampaperId);
         sb.append(", sort=").append(sort);
+        sb.append(", timuTypeId=").append(timuTypeId);
         sb.append(", description=").append(description);
         sb.append(", timuNum=").append(timuNum);
         sb.append(", score=").append(score);
-        sb.append(", timuTypeId=").append(timuTypeId);
-        sb.append(", createTime=").append(createTime);
         sb.append(", isDel=").append(isDel);
+        sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -23,6 +23,11 @@ public class FdPackageCoupon implements Serializable {
     private BigDecimal discount;
 
     /**
+     * 优惠价格
+     */
+    private BigDecimal dealsMoney;
+
+    /**
      * 生成总数量
      */
     private Integer number;
@@ -75,6 +80,14 @@ public class FdPackageCoupon implements Serializable {
 
     public void setDiscount(BigDecimal discount) {
         this.discount = discount;
+    }
+
+    public BigDecimal getDealsMoney() {
+        return dealsMoney;
+    }
+
+    public void setDealsMoney(BigDecimal dealsMoney) {
+        this.dealsMoney = dealsMoney;
     }
 
     public Integer getNumber() {
@@ -135,6 +148,7 @@ public class FdPackageCoupon implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", packageId=").append(packageId);
         sb.append(", discount=").append(discount);
+        sb.append(", dealsMoney=").append(dealsMoney);
         sb.append(", number=").append(number);
         sb.append(", useNumber=").append(useNumber);
         sb.append(", parentId=").append(parentId);

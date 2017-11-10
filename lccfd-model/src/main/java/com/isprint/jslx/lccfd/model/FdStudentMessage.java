@@ -51,8 +51,6 @@ public class FdStudentMessage implements Serializable {
      */
     private Boolean isDel;
 
-    private Date updateTime;
-
     /**
      * 学校id
      */
@@ -71,7 +69,9 @@ public class FdStudentMessage implements Serializable {
     /**
      * 入学年份
      */
-    private String year;
+    private Integer yearId;
+
+    private Date updateTime;
 
     private Date createTime;
 
@@ -157,14 +157,6 @@ public class FdStudentMessage implements Serializable {
         this.isDel = isDel;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
     public Integer getSchoolId() {
         return schoolId;
     }
@@ -189,12 +181,20 @@ public class FdStudentMessage implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public Date getCreateTime() {
@@ -221,11 +221,11 @@ public class FdStudentMessage implements Serializable {
         sb.append(", status=").append(status);
         sb.append(", icon=").append(icon);
         sb.append(", isDel=").append(isDel);
-        sb.append(", updateTime=").append(updateTime);
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
+        sb.append(", updateTime=").append(updateTime);
         sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

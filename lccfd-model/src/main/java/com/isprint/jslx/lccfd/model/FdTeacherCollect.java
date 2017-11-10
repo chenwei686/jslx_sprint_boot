@@ -35,7 +35,7 @@ public class FdTeacherCollect implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     /**
      * 题目类型id
@@ -58,6 +58,8 @@ public class FdTeacherCollect implements Serializable {
     private Boolean isDel;
 
     private Date createTime;
+
+    private Date updateTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -125,12 +127,12 @@ public class FdTeacherCollect implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Integer getTimuTypeId() {
@@ -173,6 +175,14 @@ public class FdTeacherCollect implements Serializable {
         this.createTime = createTime;
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -187,12 +197,13 @@ public class FdTeacherCollect implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", timuTypeId=").append(timuTypeId);
         sb.append(", mainKnowledgeId=").append(mainKnowledgeId);
         sb.append(", difficultLevel=").append(difficultLevel);
         sb.append(", isDel=").append(isDel);
         sb.append(", createTime=").append(createTime);
+        sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

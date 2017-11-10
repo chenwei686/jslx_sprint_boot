@@ -35,7 +35,7 @@ public class FdStudentCollect implements Serializable {
     private Boolean isDel;
 
     /**
-     * 来源（0：拍题  1：订正  2：每周一练,  3:知识点 4:教师试卷）
+     * 来源（0：拍题  1：订正  2：每周一练,  3:知识点 4:教师试卷 5：收藏  6：时间轴）
      */
     private Byte source;
 
@@ -54,7 +54,7 @@ public class FdStudentCollect implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     /**
      * 主知识点
@@ -155,12 +155,12 @@ public class FdStudentCollect implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Integer getMainKnowledgeId() {
@@ -211,7 +211,7 @@ public class FdStudentCollect implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", mainKnowledgeId=").append(mainKnowledgeId);
         sb.append(", difficultLevel=").append(difficultLevel);
         sb.append(", schoolDegreeId=").append(schoolDegreeId);

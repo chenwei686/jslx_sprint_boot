@@ -28,6 +28,23 @@ public class FdStudentDayReportDetail implements Serializable {
     private Integer subjectId;
 
     /**
+     * 学校id
+     */
+    private Integer schoolId;
+
+    /**
+     * 年级id
+     */
+    private Integer gradeId;
+
+    /**
+     * 班级id
+     */
+    private Integer classesId;
+
+    private Integer yearId;
+
+    /**
      * 科目名称
      */
     private String subjectName;
@@ -122,6 +139,38 @@ public class FdStudentDayReportDetail implements Serializable {
 
     public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
+    }
+
+    public Integer getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public Integer getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public Integer getClassesId() {
+        return classesId;
+    }
+
+    public void setClassesId(Integer classesId) {
+        this.classesId = classesId;
+    }
+
+    public Integer getYearId() {
+        return yearId;
+    }
+
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public String getSubjectName() {
@@ -247,6 +296,10 @@ public class FdStudentDayReportDetail implements Serializable {
         sb.append(", knowledgeId=").append(knowledgeId);
         sb.append(", knowledgeName=").append(knowledgeName);
         sb.append(", subjectId=").append(subjectId);
+        sb.append(", schoolId=").append(schoolId);
+        sb.append(", gradeId=").append(gradeId);
+        sb.append(", classesId=").append(classesId);
+        sb.append(", yearId=").append(yearId);
         sb.append(", subjectName=").append(subjectName);
         sb.append(", difficulty=").append(difficulty);
         sb.append(", difficultyJson=").append(difficultyJson);

@@ -7,19 +7,21 @@
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="student_order_id" property="studentOrderId" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="package_type_id" property="packageTypeId" jdbcType="INTEGER" />
     <result column="packege_id" property="packegeId" jdbcType="INTEGER" />
+    <result column="package_type_id" property="packageTypeId" jdbcType="INTEGER" />
     <result column="time_type" property="timeType" jdbcType="CHAR" />
     <result column="time" property="time" jdbcType="INTEGER" />
     <result column="system" property="system" jdbcType="CHAR" />
-    <result column="subject_ids" property="subjectIds" jdbcType="VARCHAR" />
-    <result column="subject_names" property="subjectNames" jdbcType="VARCHAR" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="subject_name" property="subjectName" jdbcType="VARCHAR" />
     <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
     <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="package_type" property="packageType" jdbcType="CHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -81,9 +83,9 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, student_id, school_id, grade_id, classes_id, year, student_order_id, name, package_type_id, 
-      packege_id, time_type, time, system, subject_ids, subject_names, start_time, end_time, 
-      create_time
+      id, student_id, school_id, grade_id, classes_id, year_id, student_order_id, name, 
+      packege_id, package_type_id, time_type, time, system, subject_id, subject_name, start_time, 
+      end_time, create_time, package_type, update_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -108,7 +110,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,student_id,school_id,grade_id,classes_id,year,student_order_id,name,package_type_id,packege_id,time_type,time,system,subject_ids,subject_names,start_time,end_time,create_time
+    id,student_id,school_id,grade_id,classes_id,year_id,student_order_id,name,packege_id,package_type_id,time_type,time,system,subject_id,subject_name,start_time,end_time,create_time,package_type,update_time
     from fd_student_package
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -124,19 +126,19 @@
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentPackage" >
     insert into fd_student_package (id, student_id, school_id, 
-      grade_id, classes_id, year, 
-      student_order_id, name, package_type_id, 
-      packege_id, time_type, time, 
-      system, subject_ids, subject_names, 
-      start_time, end_time, create_time
-      )
+      grade_id, classes_id, year_id, 
+      student_order_id, name, packege_id, 
+      package_type_id, time_type, time, 
+      system, subject_id, subject_name, 
+      start_time, end_time, create_time, 
+      package_type, update_time)
     values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, 
-      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, 
-      #{studentOrderId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{packageTypeId,jdbcType=INTEGER}, 
-      #{packegeId,jdbcType=INTEGER}, #{timeType,jdbcType=CHAR}, #{time,jdbcType=INTEGER}, 
-      #{system,jdbcType=CHAR}, #{subjectIds,jdbcType=VARCHAR}, #{subjectNames,jdbcType=VARCHAR}, 
-      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
-      )
+      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, 
+      #{studentOrderId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{packegeId,jdbcType=INTEGER}, 
+      #{packageTypeId,jdbcType=INTEGER}, #{timeType,jdbcType=CHAR}, #{time,jdbcType=INTEGER}, 
+      #{system,jdbcType=CHAR}, #{subjectId,jdbcType=INTEGER}, #{subjectName,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{packageType,jdbcType=CHAR}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentPackage" >
     insert into fd_student_package
@@ -156,8 +158,8 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="studentOrderId != null" >
         student_order_id,
@@ -165,11 +167,11 @@
       <if test="name != null" >
         name,
       </if>
-      <if test="packageTypeId != null" >
-        package_type_id,
-      </if>
       <if test="packegeId != null" >
         packege_id,
+      </if>
+      <if test="packageTypeId != null" >
+        package_type_id,
       </if>
       <if test="timeType != null" >
         time_type,
@@ -180,11 +182,11 @@
       <if test="system != null" >
         system,
       </if>
-      <if test="subjectIds != null" >
-        subject_ids,
+      <if test="subjectId != null" >
+        subject_id,
       </if>
-      <if test="subjectNames != null" >
-        subject_names,
+      <if test="subjectName != null" >
+        subject_name,
       </if>
       <if test="startTime != null" >
         start_time,
@@ -194,6 +196,12 @@
       </if>
       <if test="createTime != null" >
         create_time,
+      </if>
+      <if test="packageType != null" >
+        package_type,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -212,8 +220,8 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="studentOrderId != null" >
         #{studentOrderId,jdbcType=BIGINT},
@@ -221,11 +229,11 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="packageTypeId != null" >
-        #{packageTypeId,jdbcType=INTEGER},
-      </if>
       <if test="packegeId != null" >
         #{packegeId,jdbcType=INTEGER},
+      </if>
+      <if test="packageTypeId != null" >
+        #{packageTypeId,jdbcType=INTEGER},
       </if>
       <if test="timeType != null" >
         #{timeType,jdbcType=CHAR},
@@ -236,11 +244,11 @@
       <if test="system != null" >
         #{system,jdbcType=CHAR},
       </if>
-      <if test="subjectIds != null" >
-        #{subjectIds,jdbcType=VARCHAR},
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
       </if>
-      <if test="subjectNames != null" >
-        #{subjectNames,jdbcType=VARCHAR},
+      <if test="subjectName != null" >
+        #{subjectName,jdbcType=VARCHAR},
       </if>
       <if test="startTime != null" >
         #{startTime,jdbcType=TIMESTAMP},
@@ -250,6 +258,12 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="packageType != null" >
+        #{packageType,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -277,8 +291,8 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.studentOrderId != null" >
         student_order_id = #{record.studentOrderId,jdbcType=BIGINT},
@@ -286,11 +300,11 @@
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.packageTypeId != null" >
-        package_type_id = #{record.packageTypeId,jdbcType=INTEGER},
-      </if>
       <if test="record.packegeId != null" >
         packege_id = #{record.packegeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.packageTypeId != null" >
+        package_type_id = #{record.packageTypeId,jdbcType=INTEGER},
       </if>
       <if test="record.timeType != null" >
         time_type = #{record.timeType,jdbcType=CHAR},
@@ -301,11 +315,11 @@
       <if test="record.system != null" >
         system = #{record.system,jdbcType=CHAR},
       </if>
-      <if test="record.subjectIds != null" >
-        subject_ids = #{record.subjectIds,jdbcType=VARCHAR},
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
       </if>
-      <if test="record.subjectNames != null" >
-        subject_names = #{record.subjectNames,jdbcType=VARCHAR},
+      <if test="record.subjectName != null" >
+        subject_name = #{record.subjectName,jdbcType=VARCHAR},
       </if>
       <if test="record.startTime != null" >
         start_time = #{record.startTime,jdbcType=TIMESTAMP},
@@ -315,6 +329,12 @@
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.packageType != null" >
+        package_type = #{record.packageType,jdbcType=CHAR},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -328,19 +348,21 @@
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       student_order_id = #{record.studentOrderId,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
-      package_type_id = #{record.packageTypeId,jdbcType=INTEGER},
       packege_id = #{record.packegeId,jdbcType=INTEGER},
+      package_type_id = #{record.packageTypeId,jdbcType=INTEGER},
       time_type = #{record.timeType,jdbcType=CHAR},
       time = #{record.time,jdbcType=INTEGER},
       system = #{record.system,jdbcType=CHAR},
-      subject_ids = #{record.subjectIds,jdbcType=VARCHAR},
-      subject_names = #{record.subjectNames,jdbcType=VARCHAR},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      subject_name = #{record.subjectName,jdbcType=VARCHAR},
       start_time = #{record.startTime,jdbcType=TIMESTAMP},
       end_time = #{record.endTime,jdbcType=TIMESTAMP},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      package_type = #{record.packageType,jdbcType=CHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -360,8 +382,8 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="studentOrderId != null" >
         student_order_id = #{studentOrderId,jdbcType=BIGINT},
@@ -369,11 +391,11 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="packageTypeId != null" >
-        package_type_id = #{packageTypeId,jdbcType=INTEGER},
-      </if>
       <if test="packegeId != null" >
         packege_id = #{packegeId,jdbcType=INTEGER},
+      </if>
+      <if test="packageTypeId != null" >
+        package_type_id = #{packageTypeId,jdbcType=INTEGER},
       </if>
       <if test="timeType != null" >
         time_type = #{timeType,jdbcType=CHAR},
@@ -384,11 +406,11 @@
       <if test="system != null" >
         system = #{system,jdbcType=CHAR},
       </if>
-      <if test="subjectIds != null" >
-        subject_ids = #{subjectIds,jdbcType=VARCHAR},
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
       </if>
-      <if test="subjectNames != null" >
-        subject_names = #{subjectNames,jdbcType=VARCHAR},
+      <if test="subjectName != null" >
+        subject_name = #{subjectName,jdbcType=VARCHAR},
       </if>
       <if test="startTime != null" >
         start_time = #{startTime,jdbcType=TIMESTAMP},
@@ -399,6 +421,12 @@
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="packageType != null" >
+        package_type = #{packageType,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -408,19 +436,21 @@
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       student_order_id = #{studentOrderId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},
-      package_type_id = #{packageTypeId,jdbcType=INTEGER},
       packege_id = #{packegeId,jdbcType=INTEGER},
+      package_type_id = #{packageTypeId,jdbcType=INTEGER},
       time_type = #{timeType,jdbcType=CHAR},
       time = #{time,jdbcType=INTEGER},
       system = #{system,jdbcType=CHAR},
-      subject_ids = #{subjectIds,jdbcType=VARCHAR},
-      subject_names = #{subjectNames,jdbcType=VARCHAR},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      subject_name = #{subjectName,jdbcType=VARCHAR},
       start_time = #{startTime,jdbcType=TIMESTAMP},
       end_time = #{endTime,jdbcType=TIMESTAMP},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      package_type = #{packageType,jdbcType=CHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

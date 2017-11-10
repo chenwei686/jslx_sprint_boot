@@ -24,6 +24,26 @@ public class FdStudentAddSchool implements Serializable {
      */
     private Integer studentId;
 
+    /**
+     * 学校id
+     */
+    private Integer schoolId;
+
+    /**
+     * 年级id
+     */
+    private Integer gradeId;
+
+    /**
+     * 班级id
+     */
+    private Integer classesId;
+
+    /**
+     * 年份
+     */
+    private Integer yearId;
+
     private Date createTime;
 
     private static final long serialVersionUID = 1L;
@@ -60,6 +80,38 @@ public class FdStudentAddSchool implements Serializable {
         this.studentId = studentId;
     }
 
+    public Integer getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public Integer getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public Integer getClassesId() {
+        return classesId;
+    }
+
+    public void setClassesId(Integer classesId) {
+        this.classesId = classesId;
+    }
+
+    public Integer getYearId() {
+        return yearId;
+    }
+
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -78,6 +130,10 @@ public class FdStudentAddSchool implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", typeIds=").append(typeIds);
         sb.append(", studentId=").append(studentId);
+        sb.append(", schoolId=").append(schoolId);
+        sb.append(", gradeId=").append(gradeId);
+        sb.append(", classesId=").append(classesId);
+        sb.append(", yearId=").append(yearId);
         sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

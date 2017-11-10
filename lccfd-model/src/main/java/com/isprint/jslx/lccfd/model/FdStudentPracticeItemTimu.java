@@ -36,6 +36,11 @@ public class FdStudentPracticeItemTimu implements Serializable {
      */
     private Byte difficultLevel;
 
+    /**
+     * 题目类型id
+     */
+    private Integer timuTypeId;
+
     private Date createTime;
 
     private static final long serialVersionUID = 1L;
@@ -96,6 +101,14 @@ public class FdStudentPracticeItemTimu implements Serializable {
         this.difficultLevel = difficultLevel;
     }
 
+    public Integer getTimuTypeId() {
+        return timuTypeId;
+    }
+
+    public void setTimuTypeId(Integer timuTypeId) {
+        this.timuTypeId = timuTypeId;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -117,6 +130,7 @@ public class FdStudentPracticeItemTimu implements Serializable {
         sb.append(", sort=").append(sort);
         sb.append(", mainKnowledgeId=").append(mainKnowledgeId);
         sb.append(", difficultLevel=").append(difficultLevel);
+        sb.append(", timuTypeId=").append(timuTypeId);
         sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

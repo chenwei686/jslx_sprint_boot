@@ -16,11 +16,6 @@ public class BaseTimuInputChoice implements Serializable {
     private String timuInputId;
 
     /**
-     * 选项内容
-     */
-    private String content;
-
-    /**
      * 选项分值
      */
     private BigDecimal score;
@@ -31,6 +26,11 @@ public class BaseTimuInputChoice implements Serializable {
     private Integer sort;
 
     private Date createTime;
+
+    /**
+     * 选项内容
+     */
+    private String content;
 
     private static final long serialVersionUID = 1L;
 
@@ -48,14 +48,6 @@ public class BaseTimuInputChoice implements Serializable {
 
     public void setTimuInputId(String timuInputId) {
         this.timuInputId = timuInputId == null ? null : timuInputId.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
     }
 
     public BigDecimal getScore() {
@@ -82,6 +74,14 @@ public class BaseTimuInputChoice implements Serializable {
         this.createTime = createTime;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -90,10 +90,10 @@ public class BaseTimuInputChoice implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", timuInputId=").append(timuInputId);
-        sb.append(", content=").append(content);
         sb.append(", score=").append(score);
         sb.append(", sort=").append(sort);
         sb.append(", createTime=").append(createTime);
+        sb.append(", content=").append(content);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -6,7 +6,7 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="CHAR" />
     <result column="type" property="type" jdbcType="TINYINT" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
@@ -72,7 +72,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, name, school_id, grade_id, year, code, type, update_time, create_time
+      id, name, school_id, grade_id, year_id, code, type, update_time, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -97,7 +97,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,name,school_id,grade_id,year,code,type,update_time,create_time
+    id,name,school_id,grade_id,year_id,code,type,update_time,create_time
     from base_classes
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -113,11 +113,13 @@
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseClasses" >
     insert into base_classes (id, name, school_id, 
-      grade_id, year, code, type, 
-      update_time, create_time)
+      grade_id, year_id, code, 
+      type, update_time, create_time
+      )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{schoolId,jdbcType=INTEGER}, 
-      #{gradeId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, #{code,jdbcType=CHAR}, #{type,jdbcType=TINYINT}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+      #{gradeId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, #{code,jdbcType=CHAR}, 
+      #{type,jdbcType=TINYINT}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseClasses" >
     insert into base_classes
@@ -134,8 +136,8 @@
       <if test="gradeId != null" >
         grade_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="code != null" >
         code,
@@ -163,8 +165,8 @@
       <if test="gradeId != null" >
         #{gradeId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="code != null" >
         #{code,jdbcType=CHAR},
@@ -201,8 +203,8 @@
       <if test="record.gradeId != null" >
         grade_id = #{record.gradeId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.code != null" >
         code = #{record.code,jdbcType=CHAR},
@@ -227,7 +229,7 @@
       name = #{record.name,jdbcType=VARCHAR},
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       code = #{record.code,jdbcType=CHAR},
       type = #{record.type,jdbcType=TINYINT},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
@@ -248,8 +250,8 @@
       <if test="gradeId != null" >
         grade_id = #{gradeId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="code != null" >
         code = #{code,jdbcType=CHAR},
@@ -271,7 +273,7 @@
     set name = #{name,jdbcType=VARCHAR},
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       code = #{code,jdbcType=CHAR},
       type = #{type,jdbcType=TINYINT},
       update_time = #{updateTime,jdbcType=TIMESTAMP},

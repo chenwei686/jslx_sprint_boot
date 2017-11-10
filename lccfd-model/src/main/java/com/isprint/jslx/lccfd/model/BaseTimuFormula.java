@@ -1,6 +1,7 @@
 package com.isprint.jslx.lccfd.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class BaseTimuFormula implements Serializable {
     private Integer id;
@@ -14,6 +15,8 @@ public class BaseTimuFormula implements Serializable {
     private Integer issuccess;
 
     private String errinfo;
+
+    private Date updateTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -65,6 +68,14 @@ public class BaseTimuFormula implements Serializable {
         this.errinfo = errinfo == null ? null : errinfo.trim();
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -77,6 +88,7 @@ public class BaseTimuFormula implements Serializable {
         sb.append(", latex=").append(latex);
         sb.append(", issuccess=").append(issuccess);
         sb.append(", errinfo=").append(errinfo);
+        sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

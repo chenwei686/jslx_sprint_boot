@@ -1,7 +1,6 @@
 package com.isprint.jslx.lccfd.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Timu implements Serializable {
@@ -17,7 +16,7 @@ public class Timu implements Serializable {
 
     private Integer standardtime;
 
-    private BigDecimal standerdscroe;
+    private Double standerdscroe;
 
     private Integer cognizeid;
 
@@ -33,19 +32,15 @@ public class Timu implements Serializable {
 
     private Integer qualityid;
 
-    private BigDecimal price;
-
-    private String inputid;
-
-    private String parentid;
+    private Double price;
 
     private String videocode;
 
     private Integer sourcetype;
 
-    private Boolean isexpandpractice;
+    private Byte isexpandpractice;
 
-    private Boolean havechildtimu;
+    private Byte havechildtimu;
 
     private Date updatetime;
 
@@ -105,11 +100,11 @@ public class Timu implements Serializable {
         this.standardtime = standardtime;
     }
 
-    public BigDecimal getStanderdscroe() {
+    public Double getStanderdscroe() {
         return standerdscroe;
     }
 
-    public void setStanderdscroe(BigDecimal standerdscroe) {
+    public void setStanderdscroe(Double standerdscroe) {
         this.standerdscroe = standerdscroe;
     }
 
@@ -169,28 +164,12 @@ public class Timu implements Serializable {
         this.qualityid = qualityid;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public String getInputid() {
-        return inputid;
-    }
-
-    public void setInputid(String inputid) {
-        this.inputid = inputid == null ? null : inputid.trim();
-    }
-
-    public String getParentid() {
-        return parentid;
-    }
-
-    public void setParentid(String parentid) {
-        this.parentid = parentid == null ? null : parentid.trim();
     }
 
     public String getVideocode() {
@@ -209,19 +188,19 @@ public class Timu implements Serializable {
         this.sourcetype = sourcetype;
     }
 
-    public Boolean getIsexpandpractice() {
+    public Byte getIsexpandpractice() {
         return isexpandpractice;
     }
 
-    public void setIsexpandpractice(Boolean isexpandpractice) {
+    public void setIsexpandpractice(Byte isexpandpractice) {
         this.isexpandpractice = isexpandpractice;
     }
 
-    public Boolean getHavechildtimu() {
+    public Byte getHavechildtimu() {
         return havechildtimu;
     }
 
-    public void setHavechildtimu(Boolean havechildtimu) {
+    public void setHavechildtimu(Byte havechildtimu) {
         this.havechildtimu = havechildtimu;
     }
 
@@ -278,8 +257,6 @@ public class Timu implements Serializable {
         sb.append(", soure=").append(soure);
         sb.append(", qualityid=").append(qualityid);
         sb.append(", price=").append(price);
-        sb.append(", inputid=").append(inputid);
-        sb.append(", parentid=").append(parentid);
         sb.append(", videocode=").append(videocode);
         sb.append(", sourcetype=").append(sourcetype);
         sb.append(", isexpandpractice=").append(isexpandpractice);

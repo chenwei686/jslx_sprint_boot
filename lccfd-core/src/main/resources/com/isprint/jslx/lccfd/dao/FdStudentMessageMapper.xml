@@ -12,11 +12,11 @@
     <result column="status" property="status" jdbcType="BIT" />
     <result column="icon" property="icon" jdbcType="VARCHAR" />
     <result column="is_del" property="isDel" jdbcType="BIT" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -79,8 +79,8 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, student_id, source, content, title, type, type_id, status, icon, is_del, update_time, 
-      school_id, grade_id, classes_id, year, create_time
+      id, student_id, source, content, title, type, type_id, status, icon, is_del, school_id, 
+      grade_id, classes_id, year_id, update_time, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -105,7 +105,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,student_id,source,content,title,type,type_id,status,icon,is_del,update_time,school_id,grade_id,classes_id,year,create_time
+    id,student_id,source,content,title,type,type_id,status,icon,is_del,school_id,grade_id,classes_id,year_id,update_time,create_time
     from fd_student_message
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -123,14 +123,14 @@
     insert into fd_student_message (id, student_id, source, 
       content, title, type, 
       type_id, status, icon, is_del, 
-      update_time, school_id, grade_id, 
-      classes_id, year, create_time
+      school_id, grade_id, classes_id, 
+      year_id, update_time, create_time
       )
     values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{source,jdbcType=CHAR}, 
       #{content,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
       #{typeId,jdbcType=INTEGER}, #{status,jdbcType=BIT}, #{icon,jdbcType=VARCHAR}, #{isDel,jdbcType=BIT}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, 
-      #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}
+      #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, 
+      #{yearId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentMessage" >
@@ -166,9 +166,6 @@
       <if test="isDel != null" >
         is_del,
       </if>
-      <if test="updateTime != null" >
-        update_time,
-      </if>
       <if test="schoolId != null" >
         school_id,
       </if>
@@ -178,8 +175,11 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -216,9 +216,6 @@
       <if test="isDel != null" >
         #{isDel,jdbcType=BIT},
       </if>
-      <if test="updateTime != null" >
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="schoolId != null" >
         #{schoolId,jdbcType=INTEGER},
       </if>
@@ -228,8 +225,11 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -275,9 +275,6 @@
       <if test="record.isDel != null" >
         is_del = #{record.isDel,jdbcType=BIT},
       </if>
-      <if test="record.updateTime != null" >
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="record.schoolId != null" >
         school_id = #{record.schoolId,jdbcType=INTEGER},
       </if>
@@ -287,8 +284,11 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -310,11 +310,11 @@
       status = #{record.status,jdbcType=BIT},
       icon = #{record.icon,jdbcType=VARCHAR},
       is_del = #{record.isDel,jdbcType=BIT},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -350,9 +350,6 @@
       <if test="isDel != null" >
         is_del = #{isDel,jdbcType=BIT},
       </if>
-      <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="schoolId != null" >
         school_id = #{schoolId,jdbcType=INTEGER},
       </if>
@@ -362,8 +359,11 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -382,11 +382,11 @@
       status = #{status,jdbcType=BIT},
       icon = #{icon,jdbcType=VARCHAR},
       is_del = #{isDel,jdbcType=BIT},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>

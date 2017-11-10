@@ -1,5 +1,6 @@
 package com.isprint.jslx.lccfd.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -207,6 +208,126 @@ public class FdBuildExampaperBasketTimuQuery {
             return (Criteria) this;
         }
 
+        public Criteria andBuildExampaperBasketIdIsNull() {
+            addCriterion("build_exampaper_basket_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdIsNotNull() {
+            addCriterion("build_exampaper_basket_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdEqualTo(Integer value) {
+            addCriterion("build_exampaper_basket_id =", value, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdNotEqualTo(Integer value) {
+            addCriterion("build_exampaper_basket_id <>", value, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdGreaterThan(Integer value) {
+            addCriterion("build_exampaper_basket_id >", value, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("build_exampaper_basket_id >=", value, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdLessThan(Integer value) {
+            addCriterion("build_exampaper_basket_id <", value, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdLessThanOrEqualTo(Integer value) {
+            addCriterion("build_exampaper_basket_id <=", value, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdIn(List<Integer> values) {
+            addCriterion("build_exampaper_basket_id in", values, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdNotIn(List<Integer> values) {
+            addCriterion("build_exampaper_basket_id not in", values, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdBetween(Integer value1, Integer value2) {
+            addCriterion("build_exampaper_basket_id between", value1, value2, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("build_exampaper_basket_id not between", value1, value2, "buildExampaperBasketId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdIsNull() {
+            addCriterion("build_exampaper_basket_item_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdIsNotNull() {
+            addCriterion("build_exampaper_basket_item_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdEqualTo(Integer value) {
+            addCriterion("build_exampaper_basket_item_id =", value, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdNotEqualTo(Integer value) {
+            addCriterion("build_exampaper_basket_item_id <>", value, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdGreaterThan(Integer value) {
+            addCriterion("build_exampaper_basket_item_id >", value, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("build_exampaper_basket_item_id >=", value, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdLessThan(Integer value) {
+            addCriterion("build_exampaper_basket_item_id <", value, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdLessThanOrEqualTo(Integer value) {
+            addCriterion("build_exampaper_basket_item_id <=", value, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdIn(List<Integer> values) {
+            addCriterion("build_exampaper_basket_item_id in", values, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdNotIn(List<Integer> values) {
+            addCriterion("build_exampaper_basket_item_id not in", values, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdBetween(Integer value1, Integer value2) {
+            addCriterion("build_exampaper_basket_item_id between", value1, value2, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBuildExampaperBasketItemIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("build_exampaper_basket_item_id not between", value1, value2, "buildExampaperBasketItemId");
+            return (Criteria) this;
+        }
+
         public Criteria andTimuTypeIdIsNull() {
             addCriterion("timu_type_id is null");
             return (Criteria) this;
@@ -277,53 +398,243 @@ public class FdBuildExampaperBasketTimuQuery {
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdEqualTo(Integer value) {
+        public Criteria andTimuIdEqualTo(String value) {
             addCriterion("timu_id =", value, "timuId");
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdNotEqualTo(Integer value) {
+        public Criteria andTimuIdNotEqualTo(String value) {
             addCriterion("timu_id <>", value, "timuId");
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdGreaterThan(Integer value) {
+        public Criteria andTimuIdGreaterThan(String value) {
             addCriterion("timu_id >", value, "timuId");
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andTimuIdGreaterThanOrEqualTo(String value) {
             addCriterion("timu_id >=", value, "timuId");
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdLessThan(Integer value) {
+        public Criteria andTimuIdLessThan(String value) {
             addCriterion("timu_id <", value, "timuId");
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdLessThanOrEqualTo(Integer value) {
+        public Criteria andTimuIdLessThanOrEqualTo(String value) {
             addCriterion("timu_id <=", value, "timuId");
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdIn(List<Integer> values) {
+        public Criteria andTimuIdLike(String value) {
+            addCriterion("timu_id like", value, "timuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuIdNotLike(String value) {
+            addCriterion("timu_id not like", value, "timuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimuIdIn(List<String> values) {
             addCriterion("timu_id in", values, "timuId");
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdNotIn(List<Integer> values) {
+        public Criteria andTimuIdNotIn(List<String> values) {
             addCriterion("timu_id not in", values, "timuId");
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdBetween(Integer value1, Integer value2) {
+        public Criteria andTimuIdBetween(String value1, String value2) {
             addCriterion("timu_id between", value1, value2, "timuId");
             return (Criteria) this;
         }
 
-        public Criteria andTimuIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andTimuIdNotBetween(String value1, String value2) {
             addCriterion("timu_id not between", value1, value2, "timuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreIsNull() {
+            addCriterion("score is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreIsNotNull() {
+            addCriterion("score is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreEqualTo(BigDecimal value) {
+            addCriterion("score =", value, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreNotEqualTo(BigDecimal value) {
+            addCriterion("score <>", value, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreGreaterThan(BigDecimal value) {
+            addCriterion("score >", value, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("score >=", value, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreLessThan(BigDecimal value) {
+            addCriterion("score <", value, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("score <=", value, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreIn(List<BigDecimal> values) {
+            addCriterion("score in", values, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreNotIn(List<BigDecimal> values) {
+            addCriterion("score not in", values, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("score between", value1, value2, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andScoreNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("score not between", value1, value2, "score");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortIsNull() {
+            addCriterion("sort is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortIsNotNull() {
+            addCriterion("sort is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortEqualTo(Integer value) {
+            addCriterion("sort =", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortNotEqualTo(Integer value) {
+            addCriterion("sort <>", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortGreaterThan(Integer value) {
+            addCriterion("sort >", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sort >=", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortLessThan(Integer value) {
+            addCriterion("sort <", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortLessThanOrEqualTo(Integer value) {
+            addCriterion("sort <=", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortIn(List<Integer> values) {
+            addCriterion("sort in", values, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortNotIn(List<Integer> values) {
+            addCriterion("sort not in", values, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortBetween(Integer value1, Integer value2) {
+            addCriterion("sort between", value1, value2, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortNotBetween(Integer value1, Integer value2) {
+            addCriterion("sort not between", value1, value2, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdIsNull() {
+            addCriterion("main_knowledge_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdIsNotNull() {
+            addCriterion("main_knowledge_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdEqualTo(Integer value) {
+            addCriterion("main_knowledge_id =", value, "mainKnowledgeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdNotEqualTo(Integer value) {
+            addCriterion("main_knowledge_id <>", value, "mainKnowledgeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdGreaterThan(Integer value) {
+            addCriterion("main_knowledge_id >", value, "mainKnowledgeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("main_knowledge_id >=", value, "mainKnowledgeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdLessThan(Integer value) {
+            addCriterion("main_knowledge_id <", value, "mainKnowledgeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("main_knowledge_id <=", value, "mainKnowledgeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdIn(List<Integer> values) {
+            addCriterion("main_knowledge_id in", values, "mainKnowledgeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdNotIn(List<Integer> values) {
+            addCriterion("main_knowledge_id not in", values, "mainKnowledgeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdBetween(Integer value1, Integer value2) {
+            addCriterion("main_knowledge_id between", value1, value2, "mainKnowledgeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainKnowledgeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("main_knowledge_id not between", value1, value2, "mainKnowledgeId");
             return (Criteria) this;
         }
 
@@ -387,63 +698,63 @@ public class FdBuildExampaperBasketTimuQuery {
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdIsNull() {
-            addCriterion("knowledge_id is null");
+        public Criteria andTeacherIdIsNull() {
+            addCriterion("teacher_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdIsNotNull() {
-            addCriterion("knowledge_id is not null");
+        public Criteria andTeacherIdIsNotNull() {
+            addCriterion("teacher_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdEqualTo(Integer value) {
-            addCriterion("knowledge_id =", value, "knowledgeId");
+        public Criteria andTeacherIdEqualTo(Integer value) {
+            addCriterion("teacher_id =", value, "teacherId");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdNotEqualTo(Integer value) {
-            addCriterion("knowledge_id <>", value, "knowledgeId");
+        public Criteria andTeacherIdNotEqualTo(Integer value) {
+            addCriterion("teacher_id <>", value, "teacherId");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdGreaterThan(Integer value) {
-            addCriterion("knowledge_id >", value, "knowledgeId");
+        public Criteria andTeacherIdGreaterThan(Integer value) {
+            addCriterion("teacher_id >", value, "teacherId");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("knowledge_id >=", value, "knowledgeId");
+        public Criteria andTeacherIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("teacher_id >=", value, "teacherId");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdLessThan(Integer value) {
-            addCriterion("knowledge_id <", value, "knowledgeId");
+        public Criteria andTeacherIdLessThan(Integer value) {
+            addCriterion("teacher_id <", value, "teacherId");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdLessThanOrEqualTo(Integer value) {
-            addCriterion("knowledge_id <=", value, "knowledgeId");
+        public Criteria andTeacherIdLessThanOrEqualTo(Integer value) {
+            addCriterion("teacher_id <=", value, "teacherId");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdIn(List<Integer> values) {
-            addCriterion("knowledge_id in", values, "knowledgeId");
+        public Criteria andTeacherIdIn(List<Integer> values) {
+            addCriterion("teacher_id in", values, "teacherId");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdNotIn(List<Integer> values) {
-            addCriterion("knowledge_id not in", values, "knowledgeId");
+        public Criteria andTeacherIdNotIn(List<Integer> values) {
+            addCriterion("teacher_id not in", values, "teacherId");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdBetween(Integer value1, Integer value2) {
-            addCriterion("knowledge_id between", value1, value2, "knowledgeId");
+        public Criteria andTeacherIdBetween(Integer value1, Integer value2) {
+            addCriterion("teacher_id between", value1, value2, "teacherId");
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("knowledge_id not between", value1, value2, "knowledgeId");
+        public Criteria andTeacherIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("teacher_id not between", value1, value2, "teacherId");
             return (Criteria) this;
         }
 
@@ -507,63 +818,63 @@ public class FdBuildExampaperBasketTimuQuery {
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdIsNull() {
-            addCriterion("build_exampaper_basket_id is null");
+        public Criteria andUpdateTimeIsNull() {
+            addCriterion("update_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdIsNotNull() {
-            addCriterion("build_exampaper_basket_id is not null");
+        public Criteria andUpdateTimeIsNotNull() {
+            addCriterion("update_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdEqualTo(Integer value) {
-            addCriterion("build_exampaper_basket_id =", value, "buildExampaperBasketId");
+        public Criteria andUpdateTimeEqualTo(Date value) {
+            addCriterion("update_time =", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdNotEqualTo(Integer value) {
-            addCriterion("build_exampaper_basket_id <>", value, "buildExampaperBasketId");
+        public Criteria andUpdateTimeNotEqualTo(Date value) {
+            addCriterion("update_time <>", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdGreaterThan(Integer value) {
-            addCriterion("build_exampaper_basket_id >", value, "buildExampaperBasketId");
+        public Criteria andUpdateTimeGreaterThan(Date value) {
+            addCriterion("update_time >", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("build_exampaper_basket_id >=", value, "buildExampaperBasketId");
+        public Criteria andUpdateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("update_time >=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdLessThan(Integer value) {
-            addCriterion("build_exampaper_basket_id <", value, "buildExampaperBasketId");
+        public Criteria andUpdateTimeLessThan(Date value) {
+            addCriterion("update_time <", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdLessThanOrEqualTo(Integer value) {
-            addCriterion("build_exampaper_basket_id <=", value, "buildExampaperBasketId");
+        public Criteria andUpdateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("update_time <=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdIn(List<Integer> values) {
-            addCriterion("build_exampaper_basket_id in", values, "buildExampaperBasketId");
+        public Criteria andUpdateTimeIn(List<Date> values) {
+            addCriterion("update_time in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdNotIn(List<Integer> values) {
-            addCriterion("build_exampaper_basket_id not in", values, "buildExampaperBasketId");
+        public Criteria andUpdateTimeNotIn(List<Date> values) {
+            addCriterion("update_time not in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdBetween(Integer value1, Integer value2) {
-            addCriterion("build_exampaper_basket_id between", value1, value2, "buildExampaperBasketId");
+        public Criteria andUpdateTimeBetween(Date value1, Date value2) {
+            addCriterion("update_time between", value1, value2, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andBuildExampaperBasketIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("build_exampaper_basket_id not between", value1, value2, "buildExampaperBasketId");
+        public Criteria andUpdateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
 

@@ -10,11 +10,11 @@
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="source" property="source" jdbcType="CHAR" />
     <result column="classes_name" property="classesName" jdbcType="VARCHAR" />
     <result column="grade_name" property="gradeName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -77,7 +77,7 @@
   <sql id="Base_Column_List" >
     <if test="fields == null" >
       id, exampaper_id, level_ids, teacher_id, subject_id, school_id, grade_id, classes_id, 
-      year, create_time, source, classes_name, grade_name
+      year_id, source, classes_name, grade_name, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -102,7 +102,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,exampaper_id,level_ids,teacher_id,subject_id,school_id,grade_id,classes_id,year,create_time,source,classes_name,grade_name
+    id,exampaper_id,level_ids,teacher_id,subject_id,school_id,grade_id,classes_id,year_id,source,classes_name,grade_name,create_time
     from fd_exampaper_object
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -119,14 +119,14 @@
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdExampaperObject" >
     insert into fd_exampaper_object (id, exampaper_id, level_ids, 
       teacher_id, subject_id, school_id, 
-      grade_id, classes_id, year, 
-      create_time, source, classes_name, 
-      grade_name)
+      grade_id, classes_id, year_id, 
+      source, classes_name, grade_name, 
+      create_time)
     values (#{id,jdbcType=INTEGER}, #{exampaperId,jdbcType=INTEGER}, #{levelIds,jdbcType=VARCHAR}, 
       #{teacherId,jdbcType=INTEGER}, #{subjectId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, 
-      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{year,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{source,jdbcType=CHAR}, #{classesName,jdbcType=VARCHAR}, 
-      #{gradeName,jdbcType=VARCHAR})
+      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, 
+      #{source,jdbcType=CHAR}, #{classesName,jdbcType=VARCHAR}, #{gradeName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdExampaperObject" >
     insert into fd_exampaper_object
@@ -155,11 +155,8 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
-      </if>
-      <if test="createTime != null" >
-        create_time,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="source != null" >
         source,
@@ -169,6 +166,9 @@
       </if>
       <if test="gradeName != null" >
         grade_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -196,11 +196,8 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="source != null" >
         #{source,jdbcType=CHAR},
@@ -210,6 +207,9 @@
       </if>
       <if test="gradeName != null" >
         #{gradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -246,11 +246,8 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=INTEGER},
-      </if>
-      <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.source != null" >
         source = #{record.source,jdbcType=CHAR},
@@ -260,6 +257,9 @@
       </if>
       <if test="record.gradeName != null" >
         grade_name = #{record.gradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -276,11 +276,11 @@
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       source = #{record.source,jdbcType=CHAR},
       classes_name = #{record.classesName,jdbcType=VARCHAR},
-      grade_name = #{record.gradeName,jdbcType=VARCHAR}
+      grade_name = #{record.gradeName,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -309,11 +309,8 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="source != null" >
         source = #{source,jdbcType=CHAR},
@@ -323,6 +320,9 @@
       </if>
       <if test="gradeName != null" >
         grade_name = #{gradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -336,11 +336,11 @@
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
+      year_id = #{yearId,jdbcType=INTEGER},
       source = #{source,jdbcType=CHAR},
       classes_name = #{classesName,jdbcType=VARCHAR},
-      grade_name = #{gradeName,jdbcType=VARCHAR}
+      grade_name = #{gradeName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

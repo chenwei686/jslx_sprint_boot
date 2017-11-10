@@ -72,7 +72,7 @@ public class BaseStudent implements Serializable {
     /**
      * 学级
      */
-    private String year;
+    private Integer yearId;
 
     /**
      * 手机号
@@ -97,6 +97,41 @@ public class BaseStudent implements Serializable {
     private Date updateTime;
 
     private Date createTime;
+
+    /**
+     * 密码输入错误次数
+     */
+    private Integer lockNumber;
+
+    /**
+     * 锁定时间
+     */
+    private Date lockTime;
+
+    /**
+     * 数学免费次数
+     */
+    private Integer mathNumber;
+
+    /**
+     * 化学免费次数
+     */
+    private Integer physicsNumber;
+
+    /**
+     * 化学免费次数
+     */
+    private Integer chemistryNumber;
+
+    /**
+     * 免费更新时间
+     */
+    private Date freeTime;
+
+    /**
+     * 学生类型
+     */
+    private String studentType;
 
     private static final long serialVersionUID = 1L;
 
@@ -204,12 +239,12 @@ public class BaseStudent implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public String getMobile() {
@@ -260,6 +295,62 @@ public class BaseStudent implements Serializable {
         this.createTime = createTime;
     }
 
+    public Integer getLockNumber() {
+        return lockNumber;
+    }
+
+    public void setLockNumber(Integer lockNumber) {
+        this.lockNumber = lockNumber;
+    }
+
+    public Date getLockTime() {
+        return lockTime;
+    }
+
+    public void setLockTime(Date lockTime) {
+        this.lockTime = lockTime;
+    }
+
+    public Integer getMathNumber() {
+        return mathNumber;
+    }
+
+    public void setMathNumber(Integer mathNumber) {
+        this.mathNumber = mathNumber;
+    }
+
+    public Integer getPhysicsNumber() {
+        return physicsNumber;
+    }
+
+    public void setPhysicsNumber(Integer physicsNumber) {
+        this.physicsNumber = physicsNumber;
+    }
+
+    public Integer getChemistryNumber() {
+        return chemistryNumber;
+    }
+
+    public void setChemistryNumber(Integer chemistryNumber) {
+        this.chemistryNumber = chemistryNumber;
+    }
+
+    public Date getFreeTime() {
+        return freeTime;
+    }
+
+    public void setFreeTime(Date freeTime) {
+        this.freeTime = freeTime;
+    }
+
+    public String getStudentType() {
+        return studentType;
+    }
+
+    public void setStudentType(String studentType) {
+        this.studentType = studentType == null ? null : studentType.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -279,13 +370,20 @@ public class BaseStudent implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", mobile=").append(mobile);
         sb.append(", isLock=").append(isLock);
         sb.append(", isChange=").append(isChange);
         sb.append(", isActivate=").append(isActivate);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", createTime=").append(createTime);
+        sb.append(", lockNumber=").append(lockNumber);
+        sb.append(", lockTime=").append(lockTime);
+        sb.append(", mathNumber=").append(mathNumber);
+        sb.append(", physicsNumber=").append(physicsNumber);
+        sb.append(", chemistryNumber=").append(chemistryNumber);
+        sb.append(", freeTime=").append(freeTime);
+        sb.append(", studentType=").append(studentType);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

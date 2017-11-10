@@ -35,7 +35,7 @@ public class FdStudentPractice implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     /**
      * 状态（0.未开始，1.未完成,2.完成）
@@ -122,12 +122,12 @@ public class FdStudentPractice implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Byte getStatus() {
@@ -198,7 +198,7 @@ public class FdStudentPractice implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", status=").append(status);
         sb.append(", subjectId=").append(subjectId);
         sb.append(", startTime=").append(startTime);

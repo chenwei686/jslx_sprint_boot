@@ -13,6 +13,9 @@ public class BaseTimuType implements Serializable {
      */
     private String subjectId;
 
+    /**
+     * 类型名称
+     */
     private String name;
 
     /**
@@ -21,6 +24,8 @@ public class BaseTimuType implements Serializable {
     private Integer sort;
 
     private String sysName;
+
+    private String description;
 
     private static final long serialVersionUID = 1L;
 
@@ -64,6 +69,14 @@ public class BaseTimuType implements Serializable {
         this.sysName = sysName == null ? null : sysName.trim();
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -75,6 +88,7 @@ public class BaseTimuType implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", sort=").append(sort);
         sb.append(", sysName=").append(sysName);
+        sb.append(", description=").append(description);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

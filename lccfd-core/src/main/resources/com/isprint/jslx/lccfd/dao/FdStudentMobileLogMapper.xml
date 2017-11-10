@@ -7,7 +7,7 @@
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="before" property="before" jdbcType="CHAR" />
     <result column="now" property="now" jdbcType="CHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -72,7 +72,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, student_id, school_id, grade_id, classes_id, year, before, now, create_time
+      id, student_id, school_id, grade_id, classes_id, year_id, before, now, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -97,7 +97,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,student_id,school_id,grade_id,classes_id,year,before,now,create_time
+    id,student_id,school_id,grade_id,classes_id,year_id,before,now,create_time
     from fd_student_mobile_log
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -113,11 +113,11 @@
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentMobileLog" >
     insert into fd_student_mobile_log (id, student_id, school_id, 
-      grade_id, classes_id, year, 
+      grade_id, classes_id, year_id, 
       before, now, create_time
       )
     values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, 
-      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, 
+      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, 
       #{before,jdbcType=CHAR}, #{now,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -139,8 +139,8 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="before != null" >
         before,
@@ -168,8 +168,8 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="before != null" >
         #{before,jdbcType=CHAR},
@@ -206,8 +206,8 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.before != null" >
         before = #{record.before,jdbcType=CHAR},
@@ -230,7 +230,7 @@
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       before = #{record.before,jdbcType=CHAR},
       now = #{record.now,jdbcType=CHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
@@ -253,8 +253,8 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="before != null" >
         before = #{before,jdbcType=CHAR},
@@ -274,7 +274,7 @@
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       before = #{before,jdbcType=CHAR},
       now = #{now,jdbcType=CHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP}

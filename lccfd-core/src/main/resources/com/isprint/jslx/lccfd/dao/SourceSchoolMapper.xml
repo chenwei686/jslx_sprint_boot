@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.SourceSchoolMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.SourceSchool" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="XXMC" property="xxmc" jdbcType="VARCHAR" />
+    <result column="XXBSM" property="xxbsm" jdbcType="VARCHAR" />
+    <result column="XXYWMC" property="xxywmc" jdbcType="VARCHAR" />
+    <result column="XXDZ" property="xxdz" jdbcType="VARCHAR" />
+    <result column="XXDZDM" property="xxdzdm" jdbcType="VARCHAR" />
+    <result column="XXZDCXLXDM" property="xxzdcxlxdm" jdbcType="VARCHAR" />
+    <result column="SDGLJYXZMC" property="sdgljyxzmc" jdbcType="VARCHAR" />
+    <result column="XXBXLXDM" property="xxbxlxdm" jdbcType="VARCHAR" />
+    <result column="XXJBZDM" property="xxjbzdm" jdbcType="VARCHAR" />
+    <result column="YZBM" property="yzbm" jdbcType="VARCHAR" />
+    <result column="WZZYDZ" property="wzzydz" jdbcType="VARCHAR" />
+    <result column="DWDZXX" property="dwdzxx" jdbcType="VARCHAR" />
+    <result column="XXXZ" property="xxxz" jdbcType="VARCHAR" />
+    <result column="XXRXNL" property="xxrxnl" jdbcType="VARCHAR" />
+    <result column="CZXZ" property="czxz" jdbcType="VARCHAR" />
+    <result column="CZRXNL" property="czrxnl" jdbcType="VARCHAR" />
+    <result column="GZXZ" property="gzxz" jdbcType="VARCHAR" />
+    <result column="GZRXNL" property="gzrxnl" jdbcType="VARCHAR" />
+    <result column="TBRYX" property="tbryx" jdbcType="VARCHAR" />
+    <result column="ZZJGDM" property="zzjgdm" jdbcType="VARCHAR" />
+    <result column="JXNF" property="jxnf" jdbcType="VARCHAR" />
+    <result column="FRDJZH" property="frdjzh" jdbcType="VARCHAR" />
+    <result column="XQR" property="xqr" jdbcType="VARCHAR" />
+    <result column="XXTDCQ" property="xxtdcq" jdbcType="VARCHAR" />
+    <result column="TDZH" property="tdzh" jdbcType="VARCHAR" />
+    <result column="JSZXSDM" property="jszxsdm" jdbcType="VARCHAR" />
+    <result column="HBGD" property="hbgd" jdbcType="VARCHAR" />
+    <result column="XXJD" property="xxjd" jdbcType="VARCHAR" />
+    <result column="XXWD" property="xxwd" jdbcType="VARCHAR" />
+    <result column="SZDJJSXDM" property="szdjjsxdm" jdbcType="VARCHAR" />
+    <result column="SZDMZSXDM" property="szdmzsxdm" jdbcType="VARCHAR" />
+    <result column="SZDDYSXDM" property="szddysxdm" jdbcType="VARCHAR" />
+    <result column="ZSBJ" property="zsbj" jdbcType="VARCHAR" />
+    <result column="ZJXYYDM" property="zjxyydm" jdbcType="VARCHAR" />
+    <result column="FZJXYYDM" property="fzjxyydm" jdbcType="VARCHAR" />
+    <result column="LSYG" property="lsyg" jdbcType="VARCHAR" />
+    <result column="DLSZSSMZXXDM" property="dlszssmzxxdm" jdbcType="VARCHAR" />
+    <result column="FSGXXXBS" property="fsgxxxbs" jdbcType="VARCHAR" />
+    <result column="SSZGDWM" property="sszgdwm" jdbcType="VARCHAR" />
+    <result column="FDDBR" property="fddbr" jdbcType="VARCHAR" />
+    <result column="XYMYM" property="xymym" jdbcType="VARCHAR" />
+    <result column="XXZTM" property="xxztm" jdbcType="VARCHAR" />
+    <result column="SFZXXBZ" property="sfzxxbz" jdbcType="VARCHAR" />
+    <result column="SSZXX_ID" property="sszxxId" jdbcType="INTEGER" />
+    <result column="SJLYBZM" property="sjlybzm" jdbcType="VARCHAR" />
+    <result column="LRR" property="lrr" jdbcType="VARCHAR" />
+    <result column="LRSJ" property="lrsj" jdbcType="VARCHAR" />
+    <result column="GXR" property="gxr" jdbcType="VARCHAR" />
+    <result column="GXSJ" property="gxsj" jdbcType="TIMESTAMP" />
+    <result column="school_degree_ids" property="schoolDegreeIds" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, XXMC, XXBSM, XXYWMC, XXDZ, XXDZDM, XXZDCXLXDM, SDGLJYXZMC, XXBXLXDM, XXJBZDM, 
+      YZBM, WZZYDZ, DWDZXX, XXXZ, XXRXNL, CZXZ, CZRXNL, GZXZ, GZRXNL, TBRYX, ZZJGDM, JXNF, 
+      FRDJZH, XQR, XXTDCQ, TDZH, JSZXSDM, HBGD, XXJD, XXWD, SZDJJSXDM, SZDMZSXDM, SZDDYSXDM, 
+      ZSBJ, ZJXYYDM, FZJXYYDM, LSYG, DLSZSSMZXXDM, FSGXXXBS, SSZGDWM, FDDBR, XYMYM, XXZTM, 
+      SFZXXBZ, SSZXX_ID, SJLYBZM, LRR, LRSJ, GXR, GXSJ, school_degree_ids
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.SourceSchoolQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from source_school
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    id,XXMC,XXBSM,XXYWMC,XXDZ,XXDZDM,XXZDCXLXDM,SDGLJYXZMC,XXBXLXDM,XXJBZDM,YZBM,WZZYDZ,DWDZXX,XXXZ,XXRXNL,CZXZ,CZRXNL,GZXZ,GZRXNL,TBRYX,ZZJGDM,JXNF,FRDJZH,XQR,XXTDCQ,TDZH,JSZXSDM,HBGD,XXJD,XXWD,SZDJJSXDM,SZDMZSXDM,SZDDYSXDM,ZSBJ,ZJXYYDM,FZJXYYDM,LSYG,DLSZSSMZXXDM,FSGXXXBS,SSZGDWM,FDDBR,XYMYM,XXZTM,SFZXXBZ,SSZXX_ID,SJLYBZM,LRR,LRSJ,GXR,GXSJ,school_degree_ids
+    from source_school
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from source_school
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.SourceSchoolQuery" >
+    delete from source_school
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.SourceSchool" >
+    insert into source_school (id, XXMC, XXBSM, 
+      XXYWMC, XXDZ, XXDZDM, 
+      XXZDCXLXDM, SDGLJYXZMC, XXBXLXDM, 
+      XXJBZDM, YZBM, WZZYDZ, 
+      DWDZXX, XXXZ, XXRXNL, 
+      CZXZ, CZRXNL, GZXZ, 
+      GZRXNL, TBRYX, ZZJGDM, 
+      JXNF, FRDJZH, XQR, 
+      XXTDCQ, TDZH, JSZXSDM, 
+      HBGD, XXJD, XXWD, SZDJJSXDM, 
+      SZDMZSXDM, SZDDYSXDM, ZSBJ, 
+      ZJXYYDM, FZJXYYDM, LSYG, 
+      DLSZSSMZXXDM, FSGXXXBS, SSZGDWM, 
+      FDDBR, XYMYM, XXZTM, 
+      SFZXXBZ, SSZXX_ID, SJLYBZM, 
+      LRR, LRSJ, GXR, GXSJ, 
+      school_degree_ids)
+    values (#{id,jdbcType=BIGINT}, #{xxmc,jdbcType=VARCHAR}, #{xxbsm,jdbcType=VARCHAR}, 
+      #{xxywmc,jdbcType=VARCHAR}, #{xxdz,jdbcType=VARCHAR}, #{xxdzdm,jdbcType=VARCHAR}, 
+      #{xxzdcxlxdm,jdbcType=VARCHAR}, #{sdgljyxzmc,jdbcType=VARCHAR}, #{xxbxlxdm,jdbcType=VARCHAR}, 
+      #{xxjbzdm,jdbcType=VARCHAR}, #{yzbm,jdbcType=VARCHAR}, #{wzzydz,jdbcType=VARCHAR}, 
+      #{dwdzxx,jdbcType=VARCHAR}, #{xxxz,jdbcType=VARCHAR}, #{xxrxnl,jdbcType=VARCHAR}, 
+      #{czxz,jdbcType=VARCHAR}, #{czrxnl,jdbcType=VARCHAR}, #{gzxz,jdbcType=VARCHAR}, 
+      #{gzrxnl,jdbcType=VARCHAR}, #{tbryx,jdbcType=VARCHAR}, #{zzjgdm,jdbcType=VARCHAR}, 
+      #{jxnf,jdbcType=VARCHAR}, #{frdjzh,jdbcType=VARCHAR}, #{xqr,jdbcType=VARCHAR}, 
+      #{xxtdcq,jdbcType=VARCHAR}, #{tdzh,jdbcType=VARCHAR}, #{jszxsdm,jdbcType=VARCHAR}, 
+      #{hbgd,jdbcType=VARCHAR}, #{xxjd,jdbcType=VARCHAR}, #{xxwd,jdbcType=VARCHAR}, #{szdjjsxdm,jdbcType=VARCHAR}, 
+      #{szdmzsxdm,jdbcType=VARCHAR}, #{szddysxdm,jdbcType=VARCHAR}, #{zsbj,jdbcType=VARCHAR}, 
+      #{zjxyydm,jdbcType=VARCHAR}, #{fzjxyydm,jdbcType=VARCHAR}, #{lsyg,jdbcType=VARCHAR}, 
+      #{dlszssmzxxdm,jdbcType=VARCHAR}, #{fsgxxxbs,jdbcType=VARCHAR}, #{sszgdwm,jdbcType=VARCHAR}, 
+      #{fddbr,jdbcType=VARCHAR}, #{xymym,jdbcType=VARCHAR}, #{xxztm,jdbcType=VARCHAR}, 
+      #{sfzxxbz,jdbcType=VARCHAR}, #{sszxxId,jdbcType=INTEGER}, #{sjlybzm,jdbcType=VARCHAR}, 
+      #{lrr,jdbcType=VARCHAR}, #{lrsj,jdbcType=VARCHAR}, #{gxr,jdbcType=VARCHAR}, #{gxsj,jdbcType=TIMESTAMP}, 
+      #{schoolDegreeIds,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.SourceSchool" >
+    insert into source_school
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="xxmc != null" >
+        XXMC,
+      </if>
+      <if test="xxbsm != null" >
+        XXBSM,
+      </if>
+      <if test="xxywmc != null" >
+        XXYWMC,
+      </if>
+      <if test="xxdz != null" >
+        XXDZ,
+      </if>
+      <if test="xxdzdm != null" >
+        XXDZDM,
+      </if>
+      <if test="xxzdcxlxdm != null" >
+        XXZDCXLXDM,
+      </if>
+      <if test="sdgljyxzmc != null" >
+        SDGLJYXZMC,
+      </if>
+      <if test="xxbxlxdm != null" >
+        XXBXLXDM,
+      </if>
+      <if test="xxjbzdm != null" >
+        XXJBZDM,
+      </if>
+      <if test="yzbm != null" >
+        YZBM,
+      </if>
+      <if test="wzzydz != null" >
+        WZZYDZ,
+      </if>
+      <if test="dwdzxx != null" >
+        DWDZXX,
+      </if>
+      <if test="xxxz != null" >
+        XXXZ,
+      </if>
+      <if test="xxrxnl != null" >
+        XXRXNL,
+      </if>
+      <if test="czxz != null" >
+        CZXZ,
+      </if>
+      <if test="czrxnl != null" >
+        CZRXNL,
+      </if>
+      <if test="gzxz != null" >
+        GZXZ,
+      </if>
+      <if test="gzrxnl != null" >
+        GZRXNL,
+      </if>
+      <if test="tbryx != null" >
+        TBRYX,
+      </if>
+      <if test="zzjgdm != null" >
+        ZZJGDM,
+      </if>
+      <if test="jxnf != null" >
+        JXNF,
+      </if>
+      <if test="frdjzh != null" >
+        FRDJZH,
+      </if>
+      <if test="xqr != null" >
+        XQR,
+      </if>
+      <if test="xxtdcq != null" >
+        XXTDCQ,
+      </if>
+      <if test="tdzh != null" >
+        TDZH,
+      </if>
+      <if test="jszxsdm != null" >
+        JSZXSDM,
+      </if>
+      <if test="hbgd != null" >
+        HBGD,
+      </if>
+      <if test="xxjd != null" >
+        XXJD,
+      </if>
+      <if test="xxwd != null" >
+        XXWD,
+      </if>
+      <if test="szdjjsxdm != null" >
+        SZDJJSXDM,
+      </if>
+      <if test="szdmzsxdm != null" >
+        SZDMZSXDM,
+      </if>
+      <if test="szddysxdm != null" >
+        SZDDYSXDM,
+      </if>
+      <if test="zsbj != null" >
+        ZSBJ,
+      </if>
+      <if test="zjxyydm != null" >
+        ZJXYYDM,
+      </if>
+      <if test="fzjxyydm != null" >
+        FZJXYYDM,
+      </if>
+      <if test="lsyg != null" >
+        LSYG,
+      </if>
+      <if test="dlszssmzxxdm != null" >
+        DLSZSSMZXXDM,
+      </if>
+      <if test="fsgxxxbs != null" >
+        FSGXXXBS,
+      </if>
+      <if test="sszgdwm != null" >
+        SSZGDWM,
+      </if>
+      <if test="fddbr != null" >
+        FDDBR,
+      </if>
+      <if test="xymym != null" >
+        XYMYM,
+      </if>
+      <if test="xxztm != null" >
+        XXZTM,
+      </if>
+      <if test="sfzxxbz != null" >
+        SFZXXBZ,
+      </if>
+      <if test="sszxxId != null" >
+        SSZXX_ID,
+      </if>
+      <if test="sjlybzm != null" >
+        SJLYBZM,
+      </if>
+      <if test="lrr != null" >
+        LRR,
+      </if>
+      <if test="lrsj != null" >
+        LRSJ,
+      </if>
+      <if test="gxr != null" >
+        GXR,
+      </if>
+      <if test="gxsj != null" >
+        GXSJ,
+      </if>
+      <if test="schoolDegreeIds != null" >
+        school_degree_ids,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="xxmc != null" >
+        #{xxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xxbsm != null" >
+        #{xxbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="xxywmc != null" >
+        #{xxywmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xxdz != null" >
+        #{xxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="xxdzdm != null" >
+        #{xxdzdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xxzdcxlxdm != null" >
+        #{xxzdcxlxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="sdgljyxzmc != null" >
+        #{sdgljyxzmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xxbxlxdm != null" >
+        #{xxbxlxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xxjbzdm != null" >
+        #{xxjbzdm,jdbcType=VARCHAR},
+      </if>
+      <if test="yzbm != null" >
+        #{yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="wzzydz != null" >
+        #{wzzydz,jdbcType=VARCHAR},
+      </if>
+      <if test="dwdzxx != null" >
+        #{dwdzxx,jdbcType=VARCHAR},
+      </if>
+      <if test="xxxz != null" >
+        #{xxxz,jdbcType=VARCHAR},
+      </if>
+      <if test="xxrxnl != null" >
+        #{xxrxnl,jdbcType=VARCHAR},
+      </if>
+      <if test="czxz != null" >
+        #{czxz,jdbcType=VARCHAR},
+      </if>
+      <if test="czrxnl != null" >
+        #{czrxnl,jdbcType=VARCHAR},
+      </if>
+      <if test="gzxz != null" >
+        #{gzxz,jdbcType=VARCHAR},
+      </if>
+      <if test="gzrxnl != null" >
+        #{gzrxnl,jdbcType=VARCHAR},
+      </if>
+      <if test="tbryx != null" >
+        #{tbryx,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgdm != null" >
+        #{zzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jxnf != null" >
+        #{jxnf,jdbcType=VARCHAR},
+      </if>
+      <if test="frdjzh != null" >
+        #{frdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="xqr != null" >
+        #{xqr,jdbcType=VARCHAR},
+      </if>
+      <if test="xxtdcq != null" >
+        #{xxtdcq,jdbcType=VARCHAR},
+      </if>
+      <if test="tdzh != null" >
+        #{tdzh,jdbcType=VARCHAR},
+      </if>
+      <if test="jszxsdm != null" >
+        #{jszxsdm,jdbcType=VARCHAR},
+      </if>
+      <if test="hbgd != null" >
+        #{hbgd,jdbcType=VARCHAR},
+      </if>
+      <if test="xxjd != null" >
+        #{xxjd,jdbcType=VARCHAR},
+      </if>
+      <if test="xxwd != null" >
+        #{xxwd,jdbcType=VARCHAR},
+      </if>
+      <if test="szdjjsxdm != null" >
+        #{szdjjsxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="szdmzsxdm != null" >
+        #{szdmzsxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="szddysxdm != null" >
+        #{szddysxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zsbj != null" >
+        #{zsbj,jdbcType=VARCHAR},
+      </if>
+      <if test="zjxyydm != null" >
+        #{zjxyydm,jdbcType=VARCHAR},
+      </if>
+      <if test="fzjxyydm != null" >
+        #{fzjxyydm,jdbcType=VARCHAR},
+      </if>
+      <if test="lsyg != null" >
+        #{lsyg,jdbcType=VARCHAR},
+      </if>
+      <if test="dlszssmzxxdm != null" >
+        #{dlszssmzxxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="fsgxxxbs != null" >
+        #{fsgxxxbs,jdbcType=VARCHAR},
+      </if>
+      <if test="sszgdwm != null" >
+        #{sszgdwm,jdbcType=VARCHAR},
+      </if>
+      <if test="fddbr != null" >
+        #{fddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="xymym != null" >
+        #{xymym,jdbcType=VARCHAR},
+      </if>
+      <if test="xxztm != null" >
+        #{xxztm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzxxbz != null" >
+        #{sfzxxbz,jdbcType=VARCHAR},
+      </if>
+      <if test="sszxxId != null" >
+        #{sszxxId,jdbcType=INTEGER},
+      </if>
+      <if test="sjlybzm != null" >
+        #{sjlybzm,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrsj != null" >
+        #{lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="gxr != null" >
+        #{gxr,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsj != null" >
+        #{gxsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schoolDegreeIds != null" >
+        #{schoolDegreeIds,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.SourceSchoolQuery" resultType="java.lang.Integer" >
+    select count(*) from source_school
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update source_school
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.xxmc != null" >
+        XXMC = #{record.xxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxbsm != null" >
+        XXBSM = #{record.xxbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxywmc != null" >
+        XXYWMC = #{record.xxywmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxdz != null" >
+        XXDZ = #{record.xxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxdzdm != null" >
+        XXDZDM = #{record.xxdzdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxzdcxlxdm != null" >
+        XXZDCXLXDM = #{record.xxzdcxlxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sdgljyxzmc != null" >
+        SDGLJYXZMC = #{record.sdgljyxzmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxbxlxdm != null" >
+        XXBXLXDM = #{record.xxbxlxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxjbzdm != null" >
+        XXJBZDM = #{record.xxjbzdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yzbm != null" >
+        YZBM = #{record.yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wzzydz != null" >
+        WZZYDZ = #{record.wzzydz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dwdzxx != null" >
+        DWDZXX = #{record.dwdzxx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxxz != null" >
+        XXXZ = #{record.xxxz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxrxnl != null" >
+        XXRXNL = #{record.xxrxnl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.czxz != null" >
+        CZXZ = #{record.czxz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.czrxnl != null" >
+        CZRXNL = #{record.czrxnl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gzxz != null" >
+        GZXZ = #{record.gzxz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gzrxnl != null" >
+        GZRXNL = #{record.gzrxnl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tbryx != null" >
+        TBRYX = #{record.tbryx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zzjgdm != null" >
+        ZZJGDM = #{record.zzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jxnf != null" >
+        JXNF = #{record.jxnf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.frdjzh != null" >
+        FRDJZH = #{record.frdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xqr != null" >
+        XQR = #{record.xqr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxtdcq != null" >
+        XXTDCQ = #{record.xxtdcq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tdzh != null" >
+        TDZH = #{record.tdzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jszxsdm != null" >
+        JSZXSDM = #{record.jszxsdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hbgd != null" >
+        HBGD = #{record.hbgd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxjd != null" >
+        XXJD = #{record.xxjd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxwd != null" >
+        XXWD = #{record.xxwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.szdjjsxdm != null" >
+        SZDJJSXDM = #{record.szdjjsxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.szdmzsxdm != null" >
+        SZDMZSXDM = #{record.szdmzsxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.szddysxdm != null" >
+        SZDDYSXDM = #{record.szddysxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zsbj != null" >
+        ZSBJ = #{record.zsbj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zjxyydm != null" >
+        ZJXYYDM = #{record.zjxyydm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fzjxyydm != null" >
+        FZJXYYDM = #{record.fzjxyydm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lsyg != null" >
+        LSYG = #{record.lsyg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dlszssmzxxdm != null" >
+        DLSZSSMZXXDM = #{record.dlszssmzxxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fsgxxxbs != null" >
+        FSGXXXBS = #{record.fsgxxxbs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sszgdwm != null" >
+        SSZGDWM = #{record.sszgdwm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fddbr != null" >
+        FDDBR = #{record.fddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xymym != null" >
+        XYMYM = #{record.xymym,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xxztm != null" >
+        XXZTM = #{record.xxztm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfzxxbz != null" >
+        SFZXXBZ = #{record.sfzxxbz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sszxxId != null" >
+        SSZXX_ID = #{record.sszxxId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sjlybzm != null" >
+        SJLYBZM = #{record.sjlybzm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrr != null" >
+        LRR = #{record.lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lrsj != null" >
+        LRSJ = #{record.lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxr != null" >
+        GXR = #{record.gxr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxsj != null" >
+        GXSJ = #{record.gxsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.schoolDegreeIds != null" >
+        school_degree_ids = #{record.schoolDegreeIds,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update source_school
+    set id = #{record.id,jdbcType=BIGINT},
+      XXMC = #{record.xxmc,jdbcType=VARCHAR},
+      XXBSM = #{record.xxbsm,jdbcType=VARCHAR},
+      XXYWMC = #{record.xxywmc,jdbcType=VARCHAR},
+      XXDZ = #{record.xxdz,jdbcType=VARCHAR},
+      XXDZDM = #{record.xxdzdm,jdbcType=VARCHAR},
+      XXZDCXLXDM = #{record.xxzdcxlxdm,jdbcType=VARCHAR},
+      SDGLJYXZMC = #{record.sdgljyxzmc,jdbcType=VARCHAR},
+      XXBXLXDM = #{record.xxbxlxdm,jdbcType=VARCHAR},
+      XXJBZDM = #{record.xxjbzdm,jdbcType=VARCHAR},
+      YZBM = #{record.yzbm,jdbcType=VARCHAR},
+      WZZYDZ = #{record.wzzydz,jdbcType=VARCHAR},
+      DWDZXX = #{record.dwdzxx,jdbcType=VARCHAR},
+      XXXZ = #{record.xxxz,jdbcType=VARCHAR},
+      XXRXNL = #{record.xxrxnl,jdbcType=VARCHAR},
+      CZXZ = #{record.czxz,jdbcType=VARCHAR},
+      CZRXNL = #{record.czrxnl,jdbcType=VARCHAR},
+      GZXZ = #{record.gzxz,jdbcType=VARCHAR},
+      GZRXNL = #{record.gzrxnl,jdbcType=VARCHAR},
+      TBRYX = #{record.tbryx,jdbcType=VARCHAR},
+      ZZJGDM = #{record.zzjgdm,jdbcType=VARCHAR},
+      JXNF = #{record.jxnf,jdbcType=VARCHAR},
+      FRDJZH = #{record.frdjzh,jdbcType=VARCHAR},
+      XQR = #{record.xqr,jdbcType=VARCHAR},
+      XXTDCQ = #{record.xxtdcq,jdbcType=VARCHAR},
+      TDZH = #{record.tdzh,jdbcType=VARCHAR},
+      JSZXSDM = #{record.jszxsdm,jdbcType=VARCHAR},
+      HBGD = #{record.hbgd,jdbcType=VARCHAR},
+      XXJD = #{record.xxjd,jdbcType=VARCHAR},
+      XXWD = #{record.xxwd,jdbcType=VARCHAR},
+      SZDJJSXDM = #{record.szdjjsxdm,jdbcType=VARCHAR},
+      SZDMZSXDM = #{record.szdmzsxdm,jdbcType=VARCHAR},
+      SZDDYSXDM = #{record.szddysxdm,jdbcType=VARCHAR},
+      ZSBJ = #{record.zsbj,jdbcType=VARCHAR},
+      ZJXYYDM = #{record.zjxyydm,jdbcType=VARCHAR},
+      FZJXYYDM = #{record.fzjxyydm,jdbcType=VARCHAR},
+      LSYG = #{record.lsyg,jdbcType=VARCHAR},
+      DLSZSSMZXXDM = #{record.dlszssmzxxdm,jdbcType=VARCHAR},
+      FSGXXXBS = #{record.fsgxxxbs,jdbcType=VARCHAR},
+      SSZGDWM = #{record.sszgdwm,jdbcType=VARCHAR},
+      FDDBR = #{record.fddbr,jdbcType=VARCHAR},
+      XYMYM = #{record.xymym,jdbcType=VARCHAR},
+      XXZTM = #{record.xxztm,jdbcType=VARCHAR},
+      SFZXXBZ = #{record.sfzxxbz,jdbcType=VARCHAR},
+      SSZXX_ID = #{record.sszxxId,jdbcType=INTEGER},
+      SJLYBZM = #{record.sjlybzm,jdbcType=VARCHAR},
+      LRR = #{record.lrr,jdbcType=VARCHAR},
+      LRSJ = #{record.lrsj,jdbcType=VARCHAR},
+      GXR = #{record.gxr,jdbcType=VARCHAR},
+      GXSJ = #{record.gxsj,jdbcType=TIMESTAMP},
+      school_degree_ids = #{record.schoolDegreeIds,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.SourceSchool" >
+    update source_school
+    <set >
+      <if test="xxmc != null" >
+        XXMC = #{xxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xxbsm != null" >
+        XXBSM = #{xxbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="xxywmc != null" >
+        XXYWMC = #{xxywmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xxdz != null" >
+        XXDZ = #{xxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="xxdzdm != null" >
+        XXDZDM = #{xxdzdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xxzdcxlxdm != null" >
+        XXZDCXLXDM = #{xxzdcxlxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="sdgljyxzmc != null" >
+        SDGLJYXZMC = #{sdgljyxzmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xxbxlxdm != null" >
+        XXBXLXDM = #{xxbxlxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xxjbzdm != null" >
+        XXJBZDM = #{xxjbzdm,jdbcType=VARCHAR},
+      </if>
+      <if test="yzbm != null" >
+        YZBM = #{yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="wzzydz != null" >
+        WZZYDZ = #{wzzydz,jdbcType=VARCHAR},
+      </if>
+      <if test="dwdzxx != null" >
+        DWDZXX = #{dwdzxx,jdbcType=VARCHAR},
+      </if>
+      <if test="xxxz != null" >
+        XXXZ = #{xxxz,jdbcType=VARCHAR},
+      </if>
+      <if test="xxrxnl != null" >
+        XXRXNL = #{xxrxnl,jdbcType=VARCHAR},
+      </if>
+      <if test="czxz != null" >
+        CZXZ = #{czxz,jdbcType=VARCHAR},
+      </if>
+      <if test="czrxnl != null" >
+        CZRXNL = #{czrxnl,jdbcType=VARCHAR},
+      </if>
+      <if test="gzxz != null" >
+        GZXZ = #{gzxz,jdbcType=VARCHAR},
+      </if>
+      <if test="gzrxnl != null" >
+        GZRXNL = #{gzrxnl,jdbcType=VARCHAR},
+      </if>
+      <if test="tbryx != null" >
+        TBRYX = #{tbryx,jdbcType=VARCHAR},
+      </if>
+      <if test="zzjgdm != null" >
+        ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jxnf != null" >
+        JXNF = #{jxnf,jdbcType=VARCHAR},
+      </if>
+      <if test="frdjzh != null" >
+        FRDJZH = #{frdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="xqr != null" >
+        XQR = #{xqr,jdbcType=VARCHAR},
+      </if>
+      <if test="xxtdcq != null" >
+        XXTDCQ = #{xxtdcq,jdbcType=VARCHAR},
+      </if>
+      <if test="tdzh != null" >
+        TDZH = #{tdzh,jdbcType=VARCHAR},
+      </if>
+      <if test="jszxsdm != null" >
+        JSZXSDM = #{jszxsdm,jdbcType=VARCHAR},
+      </if>
+      <if test="hbgd != null" >
+        HBGD = #{hbgd,jdbcType=VARCHAR},
+      </if>
+      <if test="xxjd != null" >
+        XXJD = #{xxjd,jdbcType=VARCHAR},
+      </if>
+      <if test="xxwd != null" >
+        XXWD = #{xxwd,jdbcType=VARCHAR},
+      </if>
+      <if test="szdjjsxdm != null" >
+        SZDJJSXDM = #{szdjjsxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="szdmzsxdm != null" >
+        SZDMZSXDM = #{szdmzsxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="szddysxdm != null" >
+        SZDDYSXDM = #{szddysxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zsbj != null" >
+        ZSBJ = #{zsbj,jdbcType=VARCHAR},
+      </if>
+      <if test="zjxyydm != null" >
+        ZJXYYDM = #{zjxyydm,jdbcType=VARCHAR},
+      </if>
+      <if test="fzjxyydm != null" >
+        FZJXYYDM = #{fzjxyydm,jdbcType=VARCHAR},
+      </if>
+      <if test="lsyg != null" >
+        LSYG = #{lsyg,jdbcType=VARCHAR},
+      </if>
+      <if test="dlszssmzxxdm != null" >
+        DLSZSSMZXXDM = #{dlszssmzxxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="fsgxxxbs != null" >
+        FSGXXXBS = #{fsgxxxbs,jdbcType=VARCHAR},
+      </if>
+      <if test="sszgdwm != null" >
+        SSZGDWM = #{sszgdwm,jdbcType=VARCHAR},
+      </if>
+      <if test="fddbr != null" >
+        FDDBR = #{fddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="xymym != null" >
+        XYMYM = #{xymym,jdbcType=VARCHAR},
+      </if>
+      <if test="xxztm != null" >
+        XXZTM = #{xxztm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzxxbz != null" >
+        SFZXXBZ = #{sfzxxbz,jdbcType=VARCHAR},
+      </if>
+      <if test="sszxxId != null" >
+        SSZXX_ID = #{sszxxId,jdbcType=INTEGER},
+      </if>
+      <if test="sjlybzm != null" >
+        SJLYBZM = #{sjlybzm,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        LRR = #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrsj != null" >
+        LRSJ = #{lrsj,jdbcType=VARCHAR},
+      </if>
+      <if test="gxr != null" >
+        GXR = #{gxr,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsj != null" >
+        GXSJ = #{gxsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="schoolDegreeIds != null" >
+        school_degree_ids = #{schoolDegreeIds,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.SourceSchool" >
+    update source_school
+    set XXMC = #{xxmc,jdbcType=VARCHAR},
+      XXBSM = #{xxbsm,jdbcType=VARCHAR},
+      XXYWMC = #{xxywmc,jdbcType=VARCHAR},
+      XXDZ = #{xxdz,jdbcType=VARCHAR},
+      XXDZDM = #{xxdzdm,jdbcType=VARCHAR},
+      XXZDCXLXDM = #{xxzdcxlxdm,jdbcType=VARCHAR},
+      SDGLJYXZMC = #{sdgljyxzmc,jdbcType=VARCHAR},
+      XXBXLXDM = #{xxbxlxdm,jdbcType=VARCHAR},
+      XXJBZDM = #{xxjbzdm,jdbcType=VARCHAR},
+      YZBM = #{yzbm,jdbcType=VARCHAR},
+      WZZYDZ = #{wzzydz,jdbcType=VARCHAR},
+      DWDZXX = #{dwdzxx,jdbcType=VARCHAR},
+      XXXZ = #{xxxz,jdbcType=VARCHAR},
+      XXRXNL = #{xxrxnl,jdbcType=VARCHAR},
+      CZXZ = #{czxz,jdbcType=VARCHAR},
+      CZRXNL = #{czrxnl,jdbcType=VARCHAR},
+      GZXZ = #{gzxz,jdbcType=VARCHAR},
+      GZRXNL = #{gzrxnl,jdbcType=VARCHAR},
+      TBRYX = #{tbryx,jdbcType=VARCHAR},
+      ZZJGDM = #{zzjgdm,jdbcType=VARCHAR},
+      JXNF = #{jxnf,jdbcType=VARCHAR},
+      FRDJZH = #{frdjzh,jdbcType=VARCHAR},
+      XQR = #{xqr,jdbcType=VARCHAR},
+      XXTDCQ = #{xxtdcq,jdbcType=VARCHAR},
+      TDZH = #{tdzh,jdbcType=VARCHAR},
+      JSZXSDM = #{jszxsdm,jdbcType=VARCHAR},
+      HBGD = #{hbgd,jdbcType=VARCHAR},
+      XXJD = #{xxjd,jdbcType=VARCHAR},
+      XXWD = #{xxwd,jdbcType=VARCHAR},
+      SZDJJSXDM = #{szdjjsxdm,jdbcType=VARCHAR},
+      SZDMZSXDM = #{szdmzsxdm,jdbcType=VARCHAR},
+      SZDDYSXDM = #{szddysxdm,jdbcType=VARCHAR},
+      ZSBJ = #{zsbj,jdbcType=VARCHAR},
+      ZJXYYDM = #{zjxyydm,jdbcType=VARCHAR},
+      FZJXYYDM = #{fzjxyydm,jdbcType=VARCHAR},
+      LSYG = #{lsyg,jdbcType=VARCHAR},
+      DLSZSSMZXXDM = #{dlszssmzxxdm,jdbcType=VARCHAR},
+      FSGXXXBS = #{fsgxxxbs,jdbcType=VARCHAR},
+      SSZGDWM = #{sszgdwm,jdbcType=VARCHAR},
+      FDDBR = #{fddbr,jdbcType=VARCHAR},
+      XYMYM = #{xymym,jdbcType=VARCHAR},
+      XXZTM = #{xxztm,jdbcType=VARCHAR},
+      SFZXXBZ = #{sfzxxbz,jdbcType=VARCHAR},
+      SSZXX_ID = #{sszxxId,jdbcType=INTEGER},
+      SJLYBZM = #{sjlybzm,jdbcType=VARCHAR},
+      LRR = #{lrr,jdbcType=VARCHAR},
+      LRSJ = #{lrsj,jdbcType=VARCHAR},
+      GXR = #{gxr,jdbcType=VARCHAR},
+      GXSJ = #{gxsj,jdbcType=TIMESTAMP},
+      school_degree_ids = #{schoolDegreeIds,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

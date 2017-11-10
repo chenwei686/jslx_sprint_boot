@@ -46,6 +46,23 @@ public class FdTeacherExampaper implements Serializable {
      */
     private String notes;
 
+    /**
+     * 学校id
+     */
+    private Integer schoolId;
+
+    /**
+     * 年级id
+     */
+    private Integer gradeId;
+
+    /**
+     * 班级id
+     */
+    private Integer classesId;
+
+    private Integer yearId;
+
     private Date updateTime;
 
     private Date createTime;
@@ -124,6 +141,38 @@ public class FdTeacherExampaper implements Serializable {
         this.notes = notes == null ? null : notes.trim();
     }
 
+    public Integer getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public Integer getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public Integer getClassesId() {
+        return classesId;
+    }
+
+    public void setClassesId(Integer classesId) {
+        this.classesId = classesId;
+    }
+
+    public Integer getYearId() {
+        return yearId;
+    }
+
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
+    }
+
     public Date getUpdateTime() {
         return updateTime;
     }
@@ -155,6 +204,10 @@ public class FdTeacherExampaper implements Serializable {
         sb.append(", provideTime=").append(provideTime);
         sb.append(", riseTime=").append(riseTime);
         sb.append(", notes=").append(notes);
+        sb.append(", schoolId=").append(schoolId);
+        sb.append(", gradeId=").append(gradeId);
+        sb.append(", classesId=").append(classesId);
+        sb.append(", yearId=").append(yearId);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

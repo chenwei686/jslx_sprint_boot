@@ -5,10 +5,11 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="parent_id" property="parentId" jdbcType="INTEGER" />
     <result column="source" property="source" jdbcType="CHAR" />
-    <result column="token" property="token" jdbcType="VARCHAR" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
     <result column="account" property="account" jdbcType="VARCHAR" />
     <result column="is_del" property="isDel" jdbcType="BIT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,7 +71,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, parent_id, source, token, account, is_del, create_time
+      id, parent_id, source, open_id, account, is_del, create_time, student_id
     </if>
     <if test="fields != null" >
       ${fields}
@@ -95,7 +96,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,parent_id,source,token,account,is_del,create_time
+    id,parent_id,source,open_id,account,is_del,create_time,student_id
     from base_parent_third_account
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -111,11 +112,11 @@
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseParentThirdAccount" >
     insert into base_parent_third_account (id, parent_id, source, 
-      token, account, is_del, 
-      create_time)
+      open_id, account, is_del, 
+      create_time, student_id)
     values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{source,jdbcType=CHAR}, 
-      #{token,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{isDel,jdbcType=BIT}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{openId,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{isDel,jdbcType=BIT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{studentId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseParentThirdAccount" >
     insert into base_parent_third_account
@@ -129,8 +130,8 @@
       <if test="source != null" >
         source,
       </if>
-      <if test="token != null" >
-        token,
+      <if test="openId != null" >
+        open_id,
       </if>
       <if test="account != null" >
         account,
@@ -140,6 +141,9 @@
       </if>
       <if test="createTime != null" >
         create_time,
+      </if>
+      <if test="studentId != null" >
+        student_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -152,8 +156,8 @@
       <if test="source != null" >
         #{source,jdbcType=CHAR},
       </if>
-      <if test="token != null" >
-        #{token,jdbcType=VARCHAR},
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
       </if>
       <if test="account != null" >
         #{account,jdbcType=VARCHAR},
@@ -163,6 +167,9 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -184,8 +191,8 @@
       <if test="record.source != null" >
         source = #{record.source,jdbcType=CHAR},
       </if>
-      <if test="record.token != null" >
-        token = #{record.token,jdbcType=VARCHAR},
+      <if test="record.openId != null" >
+        open_id = #{record.openId,jdbcType=VARCHAR},
       </if>
       <if test="record.account != null" >
         account = #{record.account,jdbcType=VARCHAR},
@@ -195,6 +202,9 @@
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.studentId != null" >
+        student_id = #{record.studentId,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -206,10 +216,11 @@
     set id = #{record.id,jdbcType=INTEGER},
       parent_id = #{record.parentId,jdbcType=INTEGER},
       source = #{record.source,jdbcType=CHAR},
-      token = #{record.token,jdbcType=VARCHAR},
+      open_id = #{record.openId,jdbcType=VARCHAR},
       account = #{record.account,jdbcType=VARCHAR},
       is_del = #{record.isDel,jdbcType=BIT},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      student_id = #{record.studentId,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -223,8 +234,8 @@
       <if test="source != null" >
         source = #{source,jdbcType=CHAR},
       </if>
-      <if test="token != null" >
-        token = #{token,jdbcType=VARCHAR},
+      <if test="openId != null" >
+        open_id = #{openId,jdbcType=VARCHAR},
       </if>
       <if test="account != null" >
         account = #{account,jdbcType=VARCHAR},
@@ -235,6 +246,9 @@
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -242,10 +256,11 @@
     update base_parent_third_account
     set parent_id = #{parentId,jdbcType=INTEGER},
       source = #{source,jdbcType=CHAR},
-      token = #{token,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
       account = #{account,jdbcType=VARCHAR},
       is_del = #{isDel,jdbcType=BIT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      student_id = #{studentId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

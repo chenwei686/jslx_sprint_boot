@@ -32,7 +32,7 @@ public class FdStudentPackage implements Serializable {
     /**
      * 入学年份
      */
-    private String year;
+    private Integer yearId;
 
     /**
      * 学生订单id
@@ -45,14 +45,14 @@ public class FdStudentPackage implements Serializable {
     private String name;
 
     /**
-     * 套餐类型
-     */
-    private Integer packageTypeId;
-
-    /**
      * 套餐id
      */
     private Integer packegeId;
+
+    /**
+     * 套餐类型
+     */
+    private Integer packageTypeId;
 
     /**
      * 时间类型
@@ -69,15 +69,22 @@ public class FdStudentPackage implements Serializable {
      */
     private String system;
 
-    private String subjectIds;
+    private Integer subjectId;
 
-    private String subjectNames;
+    private String subjectName;
 
     private Date startTime;
 
     private Date endTime;
 
     private Date createTime;
+
+    /**
+     * system：系统套餐不在客户端显示  online：在客户端显示
+     */
+    private String packageType;
+
+    private Date updateTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -121,12 +128,12 @@ public class FdStudentPackage implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Long getStudentOrderId() {
@@ -145,20 +152,20 @@ public class FdStudentPackage implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getPackageTypeId() {
-        return packageTypeId;
-    }
-
-    public void setPackageTypeId(Integer packageTypeId) {
-        this.packageTypeId = packageTypeId;
-    }
-
     public Integer getPackegeId() {
         return packegeId;
     }
 
     public void setPackegeId(Integer packegeId) {
         this.packegeId = packegeId;
+    }
+
+    public Integer getPackageTypeId() {
+        return packageTypeId;
+    }
+
+    public void setPackageTypeId(Integer packageTypeId) {
+        this.packageTypeId = packageTypeId;
     }
 
     public String getTimeType() {
@@ -185,20 +192,20 @@ public class FdStudentPackage implements Serializable {
         this.system = system == null ? null : system.trim();
     }
 
-    public String getSubjectIds() {
-        return subjectIds;
+    public Integer getSubjectId() {
+        return subjectId;
     }
 
-    public void setSubjectIds(String subjectIds) {
-        this.subjectIds = subjectIds == null ? null : subjectIds.trim();
+    public void setSubjectId(Integer subjectId) {
+        this.subjectId = subjectId;
     }
 
-    public String getSubjectNames() {
-        return subjectNames;
+    public String getSubjectName() {
+        return subjectName;
     }
 
-    public void setSubjectNames(String subjectNames) {
-        this.subjectNames = subjectNames == null ? null : subjectNames.trim();
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName == null ? null : subjectName.trim();
     }
 
     public Date getStartTime() {
@@ -225,6 +232,22 @@ public class FdStudentPackage implements Serializable {
         this.createTime = createTime;
     }
 
+    public String getPackageType() {
+        return packageType;
+    }
+
+    public void setPackageType(String packageType) {
+        this.packageType = packageType == null ? null : packageType.trim();
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -236,19 +259,21 @@ public class FdStudentPackage implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", studentOrderId=").append(studentOrderId);
         sb.append(", name=").append(name);
-        sb.append(", packageTypeId=").append(packageTypeId);
         sb.append(", packegeId=").append(packegeId);
+        sb.append(", packageTypeId=").append(packageTypeId);
         sb.append(", timeType=").append(timeType);
         sb.append(", time=").append(time);
         sb.append(", system=").append(system);
-        sb.append(", subjectIds=").append(subjectIds);
-        sb.append(", subjectNames=").append(subjectNames);
+        sb.append(", subjectId=").append(subjectId);
+        sb.append(", subjectName=").append(subjectName);
         sb.append(", startTime=").append(startTime);
         sb.append(", endTime=").append(endTime);
         sb.append(", createTime=").append(createTime);
+        sb.append(", packageType=").append(packageType);
+        sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

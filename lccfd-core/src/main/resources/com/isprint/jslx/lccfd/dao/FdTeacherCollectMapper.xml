@@ -10,12 +10,13 @@
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="timu_type_id" property="timuTypeId" jdbcType="INTEGER" />
     <result column="main_knowledge_id" property="mainKnowledgeId" jdbcType="INTEGER" />
     <result column="difficult_level" property="difficultLevel" jdbcType="TINYINT" />
     <result column="is_del" property="isDel" jdbcType="BIT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -77,8 +78,8 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, timu_id, subject_id, teacher_id, type, school_id, grade_id, classes_id, year, 
-      timu_type_id, main_knowledge_id, difficult_level, is_del, create_time
+      id, timu_id, subject_id, teacher_id, type, school_id, grade_id, classes_id, year_id, 
+      timu_type_id, main_knowledge_id, difficult_level, is_del, create_time, update_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -103,7 +104,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,timu_id,subject_id,teacher_id,type,school_id,grade_id,classes_id,year,timu_type_id,main_knowledge_id,difficult_level,is_del,create_time
+    id,timu_id,subject_id,teacher_id,type,school_id,grade_id,classes_id,year_id,timu_type_id,main_knowledge_id,difficult_level,is_del,create_time,update_time
     from fd_teacher_collect
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -120,14 +121,16 @@
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdTeacherCollect" >
     insert into fd_teacher_collect (id, timu_id, subject_id, 
       teacher_id, type, school_id, 
-      grade_id, classes_id, year, 
+      grade_id, classes_id, year_id, 
       timu_type_id, main_knowledge_id, difficult_level, 
-      is_del, create_time)
+      is_del, create_time, update_time
+      )
     values (#{id,jdbcType=INTEGER}, #{timuId,jdbcType=CHAR}, #{subjectId,jdbcType=INTEGER}, 
       #{teacherId,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, #{schoolId,jdbcType=INTEGER}, 
-      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, 
+      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, 
       #{timuTypeId,jdbcType=INTEGER}, #{mainKnowledgeId,jdbcType=INTEGER}, #{difficultLevel,jdbcType=TINYINT}, 
-      #{isDel,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP})
+      #{isDel,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherCollect" >
     insert into fd_teacher_collect
@@ -156,8 +159,8 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="timuTypeId != null" >
         timu_type_id,
@@ -173,6 +176,9 @@
       </if>
       <if test="createTime != null" >
         create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -200,8 +206,8 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="timuTypeId != null" >
         #{timuTypeId,jdbcType=INTEGER},
@@ -217,6 +223,9 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -253,8 +262,8 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.timuTypeId != null" >
         timu_type_id = #{record.timuTypeId,jdbcType=INTEGER},
@@ -271,6 +280,9 @@
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -286,12 +298,13 @@
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       timu_type_id = #{record.timuTypeId,jdbcType=INTEGER},
       main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
       difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
       is_del = #{record.isDel,jdbcType=BIT},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -320,8 +333,8 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="timuTypeId != null" >
         timu_type_id = #{timuTypeId,jdbcType=INTEGER},
@@ -338,6 +351,9 @@
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -350,12 +366,13 @@
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       timu_type_id = #{timuTypeId,jdbcType=INTEGER},
       main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
       difficult_level = #{difficultLevel,jdbcType=TINYINT},
       is_del = #{isDel,jdbcType=BIT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

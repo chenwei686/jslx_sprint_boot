@@ -7,7 +7,7 @@
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="search_num" property="searchNum" jdbcType="INTEGER" />
     <result column="correct_num" property="correctNum" jdbcType="INTEGER" />
     <result column="correct_num_last" property="correctNumLast" jdbcType="INTEGER" />
@@ -85,9 +85,10 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, student_id, school_id, grade_id, classes_id, year, search_num, correct_num, correct_num_last, 
-      correct_num_treed, correct_pro, correct_pro_last, correct_pro_treed, exceed_num, 
-      total_num, beat_pro, beat_pro_last, beat_pro_treed, date, week, update_time, create_time
+      id, student_id, school_id, grade_id, classes_id, year_id, search_num, correct_num, 
+      correct_num_last, correct_num_treed, correct_pro, correct_pro_last, correct_pro_treed, 
+      exceed_num, total_num, beat_pro, beat_pro_last, beat_pro_treed, date, week, update_time, 
+      create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -112,7 +113,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,student_id,school_id,grade_id,classes_id,year,search_num,correct_num,correct_num_last,correct_num_treed,correct_pro,correct_pro_last,correct_pro_treed,exceed_num,total_num,beat_pro,beat_pro_last,beat_pro_treed,date,week,update_time,create_time
+    id,student_id,school_id,grade_id,classes_id,year_id,search_num,correct_num,correct_num_last,correct_num_treed,correct_pro,correct_pro_last,correct_pro_treed,exceed_num,total_num,beat_pro,beat_pro_last,beat_pro_treed,date,week,update_time,create_time
     from fd_student_day_report
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -128,7 +129,7 @@
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentDayReport" >
     insert into fd_student_day_report (id, student_id, school_id, 
-      grade_id, classes_id, year, 
+      grade_id, classes_id, year_id, 
       search_num, correct_num, correct_num_last, 
       correct_num_treed, correct_pro, correct_pro_last, 
       correct_pro_treed, exceed_num, total_num, 
@@ -136,7 +137,7 @@
       date, week, update_time, 
       create_time)
     values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, 
-      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, 
+      #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, 
       #{searchNum,jdbcType=INTEGER}, #{correctNum,jdbcType=INTEGER}, #{correctNumLast,jdbcType=INTEGER}, 
       #{correctNumTreed,jdbcType=TINYINT}, #{correctPro,jdbcType=DECIMAL}, #{correctProLast,jdbcType=DECIMAL}, 
       #{correctProTreed,jdbcType=TINYINT}, #{exceedNum,jdbcType=INTEGER}, #{totalNum,jdbcType=INTEGER}, 
@@ -162,8 +163,8 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="searchNum != null" >
         search_num,
@@ -230,8 +231,8 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="searchNum != null" >
         #{searchNum,jdbcType=INTEGER},
@@ -307,8 +308,8 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.searchNum != null" >
         search_num = #{record.searchNum,jdbcType=INTEGER},
@@ -370,7 +371,7 @@
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       search_num = #{record.searchNum,jdbcType=INTEGER},
       correct_num = #{record.correctNum,jdbcType=INTEGER},
       correct_num_last = #{record.correctNumLast,jdbcType=INTEGER},
@@ -406,8 +407,8 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="searchNum != null" >
         search_num = #{searchNum,jdbcType=INTEGER},
@@ -466,7 +467,7 @@
       school_id = #{schoolId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       search_num = #{searchNum,jdbcType=INTEGER},
       correct_num = #{correctNum,jdbcType=INTEGER},
       correct_num_last = #{correctNumLast,jdbcType=INTEGER},

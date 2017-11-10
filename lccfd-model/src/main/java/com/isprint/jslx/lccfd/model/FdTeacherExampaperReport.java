@@ -20,6 +20,23 @@ public class FdTeacherExampaperReport implements Serializable {
      */
     private Integer teacherId;
 
+    /**
+     * 学校id
+     */
+    private Integer schoolId;
+
+    /**
+     * 年级id
+     */
+    private Integer gradeId;
+
+    /**
+     * 班级id
+     */
+    private Integer classesId;
+
+    private Integer yearId;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -54,6 +71,38 @@ public class FdTeacherExampaperReport implements Serializable {
         this.teacherId = teacherId;
     }
 
+    public Integer getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public Integer getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public Integer getClassesId() {
+        return classesId;
+    }
+
+    public void setClassesId(Integer classesId) {
+        this.classesId = classesId;
+    }
+
+    public Integer getYearId() {
+        return yearId;
+    }
+
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -64,6 +113,10 @@ public class FdTeacherExampaperReport implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", exampaperId=").append(exampaperId);
         sb.append(", teacherId=").append(teacherId);
+        sb.append(", schoolId=").append(schoolId);
+        sb.append(", gradeId=").append(gradeId);
+        sb.append(", classesId=").append(classesId);
+        sb.append(", yearId=").append(yearId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

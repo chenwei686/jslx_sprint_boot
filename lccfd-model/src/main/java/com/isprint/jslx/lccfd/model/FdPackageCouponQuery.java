@@ -398,6 +398,66 @@ public class FdPackageCouponQuery {
             return (Criteria) this;
         }
 
+        public Criteria andDealsMoneyIsNull() {
+            addCriterion("deals_money is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyIsNotNull() {
+            addCriterion("deals_money is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyEqualTo(BigDecimal value) {
+            addCriterion("deals_money =", value, "dealsMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyNotEqualTo(BigDecimal value) {
+            addCriterion("deals_money <>", value, "dealsMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyGreaterThan(BigDecimal value) {
+            addCriterion("deals_money >", value, "dealsMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("deals_money >=", value, "dealsMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyLessThan(BigDecimal value) {
+            addCriterion("deals_money <", value, "dealsMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("deals_money <=", value, "dealsMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyIn(List<BigDecimal> values) {
+            addCriterion("deals_money in", values, "dealsMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyNotIn(List<BigDecimal> values) {
+            addCriterion("deals_money not in", values, "dealsMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("deals_money between", value1, value2, "dealsMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andDealsMoneyNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("deals_money not between", value1, value2, "dealsMoney");
+            return (Criteria) this;
+        }
+
         public Criteria andNumberIsNull() {
             addCriterion("number is null");
             return (Criteria) this;

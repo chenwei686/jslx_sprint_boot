@@ -728,6 +728,76 @@ public class FdPackageQuery {
             return (Criteria) this;
         }
 
+        public Criteria andSubjectTypeIsNull() {
+            addCriterion("subject_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeIsNotNull() {
+            addCriterion("subject_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeEqualTo(String value) {
+            addCriterion("subject_type =", value, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeNotEqualTo(String value) {
+            addCriterion("subject_type <>", value, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeGreaterThan(String value) {
+            addCriterion("subject_type >", value, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("subject_type >=", value, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeLessThan(String value) {
+            addCriterion("subject_type <", value, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeLessThanOrEqualTo(String value) {
+            addCriterion("subject_type <=", value, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeLike(String value) {
+            addCriterion("subject_type like", value, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeNotLike(String value) {
+            addCriterion("subject_type not like", value, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeIn(List<String> values) {
+            addCriterion("subject_type in", values, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeNotIn(List<String> values) {
+            addCriterion("subject_type not in", values, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeBetween(String value1, String value2) {
+            addCriterion("subject_type between", value1, value2, "subjectType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubjectTypeNotBetween(String value1, String value2) {
+            addCriterion("subject_type not between", value1, value2, "subjectType");
+            return (Criteria) this;
+        }
+
         public Criteria andSubjectIdsIsNull() {
             addCriterion("subject_ids is null");
             return (Criteria) this;
@@ -925,6 +995,76 @@ public class FdPackageQuery {
 
         public Criteria andIsDelNotBetween(Boolean value1, Boolean value2) {
             addCriterion("is_del not between", value1, value2, "isDel");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIsNull() {
+            addCriterion("type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIsNotNull() {
+            addCriterion("type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeEqualTo(String value) {
+            addCriterion("type =", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotEqualTo(String value) {
+            addCriterion("type <>", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeGreaterThan(String value) {
+            addCriterion("type >", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("type >=", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLessThan(String value) {
+            addCriterion("type <", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLessThanOrEqualTo(String value) {
+            addCriterion("type <=", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLike(String value) {
+            addCriterion("type like", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotLike(String value) {
+            addCriterion("type not like", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIn(List<String> values) {
+            addCriterion("type in", values, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotIn(List<String> values) {
+            addCriterion("type not in", values, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeBetween(String value1, String value2) {
+            addCriterion("type between", value1, value2, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotBetween(String value1, String value2) {
+            addCriterion("type not between", value1, value2, "type");
             return (Criteria) this;
         }
 

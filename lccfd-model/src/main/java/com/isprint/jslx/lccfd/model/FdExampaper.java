@@ -23,22 +23,12 @@ public class FdExampaper implements Serializable {
     /**
      * 年份
      */
-    private Integer year;
+    private Integer yearId;
 
     /**
      * 试卷类型（0：模拟卷  1：真题卷  2：扩展练习 3：教师组卷 4：考点训练）
      */
     private Byte type;
-
-    /**
-     * 开始时间
-     */
-    private Date startTime;
-
-    /**
-     * 结束时间
-     */
-    private Date endTime;
 
     /**
      * 试卷难度
@@ -59,11 +49,6 @@ public class FdExampaper implements Serializable {
      * 试卷下载次数
      */
     private Integer downNum;
-
-    /**
-     * 学校级别id
-     */
-    private Integer schoolDegreeId;
 
     /**
      * 试卷来源('system','teacher')
@@ -89,11 +74,6 @@ public class FdExampaper implements Serializable {
      * 试卷说明
      */
     private String notes;
-
-    /**
-     * 复用的试卷id
-     */
-    private Integer parentId;
 
     /**
      * 修改时间
@@ -131,12 +111,12 @@ public class FdExampaper implements Serializable {
         this.subjectId = subjectId;
     }
 
-    public Integer getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Byte getType() {
@@ -145,22 +125,6 @@ public class FdExampaper implements Serializable {
 
     public void setType(Byte type) {
         this.type = type;
-    }
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
     }
 
     public Byte getDifficultLevel() {
@@ -193,14 +157,6 @@ public class FdExampaper implements Serializable {
 
     public void setDownNum(Integer downNum) {
         this.downNum = downNum;
-    }
-
-    public Integer getSchoolDegreeId() {
-        return schoolDegreeId;
-    }
-
-    public void setSchoolDegreeId(Integer schoolDegreeId) {
-        this.schoolDegreeId = schoolDegreeId;
     }
 
     public String getSource() {
@@ -243,14 +199,6 @@ public class FdExampaper implements Serializable {
         this.notes = notes == null ? null : notes.trim();
     }
 
-    public Integer getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
-
     public Date getUpdateTime() {
         return updateTime;
     }
@@ -276,21 +224,17 @@ public class FdExampaper implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", subjectId=").append(subjectId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", type=").append(type);
-        sb.append(", startTime=").append(startTime);
-        sb.append(", endTime=").append(endTime);
         sb.append(", difficultLevel=").append(difficultLevel);
         sb.append(", totalScore=").append(totalScore);
         sb.append(", totalTime=").append(totalTime);
         sb.append(", downNum=").append(downNum);
-        sb.append(", schoolDegreeId=").append(schoolDegreeId);
         sb.append(", source=").append(source);
         sb.append(", teacherId=").append(teacherId);
         sb.append(", qrCode=").append(qrCode);
         sb.append(", isDel=").append(isDel);
         sb.append(", notes=").append(notes);
-        sb.append(", parentId=").append(parentId);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

@@ -11,6 +11,10 @@ public class TimuWithBLOBs extends Timu implements Serializable {
 
     private String comment;
 
+    private String inputid;
+
+    private String parentid;
+
     private static final long serialVersionUID = 1L;
 
     public String getTrunk() {
@@ -45,6 +49,22 @@ public class TimuWithBLOBs extends Timu implements Serializable {
         this.comment = comment == null ? null : comment.trim();
     }
 
+    public String getInputid() {
+        return inputid;
+    }
+
+    public void setInputid(String inputid) {
+        this.inputid = inputid == null ? null : inputid.trim();
+    }
+
+    public String getParentid() {
+        return parentid;
+    }
+
+    public void setParentid(String parentid) {
+        this.parentid = parentid == null ? null : parentid.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -55,6 +75,8 @@ public class TimuWithBLOBs extends Timu implements Serializable {
         sb.append(", analysis=").append(analysis);
         sb.append(", answer=").append(answer);
         sb.append(", comment=").append(comment);
+        sb.append(", inputid=").append(inputid);
+        sb.append(", parentid=").append(parentid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -11,7 +11,7 @@
     <result column="time" property="time" jdbcType="INTEGER" />
     <result column="scroe" property="scroe" jdbcType="DECIMAL" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="parent_id" property="parentId" jdbcType="CHAR" />
     <result column="video_code" property="videoCode" jdbcType="CHAR" />
     <result column="source" property="source" jdbcType="TINYINT" />
@@ -19,16 +19,20 @@
     <result column="is_have_child" property="isHaveChild" jdbcType="BIT" />
     <result column="picture_json" property="pictureJson" jdbcType="VARCHAR" />
     <result column="difficult_level" property="difficultLevel" jdbcType="TINYINT" />
-    <result column="trunk" property="trunk" jdbcType="VARCHAR" />
-    <result column="analysis" property="analysis" jdbcType="VARCHAR" />
-    <result column="answer" property="answer" jdbcType="VARCHAR" />
-    <result column="comment" property="comment" jdbcType="VARCHAR" />
     <result column="input_json" property="inputJson" jdbcType="VARCHAR" />
     <result column="input_choice_json" property="inputChoiceJson" jdbcType="VARCHAR" />
     <result column="main_knowledge_id" property="mainKnowledgeId" jdbcType="INTEGER" />
     <result column="sort" property="sort" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="school_degree_id" property="schoolDegreeId" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_execute" property="isExecute" jdbcType="BIT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.isprint.jslx.lccfd.model.BaseTimuSearchWithBLOBs" extends="BaseResultMap" >
+    <result column="trunk" property="trunk" jdbcType="LONGVARCHAR" />
+    <result column="analysis" property="analysis" jdbcType="LONGVARCHAR" />
+    <result column="answer" property="answer" jdbcType="LONGVARCHAR" />
+    <result column="comment" property="comment" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -91,14 +95,33 @@
   <sql id="Base_Column_List" >
     <if test="fields == null" >
       id, subject_id, timu_type_id, province_ids, city_ids, area_ids, time, scroe, grade_id, 
-      year, parent_id, video_code, source, is_expand_practice, is_have_child, picture_json, 
-      difficult_level, trunk, analysis, answer, comment, input_json, input_choice_json, 
-      main_knowledge_id, sort, create_time, school_degree_id
+      year_id, parent_id, video_code, source, is_expand_practice, is_have_child, picture_json, 
+      difficult_level, input_json, input_choice_json, main_knowledge_id, sort, create_time, 
+      school_degree_id, update_time, is_execute
     </if>
     <if test="fields != null" >
       ${fields}
     </if>
   </sql>
+  <sql id="Blob_Column_List" >
+    trunk, analysis, answer, comment
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearchQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from base_timu_search
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearchQuery" >
     select
     <if test="distinct" >
@@ -116,9 +139,11 @@
       limit #{startRow} , #{pageSize}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
     select 
-    id,subject_id,timu_type_id,province_ids,city_ids,area_ids,time,scroe,grade_id,year,parent_id,video_code,source,is_expand_practice,is_have_child,picture_json,difficult_level,trunk,analysis,answer,comment,input_json,input_choice_json,main_knowledge_id,sort,create_time,school_degree_id
+    id,subject_id,timu_type_id,province_ids,city_ids,area_ids,time,scroe,grade_id,year_id,parent_id,video_code,source,is_expand_practice,is_have_child,picture_json,difficult_level,input_json,input_choice_json,main_knowledge_id,sort,create_time,school_degree_id,update_time,is_execute,trunk,analysis,answer,comment
+    ,
+    <include refid="Blob_Column_List" />
     from base_timu_search
     where id = #{id,jdbcType=CHAR}
   </select>
@@ -132,27 +157,29 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearch" >
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearchWithBLOBs" >
     insert into base_timu_search (id, subject_id, timu_type_id, 
       province_ids, city_ids, area_ids, 
       time, scroe, grade_id, 
-      year, parent_id, video_code, source, 
-      is_expand_practice, is_have_child, picture_json, 
-      difficult_level, trunk, analysis, 
-      answer, comment, input_json, 
+      year_id, parent_id, video_code, 
+      source, is_expand_practice, is_have_child, 
+      picture_json, difficult_level, input_json, 
       input_choice_json, main_knowledge_id, sort, 
-      create_time, school_degree_id)
+      create_time, school_degree_id, update_time, 
+      is_execute, trunk, analysis, 
+      answer, comment)
     values (#{id,jdbcType=CHAR}, #{subjectId,jdbcType=INTEGER}, #{timuTypeId,jdbcType=INTEGER}, 
       #{provinceIds,jdbcType=VARCHAR}, #{cityIds,jdbcType=VARCHAR}, #{areaIds,jdbcType=VARCHAR}, 
       #{time,jdbcType=INTEGER}, #{scroe,jdbcType=DECIMAL}, #{gradeId,jdbcType=INTEGER}, 
-      #{year,jdbcType=CHAR}, #{parentId,jdbcType=CHAR}, #{videoCode,jdbcType=CHAR}, #{source,jdbcType=TINYINT}, 
-      #{isExpandPractice,jdbcType=BIT}, #{isHaveChild,jdbcType=BIT}, #{pictureJson,jdbcType=VARCHAR}, 
-      #{difficultLevel,jdbcType=TINYINT}, #{trunk,jdbcType=VARCHAR}, #{analysis,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, #{inputJson,jdbcType=VARCHAR}, 
+      #{yearId,jdbcType=INTEGER}, #{parentId,jdbcType=CHAR}, #{videoCode,jdbcType=CHAR}, 
+      #{source,jdbcType=TINYINT}, #{isExpandPractice,jdbcType=BIT}, #{isHaveChild,jdbcType=BIT}, 
+      #{pictureJson,jdbcType=VARCHAR}, #{difficultLevel,jdbcType=TINYINT}, #{inputJson,jdbcType=VARCHAR}, 
       #{inputChoiceJson,jdbcType=VARCHAR}, #{mainKnowledgeId,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{schoolDegreeId,jdbcType=INTEGER})
+      #{createTime,jdbcType=TIMESTAMP}, #{schoolDegreeId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isExecute,jdbcType=BIT}, #{trunk,jdbcType=LONGVARCHAR}, #{analysis,jdbcType=LONGVARCHAR}, 
+      #{answer,jdbcType=LONGVARCHAR}, #{comment,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearch" >
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearchWithBLOBs" >
     insert into base_timu_search
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -182,8 +209,8 @@
       <if test="gradeId != null" >
         grade_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="parentId != null" >
         parent_id,
@@ -206,18 +233,6 @@
       <if test="difficultLevel != null" >
         difficult_level,
       </if>
-      <if test="trunk != null" >
-        trunk,
-      </if>
-      <if test="analysis != null" >
-        analysis,
-      </if>
-      <if test="answer != null" >
-        answer,
-      </if>
-      <if test="comment != null" >
-        comment,
-      </if>
       <if test="inputJson != null" >
         input_json,
       </if>
@@ -235,6 +250,24 @@
       </if>
       <if test="schoolDegreeId != null" >
         school_degree_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isExecute != null" >
+        is_execute,
+      </if>
+      <if test="trunk != null" >
+        trunk,
+      </if>
+      <if test="analysis != null" >
+        analysis,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+      <if test="comment != null" >
+        comment,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -265,8 +298,8 @@
       <if test="gradeId != null" >
         #{gradeId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="parentId != null" >
         #{parentId,jdbcType=CHAR},
@@ -289,18 +322,6 @@
       <if test="difficultLevel != null" >
         #{difficultLevel,jdbcType=TINYINT},
       </if>
-      <if test="trunk != null" >
-        #{trunk,jdbcType=VARCHAR},
-      </if>
-      <if test="analysis != null" >
-        #{analysis,jdbcType=VARCHAR},
-      </if>
-      <if test="answer != null" >
-        #{answer,jdbcType=VARCHAR},
-      </if>
-      <if test="comment != null" >
-        #{comment,jdbcType=VARCHAR},
-      </if>
       <if test="inputJson != null" >
         #{inputJson,jdbcType=VARCHAR},
       </if>
@@ -318,6 +339,24 @@
       </if>
       <if test="schoolDegreeId != null" >
         #{schoolDegreeId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isExecute != null" >
+        #{isExecute,jdbcType=BIT},
+      </if>
+      <if test="trunk != null" >
+        #{trunk,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="analysis != null" >
+        #{analysis,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -357,8 +396,8 @@
       <if test="record.gradeId != null" >
         grade_id = #{record.gradeId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.parentId != null" >
         parent_id = #{record.parentId,jdbcType=CHAR},
@@ -381,18 +420,6 @@
       <if test="record.difficultLevel != null" >
         difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
       </if>
-      <if test="record.trunk != null" >
-        trunk = #{record.trunk,jdbcType=VARCHAR},
-      </if>
-      <if test="record.analysis != null" >
-        analysis = #{record.analysis,jdbcType=VARCHAR},
-      </if>
-      <if test="record.answer != null" >
-        answer = #{record.answer,jdbcType=VARCHAR},
-      </if>
-      <if test="record.comment != null" >
-        comment = #{record.comment,jdbcType=VARCHAR},
-      </if>
       <if test="record.inputJson != null" >
         input_json = #{record.inputJson,jdbcType=VARCHAR},
       </if>
@@ -411,7 +438,60 @@
       <if test="record.schoolDegreeId != null" >
         school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
       </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isExecute != null" >
+        is_execute = #{record.isExecute,jdbcType=BIT},
+      </if>
+      <if test="record.trunk != null" >
+        trunk = #{record.trunk,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.analysis != null" >
+        analysis = #{record.analysis,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.answer != null" >
+        answer = #{record.answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.comment != null" >
+        comment = #{record.comment,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update base_timu_search
+    set id = #{record.id,jdbcType=CHAR},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      timu_type_id = #{record.timuTypeId,jdbcType=INTEGER},
+      province_ids = #{record.provinceIds,jdbcType=VARCHAR},
+      city_ids = #{record.cityIds,jdbcType=VARCHAR},
+      area_ids = #{record.areaIds,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=INTEGER},
+      scroe = #{record.scroe,jdbcType=DECIMAL},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      year_id = #{record.yearId,jdbcType=INTEGER},
+      parent_id = #{record.parentId,jdbcType=CHAR},
+      video_code = #{record.videoCode,jdbcType=CHAR},
+      source = #{record.source,jdbcType=TINYINT},
+      is_expand_practice = #{record.isExpandPractice,jdbcType=BIT},
+      is_have_child = #{record.isHaveChild,jdbcType=BIT},
+      picture_json = #{record.pictureJson,jdbcType=VARCHAR},
+      difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
+      input_json = #{record.inputJson,jdbcType=VARCHAR},
+      input_choice_json = #{record.inputChoiceJson,jdbcType=VARCHAR},
+      main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
+      sort = #{record.sort,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_execute = #{record.isExecute,jdbcType=BIT},
+      trunk = #{record.trunk,jdbcType=LONGVARCHAR},
+      analysis = #{record.analysis,jdbcType=LONGVARCHAR},
+      answer = #{record.answer,jdbcType=LONGVARCHAR},
+      comment = #{record.comment,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -427,7 +507,7 @@
       time = #{record.time,jdbcType=INTEGER},
       scroe = #{record.scroe,jdbcType=DECIMAL},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       parent_id = #{record.parentId,jdbcType=CHAR},
       video_code = #{record.videoCode,jdbcType=CHAR},
       source = #{record.source,jdbcType=TINYINT},
@@ -435,21 +515,19 @@
       is_have_child = #{record.isHaveChild,jdbcType=BIT},
       picture_json = #{record.pictureJson,jdbcType=VARCHAR},
       difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
-      trunk = #{record.trunk,jdbcType=VARCHAR},
-      analysis = #{record.analysis,jdbcType=VARCHAR},
-      answer = #{record.answer,jdbcType=VARCHAR},
-      comment = #{record.comment,jdbcType=VARCHAR},
       input_json = #{record.inputJson,jdbcType=VARCHAR},
       input_choice_json = #{record.inputChoiceJson,jdbcType=VARCHAR},
       main_knowledge_id = #{record.mainKnowledgeId,jdbcType=INTEGER},
       sort = #{record.sort,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER}
+      school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_execute = #{record.isExecute,jdbcType=BIT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearch" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearchWithBLOBs" >
     update base_timu_search
     <set >
       <if test="subjectId != null" >
@@ -476,8 +554,8 @@
       <if test="gradeId != null" >
         grade_id = #{gradeId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="parentId != null" >
         parent_id = #{parentId,jdbcType=CHAR},
@@ -500,18 +578,6 @@
       <if test="difficultLevel != null" >
         difficult_level = #{difficultLevel,jdbcType=TINYINT},
       </if>
-      <if test="trunk != null" >
-        trunk = #{trunk,jdbcType=VARCHAR},
-      </if>
-      <if test="analysis != null" >
-        analysis = #{analysis,jdbcType=VARCHAR},
-      </if>
-      <if test="answer != null" >
-        answer = #{answer,jdbcType=VARCHAR},
-      </if>
-      <if test="comment != null" >
-        comment = #{comment,jdbcType=VARCHAR},
-      </if>
       <if test="inputJson != null" >
         input_json = #{inputJson,jdbcType=VARCHAR},
       </if>
@@ -530,7 +596,57 @@
       <if test="schoolDegreeId != null" >
         school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
       </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isExecute != null" >
+        is_execute = #{isExecute,jdbcType=BIT},
+      </if>
+      <if test="trunk != null" >
+        trunk = #{trunk,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="analysis != null" >
+        analysis = #{analysis,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearchWithBLOBs" >
+    update base_timu_search
+    set subject_id = #{subjectId,jdbcType=INTEGER},
+      timu_type_id = #{timuTypeId,jdbcType=INTEGER},
+      province_ids = #{provinceIds,jdbcType=VARCHAR},
+      city_ids = #{cityIds,jdbcType=VARCHAR},
+      area_ids = #{areaIds,jdbcType=VARCHAR},
+      time = #{time,jdbcType=INTEGER},
+      scroe = #{scroe,jdbcType=DECIMAL},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      year_id = #{yearId,jdbcType=INTEGER},
+      parent_id = #{parentId,jdbcType=CHAR},
+      video_code = #{videoCode,jdbcType=CHAR},
+      source = #{source,jdbcType=TINYINT},
+      is_expand_practice = #{isExpandPractice,jdbcType=BIT},
+      is_have_child = #{isHaveChild,jdbcType=BIT},
+      picture_json = #{pictureJson,jdbcType=VARCHAR},
+      difficult_level = #{difficultLevel,jdbcType=TINYINT},
+      input_json = #{inputJson,jdbcType=VARCHAR},
+      input_choice_json = #{inputChoiceJson,jdbcType=VARCHAR},
+      main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_execute = #{isExecute,jdbcType=BIT},
+      trunk = #{trunk,jdbcType=LONGVARCHAR},
+      analysis = #{analysis,jdbcType=LONGVARCHAR},
+      answer = #{answer,jdbcType=LONGVARCHAR},
+      comment = #{comment,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=CHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.BaseTimuSearch" >
@@ -543,7 +659,7 @@
       time = #{time,jdbcType=INTEGER},
       scroe = #{scroe,jdbcType=DECIMAL},
       grade_id = #{gradeId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       parent_id = #{parentId,jdbcType=CHAR},
       video_code = #{videoCode,jdbcType=CHAR},
       source = #{source,jdbcType=TINYINT},
@@ -551,16 +667,14 @@
       is_have_child = #{isHaveChild,jdbcType=BIT},
       picture_json = #{pictureJson,jdbcType=VARCHAR},
       difficult_level = #{difficultLevel,jdbcType=TINYINT},
-      trunk = #{trunk,jdbcType=VARCHAR},
-      analysis = #{analysis,jdbcType=VARCHAR},
-      answer = #{answer,jdbcType=VARCHAR},
-      comment = #{comment,jdbcType=VARCHAR},
       input_json = #{inputJson,jdbcType=VARCHAR},
       input_choice_json = #{inputChoiceJson,jdbcType=VARCHAR},
       main_knowledge_id = #{mainKnowledgeId,jdbcType=INTEGER},
       sort = #{sort,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      school_degree_id = #{schoolDegreeId,jdbcType=INTEGER}
+      school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_execute = #{isExecute,jdbcType=BIT}
     where id = #{id,jdbcType=CHAR}
   </update>
 </mapper>

@@ -3,29 +3,48 @@
 <mapper namespace="com.isprint.jslx.lccfd.dao.FdTeacherWeekReportMapper" >
   <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdTeacherWeekReport" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="search_num" property="searchNum" jdbcType="INTEGER" />
-    <result column="correct_num" property="correctNum" jdbcType="INTEGER" />
-    <result column="correct_num_last" property="correctNumLast" jdbcType="INTEGER" />
-    <result column="correct_num_treed" property="correctNumTreed" jdbcType="TINYINT" />
-    <result column="correct_pro" property="correctPro" jdbcType="DECIMAL" />
-    <result column="correct_pro_last" property="correctProLast" jdbcType="DECIMAL" />
-    <result column="correct_pro_treed" property="correctProTreed" jdbcType="TINYINT" />
-    <result column="search_max_student_ids" property="searchMaxStudentIds" jdbcType="VARCHAR" />
-    <result column="search_min_student_ids" property="searchMinStudentIds" jdbcType="VARCHAR" />
-    <result column="use_comment_id" property="useCommentId" jdbcType="INTEGER" />
-    <result column="use_comment" property="useComment" jdbcType="VARCHAR" />
-    <result column="blind_knowledge" property="blindKnowledge" jdbcType="VARCHAR" />
-    <result column="weak_knowledge" property="weakKnowledge" jdbcType="VARCHAR" />
-    <result column="difficulty_knowledge" property="difficultyKnowledge" jdbcType="VARCHAR" />
-    <result column="base_knowledge" property="baseKnowledge" jdbcType="VARCHAR" />
-    <result column="merit_knowledge" property="meritKnowledge" jdbcType="VARCHAR" />
-    <result column="strong_knowledge" property="strongKnowledge" jdbcType="VARCHAR" />
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
     <result column="start_time" property="startTime" jdbcType="DATE" />
     <result column="end_time" property="endTime" jdbcType="DATE" />
+    <result column="search_num" property="searchNum" jdbcType="INTEGER" />
+    <result column="student_num" property="studentNum" jdbcType="INTEGER" />
+    <result column="search_avg" property="searchAvg" jdbcType="INTEGER" />
+    <result column="search_avg_ranking" property="searchAvgRanking" jdbcType="INTEGER" />
+    <result column="search_avg_last" property="searchAvgLast" jdbcType="INTEGER" />
+    <result column="search_avg_treed" property="searchAvgTreed" jdbcType="TINYINT" />
+    <result column="correct_num" property="correctNum" jdbcType="INTEGER" />
+    <result column="correct_pro" property="correctPro" jdbcType="DECIMAL" />
+    <result column="correct_pro_last" property="correctProLast" jdbcType="DECIMAL" />
+    <result column="correct_pro_treed" property="correctProTreed" jdbcType="TINYINT" />
+    <result column="correct_pro_ranking" property="correctProRanking" jdbcType="INTEGER" />
+    <result column="diagnose_classes_id" property="diagnoseClassesId" jdbcType="INTEGER" />
+    <result column="diagnose_classes_content" property="diagnoseClassesContent" jdbcType="VARCHAR" />
+    <result column="search_caution_id" property="searchCautionId" jdbcType="INTEGER" />
+    <result column="search_caution_content" property="searchCautionContent" jdbcType="VARCHAR" />
+    <result column="correct_caution_id" property="correctCautionId" jdbcType="INTEGER" />
+    <result column="correct_caution_content" property="correctCautionContent" jdbcType="VARCHAR" />
+    <result column="search_max_timu_id" property="searchMaxTimuId" jdbcType="CHAR" />
+    <result column="search_max_timu_num" property="searchMaxTimuNum" jdbcType="INTEGER" />
+    <result column="search_max_student" property="searchMaxStudent" jdbcType="VARCHAR" />
+    <result column="search_min_student" property="searchMinStudent" jdbcType="VARCHAR" />
+    <result column="correct_max_student" property="correctMaxStudent" jdbcType="VARCHAR" />
+    <result column="correct_min_student" property="correctMinStudent" jdbcType="VARCHAR" />
+    <result column="parent_subject_id" property="parentSubjectId" jdbcType="INTEGER" />
+    <result column="search_avg_p" property="searchAvgP" jdbcType="DECIMAL" />
+    <result column="difficulty_pro_h" property="difficultyProH" jdbcType="DECIMAL" />
+    <result column="difficulty_pro_a" property="difficultyProA" jdbcType="DECIMAL" />
+    <result column="exampaper_avg_pro" property="exampaperAvgPro" jdbcType="DECIMAL" />
+    <result column="exampaper_score" property="exampaperScore" jdbcType="DECIMAL" />
+    <result column="exampaper_total_score" property="exampaperTotalScore" jdbcType="DECIMAL" />
+    <result column="exampaper_num" property="exampaperNum" jdbcType="INTEGER" />
+    <result column="practice_num" property="practiceNum" jdbcType="INTEGER" />
+    <result column="practice_finish_num" property="practiceFinishNum" jdbcType="INTEGER" />
+    <result column="practice_unfinished_num" property="practiceUnfinishedNum" jdbcType="INTEGER" />
+    <result column="practice_pro" property="practicePro" jdbcType="DECIMAL" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -89,11 +108,15 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, search_num, correct_num, correct_num_last, correct_num_treed, correct_pro, correct_pro_last, 
-      correct_pro_treed, search_max_student_ids, search_min_student_ids, use_comment_id, 
-      use_comment, blind_knowledge, weak_knowledge, difficulty_knowledge, base_knowledge, 
-      merit_knowledge, strong_knowledge, school_id, grade_id, classes_id, year, start_time, 
-      end_time, update_time, create_time
+      id, school_id, grade_id, classes_id, year_id, subject_id, start_time, end_time, search_num, 
+      student_num, search_avg, search_avg_ranking, search_avg_last, search_avg_treed, correct_num, 
+      correct_pro, correct_pro_last, correct_pro_treed, correct_pro_ranking, diagnose_classes_id, 
+      diagnose_classes_content, search_caution_id, search_caution_content, correct_caution_id, 
+      correct_caution_content, search_max_timu_id, search_max_timu_num, search_max_student, 
+      search_min_student, correct_max_student, correct_min_student, parent_subject_id, 
+      search_avg_p, difficulty_pro_h, difficulty_pro_a, exampaper_avg_pro, exampaper_score, 
+      exampaper_total_score, exampaper_num, practice_num, practice_finish_num, practice_unfinished_num, 
+      practice_pro, update_time, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -118,7 +141,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,search_num,correct_num,correct_num_last,correct_num_treed,correct_pro,correct_pro_last,correct_pro_treed,search_max_student_ids,search_min_student_ids,use_comment_id,use_comment,blind_knowledge,weak_knowledge,difficulty_knowledge,base_knowledge,merit_knowledge,strong_knowledge,school_id,grade_id,classes_id,year,start_time,end_time,update_time,create_time
+    id,school_id,grade_id,classes_id,year_id,subject_id,start_time,end_time,search_num,student_num,search_avg,search_avg_ranking,search_avg_last,search_avg_treed,correct_num,correct_pro,correct_pro_last,correct_pro_treed,correct_pro_ranking,diagnose_classes_id,diagnose_classes_content,search_caution_id,search_caution_content,correct_caution_id,correct_caution_content,search_max_timu_id,search_max_timu_num,search_max_student,search_min_student,correct_max_student,correct_min_student,parent_subject_id,search_avg_p,difficulty_pro_h,difficulty_pro_a,exampaper_avg_pro,exampaper_score,exampaper_total_score,exampaper_num,practice_num,practice_finish_num,practice_unfinished_num,practice_pro,update_time,create_time
     from fd_teacher_week_report
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -133,81 +156,46 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekReport" >
-    insert into fd_teacher_week_report (id, search_num, correct_num, 
-      correct_num_last, correct_num_treed, correct_pro, 
-      correct_pro_last, correct_pro_treed, search_max_student_ids, 
-      search_min_student_ids, use_comment_id, use_comment, 
-      blind_knowledge, weak_knowledge, difficulty_knowledge, 
-      base_knowledge, merit_knowledge, strong_knowledge, 
-      school_id, grade_id, classes_id, 
-      year, start_time, end_time, update_time, 
-      create_time)
-    values (#{id,jdbcType=INTEGER}, #{searchNum,jdbcType=INTEGER}, #{correctNum,jdbcType=INTEGER}, 
-      #{correctNumLast,jdbcType=INTEGER}, #{correctNumTreed,jdbcType=TINYINT}, #{correctPro,jdbcType=DECIMAL}, 
-      #{correctProLast,jdbcType=DECIMAL}, #{correctProTreed,jdbcType=TINYINT}, #{searchMaxStudentIds,jdbcType=VARCHAR}, 
-      #{searchMinStudentIds,jdbcType=VARCHAR}, #{useCommentId,jdbcType=INTEGER}, #{useComment,jdbcType=VARCHAR}, 
-      #{blindKnowledge,jdbcType=VARCHAR}, #{weakKnowledge,jdbcType=VARCHAR}, #{difficultyKnowledge,jdbcType=VARCHAR}, 
-      #{baseKnowledge,jdbcType=VARCHAR}, #{meritKnowledge,jdbcType=VARCHAR}, #{strongKnowledge,jdbcType=VARCHAR}, 
-      #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, 
-      #{year,jdbcType=CHAR}, #{startTime,jdbcType=DATE}, #{endTime,jdbcType=DATE}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{createTime,jdbcType=TIMESTAMP})
+    insert into fd_teacher_week_report (id, school_id, grade_id, 
+      classes_id, year_id, subject_id, 
+      start_time, end_time, search_num, 
+      student_num, search_avg, search_avg_ranking, 
+      search_avg_last, search_avg_treed, correct_num, 
+      correct_pro, correct_pro_last, correct_pro_treed, 
+      correct_pro_ranking, diagnose_classes_id, diagnose_classes_content, 
+      search_caution_id, search_caution_content, 
+      correct_caution_id, correct_caution_content, 
+      search_max_timu_id, search_max_timu_num, search_max_student, 
+      search_min_student, correct_max_student, correct_min_student, 
+      parent_subject_id, search_avg_p, difficulty_pro_h, 
+      difficulty_pro_a, exampaper_avg_pro, exampaper_score, 
+      exampaper_total_score, exampaper_num, practice_num, 
+      practice_finish_num, practice_unfinished_num, 
+      practice_pro, update_time, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, 
+      #{classesId,jdbcType=INTEGER}, #{yearId,jdbcType=INTEGER}, #{subjectId,jdbcType=INTEGER}, 
+      #{startTime,jdbcType=DATE}, #{endTime,jdbcType=DATE}, #{searchNum,jdbcType=INTEGER}, 
+      #{studentNum,jdbcType=INTEGER}, #{searchAvg,jdbcType=INTEGER}, #{searchAvgRanking,jdbcType=INTEGER}, 
+      #{searchAvgLast,jdbcType=INTEGER}, #{searchAvgTreed,jdbcType=TINYINT}, #{correctNum,jdbcType=INTEGER}, 
+      #{correctPro,jdbcType=DECIMAL}, #{correctProLast,jdbcType=DECIMAL}, #{correctProTreed,jdbcType=TINYINT}, 
+      #{correctProRanking,jdbcType=INTEGER}, #{diagnoseClassesId,jdbcType=INTEGER}, #{diagnoseClassesContent,jdbcType=VARCHAR}, 
+      #{searchCautionId,jdbcType=INTEGER}, #{searchCautionContent,jdbcType=VARCHAR}, 
+      #{correctCautionId,jdbcType=INTEGER}, #{correctCautionContent,jdbcType=VARCHAR}, 
+      #{searchMaxTimuId,jdbcType=CHAR}, #{searchMaxTimuNum,jdbcType=INTEGER}, #{searchMaxStudent,jdbcType=VARCHAR}, 
+      #{searchMinStudent,jdbcType=VARCHAR}, #{correctMaxStudent,jdbcType=VARCHAR}, #{correctMinStudent,jdbcType=VARCHAR}, 
+      #{parentSubjectId,jdbcType=INTEGER}, #{searchAvgP,jdbcType=DECIMAL}, #{difficultyProH,jdbcType=DECIMAL}, 
+      #{difficultyProA,jdbcType=DECIMAL}, #{exampaperAvgPro,jdbcType=DECIMAL}, #{exampaperScore,jdbcType=DECIMAL}, 
+      #{exampaperTotalScore,jdbcType=DECIMAL}, #{exampaperNum,jdbcType=INTEGER}, #{practiceNum,jdbcType=INTEGER}, 
+      #{practiceFinishNum,jdbcType=INTEGER}, #{practiceUnfinishedNum,jdbcType=INTEGER}, 
+      #{practicePro,jdbcType=DECIMAL}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekReport" >
     insert into fd_teacher_week_report
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
-      </if>
-      <if test="searchNum != null" >
-        search_num,
-      </if>
-      <if test="correctNum != null" >
-        correct_num,
-      </if>
-      <if test="correctNumLast != null" >
-        correct_num_last,
-      </if>
-      <if test="correctNumTreed != null" >
-        correct_num_treed,
-      </if>
-      <if test="correctPro != null" >
-        correct_pro,
-      </if>
-      <if test="correctProLast != null" >
-        correct_pro_last,
-      </if>
-      <if test="correctProTreed != null" >
-        correct_pro_treed,
-      </if>
-      <if test="searchMaxStudentIds != null" >
-        search_max_student_ids,
-      </if>
-      <if test="searchMinStudentIds != null" >
-        search_min_student_ids,
-      </if>
-      <if test="useCommentId != null" >
-        use_comment_id,
-      </if>
-      <if test="useComment != null" >
-        use_comment,
-      </if>
-      <if test="blindKnowledge != null" >
-        blind_knowledge,
-      </if>
-      <if test="weakKnowledge != null" >
-        weak_knowledge,
-      </if>
-      <if test="difficultyKnowledge != null" >
-        difficulty_knowledge,
-      </if>
-      <if test="baseKnowledge != null" >
-        base_knowledge,
-      </if>
-      <if test="meritKnowledge != null" >
-        merit_knowledge,
-      </if>
-      <if test="strongKnowledge != null" >
-        strong_knowledge,
       </if>
       <if test="schoolId != null" >
         school_id,
@@ -218,14 +206,122 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
       </if>
       <if test="startTime != null" >
         start_time,
       </if>
       <if test="endTime != null" >
         end_time,
+      </if>
+      <if test="searchNum != null" >
+        search_num,
+      </if>
+      <if test="studentNum != null" >
+        student_num,
+      </if>
+      <if test="searchAvg != null" >
+        search_avg,
+      </if>
+      <if test="searchAvgRanking != null" >
+        search_avg_ranking,
+      </if>
+      <if test="searchAvgLast != null" >
+        search_avg_last,
+      </if>
+      <if test="searchAvgTreed != null" >
+        search_avg_treed,
+      </if>
+      <if test="correctNum != null" >
+        correct_num,
+      </if>
+      <if test="correctPro != null" >
+        correct_pro,
+      </if>
+      <if test="correctProLast != null" >
+        correct_pro_last,
+      </if>
+      <if test="correctProTreed != null" >
+        correct_pro_treed,
+      </if>
+      <if test="correctProRanking != null" >
+        correct_pro_ranking,
+      </if>
+      <if test="diagnoseClassesId != null" >
+        diagnose_classes_id,
+      </if>
+      <if test="diagnoseClassesContent != null" >
+        diagnose_classes_content,
+      </if>
+      <if test="searchCautionId != null" >
+        search_caution_id,
+      </if>
+      <if test="searchCautionContent != null" >
+        search_caution_content,
+      </if>
+      <if test="correctCautionId != null" >
+        correct_caution_id,
+      </if>
+      <if test="correctCautionContent != null" >
+        correct_caution_content,
+      </if>
+      <if test="searchMaxTimuId != null" >
+        search_max_timu_id,
+      </if>
+      <if test="searchMaxTimuNum != null" >
+        search_max_timu_num,
+      </if>
+      <if test="searchMaxStudent != null" >
+        search_max_student,
+      </if>
+      <if test="searchMinStudent != null" >
+        search_min_student,
+      </if>
+      <if test="correctMaxStudent != null" >
+        correct_max_student,
+      </if>
+      <if test="correctMinStudent != null" >
+        correct_min_student,
+      </if>
+      <if test="parentSubjectId != null" >
+        parent_subject_id,
+      </if>
+      <if test="searchAvgP != null" >
+        search_avg_p,
+      </if>
+      <if test="difficultyProH != null" >
+        difficulty_pro_h,
+      </if>
+      <if test="difficultyProA != null" >
+        difficulty_pro_a,
+      </if>
+      <if test="exampaperAvgPro != null" >
+        exampaper_avg_pro,
+      </if>
+      <if test="exampaperScore != null" >
+        exampaper_score,
+      </if>
+      <if test="exampaperTotalScore != null" >
+        exampaper_total_score,
+      </if>
+      <if test="exampaperNum != null" >
+        exampaper_num,
+      </if>
+      <if test="practiceNum != null" >
+        practice_num,
+      </if>
+      <if test="practiceFinishNum != null" >
+        practice_finish_num,
+      </if>
+      <if test="practiceUnfinishedNum != null" >
+        practice_unfinished_num,
+      </if>
+      <if test="practicePro != null" >
+        practice_pro,
       </if>
       <if test="updateTime != null" >
         update_time,
@@ -238,17 +334,47 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=DATE},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=DATE},
+      </if>
       <if test="searchNum != null" >
         #{searchNum,jdbcType=INTEGER},
       </if>
+      <if test="studentNum != null" >
+        #{studentNum,jdbcType=INTEGER},
+      </if>
+      <if test="searchAvg != null" >
+        #{searchAvg,jdbcType=INTEGER},
+      </if>
+      <if test="searchAvgRanking != null" >
+        #{searchAvgRanking,jdbcType=INTEGER},
+      </if>
+      <if test="searchAvgLast != null" >
+        #{searchAvgLast,jdbcType=INTEGER},
+      </if>
+      <if test="searchAvgTreed != null" >
+        #{searchAvgTreed,jdbcType=TINYINT},
+      </if>
       <if test="correctNum != null" >
         #{correctNum,jdbcType=INTEGER},
-      </if>
-      <if test="correctNumLast != null" >
-        #{correctNumLast,jdbcType=INTEGER},
-      </if>
-      <if test="correctNumTreed != null" >
-        #{correctNumTreed,jdbcType=TINYINT},
       </if>
       <if test="correctPro != null" >
         #{correctPro,jdbcType=DECIMAL},
@@ -259,53 +385,80 @@
       <if test="correctProTreed != null" >
         #{correctProTreed,jdbcType=TINYINT},
       </if>
-      <if test="searchMaxStudentIds != null" >
-        #{searchMaxStudentIds,jdbcType=VARCHAR},
+      <if test="correctProRanking != null" >
+        #{correctProRanking,jdbcType=INTEGER},
       </if>
-      <if test="searchMinStudentIds != null" >
-        #{searchMinStudentIds,jdbcType=VARCHAR},
+      <if test="diagnoseClassesId != null" >
+        #{diagnoseClassesId,jdbcType=INTEGER},
       </if>
-      <if test="useCommentId != null" >
-        #{useCommentId,jdbcType=INTEGER},
+      <if test="diagnoseClassesContent != null" >
+        #{diagnoseClassesContent,jdbcType=VARCHAR},
       </if>
-      <if test="useComment != null" >
-        #{useComment,jdbcType=VARCHAR},
+      <if test="searchCautionId != null" >
+        #{searchCautionId,jdbcType=INTEGER},
       </if>
-      <if test="blindKnowledge != null" >
-        #{blindKnowledge,jdbcType=VARCHAR},
+      <if test="searchCautionContent != null" >
+        #{searchCautionContent,jdbcType=VARCHAR},
       </if>
-      <if test="weakKnowledge != null" >
-        #{weakKnowledge,jdbcType=VARCHAR},
+      <if test="correctCautionId != null" >
+        #{correctCautionId,jdbcType=INTEGER},
       </if>
-      <if test="difficultyKnowledge != null" >
-        #{difficultyKnowledge,jdbcType=VARCHAR},
+      <if test="correctCautionContent != null" >
+        #{correctCautionContent,jdbcType=VARCHAR},
       </if>
-      <if test="baseKnowledge != null" >
-        #{baseKnowledge,jdbcType=VARCHAR},
+      <if test="searchMaxTimuId != null" >
+        #{searchMaxTimuId,jdbcType=CHAR},
       </if>
-      <if test="meritKnowledge != null" >
-        #{meritKnowledge,jdbcType=VARCHAR},
+      <if test="searchMaxTimuNum != null" >
+        #{searchMaxTimuNum,jdbcType=INTEGER},
       </if>
-      <if test="strongKnowledge != null" >
-        #{strongKnowledge,jdbcType=VARCHAR},
+      <if test="searchMaxStudent != null" >
+        #{searchMaxStudent,jdbcType=VARCHAR},
       </if>
-      <if test="schoolId != null" >
-        #{schoolId,jdbcType=INTEGER},
+      <if test="searchMinStudent != null" >
+        #{searchMinStudent,jdbcType=VARCHAR},
       </if>
-      <if test="gradeId != null" >
-        #{gradeId,jdbcType=INTEGER},
+      <if test="correctMaxStudent != null" >
+        #{correctMaxStudent,jdbcType=VARCHAR},
       </if>
-      <if test="classesId != null" >
-        #{classesId,jdbcType=INTEGER},
+      <if test="correctMinStudent != null" >
+        #{correctMinStudent,jdbcType=VARCHAR},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="parentSubjectId != null" >
+        #{parentSubjectId,jdbcType=INTEGER},
       </if>
-      <if test="startTime != null" >
-        #{startTime,jdbcType=DATE},
+      <if test="searchAvgP != null" >
+        #{searchAvgP,jdbcType=DECIMAL},
       </if>
-      <if test="endTime != null" >
-        #{endTime,jdbcType=DATE},
+      <if test="difficultyProH != null" >
+        #{difficultyProH,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProA != null" >
+        #{difficultyProA,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperAvgPro != null" >
+        #{exampaperAvgPro,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperScore != null" >
+        #{exampaperScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperTotalScore != null" >
+        #{exampaperTotalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperNum != null" >
+        #{exampaperNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceNum != null" >
+        #{practiceNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceFinishNum != null" >
+        #{practiceFinishNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceUnfinishedNum != null" >
+        #{practiceUnfinishedNum,jdbcType=INTEGER},
+      </if>
+      <if test="practicePro != null" >
+        #{practicePro,jdbcType=DECIMAL},
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
@@ -327,17 +480,47 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.schoolId != null" >
+        school_id = #{record.schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classesId != null" >
+        classes_id = #{record.classesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.startTime != null" >
+        start_time = #{record.startTime,jdbcType=DATE},
+      </if>
+      <if test="record.endTime != null" >
+        end_time = #{record.endTime,jdbcType=DATE},
+      </if>
       <if test="record.searchNum != null" >
         search_num = #{record.searchNum,jdbcType=INTEGER},
       </if>
+      <if test="record.studentNum != null" >
+        student_num = #{record.studentNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.searchAvg != null" >
+        search_avg = #{record.searchAvg,jdbcType=INTEGER},
+      </if>
+      <if test="record.searchAvgRanking != null" >
+        search_avg_ranking = #{record.searchAvgRanking,jdbcType=INTEGER},
+      </if>
+      <if test="record.searchAvgLast != null" >
+        search_avg_last = #{record.searchAvgLast,jdbcType=INTEGER},
+      </if>
+      <if test="record.searchAvgTreed != null" >
+        search_avg_treed = #{record.searchAvgTreed,jdbcType=TINYINT},
+      </if>
       <if test="record.correctNum != null" >
         correct_num = #{record.correctNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.correctNumLast != null" >
-        correct_num_last = #{record.correctNumLast,jdbcType=INTEGER},
-      </if>
-      <if test="record.correctNumTreed != null" >
-        correct_num_treed = #{record.correctNumTreed,jdbcType=TINYINT},
       </if>
       <if test="record.correctPro != null" >
         correct_pro = #{record.correctPro,jdbcType=DECIMAL},
@@ -348,53 +531,80 @@
       <if test="record.correctProTreed != null" >
         correct_pro_treed = #{record.correctProTreed,jdbcType=TINYINT},
       </if>
-      <if test="record.searchMaxStudentIds != null" >
-        search_max_student_ids = #{record.searchMaxStudentIds,jdbcType=VARCHAR},
+      <if test="record.correctProRanking != null" >
+        correct_pro_ranking = #{record.correctProRanking,jdbcType=INTEGER},
       </if>
-      <if test="record.searchMinStudentIds != null" >
-        search_min_student_ids = #{record.searchMinStudentIds,jdbcType=VARCHAR},
+      <if test="record.diagnoseClassesId != null" >
+        diagnose_classes_id = #{record.diagnoseClassesId,jdbcType=INTEGER},
       </if>
-      <if test="record.useCommentId != null" >
-        use_comment_id = #{record.useCommentId,jdbcType=INTEGER},
+      <if test="record.diagnoseClassesContent != null" >
+        diagnose_classes_content = #{record.diagnoseClassesContent,jdbcType=VARCHAR},
       </if>
-      <if test="record.useComment != null" >
-        use_comment = #{record.useComment,jdbcType=VARCHAR},
+      <if test="record.searchCautionId != null" >
+        search_caution_id = #{record.searchCautionId,jdbcType=INTEGER},
       </if>
-      <if test="record.blindKnowledge != null" >
-        blind_knowledge = #{record.blindKnowledge,jdbcType=VARCHAR},
+      <if test="record.searchCautionContent != null" >
+        search_caution_content = #{record.searchCautionContent,jdbcType=VARCHAR},
       </if>
-      <if test="record.weakKnowledge != null" >
-        weak_knowledge = #{record.weakKnowledge,jdbcType=VARCHAR},
+      <if test="record.correctCautionId != null" >
+        correct_caution_id = #{record.correctCautionId,jdbcType=INTEGER},
       </if>
-      <if test="record.difficultyKnowledge != null" >
-        difficulty_knowledge = #{record.difficultyKnowledge,jdbcType=VARCHAR},
+      <if test="record.correctCautionContent != null" >
+        correct_caution_content = #{record.correctCautionContent,jdbcType=VARCHAR},
       </if>
-      <if test="record.baseKnowledge != null" >
-        base_knowledge = #{record.baseKnowledge,jdbcType=VARCHAR},
+      <if test="record.searchMaxTimuId != null" >
+        search_max_timu_id = #{record.searchMaxTimuId,jdbcType=CHAR},
       </if>
-      <if test="record.meritKnowledge != null" >
-        merit_knowledge = #{record.meritKnowledge,jdbcType=VARCHAR},
+      <if test="record.searchMaxTimuNum != null" >
+        search_max_timu_num = #{record.searchMaxTimuNum,jdbcType=INTEGER},
       </if>
-      <if test="record.strongKnowledge != null" >
-        strong_knowledge = #{record.strongKnowledge,jdbcType=VARCHAR},
+      <if test="record.searchMaxStudent != null" >
+        search_max_student = #{record.searchMaxStudent,jdbcType=VARCHAR},
       </if>
-      <if test="record.schoolId != null" >
-        school_id = #{record.schoolId,jdbcType=INTEGER},
+      <if test="record.searchMinStudent != null" >
+        search_min_student = #{record.searchMinStudent,jdbcType=VARCHAR},
       </if>
-      <if test="record.gradeId != null" >
-        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      <if test="record.correctMaxStudent != null" >
+        correct_max_student = #{record.correctMaxStudent,jdbcType=VARCHAR},
       </if>
-      <if test="record.classesId != null" >
-        classes_id = #{record.classesId,jdbcType=INTEGER},
+      <if test="record.correctMinStudent != null" >
+        correct_min_student = #{record.correctMinStudent,jdbcType=VARCHAR},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.parentSubjectId != null" >
+        parent_subject_id = #{record.parentSubjectId,jdbcType=INTEGER},
       </if>
-      <if test="record.startTime != null" >
-        start_time = #{record.startTime,jdbcType=DATE},
+      <if test="record.searchAvgP != null" >
+        search_avg_p = #{record.searchAvgP,jdbcType=DECIMAL},
       </if>
-      <if test="record.endTime != null" >
-        end_time = #{record.endTime,jdbcType=DATE},
+      <if test="record.difficultyProH != null" >
+        difficulty_pro_h = #{record.difficultyProH,jdbcType=DECIMAL},
+      </if>
+      <if test="record.difficultyProA != null" >
+        difficulty_pro_a = #{record.difficultyProA,jdbcType=DECIMAL},
+      </if>
+      <if test="record.exampaperAvgPro != null" >
+        exampaper_avg_pro = #{record.exampaperAvgPro,jdbcType=DECIMAL},
+      </if>
+      <if test="record.exampaperScore != null" >
+        exampaper_score = #{record.exampaperScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.exampaperTotalScore != null" >
+        exampaper_total_score = #{record.exampaperTotalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.exampaperNum != null" >
+        exampaper_num = #{record.exampaperNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.practiceNum != null" >
+        practice_num = #{record.practiceNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.practiceFinishNum != null" >
+        practice_finish_num = #{record.practiceFinishNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.practiceUnfinishedNum != null" >
+        practice_unfinished_num = #{record.practiceUnfinishedNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.practicePro != null" >
+        practice_pro = #{record.practicePro,jdbcType=DECIMAL},
       </if>
       <if test="record.updateTime != null" >
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
@@ -410,29 +620,48 @@
   <update id="updateByExample" parameterType="map" >
     update fd_teacher_week_report
     set id = #{record.id,jdbcType=INTEGER},
-      search_num = #{record.searchNum,jdbcType=INTEGER},
-      correct_num = #{record.correctNum,jdbcType=INTEGER},
-      correct_num_last = #{record.correctNumLast,jdbcType=INTEGER},
-      correct_num_treed = #{record.correctNumTreed,jdbcType=TINYINT},
-      correct_pro = #{record.correctPro,jdbcType=DECIMAL},
-      correct_pro_last = #{record.correctProLast,jdbcType=DECIMAL},
-      correct_pro_treed = #{record.correctProTreed,jdbcType=TINYINT},
-      search_max_student_ids = #{record.searchMaxStudentIds,jdbcType=VARCHAR},
-      search_min_student_ids = #{record.searchMinStudentIds,jdbcType=VARCHAR},
-      use_comment_id = #{record.useCommentId,jdbcType=INTEGER},
-      use_comment = #{record.useComment,jdbcType=VARCHAR},
-      blind_knowledge = #{record.blindKnowledge,jdbcType=VARCHAR},
-      weak_knowledge = #{record.weakKnowledge,jdbcType=VARCHAR},
-      difficulty_knowledge = #{record.difficultyKnowledge,jdbcType=VARCHAR},
-      base_knowledge = #{record.baseKnowledge,jdbcType=VARCHAR},
-      merit_knowledge = #{record.meritKnowledge,jdbcType=VARCHAR},
-      strong_knowledge = #{record.strongKnowledge,jdbcType=VARCHAR},
       school_id = #{record.schoolId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
       start_time = #{record.startTime,jdbcType=DATE},
       end_time = #{record.endTime,jdbcType=DATE},
+      search_num = #{record.searchNum,jdbcType=INTEGER},
+      student_num = #{record.studentNum,jdbcType=INTEGER},
+      search_avg = #{record.searchAvg,jdbcType=INTEGER},
+      search_avg_ranking = #{record.searchAvgRanking,jdbcType=INTEGER},
+      search_avg_last = #{record.searchAvgLast,jdbcType=INTEGER},
+      search_avg_treed = #{record.searchAvgTreed,jdbcType=TINYINT},
+      correct_num = #{record.correctNum,jdbcType=INTEGER},
+      correct_pro = #{record.correctPro,jdbcType=DECIMAL},
+      correct_pro_last = #{record.correctProLast,jdbcType=DECIMAL},
+      correct_pro_treed = #{record.correctProTreed,jdbcType=TINYINT},
+      correct_pro_ranking = #{record.correctProRanking,jdbcType=INTEGER},
+      diagnose_classes_id = #{record.diagnoseClassesId,jdbcType=INTEGER},
+      diagnose_classes_content = #{record.diagnoseClassesContent,jdbcType=VARCHAR},
+      search_caution_id = #{record.searchCautionId,jdbcType=INTEGER},
+      search_caution_content = #{record.searchCautionContent,jdbcType=VARCHAR},
+      correct_caution_id = #{record.correctCautionId,jdbcType=INTEGER},
+      correct_caution_content = #{record.correctCautionContent,jdbcType=VARCHAR},
+      search_max_timu_id = #{record.searchMaxTimuId,jdbcType=CHAR},
+      search_max_timu_num = #{record.searchMaxTimuNum,jdbcType=INTEGER},
+      search_max_student = #{record.searchMaxStudent,jdbcType=VARCHAR},
+      search_min_student = #{record.searchMinStudent,jdbcType=VARCHAR},
+      correct_max_student = #{record.correctMaxStudent,jdbcType=VARCHAR},
+      correct_min_student = #{record.correctMinStudent,jdbcType=VARCHAR},
+      parent_subject_id = #{record.parentSubjectId,jdbcType=INTEGER},
+      search_avg_p = #{record.searchAvgP,jdbcType=DECIMAL},
+      difficulty_pro_h = #{record.difficultyProH,jdbcType=DECIMAL},
+      difficulty_pro_a = #{record.difficultyProA,jdbcType=DECIMAL},
+      exampaper_avg_pro = #{record.exampaperAvgPro,jdbcType=DECIMAL},
+      exampaper_score = #{record.exampaperScore,jdbcType=DECIMAL},
+      exampaper_total_score = #{record.exampaperTotalScore,jdbcType=DECIMAL},
+      exampaper_num = #{record.exampaperNum,jdbcType=INTEGER},
+      practice_num = #{record.practiceNum,jdbcType=INTEGER},
+      practice_finish_num = #{record.practiceFinishNum,jdbcType=INTEGER},
+      practice_unfinished_num = #{record.practiceUnfinishedNum,jdbcType=INTEGER},
+      practice_pro = #{record.practicePro,jdbcType=DECIMAL},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -442,17 +671,47 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekReport" >
     update fd_teacher_week_report
     <set >
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null" >
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=DATE},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=DATE},
+      </if>
       <if test="searchNum != null" >
         search_num = #{searchNum,jdbcType=INTEGER},
       </if>
+      <if test="studentNum != null" >
+        student_num = #{studentNum,jdbcType=INTEGER},
+      </if>
+      <if test="searchAvg != null" >
+        search_avg = #{searchAvg,jdbcType=INTEGER},
+      </if>
+      <if test="searchAvgRanking != null" >
+        search_avg_ranking = #{searchAvgRanking,jdbcType=INTEGER},
+      </if>
+      <if test="searchAvgLast != null" >
+        search_avg_last = #{searchAvgLast,jdbcType=INTEGER},
+      </if>
+      <if test="searchAvgTreed != null" >
+        search_avg_treed = #{searchAvgTreed,jdbcType=TINYINT},
+      </if>
       <if test="correctNum != null" >
         correct_num = #{correctNum,jdbcType=INTEGER},
-      </if>
-      <if test="correctNumLast != null" >
-        correct_num_last = #{correctNumLast,jdbcType=INTEGER},
-      </if>
-      <if test="correctNumTreed != null" >
-        correct_num_treed = #{correctNumTreed,jdbcType=TINYINT},
       </if>
       <if test="correctPro != null" >
         correct_pro = #{correctPro,jdbcType=DECIMAL},
@@ -463,53 +722,80 @@
       <if test="correctProTreed != null" >
         correct_pro_treed = #{correctProTreed,jdbcType=TINYINT},
       </if>
-      <if test="searchMaxStudentIds != null" >
-        search_max_student_ids = #{searchMaxStudentIds,jdbcType=VARCHAR},
+      <if test="correctProRanking != null" >
+        correct_pro_ranking = #{correctProRanking,jdbcType=INTEGER},
       </if>
-      <if test="searchMinStudentIds != null" >
-        search_min_student_ids = #{searchMinStudentIds,jdbcType=VARCHAR},
+      <if test="diagnoseClassesId != null" >
+        diagnose_classes_id = #{diagnoseClassesId,jdbcType=INTEGER},
       </if>
-      <if test="useCommentId != null" >
-        use_comment_id = #{useCommentId,jdbcType=INTEGER},
+      <if test="diagnoseClassesContent != null" >
+        diagnose_classes_content = #{diagnoseClassesContent,jdbcType=VARCHAR},
       </if>
-      <if test="useComment != null" >
-        use_comment = #{useComment,jdbcType=VARCHAR},
+      <if test="searchCautionId != null" >
+        search_caution_id = #{searchCautionId,jdbcType=INTEGER},
       </if>
-      <if test="blindKnowledge != null" >
-        blind_knowledge = #{blindKnowledge,jdbcType=VARCHAR},
+      <if test="searchCautionContent != null" >
+        search_caution_content = #{searchCautionContent,jdbcType=VARCHAR},
       </if>
-      <if test="weakKnowledge != null" >
-        weak_knowledge = #{weakKnowledge,jdbcType=VARCHAR},
+      <if test="correctCautionId != null" >
+        correct_caution_id = #{correctCautionId,jdbcType=INTEGER},
       </if>
-      <if test="difficultyKnowledge != null" >
-        difficulty_knowledge = #{difficultyKnowledge,jdbcType=VARCHAR},
+      <if test="correctCautionContent != null" >
+        correct_caution_content = #{correctCautionContent,jdbcType=VARCHAR},
       </if>
-      <if test="baseKnowledge != null" >
-        base_knowledge = #{baseKnowledge,jdbcType=VARCHAR},
+      <if test="searchMaxTimuId != null" >
+        search_max_timu_id = #{searchMaxTimuId,jdbcType=CHAR},
       </if>
-      <if test="meritKnowledge != null" >
-        merit_knowledge = #{meritKnowledge,jdbcType=VARCHAR},
+      <if test="searchMaxTimuNum != null" >
+        search_max_timu_num = #{searchMaxTimuNum,jdbcType=INTEGER},
       </if>
-      <if test="strongKnowledge != null" >
-        strong_knowledge = #{strongKnowledge,jdbcType=VARCHAR},
+      <if test="searchMaxStudent != null" >
+        search_max_student = #{searchMaxStudent,jdbcType=VARCHAR},
       </if>
-      <if test="schoolId != null" >
-        school_id = #{schoolId,jdbcType=INTEGER},
+      <if test="searchMinStudent != null" >
+        search_min_student = #{searchMinStudent,jdbcType=VARCHAR},
       </if>
-      <if test="gradeId != null" >
-        grade_id = #{gradeId,jdbcType=INTEGER},
+      <if test="correctMaxStudent != null" >
+        correct_max_student = #{correctMaxStudent,jdbcType=VARCHAR},
       </if>
-      <if test="classesId != null" >
-        classes_id = #{classesId,jdbcType=INTEGER},
+      <if test="correctMinStudent != null" >
+        correct_min_student = #{correctMinStudent,jdbcType=VARCHAR},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="parentSubjectId != null" >
+        parent_subject_id = #{parentSubjectId,jdbcType=INTEGER},
       </if>
-      <if test="startTime != null" >
-        start_time = #{startTime,jdbcType=DATE},
+      <if test="searchAvgP != null" >
+        search_avg_p = #{searchAvgP,jdbcType=DECIMAL},
       </if>
-      <if test="endTime != null" >
-        end_time = #{endTime,jdbcType=DATE},
+      <if test="difficultyProH != null" >
+        difficulty_pro_h = #{difficultyProH,jdbcType=DECIMAL},
+      </if>
+      <if test="difficultyProA != null" >
+        difficulty_pro_a = #{difficultyProA,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperAvgPro != null" >
+        exampaper_avg_pro = #{exampaperAvgPro,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperScore != null" >
+        exampaper_score = #{exampaperScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperTotalScore != null" >
+        exampaper_total_score = #{exampaperTotalScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperNum != null" >
+        exampaper_num = #{exampaperNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceNum != null" >
+        practice_num = #{practiceNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceFinishNum != null" >
+        practice_finish_num = #{practiceFinishNum,jdbcType=INTEGER},
+      </if>
+      <if test="practiceUnfinishedNum != null" >
+        practice_unfinished_num = #{practiceUnfinishedNum,jdbcType=INTEGER},
+      </if>
+      <if test="practicePro != null" >
+        practice_pro = #{practicePro,jdbcType=DECIMAL},
       </if>
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
@@ -522,29 +808,48 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdTeacherWeekReport" >
     update fd_teacher_week_report
-    set search_num = #{searchNum,jdbcType=INTEGER},
+    set school_id = #{schoolId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      year_id = #{yearId,jdbcType=INTEGER},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=DATE},
+      end_time = #{endTime,jdbcType=DATE},
+      search_num = #{searchNum,jdbcType=INTEGER},
+      student_num = #{studentNum,jdbcType=INTEGER},
+      search_avg = #{searchAvg,jdbcType=INTEGER},
+      search_avg_ranking = #{searchAvgRanking,jdbcType=INTEGER},
+      search_avg_last = #{searchAvgLast,jdbcType=INTEGER},
+      search_avg_treed = #{searchAvgTreed,jdbcType=TINYINT},
       correct_num = #{correctNum,jdbcType=INTEGER},
-      correct_num_last = #{correctNumLast,jdbcType=INTEGER},
-      correct_num_treed = #{correctNumTreed,jdbcType=TINYINT},
       correct_pro = #{correctPro,jdbcType=DECIMAL},
       correct_pro_last = #{correctProLast,jdbcType=DECIMAL},
       correct_pro_treed = #{correctProTreed,jdbcType=TINYINT},
-      search_max_student_ids = #{searchMaxStudentIds,jdbcType=VARCHAR},
-      search_min_student_ids = #{searchMinStudentIds,jdbcType=VARCHAR},
-      use_comment_id = #{useCommentId,jdbcType=INTEGER},
-      use_comment = #{useComment,jdbcType=VARCHAR},
-      blind_knowledge = #{blindKnowledge,jdbcType=VARCHAR},
-      weak_knowledge = #{weakKnowledge,jdbcType=VARCHAR},
-      difficulty_knowledge = #{difficultyKnowledge,jdbcType=VARCHAR},
-      base_knowledge = #{baseKnowledge,jdbcType=VARCHAR},
-      merit_knowledge = #{meritKnowledge,jdbcType=VARCHAR},
-      strong_knowledge = #{strongKnowledge,jdbcType=VARCHAR},
-      school_id = #{schoolId,jdbcType=INTEGER},
-      grade_id = #{gradeId,jdbcType=INTEGER},
-      classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
-      start_time = #{startTime,jdbcType=DATE},
-      end_time = #{endTime,jdbcType=DATE},
+      correct_pro_ranking = #{correctProRanking,jdbcType=INTEGER},
+      diagnose_classes_id = #{diagnoseClassesId,jdbcType=INTEGER},
+      diagnose_classes_content = #{diagnoseClassesContent,jdbcType=VARCHAR},
+      search_caution_id = #{searchCautionId,jdbcType=INTEGER},
+      search_caution_content = #{searchCautionContent,jdbcType=VARCHAR},
+      correct_caution_id = #{correctCautionId,jdbcType=INTEGER},
+      correct_caution_content = #{correctCautionContent,jdbcType=VARCHAR},
+      search_max_timu_id = #{searchMaxTimuId,jdbcType=CHAR},
+      search_max_timu_num = #{searchMaxTimuNum,jdbcType=INTEGER},
+      search_max_student = #{searchMaxStudent,jdbcType=VARCHAR},
+      search_min_student = #{searchMinStudent,jdbcType=VARCHAR},
+      correct_max_student = #{correctMaxStudent,jdbcType=VARCHAR},
+      correct_min_student = #{correctMinStudent,jdbcType=VARCHAR},
+      parent_subject_id = #{parentSubjectId,jdbcType=INTEGER},
+      search_avg_p = #{searchAvgP,jdbcType=DECIMAL},
+      difficulty_pro_h = #{difficultyProH,jdbcType=DECIMAL},
+      difficulty_pro_a = #{difficultyProA,jdbcType=DECIMAL},
+      exampaper_avg_pro = #{exampaperAvgPro,jdbcType=DECIMAL},
+      exampaper_score = #{exampaperScore,jdbcType=DECIMAL},
+      exampaper_total_score = #{exampaperTotalScore,jdbcType=DECIMAL},
+      exampaper_num = #{exampaperNum,jdbcType=INTEGER},
+      practice_num = #{practiceNum,jdbcType=INTEGER},
+      practice_finish_num = #{practiceFinishNum,jdbcType=INTEGER},
+      practice_unfinished_num = #{practiceUnfinishedNum,jdbcType=INTEGER},
+      practice_pro = #{practicePro,jdbcType=DECIMAL},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

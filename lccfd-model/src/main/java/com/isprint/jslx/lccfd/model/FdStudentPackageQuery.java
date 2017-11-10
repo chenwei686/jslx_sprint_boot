@@ -447,73 +447,63 @@ public class FdStudentPackageQuery {
             return (Criteria) this;
         }
 
-        public Criteria andYearIsNull() {
-            addCriterion("year is null");
+        public Criteria andYearIdIsNull() {
+            addCriterion("year_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andYearIsNotNull() {
-            addCriterion("year is not null");
+        public Criteria andYearIdIsNotNull() {
+            addCriterion("year_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andYearEqualTo(String value) {
-            addCriterion("year =", value, "year");
+        public Criteria andYearIdEqualTo(Integer value) {
+            addCriterion("year_id =", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotEqualTo(String value) {
-            addCriterion("year <>", value, "year");
+        public Criteria andYearIdNotEqualTo(Integer value) {
+            addCriterion("year_id <>", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThan(String value) {
-            addCriterion("year >", value, "year");
+        public Criteria andYearIdGreaterThan(Integer value) {
+            addCriterion("year_id >", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThanOrEqualTo(String value) {
-            addCriterion("year >=", value, "year");
+        public Criteria andYearIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("year_id >=", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThan(String value) {
-            addCriterion("year <", value, "year");
+        public Criteria andYearIdLessThan(Integer value) {
+            addCriterion("year_id <", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThanOrEqualTo(String value) {
-            addCriterion("year <=", value, "year");
+        public Criteria andYearIdLessThanOrEqualTo(Integer value) {
+            addCriterion("year_id <=", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLike(String value) {
-            addCriterion("year like", value, "year");
+        public Criteria andYearIdIn(List<Integer> values) {
+            addCriterion("year_id in", values, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotLike(String value) {
-            addCriterion("year not like", value, "year");
+        public Criteria andYearIdNotIn(List<Integer> values) {
+            addCriterion("year_id not in", values, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearIn(List<String> values) {
-            addCriterion("year in", values, "year");
+        public Criteria andYearIdBetween(Integer value1, Integer value2) {
+            addCriterion("year_id between", value1, value2, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotIn(List<String> values) {
-            addCriterion("year not in", values, "year");
-            return (Criteria) this;
-        }
-
-        public Criteria andYearBetween(String value1, String value2) {
-            addCriterion("year between", value1, value2, "year");
-            return (Criteria) this;
-        }
-
-        public Criteria andYearNotBetween(String value1, String value2) {
-            addCriterion("year not between", value1, value2, "year");
+        public Criteria andYearIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("year_id not between", value1, value2, "yearId");
             return (Criteria) this;
         }
 
@@ -647,66 +637,6 @@ public class FdStudentPackageQuery {
             return (Criteria) this;
         }
 
-        public Criteria andPackageTypeIdIsNull() {
-            addCriterion("package_type_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdIsNotNull() {
-            addCriterion("package_type_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdEqualTo(Integer value) {
-            addCriterion("package_type_id =", value, "packageTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdNotEqualTo(Integer value) {
-            addCriterion("package_type_id <>", value, "packageTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdGreaterThan(Integer value) {
-            addCriterion("package_type_id >", value, "packageTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("package_type_id >=", value, "packageTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdLessThan(Integer value) {
-            addCriterion("package_type_id <", value, "packageTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdLessThanOrEqualTo(Integer value) {
-            addCriterion("package_type_id <=", value, "packageTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdIn(List<Integer> values) {
-            addCriterion("package_type_id in", values, "packageTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdNotIn(List<Integer> values) {
-            addCriterion("package_type_id not in", values, "packageTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdBetween(Integer value1, Integer value2) {
-            addCriterion("package_type_id between", value1, value2, "packageTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPackageTypeIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("package_type_id not between", value1, value2, "packageTypeId");
-            return (Criteria) this;
-        }
-
         public Criteria andPackegeIdIsNull() {
             addCriterion("packege_id is null");
             return (Criteria) this;
@@ -764,6 +694,66 @@ public class FdStudentPackageQuery {
 
         public Criteria andPackegeIdNotBetween(Integer value1, Integer value2) {
             addCriterion("packege_id not between", value1, value2, "packegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdIsNull() {
+            addCriterion("package_type_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdIsNotNull() {
+            addCriterion("package_type_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdEqualTo(Integer value) {
+            addCriterion("package_type_id =", value, "packageTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdNotEqualTo(Integer value) {
+            addCriterion("package_type_id <>", value, "packageTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdGreaterThan(Integer value) {
+            addCriterion("package_type_id >", value, "packageTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("package_type_id >=", value, "packageTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdLessThan(Integer value) {
+            addCriterion("package_type_id <", value, "packageTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("package_type_id <=", value, "packageTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdIn(List<Integer> values) {
+            addCriterion("package_type_id in", values, "packageTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdNotIn(List<Integer> values) {
+            addCriterion("package_type_id not in", values, "packageTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdBetween(Integer value1, Integer value2) {
+            addCriterion("package_type_id between", value1, value2, "packageTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("package_type_id not between", value1, value2, "packageTypeId");
             return (Criteria) this;
         }
 
@@ -967,143 +957,133 @@ public class FdStudentPackageQuery {
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsIsNull() {
-            addCriterion("subject_ids is null");
+        public Criteria andSubjectIdIsNull() {
+            addCriterion("subject_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsIsNotNull() {
-            addCriterion("subject_ids is not null");
+        public Criteria andSubjectIdIsNotNull() {
+            addCriterion("subject_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsEqualTo(String value) {
-            addCriterion("subject_ids =", value, "subjectIds");
+        public Criteria andSubjectIdEqualTo(Integer value) {
+            addCriterion("subject_id =", value, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsNotEqualTo(String value) {
-            addCriterion("subject_ids <>", value, "subjectIds");
+        public Criteria andSubjectIdNotEqualTo(Integer value) {
+            addCriterion("subject_id <>", value, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsGreaterThan(String value) {
-            addCriterion("subject_ids >", value, "subjectIds");
+        public Criteria andSubjectIdGreaterThan(Integer value) {
+            addCriterion("subject_id >", value, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsGreaterThanOrEqualTo(String value) {
-            addCriterion("subject_ids >=", value, "subjectIds");
+        public Criteria andSubjectIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("subject_id >=", value, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsLessThan(String value) {
-            addCriterion("subject_ids <", value, "subjectIds");
+        public Criteria andSubjectIdLessThan(Integer value) {
+            addCriterion("subject_id <", value, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsLessThanOrEqualTo(String value) {
-            addCriterion("subject_ids <=", value, "subjectIds");
+        public Criteria andSubjectIdLessThanOrEqualTo(Integer value) {
+            addCriterion("subject_id <=", value, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsLike(String value) {
-            addCriterion("subject_ids like", value, "subjectIds");
+        public Criteria andSubjectIdIn(List<Integer> values) {
+            addCriterion("subject_id in", values, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsNotLike(String value) {
-            addCriterion("subject_ids not like", value, "subjectIds");
+        public Criteria andSubjectIdNotIn(List<Integer> values) {
+            addCriterion("subject_id not in", values, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsIn(List<String> values) {
-            addCriterion("subject_ids in", values, "subjectIds");
+        public Criteria andSubjectIdBetween(Integer value1, Integer value2) {
+            addCriterion("subject_id between", value1, value2, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsNotIn(List<String> values) {
-            addCriterion("subject_ids not in", values, "subjectIds");
+        public Criteria andSubjectIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("subject_id not between", value1, value2, "subjectId");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsBetween(String value1, String value2) {
-            addCriterion("subject_ids between", value1, value2, "subjectIds");
+        public Criteria andSubjectNameIsNull() {
+            addCriterion("subject_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectIdsNotBetween(String value1, String value2) {
-            addCriterion("subject_ids not between", value1, value2, "subjectIds");
+        public Criteria andSubjectNameIsNotNull() {
+            addCriterion("subject_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesIsNull() {
-            addCriterion("subject_names is null");
+        public Criteria andSubjectNameEqualTo(String value) {
+            addCriterion("subject_name =", value, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesIsNotNull() {
-            addCriterion("subject_names is not null");
+        public Criteria andSubjectNameNotEqualTo(String value) {
+            addCriterion("subject_name <>", value, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesEqualTo(String value) {
-            addCriterion("subject_names =", value, "subjectNames");
+        public Criteria andSubjectNameGreaterThan(String value) {
+            addCriterion("subject_name >", value, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesNotEqualTo(String value) {
-            addCriterion("subject_names <>", value, "subjectNames");
+        public Criteria andSubjectNameGreaterThanOrEqualTo(String value) {
+            addCriterion("subject_name >=", value, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesGreaterThan(String value) {
-            addCriterion("subject_names >", value, "subjectNames");
+        public Criteria andSubjectNameLessThan(String value) {
+            addCriterion("subject_name <", value, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesGreaterThanOrEqualTo(String value) {
-            addCriterion("subject_names >=", value, "subjectNames");
+        public Criteria andSubjectNameLessThanOrEqualTo(String value) {
+            addCriterion("subject_name <=", value, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesLessThan(String value) {
-            addCriterion("subject_names <", value, "subjectNames");
+        public Criteria andSubjectNameLike(String value) {
+            addCriterion("subject_name like", value, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesLessThanOrEqualTo(String value) {
-            addCriterion("subject_names <=", value, "subjectNames");
+        public Criteria andSubjectNameNotLike(String value) {
+            addCriterion("subject_name not like", value, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesLike(String value) {
-            addCriterion("subject_names like", value, "subjectNames");
+        public Criteria andSubjectNameIn(List<String> values) {
+            addCriterion("subject_name in", values, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesNotLike(String value) {
-            addCriterion("subject_names not like", value, "subjectNames");
+        public Criteria andSubjectNameNotIn(List<String> values) {
+            addCriterion("subject_name not in", values, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesIn(List<String> values) {
-            addCriterion("subject_names in", values, "subjectNames");
+        public Criteria andSubjectNameBetween(String value1, String value2) {
+            addCriterion("subject_name between", value1, value2, "subjectName");
             return (Criteria) this;
         }
 
-        public Criteria andSubjectNamesNotIn(List<String> values) {
-            addCriterion("subject_names not in", values, "subjectNames");
-            return (Criteria) this;
-        }
-
-        public Criteria andSubjectNamesBetween(String value1, String value2) {
-            addCriterion("subject_names between", value1, value2, "subjectNames");
-            return (Criteria) this;
-        }
-
-        public Criteria andSubjectNamesNotBetween(String value1, String value2) {
-            addCriterion("subject_names not between", value1, value2, "subjectNames");
+        public Criteria andSubjectNameNotBetween(String value1, String value2) {
+            addCriterion("subject_name not between", value1, value2, "subjectName");
             return (Criteria) this;
         }
 
@@ -1284,6 +1264,136 @@ public class FdStudentPackageQuery {
 
         public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
             addCriterion("create_time not between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIsNull() {
+            addCriterion("package_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIsNotNull() {
+            addCriterion("package_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeEqualTo(String value) {
+            addCriterion("package_type =", value, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeNotEqualTo(String value) {
+            addCriterion("package_type <>", value, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeGreaterThan(String value) {
+            addCriterion("package_type >", value, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("package_type >=", value, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeLessThan(String value) {
+            addCriterion("package_type <", value, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeLessThanOrEqualTo(String value) {
+            addCriterion("package_type <=", value, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeLike(String value) {
+            addCriterion("package_type like", value, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeNotLike(String value) {
+            addCriterion("package_type not like", value, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeIn(List<String> values) {
+            addCriterion("package_type in", values, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeNotIn(List<String> values) {
+            addCriterion("package_type not in", values, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeBetween(String value1, String value2) {
+            addCriterion("package_type between", value1, value2, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPackageTypeNotBetween(String value1, String value2) {
+            addCriterion("package_type not between", value1, value2, "packageType");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeIsNull() {
+            addCriterion("update_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeIsNotNull() {
+            addCriterion("update_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeEqualTo(Date value) {
+            addCriterion("update_time =", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeNotEqualTo(Date value) {
+            addCriterion("update_time <>", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeGreaterThan(Date value) {
+            addCriterion("update_time >", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("update_time >=", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeLessThan(Date value) {
+            addCriterion("update_time <", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("update_time <=", value, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeIn(List<Date> values) {
+            addCriterion("update_time in", values, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeNotIn(List<Date> values) {
+            addCriterion("update_time not in", values, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeBetween(Date value1, Date value2) {
+            addCriterion("update_time between", value1, value2, "updateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
     }

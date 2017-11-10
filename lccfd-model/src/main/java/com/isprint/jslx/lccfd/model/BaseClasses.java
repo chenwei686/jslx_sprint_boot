@@ -27,7 +27,7 @@ public class BaseClasses implements Serializable {
     /**
      * 学级
      */
-    private String year;
+    private Integer yearId;
 
     /**
      * 邀请码
@@ -77,12 +77,12 @@ public class BaseClasses implements Serializable {
         this.gradeId = gradeId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public String getCode() {
@@ -127,7 +127,7 @@ public class BaseClasses implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", code=").append(code);
         sb.append(", type=").append(type);
         sb.append(", updateTime=").append(updateTime);

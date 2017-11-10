@@ -8,7 +8,7 @@
     <result column="school_degree_id" property="schoolDegreeId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -72,7 +72,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, teacher_id, school_id, school_degree_id, grade_id, classes_id, year, subject_id, 
+      id, teacher_id, school_id, school_degree_id, grade_id, classes_id, year_id, subject_id, 
       create_time
     </if>
     <if test="fields != null" >
@@ -98,7 +98,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,teacher_id,school_id,school_degree_id,grade_id,classes_id,year,subject_id,create_time
+    id,teacher_id,school_id,school_degree_id,grade_id,classes_id,year_id,subject_id,create_time
     from fd_teacher_log
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -115,11 +115,11 @@
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdTeacherLog" >
     insert into fd_teacher_log (id, teacher_id, school_id, 
       school_degree_id, grade_id, classes_id, 
-      year, subject_id, create_time
+      year_id, subject_id, create_time
       )
     values (#{id,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, 
       #{schoolDegreeId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, 
-      #{year,jdbcType=CHAR}, #{subjectId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      #{yearId,jdbcType=INTEGER}, #{subjectId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherLog" >
@@ -143,8 +143,8 @@
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="subjectId != null" >
         subject_id,
@@ -172,8 +172,8 @@
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="subjectId != null" >
         #{subjectId,jdbcType=INTEGER},
@@ -210,8 +210,8 @@
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.subjectId != null" >
         subject_id = #{record.subjectId,jdbcType=INTEGER},
@@ -232,7 +232,7 @@
       school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       subject_id = #{record.subjectId,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -257,8 +257,8 @@
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="subjectId != null" >
         subject_id = #{subjectId,jdbcType=INTEGER},
@@ -276,7 +276,7 @@
       school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      year_id = #{yearId,jdbcType=INTEGER},
       subject_id = #{subjectId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

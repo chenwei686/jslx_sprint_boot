@@ -878,73 +878,63 @@ public class FdStudentExampaperQuery {
             return (Criteria) this;
         }
 
-        public Criteria andYearIsNull() {
-            addCriterion("year is null");
+        public Criteria andYearIdIsNull() {
+            addCriterion("year_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andYearIsNotNull() {
-            addCriterion("year is not null");
+        public Criteria andYearIdIsNotNull() {
+            addCriterion("year_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andYearEqualTo(String value) {
-            addCriterion("year =", value, "year");
+        public Criteria andYearIdEqualTo(Integer value) {
+            addCriterion("year_id =", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotEqualTo(String value) {
-            addCriterion("year <>", value, "year");
+        public Criteria andYearIdNotEqualTo(Integer value) {
+            addCriterion("year_id <>", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThan(String value) {
-            addCriterion("year >", value, "year");
+        public Criteria andYearIdGreaterThan(Integer value) {
+            addCriterion("year_id >", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThanOrEqualTo(String value) {
-            addCriterion("year >=", value, "year");
+        public Criteria andYearIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("year_id >=", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThan(String value) {
-            addCriterion("year <", value, "year");
+        public Criteria andYearIdLessThan(Integer value) {
+            addCriterion("year_id <", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThanOrEqualTo(String value) {
-            addCriterion("year <=", value, "year");
+        public Criteria andYearIdLessThanOrEqualTo(Integer value) {
+            addCriterion("year_id <=", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLike(String value) {
-            addCriterion("year like", value, "year");
+        public Criteria andYearIdIn(List<Integer> values) {
+            addCriterion("year_id in", values, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotLike(String value) {
-            addCriterion("year not like", value, "year");
+        public Criteria andYearIdNotIn(List<Integer> values) {
+            addCriterion("year_id not in", values, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearIn(List<String> values) {
-            addCriterion("year in", values, "year");
+        public Criteria andYearIdBetween(Integer value1, Integer value2) {
+            addCriterion("year_id between", value1, value2, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotIn(List<String> values) {
-            addCriterion("year not in", values, "year");
-            return (Criteria) this;
-        }
-
-        public Criteria andYearBetween(String value1, String value2) {
-            addCriterion("year between", value1, value2, "year");
-            return (Criteria) this;
-        }
-
-        public Criteria andYearNotBetween(String value1, String value2) {
-            addCriterion("year not between", value1, value2, "year");
+        public Criteria andYearIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("year_id not between", value1, value2, "yearId");
             return (Criteria) this;
         }
 
@@ -1068,6 +1058,66 @@ public class FdStudentExampaperQuery {
             return (Criteria) this;
         }
 
+        public Criteria andFinishTimeIsNull() {
+            addCriterion("finish_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeIsNotNull() {
+            addCriterion("finish_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeEqualTo(Date value) {
+            addCriterion("finish_time =", value, "finishTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeNotEqualTo(Date value) {
+            addCriterion("finish_time <>", value, "finishTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeGreaterThan(Date value) {
+            addCriterion("finish_time >", value, "finishTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("finish_time >=", value, "finishTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeLessThan(Date value) {
+            addCriterion("finish_time <", value, "finishTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeLessThanOrEqualTo(Date value) {
+            addCriterion("finish_time <=", value, "finishTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeIn(List<Date> values) {
+            addCriterion("finish_time in", values, "finishTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeNotIn(List<Date> values) {
+            addCriterion("finish_time not in", values, "finishTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeBetween(Date value1, Date value2) {
+            addCriterion("finish_time between", value1, value2, "finishTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andFinishTimeNotBetween(Date value1, Date value2) {
+            addCriterion("finish_time not between", value1, value2, "finishTime");
+            return (Criteria) this;
+        }
+
         public Criteria andCreateTimeIsNull() {
             addCriterion("create_time is null");
             return (Criteria) this;
@@ -1125,6 +1175,66 @@ public class FdStudentExampaperQuery {
 
         public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
             addCriterion("create_time not between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdIsNull() {
+            addCriterion("exampaper_object_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdIsNotNull() {
+            addCriterion("exampaper_object_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdEqualTo(Integer value) {
+            addCriterion("exampaper_object_id =", value, "exampaperObjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdNotEqualTo(Integer value) {
+            addCriterion("exampaper_object_id <>", value, "exampaperObjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdGreaterThan(Integer value) {
+            addCriterion("exampaper_object_id >", value, "exampaperObjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("exampaper_object_id >=", value, "exampaperObjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdLessThan(Integer value) {
+            addCriterion("exampaper_object_id <", value, "exampaperObjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdLessThanOrEqualTo(Integer value) {
+            addCriterion("exampaper_object_id <=", value, "exampaperObjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdIn(List<Integer> values) {
+            addCriterion("exampaper_object_id in", values, "exampaperObjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdNotIn(List<Integer> values) {
+            addCriterion("exampaper_object_id not in", values, "exampaperObjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdBetween(Integer value1, Integer value2) {
+            addCriterion("exampaper_object_id between", value1, value2, "exampaperObjectId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExampaperObjectIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("exampaper_object_id not between", value1, value2, "exampaperObjectId");
             return (Criteria) this;
         }
     }

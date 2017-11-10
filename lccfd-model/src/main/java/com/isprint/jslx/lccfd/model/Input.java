@@ -1,7 +1,6 @@
 package com.isprint.jslx.lccfd.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class Input implements Serializable {
     private String id;
@@ -14,13 +13,13 @@ public class Input implements Serializable {
 
     private String inputtype;
 
-    private BigDecimal score;
+    private String inputanswer;
+
+    private Double score;
 
     private Integer order;
 
     private String inputscore;
-
-    private String inputanswer;
 
     private static final long serialVersionUID = 1L;
 
@@ -64,11 +63,19 @@ public class Input implements Serializable {
         this.inputtype = inputtype == null ? null : inputtype.trim();
     }
 
-    public BigDecimal getScore() {
+    public String getInputanswer() {
+        return inputanswer;
+    }
+
+    public void setInputanswer(String inputanswer) {
+        this.inputanswer = inputanswer == null ? null : inputanswer.trim();
+    }
+
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(BigDecimal score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 
@@ -88,14 +95,6 @@ public class Input implements Serializable {
         this.inputscore = inputscore == null ? null : inputscore.trim();
     }
 
-    public String getInputanswer() {
-        return inputanswer;
-    }
-
-    public void setInputanswer(String inputanswer) {
-        this.inputanswer = inputanswer == null ? null : inputanswer.trim();
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -107,10 +106,10 @@ public class Input implements Serializable {
         sb.append(", inputcode=").append(inputcode);
         sb.append(", basetype=").append(basetype);
         sb.append(", inputtype=").append(inputtype);
+        sb.append(", inputanswer=").append(inputanswer);
         sb.append(", score=").append(score);
         sb.append(", order=").append(order);
         sb.append(", inputscore=").append(inputscore);
-        sb.append(", inputanswer=").append(inputanswer);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

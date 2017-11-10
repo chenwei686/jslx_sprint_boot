@@ -1,6 +1,5 @@
 package com.isprint.jslx.lccfd.model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -147,76 +146,6 @@ public class InputchoiceQuery {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("Id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdIsNotNull() {
-            addCriterion("Id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdEqualTo(String value) {
-            addCriterion("Id =", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotEqualTo(String value) {
-            addCriterion("Id <>", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdGreaterThan(String value) {
-            addCriterion("Id >", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
-            addCriterion("Id >=", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdLessThan(String value) {
-            addCriterion("Id <", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdLessThanOrEqualTo(String value) {
-            addCriterion("Id <=", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdLike(String value) {
-            addCriterion("Id like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotLike(String value) {
-            addCriterion("Id not like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdIn(List<String> values) {
-            addCriterion("Id in", values, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotIn(List<String> values) {
-            addCriterion("Id not in", values, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdBetween(String value1, String value2) {
-            addCriterion("Id between", value1, value2, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotBetween(String value1, String value2) {
-            addCriterion("Id not between", value1, value2, "id");
-            return (Criteria) this;
-        }
-
         public Criteria andInputidIsNull() {
             addCriterion("InputId is null");
             return (Criteria) this;
@@ -297,52 +226,52 @@ public class InputchoiceQuery {
             return (Criteria) this;
         }
 
-        public Criteria andScoreEqualTo(BigDecimal value) {
+        public Criteria andScoreEqualTo(Double value) {
             addCriterion("Score =", value, "score");
             return (Criteria) this;
         }
 
-        public Criteria andScoreNotEqualTo(BigDecimal value) {
+        public Criteria andScoreNotEqualTo(Double value) {
             addCriterion("Score <>", value, "score");
             return (Criteria) this;
         }
 
-        public Criteria andScoreGreaterThan(BigDecimal value) {
+        public Criteria andScoreGreaterThan(Double value) {
             addCriterion("Score >", value, "score");
             return (Criteria) this;
         }
 
-        public Criteria andScoreGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andScoreGreaterThanOrEqualTo(Double value) {
             addCriterion("Score >=", value, "score");
             return (Criteria) this;
         }
 
-        public Criteria andScoreLessThan(BigDecimal value) {
+        public Criteria andScoreLessThan(Double value) {
             addCriterion("Score <", value, "score");
             return (Criteria) this;
         }
 
-        public Criteria andScoreLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andScoreLessThanOrEqualTo(Double value) {
             addCriterion("Score <=", value, "score");
             return (Criteria) this;
         }
 
-        public Criteria andScoreIn(List<BigDecimal> values) {
+        public Criteria andScoreIn(List<Double> values) {
             addCriterion("Score in", values, "score");
             return (Criteria) this;
         }
 
-        public Criteria andScoreNotIn(List<BigDecimal> values) {
+        public Criteria andScoreNotIn(List<Double> values) {
             addCriterion("Score not in", values, "score");
             return (Criteria) this;
         }
 
-        public Criteria andScoreBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andScoreBetween(Double value1, Double value2) {
             addCriterion("Score between", value1, value2, "score");
             return (Criteria) this;
         }
 
-        public Criteria andScoreNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andScoreNotBetween(Double value1, Double value2) {
             addCriterion("Score not between", value1, value2, "score");
             return (Criteria) this;
         }

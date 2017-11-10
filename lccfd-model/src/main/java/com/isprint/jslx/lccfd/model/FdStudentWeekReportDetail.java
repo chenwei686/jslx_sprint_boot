@@ -7,6 +7,8 @@ import java.util.Date;
 public class FdStudentWeekReportDetail implements Serializable {
     private Integer id;
 
+    private Integer studentId;
+
     /**
      * 知识点id
      */
@@ -26,6 +28,23 @@ public class FdStudentWeekReportDetail implements Serializable {
      * 科目名称
      */
     private String subjectName;
+
+    /**
+     * 学校id
+     */
+    private Integer schoolId;
+
+    /**
+     * 年级id
+     */
+    private Integer gradeId;
+
+    /**
+     * 班级id
+     */
+    private Integer classesId;
+
+    private Integer yearId;
 
     private BigDecimal difficulty;
 
@@ -86,6 +105,14 @@ public class FdStudentWeekReportDetail implements Serializable {
         this.id = id;
     }
 
+    public Integer getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
     public Integer getKnowledgeId() {
         return knowledgeId;
     }
@@ -116,6 +143,38 @@ public class FdStudentWeekReportDetail implements Serializable {
 
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName == null ? null : subjectName.trim();
+    }
+
+    public Integer getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
+    }
+
+    public Integer getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public Integer getClassesId() {
+        return classesId;
+    }
+
+    public void setClassesId(Integer classesId) {
+        this.classesId = classesId;
+    }
+
+    public Integer getYearId() {
+        return yearId;
+    }
+
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public BigDecimal getDifficulty() {
@@ -237,10 +296,15 @@ public class FdStudentWeekReportDetail implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
+        sb.append(", studentId=").append(studentId);
         sb.append(", knowledgeId=").append(knowledgeId);
         sb.append(", knowledgeName=").append(knowledgeName);
         sb.append(", subjectId=").append(subjectId);
         sb.append(", subjectName=").append(subjectName);
+        sb.append(", schoolId=").append(schoolId);
+        sb.append(", gradeId=").append(gradeId);
+        sb.append(", classesId=").append(classesId);
+        sb.append(", yearId=").append(yearId);
         sb.append(", difficulty=").append(difficulty);
         sb.append(", difficultyJson=").append(difficultyJson);
         sb.append(", difficultyTotal=").append(difficultyTotal);

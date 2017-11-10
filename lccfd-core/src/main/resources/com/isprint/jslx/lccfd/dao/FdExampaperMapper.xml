@@ -5,21 +5,17 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="year_id" property="yearId" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="TINYINT" />
-    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
-    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
     <result column="difficult_level" property="difficultLevel" jdbcType="TINYINT" />
     <result column="total_score" property="totalScore" jdbcType="DECIMAL" />
     <result column="total_time" property="totalTime" jdbcType="INTEGER" />
     <result column="down_num" property="downNum" jdbcType="INTEGER" />
-    <result column="school_degree_id" property="schoolDegreeId" jdbcType="INTEGER" />
     <result column="source" property="source" jdbcType="CHAR" />
     <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
     <result column="qr_code" property="qrCode" jdbcType="VARCHAR" />
     <result column="is_del" property="isDel" jdbcType="BIT" />
     <result column="notes" property="notes" jdbcType="VARCHAR" />
-    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -83,9 +79,8 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, name, subject_id, year, type, start_time, end_time, difficult_level, total_score, 
-      total_time, down_num, school_degree_id, source, teacher_id, qr_code, is_del, notes, 
-      parent_id, update_time, create_time
+      id, name, subject_id, year_id, type, difficult_level, total_score, total_time, down_num, 
+      source, teacher_id, qr_code, is_del, notes, update_time, create_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -110,7 +105,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,name,subject_id,year,type,start_time,end_time,difficult_level,total_score,total_time,down_num,school_degree_id,source,teacher_id,qr_code,is_del,notes,parent_id,update_time,create_time
+    id,name,subject_id,year_id,type,difficult_level,total_score,total_time,down_num,source,teacher_id,qr_code,is_del,notes,update_time,create_time
     from fd_exampaper
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -126,19 +121,17 @@
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdExampaper" >
     insert into fd_exampaper (id, name, subject_id, 
-      year, type, start_time, 
-      end_time, difficult_level, total_score, 
-      total_time, down_num, school_degree_id, 
+      year_id, type, difficult_level, 
+      total_score, total_time, down_num, 
       source, teacher_id, qr_code, 
-      is_del, notes, parent_id, 
-      update_time, create_time)
+      is_del, notes, update_time, 
+      create_time)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{subjectId,jdbcType=INTEGER}, 
-      #{year,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, #{startTime,jdbcType=TIMESTAMP}, 
-      #{endTime,jdbcType=TIMESTAMP}, #{difficultLevel,jdbcType=TINYINT}, #{totalScore,jdbcType=DECIMAL}, 
-      #{totalTime,jdbcType=INTEGER}, #{downNum,jdbcType=INTEGER}, #{schoolDegreeId,jdbcType=INTEGER}, 
+      #{yearId,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, #{difficultLevel,jdbcType=TINYINT}, 
+      #{totalScore,jdbcType=DECIMAL}, #{totalTime,jdbcType=INTEGER}, #{downNum,jdbcType=INTEGER}, 
       #{source,jdbcType=CHAR}, #{teacherId,jdbcType=INTEGER}, #{qrCode,jdbcType=VARCHAR}, 
-      #{isDel,jdbcType=BIT}, #{notes,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+      #{isDel,jdbcType=BIT}, #{notes,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdExampaper" >
     insert into fd_exampaper
@@ -152,17 +145,11 @@
       <if test="subjectId != null" >
         subject_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="yearId != null" >
+        year_id,
       </if>
       <if test="type != null" >
         type,
-      </if>
-      <if test="startTime != null" >
-        start_time,
-      </if>
-      <if test="endTime != null" >
-        end_time,
       </if>
       <if test="difficultLevel != null" >
         difficult_level,
@@ -175,9 +162,6 @@
       </if>
       <if test="downNum != null" >
         down_num,
-      </if>
-      <if test="schoolDegreeId != null" >
-        school_degree_id,
       </if>
       <if test="source != null" >
         source,
@@ -193,9 +177,6 @@
       </if>
       <if test="notes != null" >
         notes,
-      </if>
-      <if test="parentId != null" >
-        parent_id,
       </if>
       <if test="updateTime != null" >
         update_time,
@@ -214,17 +195,11 @@
       <if test="subjectId != null" >
         #{subjectId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=INTEGER},
+      <if test="yearId != null" >
+        #{yearId,jdbcType=INTEGER},
       </if>
       <if test="type != null" >
         #{type,jdbcType=TINYINT},
-      </if>
-      <if test="startTime != null" >
-        #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endTime != null" >
-        #{endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="difficultLevel != null" >
         #{difficultLevel,jdbcType=TINYINT},
@@ -237,9 +212,6 @@
       </if>
       <if test="downNum != null" >
         #{downNum,jdbcType=INTEGER},
-      </if>
-      <if test="schoolDegreeId != null" >
-        #{schoolDegreeId,jdbcType=INTEGER},
       </if>
       <if test="source != null" >
         #{source,jdbcType=CHAR},
@@ -255,9 +227,6 @@
       </if>
       <if test="notes != null" >
         #{notes,jdbcType=VARCHAR},
-      </if>
-      <if test="parentId != null" >
-        #{parentId,jdbcType=INTEGER},
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
@@ -285,17 +254,11 @@
       <if test="record.subjectId != null" >
         subject_id = #{record.subjectId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=INTEGER},
+      <if test="record.yearId != null" >
+        year_id = #{record.yearId,jdbcType=INTEGER},
       </if>
       <if test="record.type != null" >
         type = #{record.type,jdbcType=TINYINT},
-      </if>
-      <if test="record.startTime != null" >
-        start_time = #{record.startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.endTime != null" >
-        end_time = #{record.endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.difficultLevel != null" >
         difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
@@ -308,9 +271,6 @@
       </if>
       <if test="record.downNum != null" >
         down_num = #{record.downNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.schoolDegreeId != null" >
-        school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
       </if>
       <if test="record.source != null" >
         source = #{record.source,jdbcType=CHAR},
@@ -326,9 +286,6 @@
       </if>
       <if test="record.notes != null" >
         notes = #{record.notes,jdbcType=VARCHAR},
-      </if>
-      <if test="record.parentId != null" >
-        parent_id = #{record.parentId,jdbcType=INTEGER},
       </if>
       <if test="record.updateTime != null" >
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
@@ -346,21 +303,17 @@
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       subject_id = #{record.subjectId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=INTEGER},
+      year_id = #{record.yearId,jdbcType=INTEGER},
       type = #{record.type,jdbcType=TINYINT},
-      start_time = #{record.startTime,jdbcType=TIMESTAMP},
-      end_time = #{record.endTime,jdbcType=TIMESTAMP},
       difficult_level = #{record.difficultLevel,jdbcType=TINYINT},
       total_score = #{record.totalScore,jdbcType=DECIMAL},
       total_time = #{record.totalTime,jdbcType=INTEGER},
       down_num = #{record.downNum,jdbcType=INTEGER},
-      school_degree_id = #{record.schoolDegreeId,jdbcType=INTEGER},
       source = #{record.source,jdbcType=CHAR},
       teacher_id = #{record.teacherId,jdbcType=INTEGER},
       qr_code = #{record.qrCode,jdbcType=VARCHAR},
       is_del = #{record.isDel,jdbcType=BIT},
       notes = #{record.notes,jdbcType=VARCHAR},
-      parent_id = #{record.parentId,jdbcType=INTEGER},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -376,17 +329,11 @@
       <if test="subjectId != null" >
         subject_id = #{subjectId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=INTEGER},
+      <if test="yearId != null" >
+        year_id = #{yearId,jdbcType=INTEGER},
       </if>
       <if test="type != null" >
         type = #{type,jdbcType=TINYINT},
-      </if>
-      <if test="startTime != null" >
-        start_time = #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endTime != null" >
-        end_time = #{endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="difficultLevel != null" >
         difficult_level = #{difficultLevel,jdbcType=TINYINT},
@@ -399,9 +346,6 @@
       </if>
       <if test="downNum != null" >
         down_num = #{downNum,jdbcType=INTEGER},
-      </if>
-      <if test="schoolDegreeId != null" >
-        school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
       </if>
       <if test="source != null" >
         source = #{source,jdbcType=CHAR},
@@ -418,9 +362,6 @@
       <if test="notes != null" >
         notes = #{notes,jdbcType=VARCHAR},
       </if>
-      <if test="parentId != null" >
-        parent_id = #{parentId,jdbcType=INTEGER},
-      </if>
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
@@ -434,21 +375,17 @@
     update fd_exampaper
     set name = #{name,jdbcType=VARCHAR},
       subject_id = #{subjectId,jdbcType=INTEGER},
-      year = #{year,jdbcType=INTEGER},
+      year_id = #{yearId,jdbcType=INTEGER},
       type = #{type,jdbcType=TINYINT},
-      start_time = #{startTime,jdbcType=TIMESTAMP},
-      end_time = #{endTime,jdbcType=TIMESTAMP},
       difficult_level = #{difficultLevel,jdbcType=TINYINT},
       total_score = #{totalScore,jdbcType=DECIMAL},
       total_time = #{totalTime,jdbcType=INTEGER},
       down_num = #{downNum,jdbcType=INTEGER},
-      school_degree_id = #{schoolDegreeId,jdbcType=INTEGER},
       source = #{source,jdbcType=CHAR},
       teacher_id = #{teacherId,jdbcType=INTEGER},
       qr_code = #{qrCode,jdbcType=VARCHAR},
       is_del = #{isDel,jdbcType=BIT},
       notes = #{notes,jdbcType=VARCHAR},
-      parent_id = #{parentId,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

@@ -10,7 +10,7 @@ public class BaseParentThirdAccount implements Serializable {
     private Integer id;
 
     /**
-     * 学生id
+     * 家长id
      */
     private Integer parentId;
 
@@ -22,7 +22,7 @@ public class BaseParentThirdAccount implements Serializable {
     /**
      * 第三那方登录code
      */
-    private String token;
+    private String openId;
 
     /**
      * 第三方账号
@@ -35,6 +35,8 @@ public class BaseParentThirdAccount implements Serializable {
     private Boolean isDel;
 
     private Date createTime;
+
+    private Integer studentId;
 
     private static final long serialVersionUID = 1L;
 
@@ -62,12 +64,12 @@ public class BaseParentThirdAccount implements Serializable {
         this.source = source == null ? null : source.trim();
     }
 
-    public String getToken() {
-        return token;
+    public String getOpenId() {
+        return openId;
     }
 
-    public void setToken(String token) {
-        this.token = token == null ? null : token.trim();
+    public void setOpenId(String openId) {
+        this.openId = openId == null ? null : openId.trim();
     }
 
     public String getAccount() {
@@ -94,6 +96,14 @@ public class BaseParentThirdAccount implements Serializable {
         this.createTime = createTime;
     }
 
+    public Integer getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -103,10 +113,11 @@ public class BaseParentThirdAccount implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", parentId=").append(parentId);
         sb.append(", source=").append(source);
-        sb.append(", token=").append(token);
+        sb.append(", openId=").append(openId);
         sb.append(", account=").append(account);
         sb.append(", isDel=").append(isDel);
         sb.append(", createTime=").append(createTime);
+        sb.append(", studentId=").append(studentId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

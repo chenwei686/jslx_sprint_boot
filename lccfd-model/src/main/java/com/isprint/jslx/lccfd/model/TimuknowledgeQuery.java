@@ -206,76 +206,6 @@ public class TimuknowledgeQuery {
             return (Criteria) this;
         }
 
-        public Criteria andTmidIsNull() {
-            addCriterion("TmId is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidIsNotNull() {
-            addCriterion("TmId is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidEqualTo(String value) {
-            addCriterion("TmId =", value, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidNotEqualTo(String value) {
-            addCriterion("TmId <>", value, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidGreaterThan(String value) {
-            addCriterion("TmId >", value, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidGreaterThanOrEqualTo(String value) {
-            addCriterion("TmId >=", value, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidLessThan(String value) {
-            addCriterion("TmId <", value, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidLessThanOrEqualTo(String value) {
-            addCriterion("TmId <=", value, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidLike(String value) {
-            addCriterion("TmId like", value, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidNotLike(String value) {
-            addCriterion("TmId not like", value, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidIn(List<String> values) {
-            addCriterion("TmId in", values, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidNotIn(List<String> values) {
-            addCriterion("TmId not in", values, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidBetween(String value1, String value2) {
-            addCriterion("TmId between", value1, value2, "tmid");
-            return (Criteria) this;
-        }
-
-        public Criteria andTmidNotBetween(String value1, String value2) {
-            addCriterion("TmId not between", value1, value2, "tmid");
-            return (Criteria) this;
-        }
-
         public Criteria andKnowledgeidIsNull() {
             addCriterion("KnowledgeId is null");
             return (Criteria) this;
@@ -346,52 +276,52 @@ public class TimuknowledgeQuery {
             return (Criteria) this;
         }
 
-        public Criteria andIsmainEqualTo(Boolean value) {
+        public Criteria andIsmainEqualTo(Byte value) {
             addCriterion("IsMain =", value, "ismain");
             return (Criteria) this;
         }
 
-        public Criteria andIsmainNotEqualTo(Boolean value) {
+        public Criteria andIsmainNotEqualTo(Byte value) {
             addCriterion("IsMain <>", value, "ismain");
             return (Criteria) this;
         }
 
-        public Criteria andIsmainGreaterThan(Boolean value) {
+        public Criteria andIsmainGreaterThan(Byte value) {
             addCriterion("IsMain >", value, "ismain");
             return (Criteria) this;
         }
 
-        public Criteria andIsmainGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsmainGreaterThanOrEqualTo(Byte value) {
             addCriterion("IsMain >=", value, "ismain");
             return (Criteria) this;
         }
 
-        public Criteria andIsmainLessThan(Boolean value) {
+        public Criteria andIsmainLessThan(Byte value) {
             addCriterion("IsMain <", value, "ismain");
             return (Criteria) this;
         }
 
-        public Criteria andIsmainLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsmainLessThanOrEqualTo(Byte value) {
             addCriterion("IsMain <=", value, "ismain");
             return (Criteria) this;
         }
 
-        public Criteria andIsmainIn(List<Boolean> values) {
+        public Criteria andIsmainIn(List<Byte> values) {
             addCriterion("IsMain in", values, "ismain");
             return (Criteria) this;
         }
 
-        public Criteria andIsmainNotIn(List<Boolean> values) {
+        public Criteria andIsmainNotIn(List<Byte> values) {
             addCriterion("IsMain not in", values, "ismain");
             return (Criteria) this;
         }
 
-        public Criteria andIsmainBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsmainBetween(Byte value1, Byte value2) {
             addCriterion("IsMain between", value1, value2, "ismain");
             return (Criteria) this;
         }
 
-        public Criteria andIsmainNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsmainNotBetween(Byte value1, Byte value2) {
             addCriterion("IsMain not between", value1, value2, "ismain");
             return (Criteria) this;
         }

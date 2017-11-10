@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="${resource}static/content/css/pagination.css">
+    <script type="text/javascript" src="${resource}static/content/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="${resource}static/content/scripts/jquery.pagination.js"></script>
+</head>
+<style type="text/css">
+    body {
+        text-align: center;
+    }
+
+    iframe {
+        width: 375px;
+        height: 500px;
+        overflow: hidden;
+    }
+
+    table {
+        margin: 0 auto;
+    }
+
+    table td {
+        width: 50%;
+        padding: 15px;
+        border-bottom: 2px solid #ccc;
+        text-align: center;
+        margin: 0;
+    }
+
+    table tr td:last-child {
+        padding-left: 30px;
+    }
+
+    .M-box {
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    input[type=radio] {
+        margin: 0;
+        padding: 0
+    }
+
+    input[type=radio] + span {
+        float: left;
+        margin-right: 20px;
+    }
+</style>
+
+<body>
+<input type="hidden" id="total">
+<#if subjectId!=2>
+    <hr>
+    <div style="overflow: hidden;">
+        <input onclick="changeBook(1)" type="radio" name="studentId" value="1"
+        <#if studentId==1> checked="checked"</#if>
+        > <span>全部</span>
+        <input onclick="changeBook(2)" type="radio" name="studentId" value="2"
+        <#if studentId==2> checked="checked"</#if>
+        > <span>黄冈100分闯关</span>
+        <input onclick="changeBook(3)" type="radio" name="studentId" value="3"
+        <#if studentId==3> checked="checked"</#if>
+        > <span>黄冈100分闯关试卷-第二章，第四章，第五章，第六章，期末试卷</span>
+        <input onclick="changeBook(4)" type="radio" name="studentId" value="4"
+        <#if studentId==4> checked="checked"</#if>
+        > <span>课堂点睛</span>
+        <input onclick="changeBook(5)" type="radio" name="studentId" value="5"
+        <#if studentId==5> checked="checked"</#if>
+        > <span>探究在线高校课堂物理八年级上册</span>
+    </div>
+</#if>
+<#if subjectId!=4>
+    <hr>
+    <input onclick="changeBook(1)" type="radio" name="studentId" value="1"
+    <#if studentId==1> checked="checked"</#if>
+    > <span>全部</span>
+    <input onclick="changeBook(7)" type="radio" name="studentId" value="7"
+    <#if studentId==7> checked="checked"</#if>
+    > <span>原创新课堂</span>
+    <input onclick="changeBook(8)" type="radio" name="studentId" value="8"
+    <#if studentId==8> checked="checked"</#if>
+    > <span>原创新课堂十三章检测卷，期中检测卷，期末检测卷</span>
+    <input onclick="changeBook(9)" type="radio" name="studentId" value="9"
+    <#if studentId==9> checked="checked"</#if>
+    > <span>原创新课堂十五章检测卷</span>
+    </div>
+</#if>
+<table width="750px" height="100%" colspan="0" cellspacing="0">
+    <caption>可订正的题目有:${corrects}题||共:${totalRow}题</caption>
+    <thead>
+    <tr>
+        <td>原题</td>
+        <td>订正练习</td>
+    </tr>
+    </thead>
+    <!--http://queshtml.oss-cn-hangzhou.aliyuncs.com/version5/template1/00001823-A878-4303-B82C-3225F0E2AE62.html-->
+    <#list timus as timu>
+        <tr>
+            <td>
+                <iframe id="t1"
+                        src="http://queshtml.oss-cn-hangzhou.aliyuncs.com/version5/template1/${timu.timuId!}.html"
+                        frameborder="0" scrolling="no"></iframe>
+            </td>
+            <td>
+                <iframe id="t2"
+                        src="http://queshtml.oss-cn-hangzhou.aliyuncs.com/version5/template1/${timu.simId!}.html"
+                        frameborder="0" scrolling="no"></iframe>
+            </td>
+        </tr>
+    </#list>
+</table>
+<div style="text-align: right">
+    <a href="getCorrect?subjectId=${subjectId}&index=${index-1}&studentId=${studentId}">上一页</a>||当前页:${index}||总页数:${total}||每页记录数:${pageSize}||<a
+        href="getCorrect?subjectId=${subjectId}&index=${index+1}&studentId=${studentId}">下一页</a><br>
+</div>
+
+
+</body>
+<script type="text/javascript">
+    function changeBook(studentId) {
+        console.log(studentId);
+        var url = "getCorrect?subjectId=${subjectId!}&index=1&studentId=" + studentId;
+        window.location = url;
+    }
+</script>
+</html>

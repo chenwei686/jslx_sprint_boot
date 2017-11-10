@@ -16,15 +16,21 @@ public interface BaseTimuInputChoiceMapper {
 
     int insertSelective(BaseTimuInputChoice record);
 
+    List<BaseTimuInputChoice> selectByExampleWithBLOBs(BaseTimuInputChoiceQuery example);
+
     List<BaseTimuInputChoice> selectByExample(BaseTimuInputChoiceQuery example);
 
     BaseTimuInputChoice selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") BaseTimuInputChoice record, @Param("example") BaseTimuInputChoiceQuery example);
 
+    int updateByExampleWithBLOBs(@Param("record") BaseTimuInputChoice record, @Param("example") BaseTimuInputChoiceQuery example);
+
     int updateByExample(@Param("record") BaseTimuInputChoice record, @Param("example") BaseTimuInputChoiceQuery example);
 
     int updateByPrimaryKeySelective(BaseTimuInputChoice record);
+
+    int updateByPrimaryKeyWithBLOBs(BaseTimuInputChoice record);
 
     int updateByPrimaryKey(BaseTimuInputChoice record);
 }

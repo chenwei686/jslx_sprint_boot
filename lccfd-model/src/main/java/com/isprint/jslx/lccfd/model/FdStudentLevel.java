@@ -36,12 +36,17 @@ public class FdStudentLevel implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     /**
      * 是否删除
      */
     private Boolean isDel;
+
+    /**
+     * 科目id
+     */
+    private Integer subjectId;
 
     private Date createTime;
 
@@ -103,12 +108,12 @@ public class FdStudentLevel implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Boolean getIsDel() {
@@ -117,6 +122,14 @@ public class FdStudentLevel implements Serializable {
 
     public void setIsDel(Boolean isDel) {
         this.isDel = isDel;
+    }
+
+    public Integer getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(Integer subjectId) {
+        this.subjectId = subjectId;
     }
 
     public Date getCreateTime() {
@@ -140,8 +153,9 @@ public class FdStudentLevel implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", isDel=").append(isDel);
+        sb.append(", subjectId=").append(subjectId);
         sb.append(", createTime=").append(createTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

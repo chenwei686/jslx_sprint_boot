@@ -8,12 +8,7 @@ public class FdTeacherMonthReport implements Serializable {
     private Integer id;
 
     /**
-     * 学生id
-     */
-    private Integer studentId;
-
-    /**
-     * 学校id
+     * 年级id
      */
     private Integer schoolId;
 
@@ -27,7 +22,17 @@ public class FdTeacherMonthReport implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
+
+    /**
+     * 所教学科
+     */
+    private Integer subjectId;
+
+    /**
+     * 所教学科
+     */
+    private Integer parentSubjectId;
 
     /**
      * 开始日期
@@ -45,57 +50,42 @@ public class FdTeacherMonthReport implements Serializable {
     private String month;
 
     /**
-     * 观看视频时长（秒）
-     */
-    private Integer videoTime;
-
-    /**
-     * 上次观看视频时长（秒）
-     */
-    private Integer videoTimeLast;
-
-    /**
-     * 趋势（-1：下降 0：不显示趋势 1：上升）
-     */
-    private Byte videoTimeTreed;
-
-    /**
-     * 观看视频时长排名
-     */
-    private Integer videoTimeRanking;
-
-    /**
-     * 观看视频时长排名
-     */
-    private Integer videoTimeRankingLast;
-
-    /**
-     * 趋势（-1：下降 0：不显示趋势 1：上升）
-     */
-    private Byte videoTimeRankingTreed;
-
-    /**
-     * 搜题数
+     * 拍题总数
      */
     private Integer searchNum;
 
     /**
-     * 订正题目数
+     * 学生人数
      */
-    private Integer correctNum;
+    private Integer studentNum;
 
     /**
-     * 上次的订正题目数
+     * 拍题平均数(学生拍题总数/学生人数）
      */
-    private Integer correctNumLast;
+    private Integer searchAvg;
+
+    /**
+     * 本校排名
+     */
+    private Integer searchAvgRanking;
+
+    /**
+     * 上次平均拍提数
+     */
+    private Integer searchAvgLast;
 
     /**
      * 趋势（-1：下降 0：不显示趋势 1：上升）
      */
-    private Byte correctNumTreed;
+    private Byte searchAvgTreed;
 
     /**
-     * 订正率(订正率 = 订正题目数 / 拍题总数)
+     * 拍题订正题目总数
+     */
+    private Integer correctNum;
+
+    /**
+     * 订正率(订正率 = 学生拍题订正题目总数 / 学生拍题总数)
      */
     private BigDecimal correctPro;
 
@@ -110,63 +100,80 @@ public class FdTeacherMonthReport implements Serializable {
     private Byte correctProTreed;
 
     /**
-     * 超过的人数
+     * 订正率本校排名
      */
-    private Integer exceedNum;
+    private Integer correctProRanking;
 
     /**
-     * 总人数
+     * 试卷平均得分率（提交试卷学生分数之和/提交学生人数）
      */
-    private Integer totalNum;
+    private BigDecimal exampaperAvgPro;
 
     /**
-     * 击败人数比例
+     * 试卷总得分
      */
-    private BigDecimal beatPro;
+    private BigDecimal exampaperScore;
 
     /**
-     * 上次的击败人数比例
+     * 试卷总分
      */
-    private BigDecimal beatProLast;
+    private BigDecimal exampaperTotalScore;
+
+    /**
+     * 试卷提交数量
+     */
+    private Integer exampaperNum;
+
+    /**
+     * 上次每周一练平均完成率
+     */
+    private BigDecimal exampaperAvgProLast;
+
+    private Integer exampaperAvgProRanking;
 
     /**
      * 趋势（-1：下降 0：不显示趋势 1：上升）
      */
-    private Byte beatProTreed;
+    private Byte exampaperAvgProTreed;
+
+    /**
+     * 每周一练推送 总人数
+     */
+    private Integer practiceNum;
+
+    /**
+     * 每周一练完成人数
+     */
+    private Integer practiceFinishNum;
+
+    /**
+     * 每周一练完成人数
+     */
+    private Integer practiceUnfinishedNum;
+
+    /**
+     * 每周一练平均完成率
+     */
+    private BigDecimal practicePro;
+
+    /**
+     * 上次每周一练平均完成率
+     */
+    private BigDecimal practiceProLast;
+
+    /**
+     * 趋势（-1：下降 0：不显示趋势 1：上升）
+     */
+    private Byte practiceProTreed;
+
+    /**
+     * 每周一练平均完成率排名
+     */
+    private Integer practiceProRenking;
 
     private Date updateTime;
 
     private Date createTime;
-
-    /**
-     * 新增盲点
-     */
-    private Integer blindKnowledge;
-
-    /**
-     * 新增弱点
-     */
-    private Integer weakKnowledge;
-
-    /**
-     * 新增难点
-     */
-    private Integer difficultyKnowledge;
-
-    /**
-     * 基本功知识点
-     */
-    private Integer baseKnowledge;
-
-    /**
-     * 优势知识点
-     */
-    private Integer meritKnowledge;
-
-    /**
-     * 强项知识点
-     */
-    private Integer strongKnowledge;
 
     private static final long serialVersionUID = 1L;
 
@@ -176,14 +183,6 @@ public class FdTeacherMonthReport implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
     }
 
     public Integer getSchoolId() {
@@ -210,12 +209,28 @@ public class FdTeacherMonthReport implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
+    }
+
+    public Integer getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(Integer subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    public Integer getParentSubjectId() {
+        return parentSubjectId;
+    }
+
+    public void setParentSubjectId(Integer parentSubjectId) {
+        this.parentSubjectId = parentSubjectId;
     }
 
     public Date getStartDate() {
@@ -242,54 +257,6 @@ public class FdTeacherMonthReport implements Serializable {
         this.month = month == null ? null : month.trim();
     }
 
-    public Integer getVideoTime() {
-        return videoTime;
-    }
-
-    public void setVideoTime(Integer videoTime) {
-        this.videoTime = videoTime;
-    }
-
-    public Integer getVideoTimeLast() {
-        return videoTimeLast;
-    }
-
-    public void setVideoTimeLast(Integer videoTimeLast) {
-        this.videoTimeLast = videoTimeLast;
-    }
-
-    public Byte getVideoTimeTreed() {
-        return videoTimeTreed;
-    }
-
-    public void setVideoTimeTreed(Byte videoTimeTreed) {
-        this.videoTimeTreed = videoTimeTreed;
-    }
-
-    public Integer getVideoTimeRanking() {
-        return videoTimeRanking;
-    }
-
-    public void setVideoTimeRanking(Integer videoTimeRanking) {
-        this.videoTimeRanking = videoTimeRanking;
-    }
-
-    public Integer getVideoTimeRankingLast() {
-        return videoTimeRankingLast;
-    }
-
-    public void setVideoTimeRankingLast(Integer videoTimeRankingLast) {
-        this.videoTimeRankingLast = videoTimeRankingLast;
-    }
-
-    public Byte getVideoTimeRankingTreed() {
-        return videoTimeRankingTreed;
-    }
-
-    public void setVideoTimeRankingTreed(Byte videoTimeRankingTreed) {
-        this.videoTimeRankingTreed = videoTimeRankingTreed;
-    }
-
     public Integer getSearchNum() {
         return searchNum;
     }
@@ -298,28 +265,52 @@ public class FdTeacherMonthReport implements Serializable {
         this.searchNum = searchNum;
     }
 
+    public Integer getStudentNum() {
+        return studentNum;
+    }
+
+    public void setStudentNum(Integer studentNum) {
+        this.studentNum = studentNum;
+    }
+
+    public Integer getSearchAvg() {
+        return searchAvg;
+    }
+
+    public void setSearchAvg(Integer searchAvg) {
+        this.searchAvg = searchAvg;
+    }
+
+    public Integer getSearchAvgRanking() {
+        return searchAvgRanking;
+    }
+
+    public void setSearchAvgRanking(Integer searchAvgRanking) {
+        this.searchAvgRanking = searchAvgRanking;
+    }
+
+    public Integer getSearchAvgLast() {
+        return searchAvgLast;
+    }
+
+    public void setSearchAvgLast(Integer searchAvgLast) {
+        this.searchAvgLast = searchAvgLast;
+    }
+
+    public Byte getSearchAvgTreed() {
+        return searchAvgTreed;
+    }
+
+    public void setSearchAvgTreed(Byte searchAvgTreed) {
+        this.searchAvgTreed = searchAvgTreed;
+    }
+
     public Integer getCorrectNum() {
         return correctNum;
     }
 
     public void setCorrectNum(Integer correctNum) {
         this.correctNum = correctNum;
-    }
-
-    public Integer getCorrectNumLast() {
-        return correctNumLast;
-    }
-
-    public void setCorrectNumLast(Integer correctNumLast) {
-        this.correctNumLast = correctNumLast;
-    }
-
-    public Byte getCorrectNumTreed() {
-        return correctNumTreed;
-    }
-
-    public void setCorrectNumTreed(Byte correctNumTreed) {
-        this.correctNumTreed = correctNumTreed;
     }
 
     public BigDecimal getCorrectPro() {
@@ -346,44 +337,124 @@ public class FdTeacherMonthReport implements Serializable {
         this.correctProTreed = correctProTreed;
     }
 
-    public Integer getExceedNum() {
-        return exceedNum;
+    public Integer getCorrectProRanking() {
+        return correctProRanking;
     }
 
-    public void setExceedNum(Integer exceedNum) {
-        this.exceedNum = exceedNum;
+    public void setCorrectProRanking(Integer correctProRanking) {
+        this.correctProRanking = correctProRanking;
     }
 
-    public Integer getTotalNum() {
-        return totalNum;
+    public BigDecimal getExampaperAvgPro() {
+        return exampaperAvgPro;
     }
 
-    public void setTotalNum(Integer totalNum) {
-        this.totalNum = totalNum;
+    public void setExampaperAvgPro(BigDecimal exampaperAvgPro) {
+        this.exampaperAvgPro = exampaperAvgPro;
     }
 
-    public BigDecimal getBeatPro() {
-        return beatPro;
+    public BigDecimal getExampaperScore() {
+        return exampaperScore;
     }
 
-    public void setBeatPro(BigDecimal beatPro) {
-        this.beatPro = beatPro;
+    public void setExampaperScore(BigDecimal exampaperScore) {
+        this.exampaperScore = exampaperScore;
     }
 
-    public BigDecimal getBeatProLast() {
-        return beatProLast;
+    public BigDecimal getExampaperTotalScore() {
+        return exampaperTotalScore;
     }
 
-    public void setBeatProLast(BigDecimal beatProLast) {
-        this.beatProLast = beatProLast;
+    public void setExampaperTotalScore(BigDecimal exampaperTotalScore) {
+        this.exampaperTotalScore = exampaperTotalScore;
     }
 
-    public Byte getBeatProTreed() {
-        return beatProTreed;
+    public Integer getExampaperNum() {
+        return exampaperNum;
     }
 
-    public void setBeatProTreed(Byte beatProTreed) {
-        this.beatProTreed = beatProTreed;
+    public void setExampaperNum(Integer exampaperNum) {
+        this.exampaperNum = exampaperNum;
+    }
+
+    public BigDecimal getExampaperAvgProLast() {
+        return exampaperAvgProLast;
+    }
+
+    public void setExampaperAvgProLast(BigDecimal exampaperAvgProLast) {
+        this.exampaperAvgProLast = exampaperAvgProLast;
+    }
+
+    public Integer getExampaperAvgProRanking() {
+        return exampaperAvgProRanking;
+    }
+
+    public void setExampaperAvgProRanking(Integer exampaperAvgProRanking) {
+        this.exampaperAvgProRanking = exampaperAvgProRanking;
+    }
+
+    public Byte getExampaperAvgProTreed() {
+        return exampaperAvgProTreed;
+    }
+
+    public void setExampaperAvgProTreed(Byte exampaperAvgProTreed) {
+        this.exampaperAvgProTreed = exampaperAvgProTreed;
+    }
+
+    public Integer getPracticeNum() {
+        return practiceNum;
+    }
+
+    public void setPracticeNum(Integer practiceNum) {
+        this.practiceNum = practiceNum;
+    }
+
+    public Integer getPracticeFinishNum() {
+        return practiceFinishNum;
+    }
+
+    public void setPracticeFinishNum(Integer practiceFinishNum) {
+        this.practiceFinishNum = practiceFinishNum;
+    }
+
+    public Integer getPracticeUnfinishedNum() {
+        return practiceUnfinishedNum;
+    }
+
+    public void setPracticeUnfinishedNum(Integer practiceUnfinishedNum) {
+        this.practiceUnfinishedNum = practiceUnfinishedNum;
+    }
+
+    public BigDecimal getPracticePro() {
+        return practicePro;
+    }
+
+    public void setPracticePro(BigDecimal practicePro) {
+        this.practicePro = practicePro;
+    }
+
+    public BigDecimal getPracticeProLast() {
+        return practiceProLast;
+    }
+
+    public void setPracticeProLast(BigDecimal practiceProLast) {
+        this.practiceProLast = practiceProLast;
+    }
+
+    public Byte getPracticeProTreed() {
+        return practiceProTreed;
+    }
+
+    public void setPracticeProTreed(Byte practiceProTreed) {
+        this.practiceProTreed = practiceProTreed;
+    }
+
+    public Integer getPracticeProRenking() {
+        return practiceProRenking;
+    }
+
+    public void setPracticeProRenking(Integer practiceProRenking) {
+        this.practiceProRenking = practiceProRenking;
     }
 
     public Date getUpdateTime() {
@@ -402,54 +473,6 @@ public class FdTeacherMonthReport implements Serializable {
         this.createTime = createTime;
     }
 
-    public Integer getBlindKnowledge() {
-        return blindKnowledge;
-    }
-
-    public void setBlindKnowledge(Integer blindKnowledge) {
-        this.blindKnowledge = blindKnowledge;
-    }
-
-    public Integer getWeakKnowledge() {
-        return weakKnowledge;
-    }
-
-    public void setWeakKnowledge(Integer weakKnowledge) {
-        this.weakKnowledge = weakKnowledge;
-    }
-
-    public Integer getDifficultyKnowledge() {
-        return difficultyKnowledge;
-    }
-
-    public void setDifficultyKnowledge(Integer difficultyKnowledge) {
-        this.difficultyKnowledge = difficultyKnowledge;
-    }
-
-    public Integer getBaseKnowledge() {
-        return baseKnowledge;
-    }
-
-    public void setBaseKnowledge(Integer baseKnowledge) {
-        this.baseKnowledge = baseKnowledge;
-    }
-
-    public Integer getMeritKnowledge() {
-        return meritKnowledge;
-    }
-
-    public void setMeritKnowledge(Integer meritKnowledge) {
-        this.meritKnowledge = meritKnowledge;
-    }
-
-    public Integer getStrongKnowledge() {
-        return strongKnowledge;
-    }
-
-    public void setStrongKnowledge(Integer strongKnowledge) {
-        this.strongKnowledge = strongKnowledge;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -457,40 +480,42 @@ public class FdTeacherMonthReport implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", studentId=").append(studentId);
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
+        sb.append(", subjectId=").append(subjectId);
+        sb.append(", parentSubjectId=").append(parentSubjectId);
         sb.append(", startDate=").append(startDate);
         sb.append(", endDate=").append(endDate);
         sb.append(", month=").append(month);
-        sb.append(", videoTime=").append(videoTime);
-        sb.append(", videoTimeLast=").append(videoTimeLast);
-        sb.append(", videoTimeTreed=").append(videoTimeTreed);
-        sb.append(", videoTimeRanking=").append(videoTimeRanking);
-        sb.append(", videoTimeRankingLast=").append(videoTimeRankingLast);
-        sb.append(", videoTimeRankingTreed=").append(videoTimeRankingTreed);
         sb.append(", searchNum=").append(searchNum);
+        sb.append(", studentNum=").append(studentNum);
+        sb.append(", searchAvg=").append(searchAvg);
+        sb.append(", searchAvgRanking=").append(searchAvgRanking);
+        sb.append(", searchAvgLast=").append(searchAvgLast);
+        sb.append(", searchAvgTreed=").append(searchAvgTreed);
         sb.append(", correctNum=").append(correctNum);
-        sb.append(", correctNumLast=").append(correctNumLast);
-        sb.append(", correctNumTreed=").append(correctNumTreed);
         sb.append(", correctPro=").append(correctPro);
         sb.append(", correctProLast=").append(correctProLast);
         sb.append(", correctProTreed=").append(correctProTreed);
-        sb.append(", exceedNum=").append(exceedNum);
-        sb.append(", totalNum=").append(totalNum);
-        sb.append(", beatPro=").append(beatPro);
-        sb.append(", beatProLast=").append(beatProLast);
-        sb.append(", beatProTreed=").append(beatProTreed);
+        sb.append(", correctProRanking=").append(correctProRanking);
+        sb.append(", exampaperAvgPro=").append(exampaperAvgPro);
+        sb.append(", exampaperScore=").append(exampaperScore);
+        sb.append(", exampaperTotalScore=").append(exampaperTotalScore);
+        sb.append(", exampaperNum=").append(exampaperNum);
+        sb.append(", exampaperAvgProLast=").append(exampaperAvgProLast);
+        sb.append(", exampaperAvgProRanking=").append(exampaperAvgProRanking);
+        sb.append(", exampaperAvgProTreed=").append(exampaperAvgProTreed);
+        sb.append(", practiceNum=").append(practiceNum);
+        sb.append(", practiceFinishNum=").append(practiceFinishNum);
+        sb.append(", practiceUnfinishedNum=").append(practiceUnfinishedNum);
+        sb.append(", practicePro=").append(practicePro);
+        sb.append(", practiceProLast=").append(practiceProLast);
+        sb.append(", practiceProTreed=").append(practiceProTreed);
+        sb.append(", practiceProRenking=").append(practiceProRenking);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", createTime=").append(createTime);
-        sb.append(", blindKnowledge=").append(blindKnowledge);
-        sb.append(", weakKnowledge=").append(weakKnowledge);
-        sb.append(", difficultyKnowledge=").append(difficultyKnowledge);
-        sb.append(", baseKnowledge=").append(baseKnowledge);
-        sb.append(", meritKnowledge=").append(meritKnowledge);
-        sb.append(", strongKnowledge=").append(strongKnowledge);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdStudentPackageHjyMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdStudentPackageHjy" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="student_order_hjy_id" property="studentOrderHjyId" jdbcType="INTEGER" />
+    <result column="packege_hjy_id" property="packegeHjyId" jdbcType="INTEGER" />
+    <result column="package_activity_hjy_id" property="packageActivityHjyId" jdbcType="INTEGER" />
+    <result column="group_billing_id" property="groupBillingId" jdbcType="VARCHAR" />
+    <result column="billing_type" property="billingType" jdbcType="VARCHAR" />
+    <result column="billing_day" property="billingDay" jdbcType="INTEGER" />
+    <result column="package_type" property="packageType" jdbcType="CHAR" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="subject_name" property="subjectName" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="group_id" property="groupId" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, name, student_id, student_order_hjy_id, packege_hjy_id, package_activity_hjy_id, 
+      group_billing_id, billing_type, billing_day, package_type, subject_id, subject_name, 
+      start_time, end_time, create_time, group_id, status
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdStudentPackageHjyQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_student_package_hjy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,name,student_id,student_order_hjy_id,packege_hjy_id,package_activity_hjy_id,group_billing_id,billing_type,billing_day,package_type,subject_id,subject_name,start_time,end_time,create_time,group_id,status
+    from fd_student_package_hjy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_student_package_hjy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentPackageHjyQuery" >
+    delete from fd_student_package_hjy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdStudentPackageHjy" >
+    insert into fd_student_package_hjy (id, name, student_id, 
+      student_order_hjy_id, packege_hjy_id, package_activity_hjy_id, 
+      group_billing_id, billing_type, billing_day, 
+      package_type, subject_id, subject_name, 
+      start_time, end_time, create_time, 
+      group_id, status)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{studentId,jdbcType=INTEGER}, 
+      #{studentOrderHjyId,jdbcType=INTEGER}, #{packegeHjyId,jdbcType=INTEGER}, #{packageActivityHjyId,jdbcType=INTEGER}, 
+      #{groupBillingId,jdbcType=VARCHAR}, #{billingType,jdbcType=VARCHAR}, #{billingDay,jdbcType=INTEGER}, 
+      #{packageType,jdbcType=CHAR}, #{subjectId,jdbcType=INTEGER}, #{subjectName,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{groupId,jdbcType=INTEGER}, #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentPackageHjy" >
+    insert into fd_student_package_hjy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="studentOrderHjyId != null" >
+        student_order_hjy_id,
+      </if>
+      <if test="packegeHjyId != null" >
+        packege_hjy_id,
+      </if>
+      <if test="packageActivityHjyId != null" >
+        package_activity_hjy_id,
+      </if>
+      <if test="groupBillingId != null" >
+        group_billing_id,
+      </if>
+      <if test="billingType != null" >
+        billing_type,
+      </if>
+      <if test="billingDay != null" >
+        billing_day,
+      </if>
+      <if test="packageType != null" >
+        package_type,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="subjectName != null" >
+        subject_name,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="studentOrderHjyId != null" >
+        #{studentOrderHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="packegeHjyId != null" >
+        #{packegeHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="packageActivityHjyId != null" >
+        #{packageActivityHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="groupBillingId != null" >
+        #{groupBillingId,jdbcType=VARCHAR},
+      </if>
+      <if test="billingType != null" >
+        #{billingType,jdbcType=VARCHAR},
+      </if>
+      <if test="billingDay != null" >
+        #{billingDay,jdbcType=INTEGER},
+      </if>
+      <if test="packageType != null" >
+        #{packageType,jdbcType=CHAR},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectName != null" >
+        #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdStudentPackageHjyQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_student_package_hjy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_student_package_hjy
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentId != null" >
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentOrderHjyId != null" >
+        student_order_hjy_id = #{record.studentOrderHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.packegeHjyId != null" >
+        packege_hjy_id = #{record.packegeHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.packageActivityHjyId != null" >
+        package_activity_hjy_id = #{record.packageActivityHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupBillingId != null" >
+        group_billing_id = #{record.groupBillingId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billingType != null" >
+        billing_type = #{record.billingType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billingDay != null" >
+        billing_day = #{record.billingDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.packageType != null" >
+        package_type = #{record.packageType,jdbcType=CHAR},
+      </if>
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectName != null" >
+        subject_name = #{record.subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startTime != null" >
+        start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endTime != null" >
+        end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.groupId != null" >
+        group_id = #{record.groupId,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_student_package_hjy
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      student_order_hjy_id = #{record.studentOrderHjyId,jdbcType=INTEGER},
+      packege_hjy_id = #{record.packegeHjyId,jdbcType=INTEGER},
+      package_activity_hjy_id = #{record.packageActivityHjyId,jdbcType=INTEGER},
+      group_billing_id = #{record.groupBillingId,jdbcType=VARCHAR},
+      billing_type = #{record.billingType,jdbcType=VARCHAR},
+      billing_day = #{record.billingDay,jdbcType=INTEGER},
+      package_type = #{record.packageType,jdbcType=CHAR},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
+      subject_name = #{record.subjectName,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      group_id = #{record.groupId,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdStudentPackageHjy" >
+    update fd_student_package_hjy
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="studentOrderHjyId != null" >
+        student_order_hjy_id = #{studentOrderHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="packegeHjyId != null" >
+        packege_hjy_id = #{packegeHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="packageActivityHjyId != null" >
+        package_activity_hjy_id = #{packageActivityHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="groupBillingId != null" >
+        group_billing_id = #{groupBillingId,jdbcType=VARCHAR},
+      </if>
+      <if test="billingType != null" >
+        billing_type = #{billingType,jdbcType=VARCHAR},
+      </if>
+      <if test="billingDay != null" >
+        billing_day = #{billingDay,jdbcType=INTEGER},
+      </if>
+      <if test="packageType != null" >
+        package_type = #{packageType,jdbcType=CHAR},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectName != null" >
+        subject_name = #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdStudentPackageHjy" >
+    update fd_student_package_hjy
+    set name = #{name,jdbcType=VARCHAR},
+      student_id = #{studentId,jdbcType=INTEGER},
+      student_order_hjy_id = #{studentOrderHjyId,jdbcType=INTEGER},
+      packege_hjy_id = #{packegeHjyId,jdbcType=INTEGER},
+      package_activity_hjy_id = #{packageActivityHjyId,jdbcType=INTEGER},
+      group_billing_id = #{groupBillingId,jdbcType=VARCHAR},
+      billing_type = #{billingType,jdbcType=VARCHAR},
+      billing_day = #{billingDay,jdbcType=INTEGER},
+      package_type = #{packageType,jdbcType=CHAR},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      subject_name = #{subjectName,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      group_id = #{groupId,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

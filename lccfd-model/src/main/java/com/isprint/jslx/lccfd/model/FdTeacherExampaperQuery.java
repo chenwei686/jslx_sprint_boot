@@ -707,6 +707,246 @@ public class FdTeacherExampaperQuery {
             return (Criteria) this;
         }
 
+        public Criteria andSchoolIdIsNull() {
+            addCriterion("school_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdIsNotNull() {
+            addCriterion("school_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdEqualTo(Integer value) {
+            addCriterion("school_id =", value, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdNotEqualTo(Integer value) {
+            addCriterion("school_id <>", value, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdGreaterThan(Integer value) {
+            addCriterion("school_id >", value, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("school_id >=", value, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdLessThan(Integer value) {
+            addCriterion("school_id <", value, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdLessThanOrEqualTo(Integer value) {
+            addCriterion("school_id <=", value, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdIn(List<Integer> values) {
+            addCriterion("school_id in", values, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdNotIn(List<Integer> values) {
+            addCriterion("school_id not in", values, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdBetween(Integer value1, Integer value2) {
+            addCriterion("school_id between", value1, value2, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("school_id not between", value1, value2, "schoolId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdIsNull() {
+            addCriterion("grade_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdIsNotNull() {
+            addCriterion("grade_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdEqualTo(Integer value) {
+            addCriterion("grade_id =", value, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdNotEqualTo(Integer value) {
+            addCriterion("grade_id <>", value, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdGreaterThan(Integer value) {
+            addCriterion("grade_id >", value, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("grade_id >=", value, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdLessThan(Integer value) {
+            addCriterion("grade_id <", value, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("grade_id <=", value, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdIn(List<Integer> values) {
+            addCriterion("grade_id in", values, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdNotIn(List<Integer> values) {
+            addCriterion("grade_id not in", values, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdBetween(Integer value1, Integer value2) {
+            addCriterion("grade_id between", value1, value2, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGradeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("grade_id not between", value1, value2, "gradeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdIsNull() {
+            addCriterion("classes_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdIsNotNull() {
+            addCriterion("classes_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdEqualTo(Integer value) {
+            addCriterion("classes_id =", value, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdNotEqualTo(Integer value) {
+            addCriterion("classes_id <>", value, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdGreaterThan(Integer value) {
+            addCriterion("classes_id >", value, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("classes_id >=", value, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdLessThan(Integer value) {
+            addCriterion("classes_id <", value, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdLessThanOrEqualTo(Integer value) {
+            addCriterion("classes_id <=", value, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdIn(List<Integer> values) {
+            addCriterion("classes_id in", values, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdNotIn(List<Integer> values) {
+            addCriterion("classes_id not in", values, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdBetween(Integer value1, Integer value2) {
+            addCriterion("classes_id between", value1, value2, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassesIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("classes_id not between", value1, value2, "classesId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdIsNull() {
+            addCriterion("year_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdIsNotNull() {
+            addCriterion("year_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdEqualTo(Integer value) {
+            addCriterion("year_id =", value, "yearId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdNotEqualTo(Integer value) {
+            addCriterion("year_id <>", value, "yearId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdGreaterThan(Integer value) {
+            addCriterion("year_id >", value, "yearId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("year_id >=", value, "yearId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdLessThan(Integer value) {
+            addCriterion("year_id <", value, "yearId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdLessThanOrEqualTo(Integer value) {
+            addCriterion("year_id <=", value, "yearId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdIn(List<Integer> values) {
+            addCriterion("year_id in", values, "yearId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdNotIn(List<Integer> values) {
+            addCriterion("year_id not in", values, "yearId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdBetween(Integer value1, Integer value2) {
+            addCriterion("year_id between", value1, value2, "yearId");
+            return (Criteria) this;
+        }
+
+        public Criteria andYearIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("year_id not between", value1, value2, "yearId");
+            return (Criteria) this;
+        }
+
         public Criteria andUpdateTimeIsNull() {
             addCriterion("update_time is null");
             return (Criteria) this;

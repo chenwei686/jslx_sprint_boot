@@ -457,76 +457,6 @@ public class FdStudentCorrectQuery {
             return (Criteria) this;
         }
 
-        public Criteria andStudentSearchTimuIdIsNull() {
-            addCriterion("student_search_timu_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdIsNotNull() {
-            addCriterion("student_search_timu_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdEqualTo(String value) {
-            addCriterion("student_search_timu_id =", value, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdNotEqualTo(String value) {
-            addCriterion("student_search_timu_id <>", value, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdGreaterThan(String value) {
-            addCriterion("student_search_timu_id >", value, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdGreaterThanOrEqualTo(String value) {
-            addCriterion("student_search_timu_id >=", value, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdLessThan(String value) {
-            addCriterion("student_search_timu_id <", value, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdLessThanOrEqualTo(String value) {
-            addCriterion("student_search_timu_id <=", value, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdLike(String value) {
-            addCriterion("student_search_timu_id like", value, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdNotLike(String value) {
-            addCriterion("student_search_timu_id not like", value, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdIn(List<String> values) {
-            addCriterion("student_search_timu_id in", values, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdNotIn(List<String> values) {
-            addCriterion("student_search_timu_id not in", values, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdBetween(String value1, String value2) {
-            addCriterion("student_search_timu_id between", value1, value2, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStudentSearchTimuIdNotBetween(String value1, String value2) {
-            addCriterion("student_search_timu_id not between", value1, value2, "studentSearchTimuId");
-            return (Criteria) this;
-        }
-
         public Criteria andIsRightIsNull() {
             addCriterion("is_right is null");
             return (Criteria) this;
@@ -837,73 +767,63 @@ public class FdStudentCorrectQuery {
             return (Criteria) this;
         }
 
-        public Criteria andYearIsNull() {
-            addCriterion("year is null");
+        public Criteria andYearIdIsNull() {
+            addCriterion("year_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andYearIsNotNull() {
-            addCriterion("year is not null");
+        public Criteria andYearIdIsNotNull() {
+            addCriterion("year_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andYearEqualTo(String value) {
-            addCriterion("year =", value, "year");
+        public Criteria andYearIdEqualTo(Integer value) {
+            addCriterion("year_id =", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotEqualTo(String value) {
-            addCriterion("year <>", value, "year");
+        public Criteria andYearIdNotEqualTo(Integer value) {
+            addCriterion("year_id <>", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThan(String value) {
-            addCriterion("year >", value, "year");
+        public Criteria andYearIdGreaterThan(Integer value) {
+            addCriterion("year_id >", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThanOrEqualTo(String value) {
-            addCriterion("year >=", value, "year");
+        public Criteria andYearIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("year_id >=", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThan(String value) {
-            addCriterion("year <", value, "year");
+        public Criteria andYearIdLessThan(Integer value) {
+            addCriterion("year_id <", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThanOrEqualTo(String value) {
-            addCriterion("year <=", value, "year");
+        public Criteria andYearIdLessThanOrEqualTo(Integer value) {
+            addCriterion("year_id <=", value, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearLike(String value) {
-            addCriterion("year like", value, "year");
+        public Criteria andYearIdIn(List<Integer> values) {
+            addCriterion("year_id in", values, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotLike(String value) {
-            addCriterion("year not like", value, "year");
+        public Criteria andYearIdNotIn(List<Integer> values) {
+            addCriterion("year_id not in", values, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearIn(List<String> values) {
-            addCriterion("year in", values, "year");
+        public Criteria andYearIdBetween(Integer value1, Integer value2) {
+            addCriterion("year_id between", value1, value2, "yearId");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotIn(List<String> values) {
-            addCriterion("year not in", values, "year");
-            return (Criteria) this;
-        }
-
-        public Criteria andYearBetween(String value1, String value2) {
-            addCriterion("year between", value1, value2, "year");
-            return (Criteria) this;
-        }
-
-        public Criteria andYearNotBetween(String value1, String value2) {
-            addCriterion("year not between", value1, value2, "year");
+        public Criteria andYearIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("year_id not between", value1, value2, "yearId");
             return (Criteria) this;
         }
 
@@ -1264,6 +1184,266 @@ public class FdStudentCorrectQuery {
 
         public Criteria andSourceNotBetween(Byte value1, Byte value2) {
             addCriterion("source not between", value1, value2, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdIsNull() {
+            addCriterion("source_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdIsNotNull() {
+            addCriterion("source_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdEqualTo(Integer value) {
+            addCriterion("source_id =", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdNotEqualTo(Integer value) {
+            addCriterion("source_id <>", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdGreaterThan(Integer value) {
+            addCriterion("source_id >", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("source_id >=", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdLessThan(Integer value) {
+            addCriterion("source_id <", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdLessThanOrEqualTo(Integer value) {
+            addCriterion("source_id <=", value, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdIn(List<Integer> values) {
+            addCriterion("source_id in", values, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdNotIn(List<Integer> values) {
+            addCriterion("source_id not in", values, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdBetween(Integer value1, Integer value2) {
+            addCriterion("source_id between", value1, value2, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("source_id not between", value1, value2, "sourceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdIsNull() {
+            addCriterion("correct_timu_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdIsNotNull() {
+            addCriterion("correct_timu_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdEqualTo(String value) {
+            addCriterion("correct_timu_id =", value, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdNotEqualTo(String value) {
+            addCriterion("correct_timu_id <>", value, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdGreaterThan(String value) {
+            addCriterion("correct_timu_id >", value, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdGreaterThanOrEqualTo(String value) {
+            addCriterion("correct_timu_id >=", value, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdLessThan(String value) {
+            addCriterion("correct_timu_id <", value, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdLessThanOrEqualTo(String value) {
+            addCriterion("correct_timu_id <=", value, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdLike(String value) {
+            addCriterion("correct_timu_id like", value, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdNotLike(String value) {
+            addCriterion("correct_timu_id not like", value, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdIn(List<String> values) {
+            addCriterion("correct_timu_id in", values, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdNotIn(List<String> values) {
+            addCriterion("correct_timu_id not in", values, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdBetween(String value1, String value2) {
+            addCriterion("correct_timu_id between", value1, value2, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCorrectTimuIdNotBetween(String value1, String value2) {
+            addCriterion("correct_timu_id not between", value1, value2, "correctTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdIsNull() {
+            addCriterion("student_search_timu_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdIsNotNull() {
+            addCriterion("student_search_timu_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdEqualTo(String value) {
+            addCriterion("student_search_timu_id =", value, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdNotEqualTo(String value) {
+            addCriterion("student_search_timu_id <>", value, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdGreaterThan(String value) {
+            addCriterion("student_search_timu_id >", value, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdGreaterThanOrEqualTo(String value) {
+            addCriterion("student_search_timu_id >=", value, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdLessThan(String value) {
+            addCriterion("student_search_timu_id <", value, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdLessThanOrEqualTo(String value) {
+            addCriterion("student_search_timu_id <=", value, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdLike(String value) {
+            addCriterion("student_search_timu_id like", value, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdNotLike(String value) {
+            addCriterion("student_search_timu_id not like", value, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdIn(List<String> values) {
+            addCriterion("student_search_timu_id in", values, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdNotIn(List<String> values) {
+            addCriterion("student_search_timu_id not in", values, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdBetween(String value1, String value2) {
+            addCriterion("student_search_timu_id between", value1, value2, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentSearchTimuIdNotBetween(String value1, String value2) {
+            addCriterion("student_search_timu_id not between", value1, value2, "studentSearchTimuId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdIsNull() {
+            addCriterion("school_degree_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdIsNotNull() {
+            addCriterion("school_degree_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdEqualTo(Integer value) {
+            addCriterion("school_degree_id =", value, "schoolDegreeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdNotEqualTo(Integer value) {
+            addCriterion("school_degree_id <>", value, "schoolDegreeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdGreaterThan(Integer value) {
+            addCriterion("school_degree_id >", value, "schoolDegreeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("school_degree_id >=", value, "schoolDegreeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdLessThan(Integer value) {
+            addCriterion("school_degree_id <", value, "schoolDegreeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("school_degree_id <=", value, "schoolDegreeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdIn(List<Integer> values) {
+            addCriterion("school_degree_id in", values, "schoolDegreeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdNotIn(List<Integer> values) {
+            addCriterion("school_degree_id not in", values, "schoolDegreeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdBetween(Integer value1, Integer value2) {
+            addCriterion("school_degree_id between", value1, value2, "schoolDegreeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSchoolDegreeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("school_degree_id not between", value1, value2, "schoolDegreeId");
             return (Criteria) this;
         }
     }

@@ -3,54 +3,38 @@
 <mapper namespace="com.isprint.jslx.lccfd.dao.FdTeacherDayReportMapper" >
   <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdTeacherDayReport" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="search_num" property="searchNum" jdbcType="INTEGER" />
-    <result column="correct_num" property="correctNum" jdbcType="INTEGER" />
-    <result column="correct_num_last" property="correctNumLast" jdbcType="INTEGER" />
-    <result column="correct_num_treed" property="correctNumTreed" jdbcType="TINYINT" />
-    <result column="correct_pro" property="correctPro" jdbcType="DECIMAL" />
-    <result column="correct_pro_last" property="correctProLast" jdbcType="DECIMAL" />
-    <result column="correct_pro_treed" property="correctProTreed" jdbcType="TINYINT" />
-    <result column="search_max_student_ids" property="searchMaxStudentIds" jdbcType="VARCHAR" />
-    <result column="search_min_student_ids" property="searchMinStudentIds" jdbcType="VARCHAR" />
-    <result column="blind_knowledge" property="blindKnowledge" jdbcType="VARCHAR" />
-    <result column="weak_knowledge" property="weakKnowledge" jdbcType="VARCHAR" />
-    <result column="difficulty_knowledge" property="difficultyKnowledge" jdbcType="VARCHAR" />
-    <result column="base_knowledge" property="baseKnowledge" jdbcType="VARCHAR" />
-    <result column="merit_knowledge" property="meritKnowledge" jdbcType="VARCHAR" />
-    <result column="strong_knowledge" property="strongKnowledge" jdbcType="VARCHAR" />
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
-    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="classes_id" property="classesId" jdbcType="INTEGER" />
-    <result column="year" property="year" jdbcType="CHAR" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
     <result column="date" property="date" jdbcType="DATE" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="student_num" property="studentNum" jdbcType="INTEGER" />
+    <result column="paiti_avg" property="paitiAvg" jdbcType="INTEGER" />
+    <result column="paiti_rank" property="paitiRank" jdbcType="INTEGER" />
+    <result column="pati_compare" property="patiCompare" jdbcType="VARCHAR" />
+    <result column="pati_top_10" property="patiTop10" jdbcType="VARCHAR" />
+    <result column="pati_last_10" property="patiLast10" jdbcType="VARCHAR" />
+    <result column="correct_rate" property="correctRate" jdbcType="DECIMAL" />
+    <result column="correct_compare" property="correctCompare" jdbcType="VARCHAR" />
+    <result column="correct_rete_rank" property="correctReteRank" jdbcType="INTEGER" />
+    <result column="correct_top_10" property="correctTop10" jdbcType="VARCHAR" />
+    <result column="correct_last_10" property="correctLast10" jdbcType="VARCHAR" />
+    <result column="class_diacrisis" property="classDiacrisis" jdbcType="VARCHAR" />
+    <result column="class_warning" property="classWarning" jdbcType="VARCHAR" />
+    <result column="timu_id_score" property="timuIdScore" jdbcType="INTEGER" />
+    <result column="timu_id" property="timuId" jdbcType="VARCHAR" />
+    <result column="teacher_exampaper_commit_count" property="teacherExampaperCommitCount" jdbcType="INTEGER" />
+    <result column="avg_exampaper_score" property="avgExampaperScore" jdbcType="DECIMAL" />
+    <result column="exampaper_full_score" property="exampaperFullScore" jdbcType="DECIMAL" />
+    <result column="teacher_paper_object_count" property="teacherPaperObjectCount" jdbcType="INTEGER" />
+    <result column="top_1_student_name" property="top1StudentName" jdbcType="VARCHAR" />
+    <result column="top_1_student_score" property="top1StudentScore" jdbcType="DECIMAL" />
+    <result column="class_paper_diacrisis" property="classPaperDiacrisis" jdbcType="VARCHAR" />
+    <result column="student_prictise_count" property="studentPrictiseCount" jdbcType="INTEGER" />
+    <result column="student_prictise_commit_count" property="studentPrictiseCommitCount" jdbcType="INTEGER" />
+    <result column="student_practise_not_done_names" property="studentPractiseNotDoneNames" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="search_max_timu_id" property="searchMaxTimuId" jdbcType="INTEGER" />
-    <result column="search_max_timu_num" property="searchMaxTimuNum" jdbcType="INTEGER" />
-    <result column="correct_max_student_ids" property="correctMaxStudentIds" jdbcType="VARCHAR" />
-    <result column="correct_min_student_ids" property="correctMinStudentIds" jdbcType="VARCHAR" />
-    <result column="exampaper_id" property="exampaperId" jdbcType="INTEGER" />
-    <result column="exampaper_total_num" property="exampaperTotalNum" jdbcType="INTEGER" />
-    <result column="exampaper_total_score" property="exampaperTotalScore" jdbcType="DECIMAL" />
-    <result column="exampaper_commit_num" property="exampaperCommitNum" jdbcType="INTEGER" />
-    <result column="exampaper_student_id" property="exampaperStudentId" jdbcType="INTEGER" />
-    <result column="exampaper_max_score" property="exampaperMaxScore" jdbcType="DECIMAL" />
-    <result column="exampaper_score" property="exampaperScore" jdbcType="DECIMAL" />
-    <result column="exampaper_average_score" property="exampaperAverageScore" jdbcType="DECIMAL" />
-    <result column="search_comment_id" property="searchCommentId" jdbcType="INTEGER" />
-    <result column="search_comment" property="searchComment" jdbcType="VARCHAR" />
-    <result column="correct_comment_id" property="correctCommentId" jdbcType="INTEGER" />
-    <result column="correct_comment" property="correctComment" jdbcType="VARCHAR" />
-    <result column="use_comment_id" property="useCommentId" jdbcType="INTEGER" />
-    <result column="use_comment" property="useComment" jdbcType="VARCHAR" />
-    <result column="exampaper_comment_id" property="exampaperCommentId" jdbcType="INTEGER" />
-    <result column="exampaper_comment" property="exampaperComment" jdbcType="VARCHAR" />
-    <result column="practice_student_num" property="practiceStudentNum" jdbcType="INTEGER" />
-    <result column="practice_finish_student_ids" property="practiceFinishStudentIds" jdbcType="VARCHAR" />
-    <result column="practice_finish_student_num" property="practiceFinishStudentNum" jdbcType="INTEGER" />
-    <result column="practice_unfinish_student_ids" property="practiceUnfinishStudentIds" jdbcType="VARCHAR" />
-    <result column="practice_unfinish_student_num" property="practiceUnfinishStudentNum" jdbcType="INTEGER" />
-    <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
+    <result column="classPaitiCount" property="classpaiticount" jdbcType="INTEGER" />
+    <result column="exampaperId" property="exampaperid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -112,17 +96,13 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, search_num, correct_num, correct_num_last, correct_num_treed, correct_pro, correct_pro_last, 
-      correct_pro_treed, search_max_student_ids, search_min_student_ids, blind_knowledge, 
-      weak_knowledge, difficulty_knowledge, base_knowledge, merit_knowledge, strong_knowledge, 
-      school_id, grade_id, classes_id, year, date, update_time, create_time, search_max_timu_id, 
-      search_max_timu_num, correct_max_student_ids, correct_min_student_ids, exampaper_id, 
-      exampaper_total_num, exampaper_total_score, exampaper_commit_num, exampaper_student_id, 
-      exampaper_max_score, exampaper_score, exampaper_average_score, search_comment_id, 
-      search_comment, correct_comment_id, correct_comment, use_comment_id, use_comment, 
-      exampaper_comment_id, exampaper_comment, practice_student_num, practice_finish_student_ids, 
-      practice_finish_student_num, practice_unfinish_student_ids, practice_unfinish_student_num, 
-      teacher_id
+      id, school_id, classes_id, subject_id, date, student_num, paiti_avg, paiti_rank, 
+      pati_compare, pati_top_10, pati_last_10, correct_rate, correct_compare, correct_rete_rank, 
+      correct_top_10, correct_last_10, class_diacrisis, class_warning, timu_id_score, timu_id, 
+      teacher_exampaper_commit_count, avg_exampaper_score, exampaper_full_score, teacher_paper_object_count, 
+      top_1_student_name, top_1_student_score, class_paper_diacrisis, student_prictise_count, 
+      student_prictise_commit_count, student_practise_not_done_names, create_time, classPaitiCount, 
+      exampaperId
     </if>
     <if test="fields != null" >
       ${fields}
@@ -147,7 +127,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,search_num,correct_num,correct_num_last,correct_num_treed,correct_pro,correct_pro_last,correct_pro_treed,search_max_student_ids,search_min_student_ids,blind_knowledge,weak_knowledge,difficulty_knowledge,base_knowledge,merit_knowledge,strong_knowledge,school_id,grade_id,classes_id,year,date,update_time,create_time,search_max_timu_id,search_max_timu_num,correct_max_student_ids,correct_min_student_ids,exampaper_id,exampaper_total_num,exampaper_total_score,exampaper_commit_num,exampaper_student_id,exampaper_max_score,exampaper_score,exampaper_average_score,search_comment_id,search_comment,correct_comment_id,correct_comment,use_comment_id,use_comment,exampaper_comment_id,exampaper_comment,practice_student_num,practice_finish_student_ids,practice_finish_student_num,practice_unfinish_student_ids,practice_unfinish_student_num,teacher_id
+    id,school_id,classes_id,subject_id,date,student_num,paiti_avg,paiti_rank,pati_compare,pati_top_10,pati_last_10,correct_rate,correct_compare,correct_rete_rank,correct_top_10,correct_last_10,class_diacrisis,class_warning,timu_id_score,timu_id,teacher_exampaper_commit_count,avg_exampaper_score,exampaper_full_score,teacher_paper_object_count,top_1_student_name,top_1_student_score,class_paper_diacrisis,student_prictise_count,student_prictise_commit_count,student_practise_not_done_names,create_time,classPaitiCount,exampaperId
     from fd_teacher_day_report
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -162,42 +142,32 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdTeacherDayReport" >
-    insert into fd_teacher_day_report (id, search_num, correct_num, 
-      correct_num_last, correct_num_treed, correct_pro, 
-      correct_pro_last, correct_pro_treed, search_max_student_ids, 
-      search_min_student_ids, blind_knowledge, weak_knowledge, 
-      difficulty_knowledge, base_knowledge, merit_knowledge, 
-      strong_knowledge, school_id, grade_id, 
-      classes_id, year, date, update_time, 
-      create_time, search_max_timu_id, search_max_timu_num, 
-      correct_max_student_ids, correct_min_student_ids, 
-      exampaper_id, exampaper_total_num, exampaper_total_score, 
-      exampaper_commit_num, exampaper_student_id, 
-      exampaper_max_score, exampaper_score, exampaper_average_score, 
-      search_comment_id, search_comment, correct_comment_id, 
-      correct_comment, use_comment_id, use_comment, 
-      exampaper_comment_id, exampaper_comment, practice_student_num, 
-      practice_finish_student_ids, practice_finish_student_num, 
-      practice_unfinish_student_ids, practice_unfinish_student_num, 
-      teacher_id)
-    values (#{id,jdbcType=INTEGER}, #{searchNum,jdbcType=INTEGER}, #{correctNum,jdbcType=INTEGER}, 
-      #{correctNumLast,jdbcType=INTEGER}, #{correctNumTreed,jdbcType=TINYINT}, #{correctPro,jdbcType=DECIMAL}, 
-      #{correctProLast,jdbcType=DECIMAL}, #{correctProTreed,jdbcType=TINYINT}, #{searchMaxStudentIds,jdbcType=VARCHAR}, 
-      #{searchMinStudentIds,jdbcType=VARCHAR}, #{blindKnowledge,jdbcType=VARCHAR}, #{weakKnowledge,jdbcType=VARCHAR}, 
-      #{difficultyKnowledge,jdbcType=VARCHAR}, #{baseKnowledge,jdbcType=VARCHAR}, #{meritKnowledge,jdbcType=VARCHAR}, 
-      #{strongKnowledge,jdbcType=VARCHAR}, #{schoolId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, 
-      #{classesId,jdbcType=INTEGER}, #{year,jdbcType=CHAR}, #{date,jdbcType=DATE}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{searchMaxTimuId,jdbcType=INTEGER}, #{searchMaxTimuNum,jdbcType=INTEGER}, 
-      #{correctMaxStudentIds,jdbcType=VARCHAR}, #{correctMinStudentIds,jdbcType=VARCHAR}, 
-      #{exampaperId,jdbcType=INTEGER}, #{exampaperTotalNum,jdbcType=INTEGER}, #{exampaperTotalScore,jdbcType=DECIMAL}, 
-      #{exampaperCommitNum,jdbcType=INTEGER}, #{exampaperStudentId,jdbcType=INTEGER}, 
-      #{exampaperMaxScore,jdbcType=DECIMAL}, #{exampaperScore,jdbcType=DECIMAL}, #{exampaperAverageScore,jdbcType=DECIMAL}, 
-      #{searchCommentId,jdbcType=INTEGER}, #{searchComment,jdbcType=VARCHAR}, #{correctCommentId,jdbcType=INTEGER}, 
-      #{correctComment,jdbcType=VARCHAR}, #{useCommentId,jdbcType=INTEGER}, #{useComment,jdbcType=VARCHAR}, 
-      #{exampaperCommentId,jdbcType=INTEGER}, #{exampaperComment,jdbcType=VARCHAR}, #{practiceStudentNum,jdbcType=INTEGER}, 
-      #{practiceFinishStudentIds,jdbcType=VARCHAR}, #{practiceFinishStudentNum,jdbcType=INTEGER}, 
-      #{practiceUnfinishStudentIds,jdbcType=VARCHAR}, #{practiceUnfinishStudentNum,jdbcType=INTEGER}, 
-      #{teacherId,jdbcType=INTEGER})
+    insert into fd_teacher_day_report (id, school_id, classes_id, 
+      subject_id, date, student_num, 
+      paiti_avg, paiti_rank, pati_compare, 
+      pati_top_10, pati_last_10, correct_rate, 
+      correct_compare, correct_rete_rank, correct_top_10, 
+      correct_last_10, class_diacrisis, class_warning, 
+      timu_id_score, timu_id, teacher_exampaper_commit_count, 
+      avg_exampaper_score, exampaper_full_score, 
+      teacher_paper_object_count, top_1_student_name, 
+      top_1_student_score, class_paper_diacrisis, 
+      student_prictise_count, student_prictise_commit_count, 
+      student_practise_not_done_names, create_time, 
+      classPaitiCount, exampaperId)
+    values (#{id,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, 
+      #{subjectId,jdbcType=INTEGER}, #{date,jdbcType=DATE}, #{studentNum,jdbcType=INTEGER}, 
+      #{paitiAvg,jdbcType=INTEGER}, #{paitiRank,jdbcType=INTEGER}, #{patiCompare,jdbcType=VARCHAR}, 
+      #{patiTop10,jdbcType=VARCHAR}, #{patiLast10,jdbcType=VARCHAR}, #{correctRate,jdbcType=DECIMAL}, 
+      #{correctCompare,jdbcType=VARCHAR}, #{correctReteRank,jdbcType=INTEGER}, #{correctTop10,jdbcType=VARCHAR}, 
+      #{correctLast10,jdbcType=VARCHAR}, #{classDiacrisis,jdbcType=VARCHAR}, #{classWarning,jdbcType=VARCHAR}, 
+      #{timuIdScore,jdbcType=INTEGER}, #{timuId,jdbcType=VARCHAR}, #{teacherExampaperCommitCount,jdbcType=INTEGER}, 
+      #{avgExampaperScore,jdbcType=DECIMAL}, #{exampaperFullScore,jdbcType=DECIMAL}, 
+      #{teacherPaperObjectCount,jdbcType=INTEGER}, #{top1StudentName,jdbcType=VARCHAR}, 
+      #{top1StudentScore,jdbcType=DECIMAL}, #{classPaperDiacrisis,jdbcType=VARCHAR}, 
+      #{studentPrictiseCount,jdbcType=INTEGER}, #{studentPrictiseCommitCount,jdbcType=INTEGER}, 
+      #{studentPractiseNotDoneNames,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{classpaiticount,jdbcType=INTEGER}, #{exampaperid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherDayReport" >
     insert into fd_teacher_day_report
@@ -205,298 +175,202 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="searchNum != null" >
-        search_num,
-      </if>
-      <if test="correctNum != null" >
-        correct_num,
-      </if>
-      <if test="correctNumLast != null" >
-        correct_num_last,
-      </if>
-      <if test="correctNumTreed != null" >
-        correct_num_treed,
-      </if>
-      <if test="correctPro != null" >
-        correct_pro,
-      </if>
-      <if test="correctProLast != null" >
-        correct_pro_last,
-      </if>
-      <if test="correctProTreed != null" >
-        correct_pro_treed,
-      </if>
-      <if test="searchMaxStudentIds != null" >
-        search_max_student_ids,
-      </if>
-      <if test="searchMinStudentIds != null" >
-        search_min_student_ids,
-      </if>
-      <if test="blindKnowledge != null" >
-        blind_knowledge,
-      </if>
-      <if test="weakKnowledge != null" >
-        weak_knowledge,
-      </if>
-      <if test="difficultyKnowledge != null" >
-        difficulty_knowledge,
-      </if>
-      <if test="baseKnowledge != null" >
-        base_knowledge,
-      </if>
-      <if test="meritKnowledge != null" >
-        merit_knowledge,
-      </if>
-      <if test="strongKnowledge != null" >
-        strong_knowledge,
-      </if>
       <if test="schoolId != null" >
         school_id,
-      </if>
-      <if test="gradeId != null" >
-        grade_id,
       </if>
       <if test="classesId != null" >
         classes_id,
       </if>
-      <if test="year != null" >
-        year,
+      <if test="subjectId != null" >
+        subject_id,
       </if>
       <if test="date != null" >
         date,
       </if>
-      <if test="updateTime != null" >
-        update_time,
+      <if test="studentNum != null" >
+        student_num,
+      </if>
+      <if test="paitiAvg != null" >
+        paiti_avg,
+      </if>
+      <if test="paitiRank != null" >
+        paiti_rank,
+      </if>
+      <if test="patiCompare != null" >
+        pati_compare,
+      </if>
+      <if test="patiTop10 != null" >
+        pati_top_10,
+      </if>
+      <if test="patiLast10 != null" >
+        pati_last_10,
+      </if>
+      <if test="correctRate != null" >
+        correct_rate,
+      </if>
+      <if test="correctCompare != null" >
+        correct_compare,
+      </if>
+      <if test="correctReteRank != null" >
+        correct_rete_rank,
+      </if>
+      <if test="correctTop10 != null" >
+        correct_top_10,
+      </if>
+      <if test="correctLast10 != null" >
+        correct_last_10,
+      </if>
+      <if test="classDiacrisis != null" >
+        class_diacrisis,
+      </if>
+      <if test="classWarning != null" >
+        class_warning,
+      </if>
+      <if test="timuIdScore != null" >
+        timu_id_score,
+      </if>
+      <if test="timuId != null" >
+        timu_id,
+      </if>
+      <if test="teacherExampaperCommitCount != null" >
+        teacher_exampaper_commit_count,
+      </if>
+      <if test="avgExampaperScore != null" >
+        avg_exampaper_score,
+      </if>
+      <if test="exampaperFullScore != null" >
+        exampaper_full_score,
+      </if>
+      <if test="teacherPaperObjectCount != null" >
+        teacher_paper_object_count,
+      </if>
+      <if test="top1StudentName != null" >
+        top_1_student_name,
+      </if>
+      <if test="top1StudentScore != null" >
+        top_1_student_score,
+      </if>
+      <if test="classPaperDiacrisis != null" >
+        class_paper_diacrisis,
+      </if>
+      <if test="studentPrictiseCount != null" >
+        student_prictise_count,
+      </if>
+      <if test="studentPrictiseCommitCount != null" >
+        student_prictise_commit_count,
+      </if>
+      <if test="studentPractiseNotDoneNames != null" >
+        student_practise_not_done_names,
       </if>
       <if test="createTime != null" >
         create_time,
       </if>
-      <if test="searchMaxTimuId != null" >
-        search_max_timu_id,
+      <if test="classpaiticount != null" >
+        classPaitiCount,
       </if>
-      <if test="searchMaxTimuNum != null" >
-        search_max_timu_num,
-      </if>
-      <if test="correctMaxStudentIds != null" >
-        correct_max_student_ids,
-      </if>
-      <if test="correctMinStudentIds != null" >
-        correct_min_student_ids,
-      </if>
-      <if test="exampaperId != null" >
-        exampaper_id,
-      </if>
-      <if test="exampaperTotalNum != null" >
-        exampaper_total_num,
-      </if>
-      <if test="exampaperTotalScore != null" >
-        exampaper_total_score,
-      </if>
-      <if test="exampaperCommitNum != null" >
-        exampaper_commit_num,
-      </if>
-      <if test="exampaperStudentId != null" >
-        exampaper_student_id,
-      </if>
-      <if test="exampaperMaxScore != null" >
-        exampaper_max_score,
-      </if>
-      <if test="exampaperScore != null" >
-        exampaper_score,
-      </if>
-      <if test="exampaperAverageScore != null" >
-        exampaper_average_score,
-      </if>
-      <if test="searchCommentId != null" >
-        search_comment_id,
-      </if>
-      <if test="searchComment != null" >
-        search_comment,
-      </if>
-      <if test="correctCommentId != null" >
-        correct_comment_id,
-      </if>
-      <if test="correctComment != null" >
-        correct_comment,
-      </if>
-      <if test="useCommentId != null" >
-        use_comment_id,
-      </if>
-      <if test="useComment != null" >
-        use_comment,
-      </if>
-      <if test="exampaperCommentId != null" >
-        exampaper_comment_id,
-      </if>
-      <if test="exampaperComment != null" >
-        exampaper_comment,
-      </if>
-      <if test="practiceStudentNum != null" >
-        practice_student_num,
-      </if>
-      <if test="practiceFinishStudentIds != null" >
-        practice_finish_student_ids,
-      </if>
-      <if test="practiceFinishStudentNum != null" >
-        practice_finish_student_num,
-      </if>
-      <if test="practiceUnfinishStudentIds != null" >
-        practice_unfinish_student_ids,
-      </if>
-      <if test="practiceUnfinishStudentNum != null" >
-        practice_unfinish_student_num,
-      </if>
-      <if test="teacherId != null" >
-        teacher_id,
+      <if test="exampaperid != null" >
+        exampaperId,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="searchNum != null" >
-        #{searchNum,jdbcType=INTEGER},
-      </if>
-      <if test="correctNum != null" >
-        #{correctNum,jdbcType=INTEGER},
-      </if>
-      <if test="correctNumLast != null" >
-        #{correctNumLast,jdbcType=INTEGER},
-      </if>
-      <if test="correctNumTreed != null" >
-        #{correctNumTreed,jdbcType=TINYINT},
-      </if>
-      <if test="correctPro != null" >
-        #{correctPro,jdbcType=DECIMAL},
-      </if>
-      <if test="correctProLast != null" >
-        #{correctProLast,jdbcType=DECIMAL},
-      </if>
-      <if test="correctProTreed != null" >
-        #{correctProTreed,jdbcType=TINYINT},
-      </if>
-      <if test="searchMaxStudentIds != null" >
-        #{searchMaxStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="searchMinStudentIds != null" >
-        #{searchMinStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="blindKnowledge != null" >
-        #{blindKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="weakKnowledge != null" >
-        #{weakKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="difficultyKnowledge != null" >
-        #{difficultyKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="baseKnowledge != null" >
-        #{baseKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="meritKnowledge != null" >
-        #{meritKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="strongKnowledge != null" >
-        #{strongKnowledge,jdbcType=VARCHAR},
-      </if>
       <if test="schoolId != null" >
         #{schoolId,jdbcType=INTEGER},
-      </if>
-      <if test="gradeId != null" >
-        #{gradeId,jdbcType=INTEGER},
       </if>
       <if test="classesId != null" >
         #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        #{year,jdbcType=CHAR},
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
       </if>
       <if test="date != null" >
         #{date,jdbcType=DATE},
       </if>
-      <if test="updateTime != null" >
-        #{updateTime,jdbcType=TIMESTAMP},
+      <if test="studentNum != null" >
+        #{studentNum,jdbcType=INTEGER},
+      </if>
+      <if test="paitiAvg != null" >
+        #{paitiAvg,jdbcType=INTEGER},
+      </if>
+      <if test="paitiRank != null" >
+        #{paitiRank,jdbcType=INTEGER},
+      </if>
+      <if test="patiCompare != null" >
+        #{patiCompare,jdbcType=VARCHAR},
+      </if>
+      <if test="patiTop10 != null" >
+        #{patiTop10,jdbcType=VARCHAR},
+      </if>
+      <if test="patiLast10 != null" >
+        #{patiLast10,jdbcType=VARCHAR},
+      </if>
+      <if test="correctRate != null" >
+        #{correctRate,jdbcType=DECIMAL},
+      </if>
+      <if test="correctCompare != null" >
+        #{correctCompare,jdbcType=VARCHAR},
+      </if>
+      <if test="correctReteRank != null" >
+        #{correctReteRank,jdbcType=INTEGER},
+      </if>
+      <if test="correctTop10 != null" >
+        #{correctTop10,jdbcType=VARCHAR},
+      </if>
+      <if test="correctLast10 != null" >
+        #{correctLast10,jdbcType=VARCHAR},
+      </if>
+      <if test="classDiacrisis != null" >
+        #{classDiacrisis,jdbcType=VARCHAR},
+      </if>
+      <if test="classWarning != null" >
+        #{classWarning,jdbcType=VARCHAR},
+      </if>
+      <if test="timuIdScore != null" >
+        #{timuIdScore,jdbcType=INTEGER},
+      </if>
+      <if test="timuId != null" >
+        #{timuId,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherExampaperCommitCount != null" >
+        #{teacherExampaperCommitCount,jdbcType=INTEGER},
+      </if>
+      <if test="avgExampaperScore != null" >
+        #{avgExampaperScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperFullScore != null" >
+        #{exampaperFullScore,jdbcType=DECIMAL},
+      </if>
+      <if test="teacherPaperObjectCount != null" >
+        #{teacherPaperObjectCount,jdbcType=INTEGER},
+      </if>
+      <if test="top1StudentName != null" >
+        #{top1StudentName,jdbcType=VARCHAR},
+      </if>
+      <if test="top1StudentScore != null" >
+        #{top1StudentScore,jdbcType=DECIMAL},
+      </if>
+      <if test="classPaperDiacrisis != null" >
+        #{classPaperDiacrisis,jdbcType=VARCHAR},
+      </if>
+      <if test="studentPrictiseCount != null" >
+        #{studentPrictiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="studentPrictiseCommitCount != null" >
+        #{studentPrictiseCommitCount,jdbcType=INTEGER},
+      </if>
+      <if test="studentPractiseNotDoneNames != null" >
+        #{studentPractiseNotDoneNames,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="searchMaxTimuId != null" >
-        #{searchMaxTimuId,jdbcType=INTEGER},
+      <if test="classpaiticount != null" >
+        #{classpaiticount,jdbcType=INTEGER},
       </if>
-      <if test="searchMaxTimuNum != null" >
-        #{searchMaxTimuNum,jdbcType=INTEGER},
-      </if>
-      <if test="correctMaxStudentIds != null" >
-        #{correctMaxStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="correctMinStudentIds != null" >
-        #{correctMinStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="exampaperId != null" >
-        #{exampaperId,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperTotalNum != null" >
-        #{exampaperTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperTotalScore != null" >
-        #{exampaperTotalScore,jdbcType=DECIMAL},
-      </if>
-      <if test="exampaperCommitNum != null" >
-        #{exampaperCommitNum,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperStudentId != null" >
-        #{exampaperStudentId,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperMaxScore != null" >
-        #{exampaperMaxScore,jdbcType=DECIMAL},
-      </if>
-      <if test="exampaperScore != null" >
-        #{exampaperScore,jdbcType=DECIMAL},
-      </if>
-      <if test="exampaperAverageScore != null" >
-        #{exampaperAverageScore,jdbcType=DECIMAL},
-      </if>
-      <if test="searchCommentId != null" >
-        #{searchCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="searchComment != null" >
-        #{searchComment,jdbcType=VARCHAR},
-      </if>
-      <if test="correctCommentId != null" >
-        #{correctCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="correctComment != null" >
-        #{correctComment,jdbcType=VARCHAR},
-      </if>
-      <if test="useCommentId != null" >
-        #{useCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="useComment != null" >
-        #{useComment,jdbcType=VARCHAR},
-      </if>
-      <if test="exampaperCommentId != null" >
-        #{exampaperCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperComment != null" >
-        #{exampaperComment,jdbcType=VARCHAR},
-      </if>
-      <if test="practiceStudentNum != null" >
-        #{practiceStudentNum,jdbcType=INTEGER},
-      </if>
-      <if test="practiceFinishStudentIds != null" >
-        #{practiceFinishStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="practiceFinishStudentNum != null" >
-        #{practiceFinishStudentNum,jdbcType=INTEGER},
-      </if>
-      <if test="practiceUnfinishStudentIds != null" >
-        #{practiceUnfinishStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="practiceUnfinishStudentNum != null" >
-        #{practiceUnfinishStudentNum,jdbcType=INTEGER},
-      </if>
-      <if test="teacherId != null" >
-        #{teacherId,jdbcType=INTEGER},
+      <if test="exampaperid != null" >
+        #{exampaperid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -512,149 +386,101 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.searchNum != null" >
-        search_num = #{record.searchNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.correctNum != null" >
-        correct_num = #{record.correctNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.correctNumLast != null" >
-        correct_num_last = #{record.correctNumLast,jdbcType=INTEGER},
-      </if>
-      <if test="record.correctNumTreed != null" >
-        correct_num_treed = #{record.correctNumTreed,jdbcType=TINYINT},
-      </if>
-      <if test="record.correctPro != null" >
-        correct_pro = #{record.correctPro,jdbcType=DECIMAL},
-      </if>
-      <if test="record.correctProLast != null" >
-        correct_pro_last = #{record.correctProLast,jdbcType=DECIMAL},
-      </if>
-      <if test="record.correctProTreed != null" >
-        correct_pro_treed = #{record.correctProTreed,jdbcType=TINYINT},
-      </if>
-      <if test="record.searchMaxStudentIds != null" >
-        search_max_student_ids = #{record.searchMaxStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="record.searchMinStudentIds != null" >
-        search_min_student_ids = #{record.searchMinStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="record.blindKnowledge != null" >
-        blind_knowledge = #{record.blindKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="record.weakKnowledge != null" >
-        weak_knowledge = #{record.weakKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="record.difficultyKnowledge != null" >
-        difficulty_knowledge = #{record.difficultyKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="record.baseKnowledge != null" >
-        base_knowledge = #{record.baseKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="record.meritKnowledge != null" >
-        merit_knowledge = #{record.meritKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="record.strongKnowledge != null" >
-        strong_knowledge = #{record.strongKnowledge,jdbcType=VARCHAR},
-      </if>
       <if test="record.schoolId != null" >
         school_id = #{record.schoolId,jdbcType=INTEGER},
-      </if>
-      <if test="record.gradeId != null" >
-        grade_id = #{record.gradeId,jdbcType=INTEGER},
       </if>
       <if test="record.classesId != null" >
         classes_id = #{record.classesId,jdbcType=INTEGER},
       </if>
-      <if test="record.year != null" >
-        year = #{record.year,jdbcType=CHAR},
+      <if test="record.subjectId != null" >
+        subject_id = #{record.subjectId,jdbcType=INTEGER},
       </if>
       <if test="record.date != null" >
         date = #{record.date,jdbcType=DATE},
       </if>
-      <if test="record.updateTime != null" >
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      <if test="record.studentNum != null" >
+        student_num = #{record.studentNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.paitiAvg != null" >
+        paiti_avg = #{record.paitiAvg,jdbcType=INTEGER},
+      </if>
+      <if test="record.paitiRank != null" >
+        paiti_rank = #{record.paitiRank,jdbcType=INTEGER},
+      </if>
+      <if test="record.patiCompare != null" >
+        pati_compare = #{record.patiCompare,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patiTop10 != null" >
+        pati_top_10 = #{record.patiTop10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patiLast10 != null" >
+        pati_last_10 = #{record.patiLast10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.correctRate != null" >
+        correct_rate = #{record.correctRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.correctCompare != null" >
+        correct_compare = #{record.correctCompare,jdbcType=VARCHAR},
+      </if>
+      <if test="record.correctReteRank != null" >
+        correct_rete_rank = #{record.correctReteRank,jdbcType=INTEGER},
+      </if>
+      <if test="record.correctTop10 != null" >
+        correct_top_10 = #{record.correctTop10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.correctLast10 != null" >
+        correct_last_10 = #{record.correctLast10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classDiacrisis != null" >
+        class_diacrisis = #{record.classDiacrisis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classWarning != null" >
+        class_warning = #{record.classWarning,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timuIdScore != null" >
+        timu_id_score = #{record.timuIdScore,jdbcType=INTEGER},
+      </if>
+      <if test="record.timuId != null" >
+        timu_id = #{record.timuId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherExampaperCommitCount != null" >
+        teacher_exampaper_commit_count = #{record.teacherExampaperCommitCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.avgExampaperScore != null" >
+        avg_exampaper_score = #{record.avgExampaperScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.exampaperFullScore != null" >
+        exampaper_full_score = #{record.exampaperFullScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.teacherPaperObjectCount != null" >
+        teacher_paper_object_count = #{record.teacherPaperObjectCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.top1StudentName != null" >
+        top_1_student_name = #{record.top1StudentName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.top1StudentScore != null" >
+        top_1_student_score = #{record.top1StudentScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.classPaperDiacrisis != null" >
+        class_paper_diacrisis = #{record.classPaperDiacrisis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentPrictiseCount != null" >
+        student_prictise_count = #{record.studentPrictiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentPrictiseCommitCount != null" >
+        student_prictise_commit_count = #{record.studentPrictiseCommitCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentPractiseNotDoneNames != null" >
+        student_practise_not_done_names = #{record.studentPractiseNotDoneNames,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.searchMaxTimuId != null" >
-        search_max_timu_id = #{record.searchMaxTimuId,jdbcType=INTEGER},
+      <if test="record.classpaiticount != null" >
+        classPaitiCount = #{record.classpaiticount,jdbcType=INTEGER},
       </if>
-      <if test="record.searchMaxTimuNum != null" >
-        search_max_timu_num = #{record.searchMaxTimuNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.correctMaxStudentIds != null" >
-        correct_max_student_ids = #{record.correctMaxStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="record.correctMinStudentIds != null" >
-        correct_min_student_ids = #{record.correctMinStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="record.exampaperId != null" >
-        exampaper_id = #{record.exampaperId,jdbcType=INTEGER},
-      </if>
-      <if test="record.exampaperTotalNum != null" >
-        exampaper_total_num = #{record.exampaperTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.exampaperTotalScore != null" >
-        exampaper_total_score = #{record.exampaperTotalScore,jdbcType=DECIMAL},
-      </if>
-      <if test="record.exampaperCommitNum != null" >
-        exampaper_commit_num = #{record.exampaperCommitNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.exampaperStudentId != null" >
-        exampaper_student_id = #{record.exampaperStudentId,jdbcType=INTEGER},
-      </if>
-      <if test="record.exampaperMaxScore != null" >
-        exampaper_max_score = #{record.exampaperMaxScore,jdbcType=DECIMAL},
-      </if>
-      <if test="record.exampaperScore != null" >
-        exampaper_score = #{record.exampaperScore,jdbcType=DECIMAL},
-      </if>
-      <if test="record.exampaperAverageScore != null" >
-        exampaper_average_score = #{record.exampaperAverageScore,jdbcType=DECIMAL},
-      </if>
-      <if test="record.searchCommentId != null" >
-        search_comment_id = #{record.searchCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="record.searchComment != null" >
-        search_comment = #{record.searchComment,jdbcType=VARCHAR},
-      </if>
-      <if test="record.correctCommentId != null" >
-        correct_comment_id = #{record.correctCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="record.correctComment != null" >
-        correct_comment = #{record.correctComment,jdbcType=VARCHAR},
-      </if>
-      <if test="record.useCommentId != null" >
-        use_comment_id = #{record.useCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="record.useComment != null" >
-        use_comment = #{record.useComment,jdbcType=VARCHAR},
-      </if>
-      <if test="record.exampaperCommentId != null" >
-        exampaper_comment_id = #{record.exampaperCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="record.exampaperComment != null" >
-        exampaper_comment = #{record.exampaperComment,jdbcType=VARCHAR},
-      </if>
-      <if test="record.practiceStudentNum != null" >
-        practice_student_num = #{record.practiceStudentNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.practiceFinishStudentIds != null" >
-        practice_finish_student_ids = #{record.practiceFinishStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="record.practiceFinishStudentNum != null" >
-        practice_finish_student_num = #{record.practiceFinishStudentNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.practiceUnfinishStudentIds != null" >
-        practice_unfinish_student_ids = #{record.practiceUnfinishStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="record.practiceUnfinishStudentNum != null" >
-        practice_unfinish_student_num = #{record.practiceUnfinishStudentNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.teacherId != null" >
-        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      <if test="record.exampaperid != null" >
+        exampaperId = #{record.exampaperid,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -664,54 +490,38 @@
   <update id="updateByExample" parameterType="map" >
     update fd_teacher_day_report
     set id = #{record.id,jdbcType=INTEGER},
-      search_num = #{record.searchNum,jdbcType=INTEGER},
-      correct_num = #{record.correctNum,jdbcType=INTEGER},
-      correct_num_last = #{record.correctNumLast,jdbcType=INTEGER},
-      correct_num_treed = #{record.correctNumTreed,jdbcType=TINYINT},
-      correct_pro = #{record.correctPro,jdbcType=DECIMAL},
-      correct_pro_last = #{record.correctProLast,jdbcType=DECIMAL},
-      correct_pro_treed = #{record.correctProTreed,jdbcType=TINYINT},
-      search_max_student_ids = #{record.searchMaxStudentIds,jdbcType=VARCHAR},
-      search_min_student_ids = #{record.searchMinStudentIds,jdbcType=VARCHAR},
-      blind_knowledge = #{record.blindKnowledge,jdbcType=VARCHAR},
-      weak_knowledge = #{record.weakKnowledge,jdbcType=VARCHAR},
-      difficulty_knowledge = #{record.difficultyKnowledge,jdbcType=VARCHAR},
-      base_knowledge = #{record.baseKnowledge,jdbcType=VARCHAR},
-      merit_knowledge = #{record.meritKnowledge,jdbcType=VARCHAR},
-      strong_knowledge = #{record.strongKnowledge,jdbcType=VARCHAR},
       school_id = #{record.schoolId,jdbcType=INTEGER},
-      grade_id = #{record.gradeId,jdbcType=INTEGER},
       classes_id = #{record.classesId,jdbcType=INTEGER},
-      year = #{record.year,jdbcType=CHAR},
+      subject_id = #{record.subjectId,jdbcType=INTEGER},
       date = #{record.date,jdbcType=DATE},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      student_num = #{record.studentNum,jdbcType=INTEGER},
+      paiti_avg = #{record.paitiAvg,jdbcType=INTEGER},
+      paiti_rank = #{record.paitiRank,jdbcType=INTEGER},
+      pati_compare = #{record.patiCompare,jdbcType=VARCHAR},
+      pati_top_10 = #{record.patiTop10,jdbcType=VARCHAR},
+      pati_last_10 = #{record.patiLast10,jdbcType=VARCHAR},
+      correct_rate = #{record.correctRate,jdbcType=DECIMAL},
+      correct_compare = #{record.correctCompare,jdbcType=VARCHAR},
+      correct_rete_rank = #{record.correctReteRank,jdbcType=INTEGER},
+      correct_top_10 = #{record.correctTop10,jdbcType=VARCHAR},
+      correct_last_10 = #{record.correctLast10,jdbcType=VARCHAR},
+      class_diacrisis = #{record.classDiacrisis,jdbcType=VARCHAR},
+      class_warning = #{record.classWarning,jdbcType=VARCHAR},
+      timu_id_score = #{record.timuIdScore,jdbcType=INTEGER},
+      timu_id = #{record.timuId,jdbcType=VARCHAR},
+      teacher_exampaper_commit_count = #{record.teacherExampaperCommitCount,jdbcType=INTEGER},
+      avg_exampaper_score = #{record.avgExampaperScore,jdbcType=DECIMAL},
+      exampaper_full_score = #{record.exampaperFullScore,jdbcType=DECIMAL},
+      teacher_paper_object_count = #{record.teacherPaperObjectCount,jdbcType=INTEGER},
+      top_1_student_name = #{record.top1StudentName,jdbcType=VARCHAR},
+      top_1_student_score = #{record.top1StudentScore,jdbcType=DECIMAL},
+      class_paper_diacrisis = #{record.classPaperDiacrisis,jdbcType=VARCHAR},
+      student_prictise_count = #{record.studentPrictiseCount,jdbcType=INTEGER},
+      student_prictise_commit_count = #{record.studentPrictiseCommitCount,jdbcType=INTEGER},
+      student_practise_not_done_names = #{record.studentPractiseNotDoneNames,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      search_max_timu_id = #{record.searchMaxTimuId,jdbcType=INTEGER},
-      search_max_timu_num = #{record.searchMaxTimuNum,jdbcType=INTEGER},
-      correct_max_student_ids = #{record.correctMaxStudentIds,jdbcType=VARCHAR},
-      correct_min_student_ids = #{record.correctMinStudentIds,jdbcType=VARCHAR},
-      exampaper_id = #{record.exampaperId,jdbcType=INTEGER},
-      exampaper_total_num = #{record.exampaperTotalNum,jdbcType=INTEGER},
-      exampaper_total_score = #{record.exampaperTotalScore,jdbcType=DECIMAL},
-      exampaper_commit_num = #{record.exampaperCommitNum,jdbcType=INTEGER},
-      exampaper_student_id = #{record.exampaperStudentId,jdbcType=INTEGER},
-      exampaper_max_score = #{record.exampaperMaxScore,jdbcType=DECIMAL},
-      exampaper_score = #{record.exampaperScore,jdbcType=DECIMAL},
-      exampaper_average_score = #{record.exampaperAverageScore,jdbcType=DECIMAL},
-      search_comment_id = #{record.searchCommentId,jdbcType=INTEGER},
-      search_comment = #{record.searchComment,jdbcType=VARCHAR},
-      correct_comment_id = #{record.correctCommentId,jdbcType=INTEGER},
-      correct_comment = #{record.correctComment,jdbcType=VARCHAR},
-      use_comment_id = #{record.useCommentId,jdbcType=INTEGER},
-      use_comment = #{record.useComment,jdbcType=VARCHAR},
-      exampaper_comment_id = #{record.exampaperCommentId,jdbcType=INTEGER},
-      exampaper_comment = #{record.exampaperComment,jdbcType=VARCHAR},
-      practice_student_num = #{record.practiceStudentNum,jdbcType=INTEGER},
-      practice_finish_student_ids = #{record.practiceFinishStudentIds,jdbcType=VARCHAR},
-      practice_finish_student_num = #{record.practiceFinishStudentNum,jdbcType=INTEGER},
-      practice_unfinish_student_ids = #{record.practiceUnfinishStudentIds,jdbcType=VARCHAR},
-      practice_unfinish_student_num = #{record.practiceUnfinishStudentNum,jdbcType=INTEGER},
-      teacher_id = #{record.teacherId,jdbcType=INTEGER}
+      classPaitiCount = #{record.classpaiticount,jdbcType=INTEGER},
+      exampaperId = #{record.exampaperid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -719,203 +529,139 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdTeacherDayReport" >
     update fd_teacher_day_report
     <set >
-      <if test="searchNum != null" >
-        search_num = #{searchNum,jdbcType=INTEGER},
-      </if>
-      <if test="correctNum != null" >
-        correct_num = #{correctNum,jdbcType=INTEGER},
-      </if>
-      <if test="correctNumLast != null" >
-        correct_num_last = #{correctNumLast,jdbcType=INTEGER},
-      </if>
-      <if test="correctNumTreed != null" >
-        correct_num_treed = #{correctNumTreed,jdbcType=TINYINT},
-      </if>
-      <if test="correctPro != null" >
-        correct_pro = #{correctPro,jdbcType=DECIMAL},
-      </if>
-      <if test="correctProLast != null" >
-        correct_pro_last = #{correctProLast,jdbcType=DECIMAL},
-      </if>
-      <if test="correctProTreed != null" >
-        correct_pro_treed = #{correctProTreed,jdbcType=TINYINT},
-      </if>
-      <if test="searchMaxStudentIds != null" >
-        search_max_student_ids = #{searchMaxStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="searchMinStudentIds != null" >
-        search_min_student_ids = #{searchMinStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="blindKnowledge != null" >
-        blind_knowledge = #{blindKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="weakKnowledge != null" >
-        weak_knowledge = #{weakKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="difficultyKnowledge != null" >
-        difficulty_knowledge = #{difficultyKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="baseKnowledge != null" >
-        base_knowledge = #{baseKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="meritKnowledge != null" >
-        merit_knowledge = #{meritKnowledge,jdbcType=VARCHAR},
-      </if>
-      <if test="strongKnowledge != null" >
-        strong_knowledge = #{strongKnowledge,jdbcType=VARCHAR},
-      </if>
       <if test="schoolId != null" >
         school_id = #{schoolId,jdbcType=INTEGER},
-      </if>
-      <if test="gradeId != null" >
-        grade_id = #{gradeId,jdbcType=INTEGER},
       </if>
       <if test="classesId != null" >
         classes_id = #{classesId,jdbcType=INTEGER},
       </if>
-      <if test="year != null" >
-        year = #{year,jdbcType=CHAR},
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
       </if>
       <if test="date != null" >
         date = #{date,jdbcType=DATE},
       </if>
-      <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      <if test="studentNum != null" >
+        student_num = #{studentNum,jdbcType=INTEGER},
+      </if>
+      <if test="paitiAvg != null" >
+        paiti_avg = #{paitiAvg,jdbcType=INTEGER},
+      </if>
+      <if test="paitiRank != null" >
+        paiti_rank = #{paitiRank,jdbcType=INTEGER},
+      </if>
+      <if test="patiCompare != null" >
+        pati_compare = #{patiCompare,jdbcType=VARCHAR},
+      </if>
+      <if test="patiTop10 != null" >
+        pati_top_10 = #{patiTop10,jdbcType=VARCHAR},
+      </if>
+      <if test="patiLast10 != null" >
+        pati_last_10 = #{patiLast10,jdbcType=VARCHAR},
+      </if>
+      <if test="correctRate != null" >
+        correct_rate = #{correctRate,jdbcType=DECIMAL},
+      </if>
+      <if test="correctCompare != null" >
+        correct_compare = #{correctCompare,jdbcType=VARCHAR},
+      </if>
+      <if test="correctReteRank != null" >
+        correct_rete_rank = #{correctReteRank,jdbcType=INTEGER},
+      </if>
+      <if test="correctTop10 != null" >
+        correct_top_10 = #{correctTop10,jdbcType=VARCHAR},
+      </if>
+      <if test="correctLast10 != null" >
+        correct_last_10 = #{correctLast10,jdbcType=VARCHAR},
+      </if>
+      <if test="classDiacrisis != null" >
+        class_diacrisis = #{classDiacrisis,jdbcType=VARCHAR},
+      </if>
+      <if test="classWarning != null" >
+        class_warning = #{classWarning,jdbcType=VARCHAR},
+      </if>
+      <if test="timuIdScore != null" >
+        timu_id_score = #{timuIdScore,jdbcType=INTEGER},
+      </if>
+      <if test="timuId != null" >
+        timu_id = #{timuId,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherExampaperCommitCount != null" >
+        teacher_exampaper_commit_count = #{teacherExampaperCommitCount,jdbcType=INTEGER},
+      </if>
+      <if test="avgExampaperScore != null" >
+        avg_exampaper_score = #{avgExampaperScore,jdbcType=DECIMAL},
+      </if>
+      <if test="exampaperFullScore != null" >
+        exampaper_full_score = #{exampaperFullScore,jdbcType=DECIMAL},
+      </if>
+      <if test="teacherPaperObjectCount != null" >
+        teacher_paper_object_count = #{teacherPaperObjectCount,jdbcType=INTEGER},
+      </if>
+      <if test="top1StudentName != null" >
+        top_1_student_name = #{top1StudentName,jdbcType=VARCHAR},
+      </if>
+      <if test="top1StudentScore != null" >
+        top_1_student_score = #{top1StudentScore,jdbcType=DECIMAL},
+      </if>
+      <if test="classPaperDiacrisis != null" >
+        class_paper_diacrisis = #{classPaperDiacrisis,jdbcType=VARCHAR},
+      </if>
+      <if test="studentPrictiseCount != null" >
+        student_prictise_count = #{studentPrictiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="studentPrictiseCommitCount != null" >
+        student_prictise_commit_count = #{studentPrictiseCommitCount,jdbcType=INTEGER},
+      </if>
+      <if test="studentPractiseNotDoneNames != null" >
+        student_practise_not_done_names = #{studentPractiseNotDoneNames,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="searchMaxTimuId != null" >
-        search_max_timu_id = #{searchMaxTimuId,jdbcType=INTEGER},
+      <if test="classpaiticount != null" >
+        classPaitiCount = #{classpaiticount,jdbcType=INTEGER},
       </if>
-      <if test="searchMaxTimuNum != null" >
-        search_max_timu_num = #{searchMaxTimuNum,jdbcType=INTEGER},
-      </if>
-      <if test="correctMaxStudentIds != null" >
-        correct_max_student_ids = #{correctMaxStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="correctMinStudentIds != null" >
-        correct_min_student_ids = #{correctMinStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="exampaperId != null" >
-        exampaper_id = #{exampaperId,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperTotalNum != null" >
-        exampaper_total_num = #{exampaperTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperTotalScore != null" >
-        exampaper_total_score = #{exampaperTotalScore,jdbcType=DECIMAL},
-      </if>
-      <if test="exampaperCommitNum != null" >
-        exampaper_commit_num = #{exampaperCommitNum,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperStudentId != null" >
-        exampaper_student_id = #{exampaperStudentId,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperMaxScore != null" >
-        exampaper_max_score = #{exampaperMaxScore,jdbcType=DECIMAL},
-      </if>
-      <if test="exampaperScore != null" >
-        exampaper_score = #{exampaperScore,jdbcType=DECIMAL},
-      </if>
-      <if test="exampaperAverageScore != null" >
-        exampaper_average_score = #{exampaperAverageScore,jdbcType=DECIMAL},
-      </if>
-      <if test="searchCommentId != null" >
-        search_comment_id = #{searchCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="searchComment != null" >
-        search_comment = #{searchComment,jdbcType=VARCHAR},
-      </if>
-      <if test="correctCommentId != null" >
-        correct_comment_id = #{correctCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="correctComment != null" >
-        correct_comment = #{correctComment,jdbcType=VARCHAR},
-      </if>
-      <if test="useCommentId != null" >
-        use_comment_id = #{useCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="useComment != null" >
-        use_comment = #{useComment,jdbcType=VARCHAR},
-      </if>
-      <if test="exampaperCommentId != null" >
-        exampaper_comment_id = #{exampaperCommentId,jdbcType=INTEGER},
-      </if>
-      <if test="exampaperComment != null" >
-        exampaper_comment = #{exampaperComment,jdbcType=VARCHAR},
-      </if>
-      <if test="practiceStudentNum != null" >
-        practice_student_num = #{practiceStudentNum,jdbcType=INTEGER},
-      </if>
-      <if test="practiceFinishStudentIds != null" >
-        practice_finish_student_ids = #{practiceFinishStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="practiceFinishStudentNum != null" >
-        practice_finish_student_num = #{practiceFinishStudentNum,jdbcType=INTEGER},
-      </if>
-      <if test="practiceUnfinishStudentIds != null" >
-        practice_unfinish_student_ids = #{practiceUnfinishStudentIds,jdbcType=VARCHAR},
-      </if>
-      <if test="practiceUnfinishStudentNum != null" >
-        practice_unfinish_student_num = #{practiceUnfinishStudentNum,jdbcType=INTEGER},
-      </if>
-      <if test="teacherId != null" >
-        teacher_id = #{teacherId,jdbcType=INTEGER},
+      <if test="exampaperid != null" >
+        exampaperId = #{exampaperid,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdTeacherDayReport" >
     update fd_teacher_day_report
-    set search_num = #{searchNum,jdbcType=INTEGER},
-      correct_num = #{correctNum,jdbcType=INTEGER},
-      correct_num_last = #{correctNumLast,jdbcType=INTEGER},
-      correct_num_treed = #{correctNumTreed,jdbcType=TINYINT},
-      correct_pro = #{correctPro,jdbcType=DECIMAL},
-      correct_pro_last = #{correctProLast,jdbcType=DECIMAL},
-      correct_pro_treed = #{correctProTreed,jdbcType=TINYINT},
-      search_max_student_ids = #{searchMaxStudentIds,jdbcType=VARCHAR},
-      search_min_student_ids = #{searchMinStudentIds,jdbcType=VARCHAR},
-      blind_knowledge = #{blindKnowledge,jdbcType=VARCHAR},
-      weak_knowledge = #{weakKnowledge,jdbcType=VARCHAR},
-      difficulty_knowledge = #{difficultyKnowledge,jdbcType=VARCHAR},
-      base_knowledge = #{baseKnowledge,jdbcType=VARCHAR},
-      merit_knowledge = #{meritKnowledge,jdbcType=VARCHAR},
-      strong_knowledge = #{strongKnowledge,jdbcType=VARCHAR},
-      school_id = #{schoolId,jdbcType=INTEGER},
-      grade_id = #{gradeId,jdbcType=INTEGER},
+    set school_id = #{schoolId,jdbcType=INTEGER},
       classes_id = #{classesId,jdbcType=INTEGER},
-      year = #{year,jdbcType=CHAR},
+      subject_id = #{subjectId,jdbcType=INTEGER},
       date = #{date,jdbcType=DATE},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      student_num = #{studentNum,jdbcType=INTEGER},
+      paiti_avg = #{paitiAvg,jdbcType=INTEGER},
+      paiti_rank = #{paitiRank,jdbcType=INTEGER},
+      pati_compare = #{patiCompare,jdbcType=VARCHAR},
+      pati_top_10 = #{patiTop10,jdbcType=VARCHAR},
+      pati_last_10 = #{patiLast10,jdbcType=VARCHAR},
+      correct_rate = #{correctRate,jdbcType=DECIMAL},
+      correct_compare = #{correctCompare,jdbcType=VARCHAR},
+      correct_rete_rank = #{correctReteRank,jdbcType=INTEGER},
+      correct_top_10 = #{correctTop10,jdbcType=VARCHAR},
+      correct_last_10 = #{correctLast10,jdbcType=VARCHAR},
+      class_diacrisis = #{classDiacrisis,jdbcType=VARCHAR},
+      class_warning = #{classWarning,jdbcType=VARCHAR},
+      timu_id_score = #{timuIdScore,jdbcType=INTEGER},
+      timu_id = #{timuId,jdbcType=VARCHAR},
+      teacher_exampaper_commit_count = #{teacherExampaperCommitCount,jdbcType=INTEGER},
+      avg_exampaper_score = #{avgExampaperScore,jdbcType=DECIMAL},
+      exampaper_full_score = #{exampaperFullScore,jdbcType=DECIMAL},
+      teacher_paper_object_count = #{teacherPaperObjectCount,jdbcType=INTEGER},
+      top_1_student_name = #{top1StudentName,jdbcType=VARCHAR},
+      top_1_student_score = #{top1StudentScore,jdbcType=DECIMAL},
+      class_paper_diacrisis = #{classPaperDiacrisis,jdbcType=VARCHAR},
+      student_prictise_count = #{studentPrictiseCount,jdbcType=INTEGER},
+      student_prictise_commit_count = #{studentPrictiseCommitCount,jdbcType=INTEGER},
+      student_practise_not_done_names = #{studentPractiseNotDoneNames,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      search_max_timu_id = #{searchMaxTimuId,jdbcType=INTEGER},
-      search_max_timu_num = #{searchMaxTimuNum,jdbcType=INTEGER},
-      correct_max_student_ids = #{correctMaxStudentIds,jdbcType=VARCHAR},
-      correct_min_student_ids = #{correctMinStudentIds,jdbcType=VARCHAR},
-      exampaper_id = #{exampaperId,jdbcType=INTEGER},
-      exampaper_total_num = #{exampaperTotalNum,jdbcType=INTEGER},
-      exampaper_total_score = #{exampaperTotalScore,jdbcType=DECIMAL},
-      exampaper_commit_num = #{exampaperCommitNum,jdbcType=INTEGER},
-      exampaper_student_id = #{exampaperStudentId,jdbcType=INTEGER},
-      exampaper_max_score = #{exampaperMaxScore,jdbcType=DECIMAL},
-      exampaper_score = #{exampaperScore,jdbcType=DECIMAL},
-      exampaper_average_score = #{exampaperAverageScore,jdbcType=DECIMAL},
-      search_comment_id = #{searchCommentId,jdbcType=INTEGER},
-      search_comment = #{searchComment,jdbcType=VARCHAR},
-      correct_comment_id = #{correctCommentId,jdbcType=INTEGER},
-      correct_comment = #{correctComment,jdbcType=VARCHAR},
-      use_comment_id = #{useCommentId,jdbcType=INTEGER},
-      use_comment = #{useComment,jdbcType=VARCHAR},
-      exampaper_comment_id = #{exampaperCommentId,jdbcType=INTEGER},
-      exampaper_comment = #{exampaperComment,jdbcType=VARCHAR},
-      practice_student_num = #{practiceStudentNum,jdbcType=INTEGER},
-      practice_finish_student_ids = #{practiceFinishStudentIds,jdbcType=VARCHAR},
-      practice_finish_student_num = #{practiceFinishStudentNum,jdbcType=INTEGER},
-      practice_unfinish_student_ids = #{practiceUnfinishStudentIds,jdbcType=VARCHAR},
-      practice_unfinish_student_num = #{practiceUnfinishStudentNum,jdbcType=INTEGER},
-      teacher_id = #{teacherId,jdbcType=INTEGER}
+      classPaitiCount = #{classpaiticount,jdbcType=INTEGER},
+      exampaperId = #{exampaperid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

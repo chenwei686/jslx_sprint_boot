@@ -30,11 +30,6 @@ public class FdStudentCorrect implements Serializable {
     private Integer studentSearchId;
 
     /**
-     * 拍题题目id
-     */
-    private String studentSearchTimuId;
-
-    /**
      * 是否正确（0：错误  1：正确）
      */
     private Boolean isRight;
@@ -59,7 +54,7 @@ public class FdStudentCorrect implements Serializable {
      */
     private Integer classesId;
 
-    private String year;
+    private Integer yearId;
 
     /**
      * 是否收藏
@@ -87,6 +82,20 @@ public class FdStudentCorrect implements Serializable {
      * 来源（0：拍题  1：订正  2：每周一练,  3:知识点 4:教师试卷 5：收藏  6：时间轴）
      */
     private Byte source;
+
+    /**
+     * 来源对应的数据id
+     */
+    private Integer sourceId;
+
+    /**
+     * 关联的题目id
+     */
+    private String correctTimuId;
+
+    private String studentSearchTimuId;
+
+    private Integer schoolDegreeId;
 
     private static final long serialVersionUID = 1L;
 
@@ -130,14 +139,6 @@ public class FdStudentCorrect implements Serializable {
         this.studentSearchId = studentSearchId;
     }
 
-    public String getStudentSearchTimuId() {
-        return studentSearchTimuId;
-    }
-
-    public void setStudentSearchTimuId(String studentSearchTimuId) {
-        this.studentSearchTimuId = studentSearchTimuId == null ? null : studentSearchTimuId.trim();
-    }
-
     public Boolean getIsRight() {
         return isRight;
     }
@@ -178,12 +179,12 @@ public class FdStudentCorrect implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public Boolean getIsCollect() {
@@ -234,6 +235,38 @@ public class FdStudentCorrect implements Serializable {
         this.source = source;
     }
 
+    public Integer getSourceId() {
+        return sourceId;
+    }
+
+    public void setSourceId(Integer sourceId) {
+        this.sourceId = sourceId;
+    }
+
+    public String getCorrectTimuId() {
+        return correctTimuId;
+    }
+
+    public void setCorrectTimuId(String correctTimuId) {
+        this.correctTimuId = correctTimuId == null ? null : correctTimuId.trim();
+    }
+
+    public String getStudentSearchTimuId() {
+        return studentSearchTimuId;
+    }
+
+    public void setStudentSearchTimuId(String studentSearchTimuId) {
+        this.studentSearchTimuId = studentSearchTimuId == null ? null : studentSearchTimuId.trim();
+    }
+
+    public Integer getSchoolDegreeId() {
+        return schoolDegreeId;
+    }
+
+    public void setSchoolDegreeId(Integer schoolDegreeId) {
+        this.schoolDegreeId = schoolDegreeId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -245,19 +278,22 @@ public class FdStudentCorrect implements Serializable {
         sb.append(", timuId=").append(timuId);
         sb.append(", subjectId=").append(subjectId);
         sb.append(", studentSearchId=").append(studentSearchId);
-        sb.append(", studentSearchTimuId=").append(studentSearchTimuId);
         sb.append(", isRight=").append(isRight);
         sb.append(", answer=").append(answer);
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", isCollect=").append(isCollect);
         sb.append(", collectId=").append(collectId);
         sb.append(", mainKnowledgeId=").append(mainKnowledgeId);
         sb.append(", difficultLevel=").append(difficultLevel);
         sb.append(", createTime=").append(createTime);
         sb.append(", source=").append(source);
+        sb.append(", sourceId=").append(sourceId);
+        sb.append(", correctTimuId=").append(correctTimuId);
+        sb.append(", studentSearchTimuId=").append(studentSearchTimuId);
+        sb.append(", schoolDegreeId=").append(schoolDegreeId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -8,6 +8,7 @@
     <result column="latex" property="latex" jdbcType="VARCHAR" />
     <result column="issuccess" property="issuccess" jdbcType="INTEGER" />
     <result column="errinfo" property="errinfo" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +70,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, subjectid, asciimath, latex, issuccess, errinfo
+      id, subjectid, asciimath, latex, issuccess, errinfo, update_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -94,7 +95,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,subjectid,asciimath,latex,issuccess,errinfo
+    id,subjectid,asciimath,latex,issuccess,errinfo,update_time
     from base_timu_formula
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -110,11 +111,11 @@
   </delete>
   <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.BaseTimuFormula" >
     insert into base_timu_formula (id, subjectid, asciimath, 
-      latex, issuccess, errinfo
-      )
+      latex, issuccess, errinfo, 
+      update_time)
     values (#{id,jdbcType=INTEGER}, #{subjectid,jdbcType=INTEGER}, #{asciimath,jdbcType=VARCHAR}, 
-      #{latex,jdbcType=VARCHAR}, #{issuccess,jdbcType=INTEGER}, #{errinfo,jdbcType=VARCHAR}
-      )
+      #{latex,jdbcType=VARCHAR}, #{issuccess,jdbcType=INTEGER}, #{errinfo,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.BaseTimuFormula" >
     insert into base_timu_formula
@@ -137,6 +138,9 @@
       <if test="errinfo != null" >
         errinfo,
       </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -156,6 +160,9 @@
       </if>
       <if test="errinfo != null" >
         #{errinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -186,6 +193,9 @@
       <if test="record.errinfo != null" >
         errinfo = #{record.errinfo,jdbcType=VARCHAR},
       </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -198,7 +208,8 @@
       asciimath = #{record.asciimath,jdbcType=VARCHAR},
       latex = #{record.latex,jdbcType=VARCHAR},
       issuccess = #{record.issuccess,jdbcType=INTEGER},
-      errinfo = #{record.errinfo,jdbcType=VARCHAR}
+      errinfo = #{record.errinfo,jdbcType=VARCHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -221,6 +232,9 @@
       <if test="errinfo != null" >
         errinfo = #{errinfo,jdbcType=VARCHAR},
       </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -230,7 +244,8 @@
       asciimath = #{asciimath,jdbcType=VARCHAR},
       latex = #{latex,jdbcType=VARCHAR},
       issuccess = #{issuccess,jdbcType=INTEGER},
-      errinfo = #{errinfo,jdbcType=VARCHAR}
+      errinfo = #{errinfo,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

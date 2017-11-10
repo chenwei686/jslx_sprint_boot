@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class Timuknowledge implements Serializable {
     private Integer id;
 
-    private String tmid;
-
     private Integer knowledgeid;
 
-    private Boolean ismain;
+    private Byte ismain;
+
+    private String tmid;
 
     private static final long serialVersionUID = 1L;
 
@@ -21,14 +21,6 @@ public class Timuknowledge implements Serializable {
         this.id = id;
     }
 
-    public String getTmid() {
-        return tmid;
-    }
-
-    public void setTmid(String tmid) {
-        this.tmid = tmid == null ? null : tmid.trim();
-    }
-
     public Integer getKnowledgeid() {
         return knowledgeid;
     }
@@ -37,12 +29,20 @@ public class Timuknowledge implements Serializable {
         this.knowledgeid = knowledgeid;
     }
 
-    public Boolean getIsmain() {
+    public Byte getIsmain() {
         return ismain;
     }
 
-    public void setIsmain(Boolean ismain) {
+    public void setIsmain(Byte ismain) {
         this.ismain = ismain;
+    }
+
+    public String getTmid() {
+        return tmid;
+    }
+
+    public void setTmid(String tmid) {
+        this.tmid = tmid == null ? null : tmid.trim();
     }
 
     @Override
@@ -52,9 +52,9 @@ public class Timuknowledge implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", tmid=").append(tmid);
         sb.append(", knowledgeid=").append(knowledgeid);
         sb.append(", ismain=").append(ismain);
+        sb.append(", tmid=").append(tmid);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

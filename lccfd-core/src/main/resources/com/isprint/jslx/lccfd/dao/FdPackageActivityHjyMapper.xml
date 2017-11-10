@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.isprint.jslx.lccfd.dao.FdPackageActivityHjyMapper" >
+  <resultMap id="BaseResultMap" type="com.isprint.jslx.lccfd.model.FdPackageActivityHjy" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="package_hjy_id" property="packageHjyId" jdbcType="INTEGER" />
+    <result column="billing_type" property="billingType" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="billing_day" property="billingDay" jdbcType="INTEGER" />
+    <result column="group_billing_id" property="groupBillingId" jdbcType="VARCHAR" />
+    <result column="subject_ids" property="subjectIds" jdbcType="VARCHAR" />
+    <result column="subject_names" property="subjectNames" jdbcType="VARCHAR" />
+    <result column="system" property="system" jdbcType="CHAR" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="province_id" property="provinceId" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, name, package_hjy_id, billing_type, price, billing_day, group_billing_id, subject_ids, 
+      subject_names, system, is_del, create_time, province_id, type
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.isprint.jslx.lccfd.model.FdPackageActivityHjyQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fd_package_activity_hjy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id,name,package_hjy_id,billing_type,price,billing_day,group_billing_id,subject_ids,subject_names,system,is_del,create_time,province_id,type
+    from fd_package_activity_hjy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from fd_package_activity_hjy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.isprint.jslx.lccfd.model.FdPackageActivityHjyQuery" >
+    delete from fd_package_activity_hjy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.isprint.jslx.lccfd.model.FdPackageActivityHjy" >
+    insert into fd_package_activity_hjy (id, name, package_hjy_id, 
+      billing_type, price, billing_day, 
+      group_billing_id, subject_ids, subject_names, 
+      system, is_del, create_time, 
+      province_id, type)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{packageHjyId,jdbcType=INTEGER}, 
+      #{billingType,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{billingDay,jdbcType=INTEGER}, 
+      #{groupBillingId,jdbcType=VARCHAR}, #{subjectIds,jdbcType=VARCHAR}, #{subjectNames,jdbcType=VARCHAR}, 
+      #{system,jdbcType=CHAR}, #{isDel,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{provinceId,jdbcType=INTEGER}, #{type,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.isprint.jslx.lccfd.model.FdPackageActivityHjy" >
+    insert into fd_package_activity_hjy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="packageHjyId != null" >
+        package_hjy_id,
+      </if>
+      <if test="billingType != null" >
+        billing_type,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="billingDay != null" >
+        billing_day,
+      </if>
+      <if test="groupBillingId != null" >
+        group_billing_id,
+      </if>
+      <if test="subjectIds != null" >
+        subject_ids,
+      </if>
+      <if test="subjectNames != null" >
+        subject_names,
+      </if>
+      <if test="system != null" >
+        system,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="packageHjyId != null" >
+        #{packageHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="billingType != null" >
+        #{billingType,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="billingDay != null" >
+        #{billingDay,jdbcType=INTEGER},
+      </if>
+      <if test="groupBillingId != null" >
+        #{groupBillingId,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectIds != null" >
+        #{subjectIds,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectNames != null" >
+        #{subjectNames,jdbcType=VARCHAR},
+      </if>
+      <if test="system != null" >
+        #{system,jdbcType=CHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.isprint.jslx.lccfd.model.FdPackageActivityHjyQuery" resultType="java.lang.Integer" >
+    select count(*) from fd_package_activity_hjy
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fd_package_activity_hjy
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageHjyId != null" >
+        package_hjy_id = #{record.packageHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.billingType != null" >
+        billing_type = #{record.billingType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.billingDay != null" >
+        billing_day = #{record.billingDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupBillingId != null" >
+        group_billing_id = #{record.groupBillingId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subjectIds != null" >
+        subject_ids = #{record.subjectIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subjectNames != null" >
+        subject_names = #{record.subjectNames,jdbcType=VARCHAR},
+      </if>
+      <if test="record.system != null" >
+        system = #{record.system,jdbcType=CHAR},
+      </if>
+      <if test="record.isDel != null" >
+        is_del = #{record.isDel,jdbcType=BIT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.provinceId != null" >
+        province_id = #{record.provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fd_package_activity_hjy
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      package_hjy_id = #{record.packageHjyId,jdbcType=INTEGER},
+      billing_type = #{record.billingType,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      billing_day = #{record.billingDay,jdbcType=INTEGER},
+      group_billing_id = #{record.groupBillingId,jdbcType=VARCHAR},
+      subject_ids = #{record.subjectIds,jdbcType=VARCHAR},
+      subject_names = #{record.subjectNames,jdbcType=VARCHAR},
+      system = #{record.system,jdbcType=CHAR},
+      is_del = #{record.isDel,jdbcType=BIT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      province_id = #{record.provinceId,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.isprint.jslx.lccfd.model.FdPackageActivityHjy" >
+    update fd_package_activity_hjy
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="packageHjyId != null" >
+        package_hjy_id = #{packageHjyId,jdbcType=INTEGER},
+      </if>
+      <if test="billingType != null" >
+        billing_type = #{billingType,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="billingDay != null" >
+        billing_day = #{billingDay,jdbcType=INTEGER},
+      </if>
+      <if test="groupBillingId != null" >
+        group_billing_id = #{groupBillingId,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectIds != null" >
+        subject_ids = #{subjectIds,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectNames != null" >
+        subject_names = #{subjectNames,jdbcType=VARCHAR},
+      </if>
+      <if test="system != null" >
+        system = #{system,jdbcType=CHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.isprint.jslx.lccfd.model.FdPackageActivityHjy" >
+    update fd_package_activity_hjy
+    set name = #{name,jdbcType=VARCHAR},
+      package_hjy_id = #{packageHjyId,jdbcType=INTEGER},
+      billing_type = #{billingType,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      billing_day = #{billingDay,jdbcType=INTEGER},
+      group_billing_id = #{groupBillingId,jdbcType=VARCHAR},
+      subject_ids = #{subjectIds,jdbcType=VARCHAR},
+      subject_names = #{subjectNames,jdbcType=VARCHAR},
+      system = #{system,jdbcType=CHAR},
+      is_del = #{isDel,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      type = #{type,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

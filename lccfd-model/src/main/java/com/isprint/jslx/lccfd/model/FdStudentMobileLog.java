@@ -29,7 +29,7 @@ public class FdStudentMobileLog implements Serializable {
     /**
      * 入学年份
      */
-    private String year;
+    private Integer yearId;
 
     /**
      * 换绑前手机号
@@ -85,12 +85,12 @@ public class FdStudentMobileLog implements Serializable {
         this.classesId = classesId;
     }
 
-    public String getYear() {
-        return year;
+    public Integer getYearId() {
+        return yearId;
     }
 
-    public void setYear(String year) {
-        this.year = year == null ? null : year.trim();
+    public void setYearId(Integer yearId) {
+        this.yearId = yearId;
     }
 
     public String getBefore() {
@@ -128,7 +128,7 @@ public class FdStudentMobileLog implements Serializable {
         sb.append(", schoolId=").append(schoolId);
         sb.append(", gradeId=").append(gradeId);
         sb.append(", classesId=").append(classesId);
-        sb.append(", year=").append(year);
+        sb.append(", yearId=").append(yearId);
         sb.append(", before=").append(before);
         sb.append(", now=").append(now);
         sb.append(", createTime=").append(createTime);
