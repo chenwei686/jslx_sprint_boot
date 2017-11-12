@@ -2,6 +2,7 @@ package estest;
 
 import com.isprint.jslx.lccfd.Application;
 import com.isprint.jslx.lccfd.add.EsAddDocument;
+import com.isprint.jslx.lccfd.controller.esearch.EsController;
 import com.isprint.jslx.lccfd.dao.BaseTimuSearchMapper;
 import com.isprint.jslx.lccfd.index.EsIndexService;
 import com.isprint.jslx.lccfd.mapping.EsMappingService;
@@ -39,10 +40,11 @@ EsIndexService indexService;
     @Autowired
     EsAddDocument esAddDocument;
 
+    @Autowired
+    EsController esController;
+
     @org.junit.Test
     public void testMapperAndAddDocument() {
-//        org.elasticsearch.common.transport.TransportAddress;
-//        org.elasticsearch.plugins.NetworkPlugin
         List<Map<String, Object>> baseTimuSearchList = baseTimuSearchMapper.getBaseTimuSearchList(1, 10);
         Map<String, Object> stringObjectMap = baseTimuSearchList.get(0);
         XContentBuilder xContentBuilder = XContentUtils.builderDocumentWithTimu(stringObjectMap);
@@ -55,7 +57,6 @@ EsIndexService indexService;
         boolean lesprint_test = indexService.createIndex("lesprint_test");
         System.out.println(lesprint_test);
     }
-//
     @org.junit.Test
     public void createMapping(){
         boolean mapping = esMappingService.createMapping("lesprint_test", "timu");
@@ -70,5 +71,9 @@ EsIndexService indexService;
         System.out.println(b);
     }
 
-
+    @org.junit.Test
+    public void testAll(){
+        String s = esController.buildSearchIndex();
+        System.out.println(s);
+    }
 }

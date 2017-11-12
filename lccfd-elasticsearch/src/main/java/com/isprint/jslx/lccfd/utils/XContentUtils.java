@@ -58,6 +58,7 @@ public class XContentUtils {
         String resultWithoutKbd = resultWithoutImg.replaceAll(Regex.KBD, "");
         String resultWithouNextLine = resultWithoutKbd.replaceAll(Regex.NEXT_LINE, "");
         String resultWithoutImgEnd = resultWithouNextLine.replaceAll(Regex.IMG_SECOND, "");
-        return resultWithoutImgEnd;
+        String resultWithoutBr = resultWithoutImgEnd.replaceAll(Regex.BR, "");
+        return resultWithoutBr;
     }
 }

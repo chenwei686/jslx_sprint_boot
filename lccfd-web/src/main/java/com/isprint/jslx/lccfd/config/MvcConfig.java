@@ -37,6 +37,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
                 .excludePathPatterns("/appException/**")
                 .excludePathPatterns("/webException/**")
                 .excludePathPatterns("/error/**")
-                .excludePathPatterns("/teacher/**");
+                .excludePathPatterns("/teacher/**")
+                .excludePathPatterns("/search/**");
     }
+
 }

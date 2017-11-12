@@ -39,6 +39,6 @@ public interface BaseTimuSearchMapper {
     int updateByPrimaryKey(BaseTimuSearch record);
 
     @Select("SELECT id,subject_id,timu_type_id,difficult_level,input_choice_json,main_knowledge_id,trunk,video_code FROM lesprint.base_timu_search limit #{start} ,#{end}")
-    List<Map<String,Object>> getBaseTimuSearchList(@Param("start") Integer start,@Param("end") Integer end);
+    List<Map<String,Object>> getBaseTimuSearchList(@Param("start") Integer start, @Param("end") Integer end);
 
 }

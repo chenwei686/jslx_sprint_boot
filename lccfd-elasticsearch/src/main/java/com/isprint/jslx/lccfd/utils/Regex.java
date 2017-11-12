@@ -33,4 +33,6 @@ public class Regex {
     public static final String FOMULAR_THIRD = "$(.*?)$";
     //中文的标点符号
     public static final String CHART="，";
+    //换标签
+    public static final String BR="<br />";
 }
