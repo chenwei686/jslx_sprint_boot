@@ -5,6 +5,25 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class BaseTimuSearch implements Serializable {
+    private String trunk;
+    private String input_json;
+
+    public String getTrunk() {
+        return trunk;
+    }
+
+    public void setTrunk(String trunk) {
+        this.trunk = trunk;
+    }
+
+    public String getInput_json() {
+        return input_json;
+    }
+
+    public void setInput_json(String input_json) {
+        this.input_json = input_json;
+    }
+
     /**
      * 题目表
      */

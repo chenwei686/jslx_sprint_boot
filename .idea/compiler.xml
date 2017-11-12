@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common" />
+        <module name="lccfd-core" />
+        <module name="lccfd-elasticsearch" />
+        <module name="lccfd-model" />
+        <module name="lccfd-redis" />
+        <module name="lccfd-service" />
+        <module name="lccfd-web" />
+        <module name="lccfd-wechat" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="1.8" />
+      <module name="jslx" target="1.8" />
+      <module name="lccf-delasticsearch" target="1.8" />
+      <module name="lccfd-core" target="1.8" />
+      <module name="lccfd-elasticsearch" target="1.8" />
+      <module name="lccfd-model" target="1.8" />
+      <module name="lccfd-redis" target="1.8" />
+      <module name="lccfd-service" target="1.8" />
+      <module name="lccfd-web" target="1.8" />
+      <module name="lccfd-wechat" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

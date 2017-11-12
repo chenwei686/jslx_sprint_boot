@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jslx.iml" filepath="$PROJECT_DIR$/jslx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lccf-delasticsearch.iml" filepath="$PROJECT_DIR$/lccf-delasticsearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lccfd-core/lccfd-core.iml" filepath="$PROJECT_DIR$/lccfd-core/lccfd-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lccfd-elasticsearch/lccfd-elasticsearch.iml" filepath="$PROJECT_DIR$/lccfd-elasticsearch/lccfd-elasticsearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lccfd-model/lccfd-model.iml" filepath="$PROJECT_DIR$/lccfd-model/lccfd-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lccfd-redis/lccfd-redis.iml" filepath="$PROJECT_DIR$/lccfd-redis/lccfd-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lccfd-service/lccfd-service.iml" filepath="$PROJECT_DIR$/lccfd-service/lccfd-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lccfd-web/lccfd-web.iml" filepath="$PROJECT_DIR$/lccfd-web/lccfd-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lccfd-wechat/lccfd-wechat.iml" filepath="$PROJECT_DIR$/lccfd-wechat/lccfd-wechat.iml" />
+    </modules>
+  </component>
+</project>

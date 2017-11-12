@@ -3,7 +3,6 @@ package com.isprint.jslx.lccfd.config;
 import com.isprint.jslx.springboot.condition.LinuxCondition;
 import com.isprint.jslx.springboot.condition.WindowsOrMacConditon;
 import org.apache.log4j.Logger;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
@@ -17,7 +16,6 @@ import redis.clients.jedis.JedisPoolConfig;
  * @create 2017-08-19 下午5:57
  **/
 @Configuration
-@EnableAutoConfiguration
 @ConfigurationProperties(prefix = "redis" )
 @PropertySource(value = "classpath:config/redis-config.properties",encoding = "UTF-8")
 public class RedisConfig {
